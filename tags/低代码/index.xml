@@ -1,0 +1,48 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>低代码 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.github.io/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/</link><description>低代码 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 17 Mar 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.github.io/tags/%E4%BD%8E%E4%BB%A3%E7%A0%81/" rel="self" type="application/rss+xml"/><item><title>从零搭建企业级低代码平台全栈开发指南</title><link>https://xiaoshuai1024.github.io/posts/enterprise-lowcode-fullstack-guide/</link><pubDate>Tue, 17 Mar 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.github.io/posts/enterprise-lowcode-fullstack-guide/</guid><description>本文以「鲁班低代码平台」为例，给出一套可落地的企业级低代码平台全栈架构与实现路线：从组件库、设计器与运行时渲染（Render），到接入层 BFF，再到主后端 luban-backend（Java：Spring Boot + MyBatis + Redis + MySQL），最后覆盖管理后台与对外站点的交付形态。
+文章目标不是“把所有代码一次写完”，而是帮你用清晰的边界把系统搭起来，并能在后续迭代中持续演进。
+1. 系统全貌：六库分工，边界固定 鲁班平台由多个独立仓库组成（强烈建议保持拆分），各自职责如下：
+luban-ui：底层组件库（基础组件 + 低代码组件 + 设计器 + Render 运行时）。不包含管理后台应用。 luban-backend（主后端）：Java 实现（Spring Boot + MyBatis + Redis + MySQL）。提供站点、页面、用户、系统设置等原子化接口；平台 API 权威文档在本仓库维护（luban-backend/docs/API.md）。 luban-backend-go：与主后端同契约的 Go 实现，可作为参考或备用运行时。 luban-bff：Node 接入层（API Gateway）。对前端提供统一接口，对内通过 BACKEND_BASE_URL 调用 luban-backend；负责认证上下文注入（Header）与必要的协议/聚合适配。 luban：系统管理后台。负责站点接入、页面创建与管理、发布等运营能力。 luban-website：对外站点（Nuxt 3 SSR）。根据 URL 从 BFF 拉取已发布页面 schema，交给 Render 运行时渲染。 整体调用关系可以理解为：
+这套拆分的核心收益是：后端契约稳定、接入层可控、前端（管理后台/对外站点）都只关心“拿到 schema 并渲染”。
+2. 数据模型：站点 / 页面 / 用户 / 系统设置 后端以四类领域模型为主（详见 luban-backend/docs/API.md）：
+Site（站点）：id / name / slug / baseUrl / status / createdAt / updatedAt Page（页面）：id / siteId / name / path / status(draft|published) / schema(JSON) / createdAt / updatedAt User（用户）：id / username / name / role(admin|user) / status(active|disabled) / password(bcrypt) / createdAt / updatedAt SystemSettings（系统设置）：单行 JSON，承载系统级配置（站点名称、Logo、安全策略等） 关键约束：</description></item><item><title>DDD 领域模型在低代码后端服务中的应用</title><link>https://xiaoshuai1024.github.io/posts/ddd-domain-model-in-lowcode-backend/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.github.io/posts/ddd-domain-model-in-lowcode-backend/</guid><description>低代码平台的后端不仅要支撑「站点、页面、用户、系统设置」等资源的 CRUD，还要在 API 契约统一、多端对接（管理后台 BFF、对外站点）的前提下，保持领域边界清晰、业务规则可演进。本文从架构师视角，以 luban-backend 的实现为蓝本，说明 DDD 领域模型设计在低代码后端服务中的应用，包括战略层面的限界上下文划分与战术层面的实体、应用服务、领域异常及与 BFF 的协作方式。
+一、为什么低代码后端需要领域模型 低代码后端的核心职责可以概括为：
+内容模型：站点（Site）与页面（Page + PageSchema）的创建、发布、按路径访问； 身份与权限：用户（User）与认证（登录、/auth/me）、基于角色的访问控制（RequireUser / RequireAdmin）； 系统配置：系统设置（SystemSettings）的读写与缓存（如 Redis）； 对外能力：按站点 slug + 路径对外暴露已发布页面，无需鉴权（供官网等消费）。 若仅按「表结构 + Controller + Service」平铺，很容易出现：
+业务规则散落在各处，修改一处忘记另一处； 错误语义不统一，前端/BFF 难以稳定处理； 扩展新资源或新上下文时边界模糊，影响可维护性。 引入 DDD 的领域模型思维（不必强求完整 DDD 框架），可以在保持实现轻量的前提下，获得清晰的边界、一致的业务语义和可演进的 API 契约。下面从战略与战术两方面结合 luban-backend 说明。
+二、战略设计：限界上下文与能力边界 从业务能力出发，可将低代码后端划分为以下限界上下文（Bounded Context），与当前模块/包结构对应关系如下。
+限界上下文 职责 主要实体与概念 对外暴露 站点与页面（Content） 站点与页面的生命周期、同站点下 path 唯一、schema 存储 Site（聚合根）、Page（实体，属 Site） 管理端 CRUD；公开接口按 slug+path 查已发布页 用户与认证（Identity &amp;amp; Auth） 用户管理、登录校验、当前用户解析 User（聚合根）、角色/状态 登录、/auth/me；Header 注入 X-User-ID / X-User-Role 系统设置（Settings） 全局配置的读写与缓存 SystemSettings（单例式聚合） GET/PUT /settings，仅 Admin 公开访问（Public） 按站点 slug + path 返回已发布页面，只读、无鉴权 复用 Site、Page，只读、过滤 status=published GET /public/sites/:slug/pages?</description></item><item><title>技术驱动业务增长：前端架构如何赋能业务</title><link>https://xiaoshuai1024.github.io/posts/architecture-drive-business-growth/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.github.io/posts/architecture-drive-business-growth/</guid><description>在数字化转型深度落地的今天，前端早已不是单纯的“页面展示层”，而是连接用户与业务的核心枢纽。它不仅承载着用户体验的呈现，更肩负着驱动业务增长的重要使命。
+本文将从数据流视角，结合一线实践经验，聊聊前端架构如何真正赋能业务、创造价值，破解“技术与业务脱节”的行业痛点。
+一、现状：前端技术成熟，赋能基础已夯实 当前前端行业已彻底突破“切图、写页面”的初级阶段，形成了完整且成熟的技术体系。从工程化工具的完善，到AI编程的普及，再到数据流管理的规范化，都为前端赋能业务提供了坚实支撑。
+经过多年迭代，前端核心技术栈已趋于稳定，能够灵活适配各类业务场景需求，其整体技术架构可通过以下图清晰呈现：
+工程化与AI技术的深度结合，让前端开发效率实现了质的飞跃。Webpack、Vite等工具简化了构建流程，降低了开发复杂度；AI编程工具则解放了开发者的重复编码工作，让我们能聚焦更核心的业务逻辑。
+如今的前端，已逐步从“成本中心”向“价值中心”转型，具备了深度赋能业务的技术实力。
+二、前端架构最适合赋能的业务场景 前端的核心优势在于“贴近用户、快速迭代、交互灵活”，这种特性决定了它更适配前台型业务，能最大化发挥技术价值。结合一线业务实践，以下几类场景最能体现前端架构的赋能作用：
+1. 营销类业务 这类业务的核心需求是快速上线、高频迭代，比如节日促销、新人福利、裂变拼团等活动。前端架构可通过组件化、低代码模式，快速搭建营销页面，适配H5、小程序等多渠道。
+同时，通过前端埋点采集用户行为数据，为营销方案的优化提供精准支撑，助力提升转化效果，实现“快速试错、快速迭代”的营销目标。
+2. 小程序/公众号业务 小程序、公众号作为连接线上线下的核心载体，对开发效率和用户体验要求极高。前端通过多端复用技术，实现一套代码适配多终端，大幅降低开发与维护成本。
+借助规范化的数据流管理，保障用户登录、订单查询、消息推送等核心逻辑流畅运行，提升用户使用体验，助力业务引流与留存。
+3. APP前端开发（含混合开发） APP的核心竞争力在于用户体验与交互流畅度，这正是前端架构的核心发力点。通过性能优化、组件复用等方式，前端架构能持续提升APP的加载速度与交互体验，直接影响用户留存与转化。
+同时，高效对接SpringBoot后端接口，实现业务数据的高效流转，支撑商品展示、购物车、结算等核心业务流程稳定运行。
+4. 企业前台业务系统 包括CRM、用户中心、订单管理前台等，这类系统直接面向企业员工或外部客户，对操作效率和易用性要求较高。
+前端通过规范化的数据流设计、组件复用，优化操作流程，降低员工使用成本，提升工作效率，间接推动业务增长。
+5. 数据可视化业务 业务监控大屏、用户画像分析、经营报表等场景，需要将复杂的业务数据以直观的方式呈现。前端通过ECharts、d3、threejs等工具，实现数据的多维度可视化，帮助业务人员快速捕捉数据规律、发现业务痛点。
+三、前端赋能业务的核心形式：低代码平台 在众多前端赋能形式中，低代码平台是投入产出比最高、最贴合业务需求的一种。它完美契合前端“快速迭代、高效复用”的优势，能快速打通技术与业务的壁垒，让业务需求快速落地。
+其核心运行逻辑与系统关系，可通过以下架构图清晰理解：
+低代码平台赋能业务的核心原因 开发效率极致，大幅缩短业务落地周期。可视化拖拽搭建页面，无需编写大量重复代码，将传统前端开发的“天级”周期，压缩至“小时级”甚至“分钟级”，能快速响应业务的紧急需求。
+投入产出比突出，降低业务试错成本。业务人员经过简单培训即可参与开发，减少对专业前端人力的依赖，降低人力成本；同时支持快速试错，营销、小程序等场景可快速上线测试，根据反馈调整优化。
+场景适配灵活，兼顾通用性与个性化。平台内置标准化组件，覆盖绝大多数通用场景，同时支持自定义组件扩展，可结合业务特色开发专属组件，满足个性化业务需求。
+数据流规范化，保障业务数据安全与一致。内置标准化数据流模板，对接后端接口更高效，避免数据混乱、冗余，为业务决策提供可靠的数据支撑。
+四、前端赋能业务的其他补充形式 除了低代码平台这一核心形式，结合前端技术特性，还有多种方式可实现业务赋能，与低代码平台形成互补，构建全方位的赋能体系。
+1. 组件化架构复用 搭建企业级前端组件库，基于Vue3封装标准化组件，统一设计规范与交互逻辑。这些组件可跨项目、跨业务复用，减少重复开发工作量，同时保障多产品的用户体验一致性，提升品牌感知度。
+2. 多端一体化开发 基于Taro、uniapp、flutter等技术，实现“一套代码、多端适配”，全面覆盖H5、小程序、APP、PC端。这一方式大幅降低了多端开发与维护成本，实现业务需求的同步迭代，提升用户跨端体验。
+通过统一的数据流管理，保障多端数据一致性，避免出现跨端数据错乱的问题，支撑业务多渠道触达用户。
+3. 前端性能优化赋能 针对电商大促、热点营销等高流量场景，前端架构需进行系统性性能优化。通过懒加载、资源压缩、缓存策略、CDN加速等方式，缩短页面加载时间，降低用户跳出率。
+性能优化不仅能提升用户体验，还能降低服务器压力，减少运维成本，间接为业务赋能，助力提升用户转化率。
+4. 数据流驱动业务迭代 通过前端埋点技术，实时采集用户行为数据，包括点击量、停留时间、跳转路径等。深入分析这些数据，可精准发现业务痛点与优化空间，助力业务实现精细化迭代。
+同时，数据流的规范化管理，能保障数据的准确性与安全性，为业务决策提供可靠支撑，避免因数据偏差导致的决策失误。
+5. AI与前端结合赋能 借助Cursor、Claude Code、GitHub Copilot等AI工具，优化前端开发流程，提升开发效率、减少编码错误。同时，将AI能力嵌入前端业务场景，比如智能客服、精准内容推送等，进一步提升业务价值与用户体验。
+五、结语：前端赋能，立足业务方能破局 当下，很多前端开发者都在抱怨“行业内卷、形势不好”，甚至担心AI编程会取代自己的岗位。但事实上，行业的“寒冬”，本质上是“脱离业务的前端开发者”的寒冬。
+AI编程确实会取代大量基础、重复的编码工作，但它无法替代前端开发者对业务的理解，无法替代用技术解决业务问题、驱动业务增长的能力——这正是前端开发者的核心竞争力。
+未来，前端架构的核心发展方向，必然是“业务化、场景化、智能化”。作为前端开发者，我们要跳出“技术自嗨”的误区，主动深入业务一线，理解业务需求、熟悉业务流程。
+通过低代码、组件化、多端一体化等前端架构手段，真正实现技术赋能业务，在驱动业务增长的过程中，实现自身的价值提升，才能在行业变革中站稳脚跟、持续成长。</description></item><item><title>高并发低代码平台架构设计</title><link>https://xiaoshuai1024.github.io/posts/high-concurrency-lowcode-platform-architecture/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.github.io/posts/high-concurrency-lowcode-platform-architecture/</guid><description>本文基于当前鲁班低代码平台各仓库的既定关系与调用链，从高级架构师视角推演各系统的部署关系，并给出高并发优化、高可用保障、系统架构图与部署图、以及系统 Roadmap 与蓝图，便于在流量与可用性要求提升时按图演进。
+一、系统关系与调用链（现状锚点） 鲁班平台由六个仓库组成，边界固定、契约清晰：
+系统 职责 技术栈 下游依赖 luban-ui 组件库 + 设计器 + Render 运行时 Vue3 / Nx 无（被集成） luban 管理后台 Vue3 / Vite / Pinia / Element Plus luban-bff /api/* luban-website 对外站点（SSR） Nuxt 3 luban-bff /api/public/* luban-bff 接入层：认证、聚合、协议适配 Next.js（Node） luban-backend /backend/* luban-backend 主后端：站点/页面/用户/设置 Spring Boot / MyBatis / Redis / MySQL MySQL、Redis luban-backend-go 与主后端同契约的 Go 实现 Go / Gin MySQL、Redis 调用关系：管理后台与对外站点只访问 BFF；BFF 通过 BACKEND_BASE_URL 调用主后端（可切换 Java/Go）；主后端写 MySQL、用 Redis 做系统设置等缓存；公开页按 slug+path 读已发布页面（只读、无鉴权）。</description></item></channel></rss>

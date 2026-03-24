@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>高并发 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.github.io/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/</link><description>高并发 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.github.io/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="self" type="application/rss+xml"/><item><title>基于nuxtjs的SSR服务性能+高可用优化</title><link>https://xiaoshuai1024.github.io/posts/high-concurrency-fullstack-solution-ssr-cdn/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.github.io/posts/high-concurrency-fullstack-solution-ssr-cdn/</guid><description>基于nuxtjs的SSR服务性能 + 稳定性优化 在企业级前端服务规模化发展过程中，基于Nuxt.js（本文以Nuxt3为主）的SSR（服务端渲染）服务，既是解决SPA应用首屏加载慢、SEO优化不足的核心方案，也是承接高并发流量、保障用户体验的关键载体。本文结合生产环境实战经验，针对Nuxt.js SSR服务在流量快速增长场景下的性能瓶颈与稳定性隐患，从架构优化、缓存策略、容灾兜底、前端优化等多维度，拆解可落地的优化方案，最终实现服务性能与稳定性的双重突破，达成QPS量级跃升与“永不宕机”的核心目标。
+一、服务架构基础：Nuxt.js SSR实时渲染服务架构 本次优化的核心载体为基于Nuxt3的SSR服务，整体架构以“Node.js实时渲染”为核心，承接前端请求、实现服务端渲染与数据聚合，联动CDN、Nginx、BFF层、后端服务，形成完整的请求链路，为后续优化奠定基础。
+核心架构链路如下：
+用户请求 → CDN（静态内容缓存） → Nginx（负载均衡、探活、请求转发） → Nuxt.js SSR服务（实时渲染、数据请求、兜底处理） → BFF层（流量承接、数据聚合、接口缓存） → 后端服务（核心业务逻辑、数据持久化）
+核心职责：Nuxt.js SSR服务负责页面模板渲染、前端资源打包、服务端数据请求与整合，同时承接前端错误处理与兜底逻辑，是连接用户与后端服务的关键枢纽。
+二、核心问题：流量增长与SEO优化的双重挑战 随着业务规模扩大，Nuxt.js SSR服务面临两大核心痛点，严重影响用户体验与业务增长，成为优化的核心出发点：
+2.1 流量快速增长带来的性能与稳定性压力 业务推广与用户规模扩大导致请求量激增，原有SSR服务存在明显瓶颈：单实例QPS仅能支撑200左右，高峰时段出现请求排队、响应超时；部分后端服务异常时，SSR服务因无缓存兜底，直接返回错误页面；实例故障时无法快速切换，导致服务不可用，影响用户留存。
+2.2 SEO优化需求未充分满足 虽采用SSR服务解决了SPA应用SEO劣势，但未针对静态内容、渲染效率做进一步优化：静态资源（JS、CSS、图片）加载速度慢，影响页面抓取效率；动态渲染页面响应延迟，导致搜索引擎抓取不及时，影响页面排名，无法充分发挥SSR的SEO价值。
+三、核心优化方案：性能与稳定性双重提升 围绕上述痛点，结合Nuxt.js特性与生产环境实战，从7个核心维度实施优化，覆盖“缓存、容灾、流量、前端体验”，所有方案均已落地验证，可直接复用。
+3.1 静态内容接入CDN，降低源站压力 核心目标：将非实时渲染的静态资源剥离至CDN，减少Nuxt.js SSR服务的请求压力，提升静态资源加载速度，同时优化SEO抓取效率。
+落地细节：
+资源分类梳理：将Nuxt.js打包后的静态资源（dist目录下的JS、CSS、字体文件）、图片、图标、静态页面（如帮助中心、关于我们）等非实时渲染内容，统一上传至CDN。
+CDN配置优化：针对不同资源设置合理缓存策略——静态资源（JS、CSS）缓存时间设为7-30天，图片资源设为30-90天；开启CDN回源策略，当CDN缓存失效时，自动回源Nuxt.js服务获取资源，避免缓存穿透。
+Nuxt.js配置适配：修改nuxt.config.ts，将静态资源路径配置为CDN域名，确保前端页面正确引用CDN资源；开启Nuxt3的静态生成（SSG）功能，对无需实时更新的页面（如官网首页、营销页）预渲染为静态文件，直接部署至CDN，进一步降低SSR服务压力。
+3.2 接口缓存优化，实现后端故障兜底 核心目标：减少SSR服务对后端接口的重复请求，提升渲染速度；后端服务异常时，通过缓存兜底，避免页面报错，保障服务可用性。
+落地细节：
+缓存层级设计：采用“Redis缓存+BFF层本地缓存”双重缓存策略，针对不同接口特性设置差异化缓存时间。
+接口缓存实现：在BFF层（Egg.js/Express）对后端接口返回数据进行缓存，高频访问、低频更新的接口（如商品列表、分类数据）缓存时间设为5-15分钟；实时性要求高的接口（如用户个人信息）缓存时间设为10-30秒，同时提供缓存主动刷新接口，确保数据新鲜度。
+后端故障兜底：在BFF层增加接口降级逻辑，当后端服务挂掉或响应超时（超过3秒）时，自动读取Redis缓存数据返回；若缓存不存在，返回预设的默认数据，确保Nuxt.js SSR服务能正常渲染页面，不返回错误。
+Nuxt.js适配：在Nuxt3的asyncData、useFetch等服务端请求方法中，增加缓存读取逻辑，优先从BFF层缓存获取数据，减少服务端请求耗时。
+3.3 Nginx探活，实现秒级实例摘除与自动接入 核心目标：实时监控Nuxt.js SSR实例状态，当实例故障时，快速摘除故障实例，将流量自动转发至健康实例，避免故障扩散，保障服务稳定性。
+落地细节：
+探活配置：在Nginx中配置对Nuxt.js SSR实例的HTTP探活，每1秒发送一次探活请求（访问实例的/health接口），判断实例是否健康。
+健康判断标准：若连续3次探活请求失败（返回状态码非200、响应超时超过1秒），则判定该实例故障，Nginx立即将其从负载均衡列表中摘除，不再转发流量。
+自动接入机制：当故障实例恢复正常（连续3次探活请求成功），Nginx自动将其重新加入负载均衡列表，实现流量自动接入，无需人工干预，整个过程耗时控制在3秒内，达到秒级容灾。
+负载均衡优化：采用“轮询+IP哈希”混合策略，既保证流量均匀分配，又确保同一用户的请求始终转发至同一健康实例，提升用户体验。
+3.4 前端性能优化，提升渲染体验与加载速度 核心目标：优化Nuxt.js前端渲染性能，减少首屏加载时间，提升用户体验，同时进一步降低SSR服务压力，辅助SEO优化。除提纲提及方式外，补充适配Nuxt3的实战优化点：
+代码分割（Code Split）：利用Nuxt3自带的代码分割功能，按页面、组件拆分代码，避免单个JS文件过大；对路由进行懒加载，通过definePageMeta({ lazy: true })配置，实现页面按需加载，减少首屏加载资源体积。
+组件按需加载：对Element Plus、Vant等UI组件库，采用按需引入方式，通过Nuxt3的auto-import功能，自动引入使用到的组件，避免全量引入导致的资源冗余。</description></item><item><title>高并发低代码平台架构设计</title><link>https://xiaoshuai1024.github.io/posts/high-concurrency-lowcode-platform-architecture/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.github.io/posts/high-concurrency-lowcode-platform-architecture/</guid><description>本文基于当前鲁班低代码平台各仓库的既定关系与调用链，从高级架构师视角推演各系统的部署关系，并给出高并发优化、高可用保障、系统架构图与部署图、以及系统 Roadmap 与蓝图，便于在流量与可用性要求提升时按图演进。
+一、系统关系与调用链（现状锚点） 鲁班平台由六个仓库组成，边界固定、契约清晰：
+系统 职责 技术栈 下游依赖 luban-ui 组件库 + 设计器 + Render 运行时 Vue3 / Nx 无（被集成） luban 管理后台 Vue3 / Vite / Pinia / Element Plus luban-bff /api/* luban-website 对外站点（SSR） Nuxt 3 luban-bff /api/public/* luban-bff 接入层：认证、聚合、协议适配 Next.js（Node） luban-backend /backend/* luban-backend 主后端：站点/页面/用户/设置 Spring Boot / MyBatis / Redis / MySQL MySQL、Redis luban-backend-go 与主后端同契约的 Go 实现 Go / Gin MySQL、Redis 调用关系：管理后台与对外站点只访问 BFF；BFF 通过 BACKEND_BASE_URL 调用主后端（可切换 Java/Go）；主后端写 MySQL、用 Redis 做系统设置等缓存；公开页按 slug+path 读已发布页面（只读、无鉴权）。</description></item></channel></rss>
