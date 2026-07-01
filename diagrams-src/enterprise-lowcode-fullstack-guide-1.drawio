@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="luban-call-flow" id="luban-call-flow">
+    <mxGraphModel dx="980" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="FRONT" value="前端应用层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="640" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="ADMIN" value="管理后台 luban&#xa;(站点/页面/用户/系统设置)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="64" y="78" width="280" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="WEB" value="对外站点 luban-website&#xa;(Nuxt 3 SSR + Render)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="376" y="78" width="280" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="BFFBOX" value="接入层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93c5fd;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="640" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="BFF" value="luban-bff&#xa;Node API Gateway&#xa;(认证注入 / 协议聚合 / 限流)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="222" width="280" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="BEBOX" value="主后端层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="640" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="BACKEND" value="luban-backend (Java)&#xa;Spring Boot + MyBatis&#xa;站点/页面/用户/系统设置原子接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="362" width="280" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="DATA" value="存储层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="470" width="640" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="DB" value="MySQL&#xa;(业务真相源)" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;boundedLbl=1;backgroundOutline=1;size=10;" vertex="1" parent="1">
+          <mxGeometry x="260" y="478" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="CACHE" value="Redis&#xa;(缓存/热点加速)" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;boundedLbl=1;backgroundOutline=1;size=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="478" width="140" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="UIBOX" value="组件库与运行时" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="710" y="40" width="230" height="390" as="geometry"/>
+        </mxCell>
+        <mxCell id="UI" value="luban-ui&#xa;&#xa;Designer 设计器&#xa;Render 运行时渲染&#xa;(基础组件 + 低代码组件)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="728" y="150" width="194" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E_ADMIN_BFF" value="/api/*&#xa;(需登录+权限)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ADMIN" target="BFF">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_WEB_BFF" value="/api/public/*&#xa;(无需登录)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="WEB" target="BFF">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_BFF_BE" value="/backend/*&#xa;(BACKEND_BASE_URL + Header 上下文)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="BFF" target="BACKEND">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_BE_DB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.35;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BACKEND" target="DB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_BE_CACHE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.65;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BACKEND" target="CACHE">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E_UI_ADMIN" value="被集成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;dashed=1;endArrow=block;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;fontColor=#134e4a;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="UI" target="ADMIN">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_UI_WEB" value="被集成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;dashed=1;endArrow=block;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;fontColor=#134e4a;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="UI" target="WEB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

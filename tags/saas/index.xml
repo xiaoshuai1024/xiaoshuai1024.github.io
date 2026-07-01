@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SaaS - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/saas/</link><description>SaaS - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 03 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/saas/" rel="self" type="application/rss+xml"/><item><title>多租户 SaaS 的数据隔离:从一行漏掉的 tenant_id 说起</title><link>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</link><pubDate>Wed, 03 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</guid><description><![CDATA[多租户数据隔离是我做全栈架构时绕不开的一环——它是 SaaS 系统能不能交付的底线。这篇记录的就是这套隔离体系里最隐蔽的一个漏洞,以及我怎么把它从&quot;靠人盯&quot;改成&quot;层层兜&quot;。
+先说一句结论:多租户的安全感,从来不来自&quot;开发都很细心&quot;,而来自&quot;假设迟早有人会漏,提前把网织好&quot;。后面所有内容都是为这句话找证据。
+一次越权,根因只有一个 JOIN 那次线上反馈很直接:某个客户说&quot;我能看到别人的数据&quot;。多租户系统听到这句话,基本可以判定为越权。顺着链路翻,查到一条排查 SQL,对着前端返回的字段一比,定位到一段 JOIN。
+排查路径其实不复杂。先用前端能看到的那条&quot;不该出现&quot;的数据,反查它来自哪张表、哪个接口、哪条 SQL;再把这条 SQL 在测试库里重放,逐段拆 JOIN,看哪一段把别人的数据带了出来。定位到具体那段 SQL,大概花了不到半天——真正花时间的是后面想清楚&quot;为什么会漏&quot;。
+根因是:某个 JOIN 关联两张业务表时,只在外层带了 tenant_id 条件,JOIN 的那张表没带。结果租户 A 的查询,把租户 B 的关联行也带了出来。
+不是什么精妙的 0day,也不是鉴权被绕过。就是一段 JOIN ... ON a.id = b.aid,后面漏了 AND a.tenant_id = b.tenant_id。
+修复很快,改一行加上去就完事。但这件事真正的风险在于:代码能跑、单测能过、功能自测也没问题——平时你压根不会想到去构造&quot;跨租户数据&quot;的用例,它只在真实多租户、真实数据并存的线上才会爆。
+行级隔离的标配:为什么选它,代价是什么 先把我们的隔离方案交代清楚,后面才好聊为什么会漏。
+业界多租户隔离大体三条路:独立库、独立 schema、行级隔离。我老老实实把它们的代价摆出来,你就能理解我们为什么选行级。
+独立库:每个租户一个物理数据库。隔离最干净,但运维成本爆炸——租户一多,实例数跟着涨,备份、监控、迁移都得一个租户一个租户搞;跨租户报表、平台级统计要跨库 join,基本写不下去。除非单租户数据量极大、合规要求极严(比如金融大客户),否则扛不住。 独立 schema:一个库里每个租户一套 schema。比独立库省实例,但表结构变更要做 N 次 DDL,租户越多越痛;而且跨租户查询还是麻烦,得动态拼 schema 名。 行级隔离:所有租户的数据混在一张表,靠 tenant_id 这列区分。运维最省心(一套表结构、一次 DDL),跨租户查询天然支持,扩展租户就是加一行配置。代价就一个:每一条 SQL、每一个 JOIN 都得记得带 tenant_id。 我们这套选的是行级隔离,业务表都带 tenant_id,所有查询、所有 JOIN 都必须带条件。取舍很清楚:用&quot;每条 SQL 都要小心&quot;换&quot;运维和成本可控&quot;。对中小客户为主、租户数量会涨的 SaaS,这笔账划算。
+租户身份怎么来?请求头 X-Tenant-Id。请求一进来,过滤器链里有个 TenantFilter,负责把头里的租户标识解析出来,塞进一个请求级的上下文。后面业务代码取租户 id,都从这个上下文拿,不让业务自己再从 header 里抠——抠着抠着就有人抠错。]]></description></item><item><title>uni-app + SaaS 多租户小程序:从"按租户打包"到"代开"架构</title><link>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</link><pubDate>Tue, 26 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」线上的 全栈阶段。我做的 SaaS 小程序平台,核心难题是&quot;一份代码,怎么变成每个租户自己的小程序&quot;。这篇讲两种模式:按租户打包,和平台代开。
+难点:微信小程序的 AppId 是构建期常量 SaaS 多租户的小程序,理想是&quot;一份代码运行时识别租户&quot;。但微信不允许:manifest.json / project.config.json 里的 appid 在构建期烧死,运行时改不了。
+所以&quot;一份代码多个租户&quot;在微信小程序上,得在构建期就把租户的 AppId 注入进去。
+模式一:按租户打包 第一种做法是每个租户打一个包。我用 Vite 插件在 buildStart 改写 manifest.json:
+VITE_WX_APPID=wx&lt;租户A的AppId&gt; VITE_TENANT_ID=t_xxx pnpm build:mp-weixin:prod插件定位 mp-weixin.appid,字符串级替换(要求 appid 以 wx 开头才换),uni 编译时烧进产物。tenantId 走 .env.prod 环境变量,运行时 import.meta.env 读取。
+一份代码,跑 N 次构建,产 N 个租户的包。简单直接,但租户多了构建成本线性涨。
+模式二:平台代开(第三方平台) 更好的是代开:用微信开放平台的第三方平台能力,一份代码模板给所有租户用,差异靠 ext_json 注入。
+关键在微信 /wxa/commit 的 ext_json 字段:
+ext_json = { extAppid, ext: { tenantId }, window: {} }一份模板代码 + ext_json 注入 tenantId,所有租户共用同一份包。小程序运行时用 wx.]]></description></item></channel></rss>

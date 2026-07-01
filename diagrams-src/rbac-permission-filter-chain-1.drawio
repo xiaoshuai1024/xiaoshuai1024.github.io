@@ -1,0 +1,83 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="RBAC过滤器链与key对齐" id="rbacFilterChain1">
+    <mxGraphModel dx="1180" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="g1" value="过滤器链 · 顺序刻死（认证 → 租户解析 → 权限校验）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#1e293b;verticalAlign=top;fontStyle=1;fontSize=12;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1100" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f1" value="请求进入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="120" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="① 认证&#xa;校验 token，挂当前用户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="240" y="114" width="180" height="68" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="② 租户解析&#xa;注入 tenantId 上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="114" width="180" height="68" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="③ 权限校验（枢纽）&#xa;读 @RequirePermission&#xa;按租户查权限表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="106" width="210" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" value="放行 Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="930" y="120" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="ffail" value="❌ 顺序错乱&#xa;租户上下文为空&#xa;→ 越权 / 全站不可用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="250" width="220" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ef1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f1" target="f2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f2" target="f3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef3" value="tenantId 就绪" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3" target="f4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef4" value="命中" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="f4" target="f5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="effail" value="权限校验排到租户解析前" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="f3" target="ffail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="g2" value="权限 key 双向对齐 · 契约闸构建期核对" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#1e293b;verticalAlign=top;fontStyle=1;fontSize=12;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="1100" height="230" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="k1" value="接口 @RequirePermission&#xa;收集 key 集合 A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="220" height="68" as="geometry"/>
+        </mxCell>
+        <mxCell id="k2b" value="权限种子数据（迁移脚本）&#xa;收集 key 集合 B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="545" width="220" height="68" as="geometry"/>
+        </mxCell>
+        <mxCell id="k3" value="契约闸（枢纽）&#xa;构建期 A ∩ B 双向核对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="490" y="478" width="220" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="k4" value="构建通过" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="880" y="450" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="k5" value="❌ A − B ≠ ∅&#xa;缺一个 key 即构建失败" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="880" y="540" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ek1" value="扫描注解 key" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="k1" target="k3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ek2" value="读种子 key" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="k2b" target="k3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ek3" value="集合相等" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="k3" target="k4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ek4" value="有差集" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="k3" target="k5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

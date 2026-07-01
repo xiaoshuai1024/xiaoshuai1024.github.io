@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI 越界与架构守护拦截" id="ai-guardrail">
+    <mxGraphModel dx="1000" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="AI 写代码不在乎架构边界——给它自由，它选最短路径，而最短路径往往就是越界" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="920" height="350" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="REQ" value="我：实现 X 功能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="180" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="AI" value="AI 生成代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="180" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q" value="AI 在乎&#xa;架构吗?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="170" width="130" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="W1" value="Controller 里&#xa;直连数据库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="70" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="W2" value="跨模块调别人的&#xa;Repository" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="180" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="W3" value="最短路径实现&#xa;（「能跑通」就行）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d4a017;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="290" width="170" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G" value="架构守护拦下&#xa;提交时 CI 挂掉，根本进不来" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="170" width="130" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="REQ" target="AI">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="AI" target="Q">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E3" value="不在乎" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="Q" target="W1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E4" value="不在乎" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="Q" target="W2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E5" value="在乎的是能跑通" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#d4a017;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="Q" target="W3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="W1" target="G">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="W2" target="G">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="W3" target="G">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

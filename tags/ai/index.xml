@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/ai/</link><description>AI - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 21:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/ai/" rel="self" type="application/rss+xml"/><item><title>AI编程之我见</title><link>https://xiaoshuai1024.top/posts/ai-programming/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-programming/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」这条成长线上的序章。从这篇开始，我会从一名全栈开发的视角，记录 AI 是怎么一步步走进我的日常编码、最后把我写代码的方式整个改了的。
+老实讲，这篇我不想再写那种「AI 真好用，大家都来拥抱」的稿子。过去一年我天天在用 Cursor、Copilot、Claude Code，最大的感受其实不是&quot;快了多少&quot;，而是这件事：写代码的门槛和重心，正在悄悄挪地方。
+下面就把这个判断摊开讲——结合我的真实项目经历、踩过的坑、以及后来形成的几条应对规矩。这一篇是调子，后面整个 AI 研发实战系列（认知转变、岗位转型、工程化治理）都会从这儿接出去。
+工具盘点：不是谁都能打，先认清楚各自的定位 先把市面上几款主力工具的边界说清楚，免得你拿着锤子到处找钉子。
+Cursor：我目前主力。它的定位不是&quot;聊天框里贴代码&quot;，而是把模型直接焊进编辑器——你在哪一行问，它就读哪一行的上下文。适合中型到大型改动：重构一段逻辑、写一个完整接口、跨文件改命名。代价是它对项目结构和规范比较挑，项目乱它会跟着乱。 GitHub Copilot：更轻，定位是&quot;行内补全 + IDE 联想&quot;。写一个函数写到一半它帮你补完下一行，或者注释里写句话它生成实现。适合写样板、补常规逻辑，不适合让它从零搭一个模块。 Claude Code：命令行里的 agent，能自己跑工具、读文件、改文件、跑测试。适合那种&quot;帮我把这事整体做完，做完自己验证一遍&quot;的场景，比如批量重构、跑通一个端到端流程。它的长处是上下文长、能自主迭代，短处是你得给它明确的边界，不然它容易自己跑偏。 国内还有 CodeGeeX、通义千问代码版这些，网络环境下更顺，定位和 Copilot 接近，按需选。
+一句话：没有&quot;最好&quot;的工具，只有&quot;这件事更该丢给谁&quot;。 我日常是 Cursor 做主线、Copilot 补行内、Claude Code 干重活，按场景切。
+起点：OpenLuban 项目，从试试看到离不开 我真正开始重度用 AI 编程，是从个人开源项目 OpenLuban（我离职后把大厂鲁班的架构经验重新开源实现的一套低代码平台，全新代码，与原公司系统无关）开始的。一个人扛大部分开发，技术栈横跨好几个：
+前端 Vue3 + Nuxt3 后端 SpringBoot 偶尔 Node.js 写个 BFF 层 有时还要补点 golang 脚本处理数据 多种语言来回切，最容易卡壳的不是&quot;会不会&quot;，而是不常用的语法记混了，得翻文档、查博客，一卡就是十几分钟。这种卡顿单看一次不大，但一天攒下来特别消耗状态。
+抱着试试看的心态下了 Cursor。本来只想拿来补补语法、调个小 bug，结果用了不到半天，我就开了 Cursor Pro。
+转折点很具体：我把需求说清楚，比如「用 SpringBoot 写一个站点列表查询接口，带分页和条件筛选，关联用户表」，它直接给出可运行的代码，连异常处理、参数校验都写好了。这件事让我意识到，AI 接管的不是某个语言点，而是那一整层&quot;查语法、套样板、对模板&quot;的执行活。 从那以后，这类活我基本不自己写了。
+效果：提速是真的，但更值钱的是别的 先说能拿数字说话的。以前写一个完整后端接口——实体类、Mapper、Service、Controller，再到调通——至少半小时；用 Cursor 之后，10 分钟搞定，结构还规整，格式不用手调。前端组件也一样，「写一个 Vue3 表单组件，输入框 + 下拉框 + 校验 + 提交按钮禁用逻辑」，它生成完我调一下类名和样式就能复用。]]></description></item></channel></rss>

@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Skills - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/skills/</link><description>Skills - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 19 Jun 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/skills/" rel="self" type="application/rss+xml"/><item><title>用 AI 产出百万行代码之后,我把这套 Skills 沉进了项目</title><link>https://xiaoshuai1024.top/posts/after-million-loc-my-skills/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/after-million-loc-my-skills/</guid><description>2026 年 6 月,线上数据丢了一批。
+一个定时清理任务,逻辑是「扫整个对象存储,凡是数据库里没记录的,就当孤儿删掉」。听着合理,对吧?存储里有、库里没有的,可不就是垃圾。直到某天一个写入链路抖了一下——文件先落库、对象后上传,中间这几秒,定时任务扫过去了,「库里有、存储还没到」的对象被当成孤儿删了个干净。
+这是我维护的一个多租户社交电商全栈项目。前端 uni-app(Vue 3)小程序、后端 Spring Boot 3 + MyBatis-Plus + MySQL + Redis + RabbitMQ、运营后台 Vue 3 + Element Plus。代码量早就过百万行,而其中绝大部分是 AI 写的。
+事故复盘的时候我没怪模型。我怪的是:我给了 AI 一把没有保险的枪。它执行得又快又准,快到我没来得及看它要删什么。
+百万行代码之后,我真正想明白一件事:瓶颈不在模型够不够聪明,在我怎么把工程纪律变成 AI 逃不掉的流程。我选的方式,是在项目里沉淀一套 Skills。
+这篇就讲这套东西:我实际在用哪些 skill、每个在项目里管什么、以及它们是怎么装进来的。
+一、先说清楚:Skill 不是教 AI 新知识 很多人对 Skill 有个误解,觉得它是「给模型补充训练数据里没有的知识」。不是。
+模型的知识已经够多了。它知道 Spring Boot 怎么写、知道 Flyway 怎么迁移、知道 RBAC 怎么设计。它缺的不是知识,是约束——是你的项目里那套「必须先写测试」「DELETE 必须带 tenant_id」「声称完成前必须贴证据」的纪律。
+Skill 干的就是这个:把「你应该怎么干活」写成一份可复用的指令,在合适的时机自动加载进会话。它不增加模型的能力上限,它抬高的是模型在你项目里的下限。
+这是为什么我不去追「更强的模型」,而去攒「更密的 Skill 网」。模型每代都在变强,但你项目里那个「AI 一高兴就 DELETE FROM 不带 where」的风险,换什么模型都在。能焊死这个的只有流程,不是参数量。
+二、这套 Skills 是怎么装进来的 先讲安装,因为这是最容易被问到的。我不是手写了几十个 skill——那不现实,也违背「复用」的初衷。项目里的 skill 来自一套类似 npm 的 skill 包管理器。</description></item></channel></rss>

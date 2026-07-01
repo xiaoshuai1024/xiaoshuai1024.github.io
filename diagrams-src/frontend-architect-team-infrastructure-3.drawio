@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="技术影响力五大方向" id="infra-3">
+    <mxGraphModel dx="980" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="G" value="技术影响力建设（沉淀技术 · 辐射价值）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="900" height="540" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="A" value="技术影响力&#xa;五大核心方向" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=12;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M1" value="1. 技术博客 / 专栏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="185" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1" value="沉淀技术经验&#xa;提升个人与团队影响力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="181" width="240" height="54" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M2" value="2. 内部技术培训" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="265" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="D2" value="传承技术知识 · 降低培养成本&#xa;提升团队整体能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="261" width="240" height="54" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M3" value="3. 技术公众号&#xa;社区分享" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="345" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="D3" value="扩大行业影响力 · 吸引优质人才&#xa;树立团队品牌" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="341" width="240" height="54" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M4" value="4. 开源项目&#xa;技术组件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="425" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="D4" value="输出可复用技术 · 提升认可度&#xa;锻炼团队技术能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="421" width="240" height="54" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M5" value="5. 跨团队技术协作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="305" width="240" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="D5" value="打破跨团队壁垒&#xa;输出技术方案 · 提升话语权" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="371" width="240" height="54" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eA1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="M1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.35;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="M2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="M3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.65;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="M4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.85;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="M5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eMD1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="M1" target="D1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eMD2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="M2" target="D2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eMD3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="M3" target="D3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eMD4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="M4" target="D4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eMD5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="M5" target="D5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

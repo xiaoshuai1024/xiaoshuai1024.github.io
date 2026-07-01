@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>向量检索 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2/</link><description>向量检索 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 25 May 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2/" rel="self" type="application/rss+xml"/><item><title>RAG 知识库从 0 到 1:用 Spring AI + ES 做多租户检索增强</title><link>https://xiaoshuai1024.top/posts/rag-knowledge-base-spring-ai/</link><pubDate>Mon, 25 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/rag-knowledge-base-spring-ai/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」线上的 AI 开发阶段。上一篇《构建一个多租户 AI 助手》讲了整体架构,这篇把其中最被神话的一块——RAG 知识库单独拆开,从 0 到 1 讲它到底怎么落地。
+RAG 在网上被讲得玄之又玄,什么&quot;企业知识大脑&quot;&ldquo;智能问答中枢&rdquo;。说穿了就是一句话:在问大模型之前,先从你的私有文档里检索出相关片段,塞进 prompt,让它&quot;看着资料&quot;回答。 它的价值不在魔法,在让大模型基于你的私有、可更新、可追溯的知识回答,而不是只靠训练时的旧记忆。
+这篇不讲概念,讲工程:多租户怎么隔离、切片怎么配、向量库怎么选、入库失败的文档怎么重试、改了切片策略怎么重建。代码全部来自生产系统。
+一、要解决的核心问题 运营后台的 AI 助手要能基于每个租户的私有运营文档回答问题——A 租户问&quot;我们店铺的商品上下架流程&quot;,助手得去查 A 租户的运营手册,不能拿 B 租户的文档乱答。
+需求拆成四个硬约束:
+多租户隔离:A 绝对检索不到 B 的文档,这是底线,不是优化项。 文档可管理:运营能在后台上传、编辑、发布、删除文档,不是只能命令行灌库。 检索有质量闸:不相关的片段不能塞进 prompt,否则反而拉低回答质量。 可演进:切片策略、embedding 模型变了,得能批量重建,不能推倒重来。 RAG 的本质是四步:切片 → 向量化 → 存储 → 检索。但工程上远不止这四步,下面逐层展开。
+二、整体设计 先看全貌。一篇文档从上传到被检索命中的完整链路:
+几个关键设计决策,后面逐个展开:
+双存储分工:MySQL 存可编辑的业务数据(标题/正文/标签/状态),ES 存向量做检索,两边各司其职。 多租户靠 metadata filter:所有租户共用一个 ai_knowledge 索引,检索时按 tenant_id 过滤。 质量闸在检索层:similarityThreshold(0.7) 卡掉不相关结果。 生命周期可重建:DRAFT/PUBLISHED 状态机 + es_indexed 标记 + 批量 rebuild。 一次入库的时序 文字不如图清楚。运营点&quot;发布&quot;,一篇文档被切片入库的完整时序:]]></description></item></channel></rss>

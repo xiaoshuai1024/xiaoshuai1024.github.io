@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="体系本质" id="system-essence">
+    <mxGraphModel dx="1000" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="340" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="体系的本质:把经验外化成机器可执行的流程,经验从「个人的」变「团队的杠杆」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="920" height="280" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EXP" value="老兵的经验&#xa;判断 / 规范 / 约束" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="170" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="SYS" value="命令 + 评审 + 规范&#xa;(固化进仓库)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="130" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="AGENT" value="一群 Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="130" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUT" value="近百万行&#xa;质量受控" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="130" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LOOP" value="反过来沉淀经验(事故即规范)" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="240" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" value="固化" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="EXP" target="SYS"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" value="驱动" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="SYS" target="AGENT"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="产出" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="AGENT" target="OUT"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="SYS" target="EXP"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>高可用 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/</link><description>高可用 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/" rel="self" type="application/rss+xml"/><item><title>高并发低代码平台架构设计</title><link>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</guid><description>这是我从前端走向全栈架构师阶段的一篇典型产出：在鲁班低代码平台（大厂级低代码）的六库底座上，用架构师视角推演它的部署关系、高并发演进与高可用保障。
+本文基于当前鲁班低代码平台各仓库的既定关系与调用链，从高级架构师视角推演各系统的部署关系。并给出高并发优化、高可用保障、系统架构图与部署图、以及系统 Roadmap 与蓝图，便于在流量与可用性要求提升时按图演进。
+项目归属说明：本文的架构经验与高并发数据（峰值 10 万+ QPS、多级缓存、P0 清零等）来自我大厂时期主导的内部低代码系统&amp;quot;鲁班&amp;quot;；而文章展开的六库架构与代码实现细节，以我个人开源项目 OpenLuban（架构同源、代码全新重写，GitHub）为准。原公司系统源码不公开。
+一、系统关系与调用链（现状锚点） 鲁班平台由六个仓库组成，边界固定、契约清晰：
+系统 职责 技术栈 下游依赖 luban-ui 组件库 + 设计器 + Render 运行时 Vue3 / Nx 无（被集成） luban 管理后台 Vue3 / Vite / Pinia / Element Plus luban-bff /api/* luban-website 对外站点（SSR） Nuxt 3 luban-bff /api/public/* luban-bff 接入层：认证、聚合、协议适配 Next.js（Node） luban-backend /backend/* luban-backend 主后端：站点/页面/用户/设置 Spring Boot / MyBatis / Redis / MySQL MySQL、Redis luban-backend-go 与主后端同契约的 Go 实现 Go / Gin MySQL、Redis 调用关系可分三层看：</description></item><item><title>基于nuxtjs的SSR服务性能+高可用优化</title><link>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</guid><description><![CDATA[基于nuxtjs的SSR服务性能 + 稳定性优化 这一篇写在我从前端转向全栈架构师的阶段。当时承接的是一个高并发的 SSR 服务:既要做性能,也要做稳定性。它代表的是全栈阶段的高并发实战能力。
+基于 Nuxt.js(本文以 Nuxt3 为主)的 SSR(服务端渲染) 服务,有两个核心定位:
+它是解决 SPA 应用首屏加载慢、SEO 优化不足的核心方案。 它也是承接高并发流量、保障用户体验的关键载体。 本文结合生产环境实战,围绕 SSR 服务在流量快速增长场景下的性能瓶颈与稳定性隐患,给出可落地的优化方案。
+核心目标只有两个:QPS 量级跃升,以及**&ldquo;永不宕机&rdquo;**。
+一、服务架构基础：Nuxt.js SSR实时渲染服务架构 本次优化的核心载体是基于 Nuxt3 的 SSR 服务。整体架构以 &ldquo;Node.js 实时渲染&rdquo; 为核心。
+它承接前端请求、完成服务端渲染与数据聚合,并联动 CDN、Nginx、BFF 层、后端服务,形成完整的请求链路。
+核心架构链路如下:
+用户请求 → CDN(静态内容缓存) → Nginx(负载均衡、探活、请求转发) → Nuxt.js SSR 服务(实时渲染、数据请求、兜底处理) → BFF 层(流量承接、数据聚合、接口缓存) → 后端服务(核心业务逻辑、数据持久化)。 核心职责上,Nuxt.js SSR 服务负责页面模板渲染、前端资源打包、服务端数据请求与整合,同时承接前端错误处理与兜底逻辑。它是连接用户与后端服务的关键枢纽。
+二、核心问题：流量增长与SEO优化的双重挑战 业务规模扩大后,Nuxt.js SSR 服务面临两大核心痛点,严重影响用户体验与业务增长,是优化的出发点:
+2.1 流量快速增长带来的性能与稳定性压力 业务推广与用户规模扩大,带来请求量激增。原有 SSR 服务存在明显瓶颈:
+单实例 QPS 仅 200 左右,高峰时段出现请求排队、响应超时。 部分后端服务异常时,SSR 服务无缓存兜底,直接返回错误页面。 实例故障时无法快速切换,导致服务不可用,影响用户留存。 2.]]></description></item></channel></rss>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="d2" id="d2">
+    <mxGraphModel dx="1200" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP_CFG" value="数据安全层 · TenantAiConfigService 职责：配置存取 / 加密 / 脱敏" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="760" height="300" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="CFG" value="TenantAiConfig&#xa;————&#xa;+ tenantId&#xa;+ provider / baseUrl&#xa;+ model&#xa;+ apiKeyEncrypted&#xa;+ temperature / maxTokens&#xa;+ enabled&#xa;+ rateLimitRpm&#xa;+ monthlyTokenLimit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=4;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="220" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="SVC" value="TenantAiConfigService&#xa;————&#xa;+ getConfig(tenantId) 脱敏&#xa;+ getRawConfig(tenantId) 不脱敏&#xa;+ getDecryptedApiKey(tenantId)&#xa;+ saveConfig(config)&#xa;+ isEnabled(tenantId)&#xa;+ getProvider(tenantId)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=4;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="240" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="AES" value="AesEncryptor&#xa;————&#xa;+ encrypt(plain)&#xa;+ decrypt(cipher)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=4;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="MASK" value="SensitiveMasker&#xa;————&#xa;+ mask(apiKey)&#xa;  wx12****cd" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=4;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="196" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_FAC" value="运行时层 · TenantChatModelFactory 职责：建模型 / 缓存 / 失效" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="760" height="290" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="FAC" value="TenantChatModelFactory&#xa;————&#xa;− ConcurrentHashMap cache&#xa;+ getOrCreate(tenantId)&#xa;+ evict(tenantId)&#xa;− createForTenant(tenantId)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;verticalAlign=top;spacingTop=4;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="240" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="OPENAI" value="OpenAiChatModel&#xa;《Spring AI》&#xa;————&#xa;baseUrl + apiKey + model&#xa;DeepSeek / GLM / Qwen" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;verticalAlign=top;spacingTop=4;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="320" y="420" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R1" value="读写" style="endArrow=open;html=1;strokeColor=#475569;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="SVC" target="CFG">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2" value="落库加密 / 读取解密" style="endArrow=open;html=1;strokeColor=#475569;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="SVC" target="AES">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="R3" value="给前端时脱敏" style="endArrow=open;html=1;strokeColor=#475569;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="SVC" target="MASK">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="R4" value="取配置 / 解密 Key" style="endArrow=open;html=1;strokeColor=#14b8a6;dashed=1;fontSize=10;fontColor=#134e4a;" edge="1" parent="1" source="FAC" target="SVC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="R5" value="构建并缓存" style="endArrow=open;html=1;strokeColor=#14b8a6;dashed=1;fontSize=10;fontColor=#134e4a;" edge="1" parent="1" source="FAC" target="OPENAI">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

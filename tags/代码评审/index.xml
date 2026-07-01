@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>代码评审 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/</link><description>代码评审 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 10 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】没有 CI 的日子里:用自治多 Agent 评审回路兜住代码质量</title><link>https://xiaoshuai1024.top/posts/ai-dev-no-ci-agent-review/</link><pubDate>Wed, 10 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-no-ci-agent-review/</guid><description>在「前端 → 全栈 → AI 开发」这条线上,这篇落在 AI 开发阶段,讲的是我把 AI 协同研发做成工程体系时,用来替代传统 CI 的那道质量关。
+跟同行聊起质量保障,大家第一反应都是「你们 CI 怎么配的?跑多少分钟?」。我的回答每次都让对方愣一下:我们的仓库,一条 CI 流水线都没有。
+没有 GitHub Actions,没有 GitLab CI,没有 Jenkins。.yml 里一个 job 都找不到。
+那质量靠谁?靠一套自治多 Agent 评审回路,我已经稳定跑了一年多。这篇把它拆开:它兜住了什么,又诚实地讲一句,它替代不了什么。
+回路全貌:从「人盯」到「流程兜底」 先说整条回路长什么样,后面再展开关键设计:
+scope 分桶 → 并行只读评审 → 流式自动修复 → 双计数器收敛 → 硬测试门禁 → 放行提交。
+整个评审回路是我们那条 AI 研发工作流 的最后一道关。前面 TDD 已经把红/绿/重构走完了,到这里要决定「这坨改动能不能进仓库」。
+关键的判断是:既然能开并行 subagent,就尽量多开。这是团队写进硬约束的一句话。所以这套回路从设计第一天起,就是奔着「并行扇出」去的,不是排队串行。
+关键设计一:评审 Agent 只读,而且 worktree 隔离 这一条是被事故逼出来的硬规矩。
+早期做法是让评审 Agent 直接在工作区里看代码、顺便「帮我改两行」。代价是:评审 Agent 自作主张地把一段它「觉得冗余」的代码删了,而那段是并发守卫。这件事我专门写过复盘 《编译能过 ≠ 代码正确》:270 行静默蒸发,mvn compile 照样绿。
+从那以后铁了心:评审 Agent 一律只读。</description></item></channel></rss>

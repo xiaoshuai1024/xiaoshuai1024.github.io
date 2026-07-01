@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Flyway 三道防线" id="flyway-guards">
+    <mxGraphModel dx="1000" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="360" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="Flyway 版本号三道防线:构建期硬校验 + 时间戳唯一 + 启动期 gap 检测" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="920" height="290" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="DEV" value="开发者 / AI&#xa;创建迁移" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="130" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C1" value="防线 1&#xa;verify_flyway_migration_versions.py&#xa;mvn validate 阶段执行&#xa;重复 → 构建失败" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="100" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C2" value="防线 2&#xa;秒级时间戳&#xa;V20260614141405__&#xa;天然全局唯一" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C3" value="防线 3&#xa;启动期 gap 校验&#xa;+ 自动 repair&#xa;失败可配不阻断启动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d4a017;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="750" y="100" width="170" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="FAIL" value="❌ 本地构建就挂&#xa;CI 拦下" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="210" width="160" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" value="防线1 校验" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="DEV" target="C1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" value="通过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="C1" target="C2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="提交" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="C2" target="C3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" value="重复" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#dc2626;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="C1" target="FAIL"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

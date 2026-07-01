@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ArchUnit - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/archunit/</link><description>ArchUnit - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 26 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/archunit/" rel="self" type="application/rss+xml"/><item><title>Controller 直连了数据库、模块缠成死结:用 ArchUnit 把架构钉死</title><link>https://xiaoshuai1024.top/posts/architecture-archunit-guardrails/</link><pubDate>Fri, 26 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/architecture-archunit-guardrails/</guid><description>做过几年架构的人都遇到过这个场面:某天 code review,发现一个 Controller 直接 @Autowired 了 JdbcTemplate 在查数据库,绕过了 Service。问起来,答「这次比较急,先这么写」。
+架构图贴在墙上,分层写得清清楚楚。可代码是活的,它会随每一次「图方便」悄悄偏移。等你发现时,Controller 已经散落在各处直连数据库、两个业务模块缠成了死结、循环依赖改都改不动。
+靠人盯,盯不住的。 这篇就讲我怎么把架构边界写成测试,让机器来盯。
+一、架构腐化的三种典型 不是有人故意搞破坏,都是「这一次图方便」累积出来的。我见得最多的三种:
+跨层调用最常见。Controller 本来只该做路由和参数校验,但有人嫌 Service 套一层麻烦,直接把 JdbcTemplate 拉进来查库。一次两次没事,等这个模式扩散开,分层就成了摆设。
+模块缠绕更要命。康豆有十几个业务模块——tenant、trade、circle、marketing…本来该各管各的。但今天 tenant 模块需要算一笔佣金,顺手 import 了 trade 的 Repository;明天 trade 又用了 tenant 的工具类。半年后想拆微服务,发现拆不动,因为没人记得清谁依赖谁。
+循环依赖是缠绕的极端形态。A 依赖 B,B 又反过来依赖 A,编译能过(运行时可能爆),但删一个就崩一串。这种债最难还。
+这三种,你写进规范文档没人看,写进周会强调没人记。唯一管用的,是让它编译不过、测试不过。
+二、先解决一个现实问题:存量怎么办 引入架构测试,第一个拦路虎是存量。
+康豆引入 ArchUnit 的时候,代码已经写了两个月了。一跑,Controller 直连数据层的违规 467 处,业务层用 SQL 注解的 84 处。要是让测试直接 fail,CI 当场全红,谁也推不动。
+所以我们用了 ArchUnit 的 FreezingArchRule——冻结存量、只拦新增。
+机制很简单:把规则包一层 Frozen.frozen(rule),首次运行时把所有存量违规记进一个基线文件(入库),之后只对新增违规报错。这样老代码不挡路,但谁再写新的越界代码,CI 立刻拦下来。
+public final class Frozen { public static ArchRule frozen(ArchRule rule) { return FreezingArchRule.</description></item></channel></rss>

@@ -1,0 +1,105 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>架构 - Category - 帅说帅话</title><link>https://xiaoshuai1024.top/categories/%E6%9E%B6%E6%9E%84/</link><description>架构 - Category - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 03 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/categories/%E6%9E%B6%E6%9E%84/" rel="self" type="application/rss+xml"/><item><title>企业级前端架构设计与落地实践（Vue+Node.js+Java 生态）</title><link>https://xiaoshuai1024.top/posts/enterprise-frontend-architecture-vue-node-java/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/enterprise-frontend-architecture-vue-node-java/</guid><description>这篇是我从纯前端转全栈后，第一次完整主导一条 Vue + Node.js + Java 的全链路。动笔之前我以为前端架构就是组件库加工程化，做完整条链路才发现远不止——所以想把踩出来的东西记下来。
+前言 先问个问题：一个团队从纯前端，走到 Vue + Node.js + Java 全链路，前端架构到底要怎么演进？
+这不是拍脑袋的选题。业务从一条线滚到多条线，应用从几个涨到上百个，“前端写页面、后端写接口”那套老分工，根本扛不住。
+很多人对“企业级前端架构”有误解，以为就是组件库加工程化。那只占一小块。真正难的是这几件事：高并发来了扛不扛得住、跨团队怎么协作不打架、多端怎么适配不重复造轮子、前后端怎么解耦不互相等。
+这套东西我用 Vue3 + Node.js（Nuxt / Egg / Express）+ Java + SpringBoot 这套栈，从单体一路演进到全链路分层，前前后后支撑过上百个应用。说几个上线后真实量到的数：研发成本砍掉 70%、线上可用性 99.99%、大促峰值 10w+ QPS。
+但我不想把这篇文章写成“我有多牛”。我想把这套架构怎么一步步长出来的讲清楚——核心逻辑、分层落地、演进过程、工程化和监控、还有踩过的坑。读完你能拿走一套能直接对照的演进路线，而不是一堆听不懂的大词。
+一、企业级前端架构设计的核心逻辑 那企业级前端架构到底在解决什么问题？我拆成四个方面来讲，这也是我们团队每次做技术选型时反复对标的四条逻辑。
+注意，这四条不是抄来的“最佳实践”，是我们从上百个应用的坑里一点点磨出来的。
+1.1 技术栈统一与边界清晰原则 基于指定技术栈，明确各技术的应用边界，做到专技专用、无缝衔接。这能避免技术栈混乱导致的维护成本增加，同时保证团队开发的标准化与高效性。
+前端渲染层：统一使用 Vue3 作为核心框架，基于组合式 API 实现组件化、模块化开发，适配多端业务场景，替代 Vue2 提升代码可维护性与复用性。
+服务端渲染 / 跨端：使用 Nuxt.js（Nuxt3），解决 SPA 应用首屏加载慢、SEO 差的核心痛点，实现 SSR（服务端渲染）/ SSG（静态站点生成）/ ISR（增量静态再生）混合渲染。
+BFF 中间层：Egg.js 用于中大型高并发项目，内置企业级开发规范，支持集群部署；Express 用于轻量快速迭代项目，轻量灵活、快速上手。二者共同承接前后端协同的核心能力。
+后端服务层：统一使用 Java + SpringBoot，输出标准化 RESTful API，承载核心业务逻辑与数据持久化，适配企业级业务的高可靠性需求。
+1.2 前后端解耦与高效协同原则 企业级业务的核心痛点之一，是前后端耦合导致的迭代效率低。架构设计通过 BFF 层（Egg.</description></item><item><title>高并发低代码平台架构设计</title><link>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</guid><description>这是我从前端走向全栈架构师阶段的一篇典型产出：在鲁班低代码平台（大厂级低代码）的六库底座上，用架构师视角推演它的部署关系、高并发演进与高可用保障。
+本文基于当前鲁班低代码平台各仓库的既定关系与调用链，从高级架构师视角推演各系统的部署关系。并给出高并发优化、高可用保障、系统架构图与部署图、以及系统 Roadmap 与蓝图，便于在流量与可用性要求提升时按图演进。
+项目归属说明：本文的架构经验与高并发数据（峰值 10 万+ QPS、多级缓存、P0 清零等）来自我大厂时期主导的内部低代码系统&amp;quot;鲁班&amp;quot;；而文章展开的六库架构与代码实现细节，以我个人开源项目 OpenLuban（架构同源、代码全新重写，GitHub）为准。原公司系统源码不公开。
+一、系统关系与调用链（现状锚点） 鲁班平台由六个仓库组成，边界固定、契约清晰：
+系统 职责 技术栈 下游依赖 luban-ui 组件库 + 设计器 + Render 运行时 Vue3 / Nx 无（被集成） luban 管理后台 Vue3 / Vite / Pinia / Element Plus luban-bff /api/* luban-website 对外站点（SSR） Nuxt 3 luban-bff /api/public/* luban-bff 接入层：认证、聚合、协议适配 Next.js（Node） luban-backend /backend/* luban-backend 主后端：站点/页面/用户/设置 Spring Boot / MyBatis / Redis / MySQL MySQL、Redis luban-backend-go 与主后端同契约的 Go 实现 Go / Gin MySQL、Redis 调用关系可分三层看：</description></item><item><title>DDD 领域模型在低代码后端服务中的应用</title><link>https://xiaoshuai1024.top/posts/ddd-domain-model-in-lowcode-backend/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ddd-domain-model-in-lowcode-backend/</guid><description>这篇文章属于我成长线上的**全栈阶段(后端建模)**节点:在前端架构之外,把后端服务的领域边界、契约、异常语义做扎实,是从前端走向全栈架构师的关键一跃。
+低代码平台的后端不仅要支撑「站点、页面、用户、系统设置」等资源的 CRUD,还要在 API 契约统一、多端对接(管理后台 BFF、对外站点)的前提下,保持领域边界清晰、业务规则可演进。
+本文从架构师视角,以 luban-backend 的实现为蓝本,说明 DDD 领域模型设计在低代码后端服务中的应用:战略层面的限界上下文划分,战术层面的实体、应用服务、领域异常及与 BFF 的协作方式。
+项目归属说明：本文 DDD 建模经验源自大厂时期主导的内部系统&amp;quot;鲁班&amp;quot;，代码实现以个人开源项目 OpenLuban（架构同源、代码全新重写）为准。
+一、为什么低代码后端需要领域模型 低代码后端的核心职责可以概括为四块:
+内容模型:站点(Site)与页面(Page + PageSchema)的创建、发布、按路径访问。 身份与权限:用户(User)与认证(登录、/auth/me)、基于角色的访问控制(RequireUser / RequireAdmin)。 系统配置:系统设置(SystemSettings)的读写与缓存(如 Redis)。 对外能力:按站点 slug + 路径对外暴露已发布页面,无需鉴权(供官网等消费)。 若仅按「表结构 + Controller + Service」平铺,很容易出现三类问题:
+业务规则散落在各处,修改一处忘记另一处。 错误语义不统一,前端/BFF 难以稳定处理。 扩展新资源或新上下文时边界模糊,影响可维护性。 引入 DDD 的领域模型思维(不必强求完整 DDD 框架),可以在保持实现轻量的前提下,获得清晰的边界、一致的业务语义和可演进的 API 契约。下面从战略与战术两方面结合 luban-backend 说明。
+二、战略设计:限界上下文与能力边界 从业务能力出发,可将低代码后端划分为以下限界上下文(Bounded Context),与当前模块/包结构对应关系如下。
+限界上下文 职责 主要实体与概念 对外暴露 站点与页面(Content) 站点与页面的生命周期、同站点下 path 唯一、schema 存储 Site(聚合根)、Page(实体,属 Site) 管理端 CRUD;公开接口按 slug+path 查已发布页 用户与认证(Identity &amp;amp; Auth) 用户管理、登录校验、当前用户解析 User(聚合根)、角色/状态 登录、/auth/me;Header 注入 X-User-ID / X-User-Role 系统设置(Settings) 全局配置的读写与缓存 SystemSettings(单例式聚合) GET/PUT /settings,仅 Admin 公开访问(Public) 按站点 slug + path 返回已发布页面,只读、无鉴权 复用 Site、Page,只读、过滤 status=published GET /public/sites/:slug/pages?</description></item><item><title>基于nuxtjs的SSR服务性能+高可用优化</title><link>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</guid><description><![CDATA[基于nuxtjs的SSR服务性能 + 稳定性优化 这一篇写在我从前端转向全栈架构师的阶段。当时承接的是一个高并发的 SSR 服务:既要做性能,也要做稳定性。它代表的是全栈阶段的高并发实战能力。
+基于 Nuxt.js(本文以 Nuxt3 为主)的 SSR(服务端渲染) 服务,有两个核心定位:
+它是解决 SPA 应用首屏加载慢、SEO 优化不足的核心方案。 它也是承接高并发流量、保障用户体验的关键载体。 本文结合生产环境实战,围绕 SSR 服务在流量快速增长场景下的性能瓶颈与稳定性隐患,给出可落地的优化方案。
+核心目标只有两个:QPS 量级跃升,以及**&ldquo;永不宕机&rdquo;**。
+一、服务架构基础：Nuxt.js SSR实时渲染服务架构 本次优化的核心载体是基于 Nuxt3 的 SSR 服务。整体架构以 &ldquo;Node.js 实时渲染&rdquo; 为核心。
+它承接前端请求、完成服务端渲染与数据聚合,并联动 CDN、Nginx、BFF 层、后端服务,形成完整的请求链路。
+核心架构链路如下:
+用户请求 → CDN(静态内容缓存) → Nginx(负载均衡、探活、请求转发) → Nuxt.js SSR 服务(实时渲染、数据请求、兜底处理) → BFF 层(流量承接、数据聚合、接口缓存) → 后端服务(核心业务逻辑、数据持久化)。 核心职责上,Nuxt.js SSR 服务负责页面模板渲染、前端资源打包、服务端数据请求与整合,同时承接前端错误处理与兜底逻辑。它是连接用户与后端服务的关键枢纽。
+二、核心问题：流量增长与SEO优化的双重挑战 业务规模扩大后,Nuxt.js SSR 服务面临两大核心痛点,严重影响用户体验与业务增长,是优化的出发点:
+2.1 流量快速增长带来的性能与稳定性压力 业务推广与用户规模扩大,带来请求量激增。原有 SSR 服务存在明显瓶颈:
+单实例 QPS 仅 200 左右,高峰时段出现请求排队、响应超时。 部分后端服务异常时,SSR 服务无缓存兜底,直接返回错误页面。 实例故障时无法快速切换,导致服务不可用,影响用户留存。 2.]]></description></item><item><title>多租户 SaaS 的数据隔离:从一行漏掉的 tenant_id 说起</title><link>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</link><pubDate>Wed, 03 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</guid><description><![CDATA[多租户数据隔离是我做全栈架构时绕不开的一环——它是 SaaS 系统能不能交付的底线。这篇记录的就是这套隔离体系里最隐蔽的一个漏洞,以及我怎么把它从&quot;靠人盯&quot;改成&quot;层层兜&quot;。
+先说一句结论:多租户的安全感,从来不来自&quot;开发都很细心&quot;,而来自&quot;假设迟早有人会漏,提前把网织好&quot;。后面所有内容都是为这句话找证据。
+一次越权,根因只有一个 JOIN 那次线上反馈很直接:某个客户说&quot;我能看到别人的数据&quot;。多租户系统听到这句话,基本可以判定为越权。顺着链路翻,查到一条排查 SQL,对着前端返回的字段一比,定位到一段 JOIN。
+排查路径其实不复杂。先用前端能看到的那条&quot;不该出现&quot;的数据,反查它来自哪张表、哪个接口、哪条 SQL;再把这条 SQL 在测试库里重放,逐段拆 JOIN,看哪一段把别人的数据带了出来。定位到具体那段 SQL,大概花了不到半天——真正花时间的是后面想清楚&quot;为什么会漏&quot;。
+根因是:某个 JOIN 关联两张业务表时,只在外层带了 tenant_id 条件,JOIN 的那张表没带。结果租户 A 的查询,把租户 B 的关联行也带了出来。
+不是什么精妙的 0day,也不是鉴权被绕过。就是一段 JOIN ... ON a.id = b.aid,后面漏了 AND a.tenant_id = b.tenant_id。
+修复很快,改一行加上去就完事。但这件事真正的风险在于:代码能跑、单测能过、功能自测也没问题——平时你压根不会想到去构造&quot;跨租户数据&quot;的用例,它只在真实多租户、真实数据并存的线上才会爆。
+行级隔离的标配:为什么选它,代价是什么 先把我们的隔离方案交代清楚,后面才好聊为什么会漏。
+业界多租户隔离大体三条路:独立库、独立 schema、行级隔离。我老老实实把它们的代价摆出来,你就能理解我们为什么选行级。
+独立库:每个租户一个物理数据库。隔离最干净,但运维成本爆炸——租户一多,实例数跟着涨,备份、监控、迁移都得一个租户一个租户搞;跨租户报表、平台级统计要跨库 join,基本写不下去。除非单租户数据量极大、合规要求极严(比如金融大客户),否则扛不住。 独立 schema:一个库里每个租户一套 schema。比独立库省实例,但表结构变更要做 N 次 DDL,租户越多越痛;而且跨租户查询还是麻烦,得动态拼 schema 名。 行级隔离:所有租户的数据混在一张表,靠 tenant_id 这列区分。运维最省心(一套表结构、一次 DDL),跨租户查询天然支持,扩展租户就是加一行配置。代价就一个:每一条 SQL、每一个 JOIN 都得记得带 tenant_id。 我们这套选的是行级隔离,业务表都带 tenant_id,所有查询、所有 JOIN 都必须带条件。取舍很清楚:用&quot;每条 SQL 都要小心&quot;换&quot;运维和成本可控&quot;。对中小客户为主、租户数量会涨的 SaaS,这笔账划算。
+租户身份怎么来?请求头 X-Tenant-Id。请求一进来,过滤器链里有个 TenantFilter,负责把头里的租户标识解析出来,塞进一个请求级的上下文。后面业务代码取租户 id,都从这个上下文拿,不让业务自己再从 header 里抠——抠着抠着就有人抠错。]]></description></item><item><title>把权限校验从手写里解放出来:RBAC 注解 + 过滤器链的设计</title><link>https://xiaoshuai1024.top/posts/rbac-permission-filter-chain/</link><pubDate>Tue, 02 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/rbac-permission-filter-chain/</guid><description><![CDATA[这是我做全栈架构时的一类典型工作:把后端的权限校验,从「散落在每个接口里的 if」收拢成一条声明 + 校验 + 对齐 + 兜底的链路。它体现的是用机制替代人记的工程判断。
+权限体系最怕的不是「没做」,而是「散着做」。
+「散着做」到底贵在哪 我接手过一个运营后台,权限校验是这种画风:这个接口开头一个 if (user.hasRole(&quot;admin&quot;)),那个接口中间塞一段 if (!user.can(&quot;edit&quot;)),还有几个接口压根没校验,靠「前端按钮不显示」硬撑。
+老实讲,这种代码最致命的不是「能不能跑」,而是谁都不敢动。一段判断摆在接口里,三个月后你想删它,第一反应不是「这判断对不对」,而是「删了会不会越权」——因为没人知道这段判断是踩了哪个坑加的,删了出了事算谁的。于是它就赖在那儿,越来越多,越来越乱。
+代价是具体的:
+谁也不敢删那段判断,因为谁也不知道删了会不会越权。 最后代码里堆满「祖传 if」,谁动谁背锅。 前端按钮不显示,不等于后端没校验漏洞。 按钮显示是前端逻辑,接口鉴权是后端职责。黑客根本不经过你的前端,直接打接口。把安全寄托在「按钮藏起来了」,等于没做。 几个接口漏校验,纯靠运气没出事。 接口多了之后,「哪个加了哪个没加」全靠人记。今天没出事,是因为没人想到去打那个接口;明天被人扫到,就是事故。 权限和业务逻辑搅在一起,改一个判断得读懂整个方法。 这段判断嵌在业务代码中间,你要重构这个方法,就得先把权限逻辑摘出来——但摘出来的过程中,你怎么知道没摘错? 所以判断标准很简单:如果你问「这个接口的权限规则是什么」,得去翻业务代码才能回答,那就是散着做。 真正该有的状态是,看一眼注解就知道。
+推倒重做时,核心思路就一句话——权限跟着接口走,不跟着人记。
+注解声明,让权限长在接口上 定义一个注解,大概长这样:
+@RequirePermission(&#34;ops:order:refund&#34;) @PostMapping(&#34;/order/refund&#34;) public Result refund(...) { ... }注意那个权限 key:ops:order:refund。它不是随手写的字符串,而要在迁移脚本的权限种子数据里先注册过。这一条最关键,后面要出事就出在这。
+key 的命名是有规范的,我们整个团队统一用「资源:动作」的三段式:{系统}:{资源}:{动作},比如 ops:order:refund(运营后台 / 订单 / 退款)、ops:order:export、fin:bill:audit。规范本身不复杂,但它解决三件事:
+key 在种子数据里必须先注册。 没注册的 key 走到运行期要么报错要么放行,两种结果都不好。所以 key 是「先在种子表里声明,再在注解里引用」,顺序不能反。 和接口绑死,新人不用通读业务。 新人看接口签名就知道「这接口吃什么权限」,不需要去翻业务逻辑、不需要去问老人。这点对团队扩张特别值钱。 权限信息和接口定义不再分家。 改接口的人顺手就能看到权限要求,删接口的人知道顺手把种子 key 也清掉。 有了注解,接口要什么权限就是声明出来的:
+新人不用通读业务逻辑,也能知道「这个接口吃 ops:order:refund」。 权限信息和接口定义绑在一起,不再散落在代码各处。 改接口的人顺手就能看到权限要求,删接口的人知道该把种子 key 也清掉。 Code review 时,「这个接口有没有权限」从「翻业务代码」变成「看注解有没有」。 比满屏 if 清爽太多。注解本身的定义也就几行:]]></description></item><item><title>低代码渲染引擎与设计器:从 schema 到可编辑画布</title><link>https://xiaoshuai1024.top/posts/luban-lowcode-rendering-engine/</link><pubDate>Wed, 27 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/luban-lowcode-rendering-engine/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」线上的 全栈阶段。我主导的低代码平台「鲁班」,核心是一个自研的渲染引擎 + 设计器。这篇把它拆开——schema 怎么设计、渲染器怎么递归、设计器怎么拖拽编辑。
+项目归属说明：渲染引擎的设计经验源自大厂时期主导的内部系统&quot;鲁班&quot;，本文代码实现以个人开源项目 OpenLuban（架构同源、代码全新重写，GitHub）为准。
+先把一句话结论撂这:低代码引擎的难点不在「能渲染」,在「能编辑、能扩展、能演进」。市面上拿 JSON 渲个页面、发个 demo 的项目一抓一把,真正卡人的是后面那三件事。下面所有取舍都围着它转。
+schema:一棵树 + 一个表单值字典 低代码引擎的起点是 schema。我把它设计得很薄,有意压到最小:
+interface NodeSchema { id: string type: string // 组件类型,如 &#39;LubanButton&#39; props?: Record&lt;string, unknown&gt; children?: NodeSchema[] } interface PageSchema { root: NodeSchema formState?: Record&lt;string, unknown&gt; // 表单值绑定容器 }一个关键决定:表单控件的值不挂在每个节点上,而是统一放在顶层 formState 字典里,以控件的 props.name 为 key。运行时只要一个扁平字典就能驱动整页所有表单字段,提交、校验、回填都简单。
+老实讲这步我纠结过。每个节点自己存自己的值,直觉上更「自然」,写 schema 的人也省心。但一落地就发现问题:提交时要遍历整棵树去收集,校验时要在树里找控件,后端回填要把值塞回各自的 props——三个环节都要重新爬树。换成顶层一个字典,提交是 JSON.stringify(formState),校验是对字典跑规则,回填是 Object.assign。一个数据结构,省掉三处脏活。
+还有一个更隐蔽的取舍:schema 要薄,但版本治理要从第一天留口子。PageSchema 现在没显式的 version 字段,不是忘了,是早期的 demo 还不值得为它背兼容包袱。但 NodeSchema 的结构我刻意没塞多余东西,留出加 version / compatibility 的余地。一旦真有存量页面要演进,加个字段、走个 migrator 就能接住。第一天就把 schema 塞满,后面想改一处得动全身——这种坑我见太多了。]]></description></item><item><title>uni-app + SaaS 多租户小程序:从"按租户打包"到"代开"架构</title><link>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</link><pubDate>Tue, 26 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」线上的 全栈阶段。我做的 SaaS 小程序平台,核心难题是&quot;一份代码,怎么变成每个租户自己的小程序&quot;。这篇讲两种模式:按租户打包,和平台代开。
+难点:微信小程序的 AppId 是构建期常量 SaaS 多租户的小程序,理想是&quot;一份代码运行时识别租户&quot;。但微信不允许:manifest.json / project.config.json 里的 appid 在构建期烧死,运行时改不了。
+所以&quot;一份代码多个租户&quot;在微信小程序上,得在构建期就把租户的 AppId 注入进去。
+模式一:按租户打包 第一种做法是每个租户打一个包。我用 Vite 插件在 buildStart 改写 manifest.json:
+VITE_WX_APPID=wx&lt;租户A的AppId&gt; VITE_TENANT_ID=t_xxx pnpm build:mp-weixin:prod插件定位 mp-weixin.appid,字符串级替换(要求 appid 以 wx 开头才换),uni 编译时烧进产物。tenantId 走 .env.prod 环境变量,运行时 import.meta.env 读取。
+一份代码,跑 N 次构建,产 N 个租户的包。简单直接,但租户多了构建成本线性涨。
+模式二:平台代开(第三方平台) 更好的是代开:用微信开放平台的第三方平台能力,一份代码模板给所有租户用,差异靠 ext_json 注入。
+关键在微信 /wxa/commit 的 ext_json 字段:
+ext_json = { extAppid, ext: { tenantId }, window: {} }一份模板代码 + ext_json 注入 tenantId,所有租户共用同一份包。小程序运行时用 wx.]]></description></item><item><title>可观测性不是堆工具:RequestId、统一错误信封和监控告警怎么串起来</title><link>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</link><pubDate>Sun, 31 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</guid><description><![CDATA[这是我在全栈架构师阶段沉淀下来的一套稳定性基建。打通前后端完整链路之后,最直接的考验就是:线上出事了,你能不能在第一时间定位。这套可观测性体系,就是那条链路的&quot;眼睛&quot;。
+线上出问题,最怕的不是错,是&quot;不知道哪儿错&quot; 做过稳定性的人大概都有过这种时刻:用户反馈&quot;系统卡了&quot;&ldquo;报错了&rdquo;,你登上去一看,前端没报错日志,后端日志一大堆,翻半天翻不到那一条。
+最后只能去问&quot;什么时候、什么操作、哪个页面&quot;,靠用户回忆拼现场。
+这种痛感,堆再多工具也救不了。我对这件事的判断很明确:可观测性不是工具数量的问题,是这些东西能不能串成一条链路。
+工具再多,各管各的、对不上号,排查时还是两眼一抹黑。这篇文章,复盘我们团队从&quot;堆工具&quot;到&quot;串链路&quot;走了哪几步。
+第一根线:全链路 RequestId 最便宜、收益最高的一件事,就是每个请求注入一个唯一的 RequestId,然后让它贯穿这个请求经过的所有日志。
+听起来简单,但它解决的是排查里最要命的问题:对齐。
+前端报了一个错,后端到底走没走到、走到哪一步挂了——以前靠猜,现在按 RequestId 一搜,前因后果全在一条时间线上。
+我们团队的规矩是:排查线上问题第一件事,就是拿 RequestId 去后端日志里捞这条请求的完整轨迹。没有这个 id,前后端日志就是两座孤岛。
+第二根线:统一错误信封 RequestId 解决了&quot;找日志&quot;,但还有个更烦的问题:错误格式不统一。
+以前我们的接口,每个同学自己拼错误返回结构:有的返回 code、有的返回 status、有的返回 errno。前端解析的时候痛苦得要命,日志里的异常堆栈更是五花八门。
+后来我们统一成 AppException + ApiErrorCode:
+业务里抛统一的异常类,错误码集中管理; 前端拿到的错误结构是固定的,告别&quot;每个接口自己拼错误结构&quot;。 这件事看着小,价值在于前后端对错误的理解一致了。前端不用猜返回结构长啥样,后端也不用记每个接口的错误码塞在哪儿。
+错误信封统一了,RequestId 带上错误码,一条日志就把&quot;谁错了、错在哪、什么码&quot;讲清楚。
+盯什么:Prometheus + Grafana 日志解决的是&quot;事后查&quot;,监控解决的是&quot;事中盯&quot;。我们用 Prometheus 采集、Grafana 看板,重点盯几类指标:
+API 延迟:别光看平均值,得看 P95/P99,平均值的谎言我吃过亏; QPS:知道系统在扛多少流量,心里有底; 成功率:这个比延迟更重要,成功率掉下来就是真出事了; Token 消耗:接了大模型的能力,Token 是真金白银,得盯; JVM 指标:GC、内存、线程,Java 服务的命门。 我的经验是,看板别贪多。堆一堆大屏,平时没人看,出事了也找不到那条线。盯住核心的几个,把阈值和告警配好,比 50 个面板强。
+ELK:不只是查日志 ELK(Elasticsearch + Logstash + Kibana)在我们这,除了做日志检索,还承担一件事:MySQL 到 ES 的同步,用来做业务搜索和审计。
+这里有个真实的坑要提:dev 环境 ES 是 7.17,prod 是 8.]]></description></item><item><title>给一个 SaaS 做 2.5 万用户压测:我学到的几件事</title><link>https://xiaoshuai1024.top/posts/load-testing-25k-users/</link><pubDate>Sat, 30 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/load-testing-25k-users/</guid><description><![CDATA[这是我在全栈阶段做的一件事:给一个多租户 SaaS 系统做完整的 2.5 万用户压测。它检验的不是某个前端组件,而是一条从应用层、数据库到监控的完整链路能不能扛住真实流量。
+很多人对压测有误解:找个工具,起几万个线程,对着接口猛打,看一眼 QPS 和 P99,完事。
+我的判断是——压测真正的难点不在&quot;跑工具&quot;,而在&quot;压什么、怎么压、压完怎么知道哪儿慢&quot;。工具五分钟就能跑起来,但前面那套假设、后面那套对齐,才是值钱的部分。
+先想清楚压什么,再谈怎么压 接到压测任务的第一反应通常是&quot;全链路压一遍&quot;。这是错的。
+2.5 万用户不是个均匀的数字。真实业务里,有人登录、有人浏览、有人下单、有人支付,比例完全不一样。所以第一步是拆场景:
+核心链路:登录、浏览、下单、支付必须压,它们出问题用户最先骂。 读多写少 vs 写重:列表页、详情页是读;下单、支付是写。两者瓶颈模型完全不同,分开压。 峰值模拟:大促那种&quot;0 点开抢&quot;的瞬时尖峰,和平时的稳态是两个量级,分开建模。 这三件事想清楚,压测计划才算有了骨架。否则就是拿工具瞎打,跑完一堆数字,谁也说不清代表什么。
+梯度加压,别一上来就猛踩 压测最常见的坑:目标 2.5 万并发,直接从 0 拉到 2.5 万,然后看服务挂没挂。
+挂了也没用——你不知道是哪儿挂的。我的做法是梯度加压:
+先 1 千,稳住看一遍; 再 5 千,再看; 再 1 万、2 万、2.5 万。 每升一档,人都盯着监控,看哪个指标先撑不住。
+接着是稳态压测:不是冲一下就撤,而是在某个档位保持一段时间(我们一般稳态跑十几分钟),看服务能不能稳定扛住,而不是靠一波脉冲蒙混过关。
+为什么要稳态?因为有些问题只有&quot;长跑&quot;才暴露:连接池慢慢漏、缓存命中率缓慢下降、GC 时间随堆涨上来。冲一下看不到这些,得让子弹飞一会儿。
+压测必须和可观测性对齐,否则压了个寂寞 这条是踩坑踩出来的规矩。
+有一次压测,跑完 QPS 看着还行,P99 也在可接受范围,结果上线后还是出问题。回头复盘才发现:压测时监控没对齐。我们盯着的是&quot;请求成功率&quot;,但某个数据库连接池在压测中其实已经打满,只是有重试兜着,成功率没塌。
+问题的本质是压测指标和线上风险没对齐。所以从那以后我们立了规矩:压测期间 Prometheus 必须实时开着,Grafana 上把这几类指标摆在一起盯:
+API 延迟(P50/P95/P99)、QPS、成功率; 数据库连接池的使用率、等待数; 缓存命中率、限流触发次数; JVM 的 GC、堆、线程数。 压测不是&quot;跑完看报告&quot;,是&quot;边压边看哪儿先冒烟&quot;。压和盯必须同一拨人、同一时刻,不然压完根本不知道慢在哪。
+瓶颈往往不在你想的地方 2.5 万用户压下来,我最确定的一条经验:瓶颈几乎从不在最初猜的地方。
+我们一开始担心应用层、业务逻辑、某个慢查询。结果真压起来,最先冒烟的是:
+数据库连接池:配置太小,高并发下请求排队等连接,延迟直接飙; 缓存:某个热点 key 没缓存住,全打到 DB; 限流:阈值配低了,正常流量被自己限流误伤,看起来像&quot;服务不行&quot;,其实是&quot;自己挡自己&quot;。 应用本身的业务代码,反而是最不容易先垮的那一层。]]></description></item></channel></rss>

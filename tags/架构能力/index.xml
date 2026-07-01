@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>架构能力 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B/</link><description>架构能力 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 16:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】AI 时代,什么能力对研发才是真正重要的</title><link>https://xiaoshuai1024.top/posts/ai-dev-what-matters/</link><pubDate>Wed, 17 Jun 2026 16:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-what-matters/</guid><description><![CDATA[上一篇讲知识不再是护城河。这篇接着说一个更实际的问题:知识被抹平了,什么才是新的护城河。
+我的判断很直接:AI 时代真正重要的研发能力,不是&quot;会写代码&quot;,是&quot;知道怎么正确地做事&quot;。
+一、vibe coding 的热闹和它的代价 AI 编程门槛降到地板之后,vibe coding 成了一种流行玩法——不读代码、不懂架构,跟 Claude Code 或 Cursor 聊着天把应用&quot;聊&quot;出来。
+我能理解这种爽感。但作为经常要接手、维护这类系统的人,必须说一句实话:这些产物里有一大批是玩具,却被当成工业级软件在用。
+危险不在 demo 能跑,而在于&quot;能跑&quot;这件事制造了一种错觉。能跑的代码,不等于能上线;能上线的,不等于能扛住流量;能扛住流量的,不等于半年后还改得动。这三层差距,vibe coding 一个都没跨。
+具体表现在四件事上,几乎每篇 vibe coding 产物都中招:
+安全:AI 写的鉴权、SQL 拼接、密钥处理多半有洞。一个 tenant_id 漏校验,就是跨租户数据泄露。 可维护:没规范、没分层、命名混乱。三个月后作者自己都读不懂。 可扩展:逻辑全堆在一个文件,一次请求同步干十件事。用户量一上来就瘫。 可验证:没测试、没契约、没监控。改一行,不知道弄坏了哪里。 玩具和工业级软件的分界线,从来不是&quot;能不能跑&quot;,而是出了事扛不扛得住、查不查得清、改不改得动。
+二、AI 解决执行,解决不了&quot;做对&quot; 先表明立场:我不是反对 AI。恰恰相反,Claude Code 是我的主力工具,研发账本里 4 个人 2 个月干出近百万行,没有 AI 根本做不到。我比多数人都更依赖它,也更清楚它的边界。
+这个边界就是:AI 负责执行——把你想清楚的东西快速写出来。但&quot;想清楚&quot;这件事,它替不了。
+更麻烦的是,AI 不只是解决不了&quot;做对&quot;,它还会主动做错。这些都是我在真实项目里反复见到的:
+它会做错误的架构决策——让它设计一个模块,它图省事把所有东西揉在一起,因为它优化的是&quot;这一刻能跑&quot;,不是&quot;半年后好维护&quot;。 它会写出屎山——能跑就行,重复代码、硬编码、魔法数字,它不认为这是问题。 它会跳过测试——不盯着,它就不写。写了也是占位,真出问题测不出来。 它会悄悄删功能——发布新版本时,你才发现登录被它重构没了。 最后这一条不是假设。我复盘过一次&quot;幽灵删除&quot;事故:AI 在重构里删了一段关键逻辑,编译过、测试没报错,上线才暴露。没有经验和门禁兜着,这种事就是定时炸弹。
+一句话:AI 让&quot;写出能跑的代码&quot;变廉价了,却让&quot;写出正确、安全、可维护的代码&quot;更依赖人——因为只有人知道什么叫&quot;正确&quot;。
+三、真正值钱的几种能力 知识被抹平之后,值钱的能力全在&quot;执行&quot;这一层之上。我拆成五块,挨个说。
+架构能力是底座。 知道怎么建一个高可用、可扩展、可稳定维护的系统。这部分 AI 顶多打下手,核心判断必须人来:
+系统怎么分层,边界划在哪,哪一步该做、哪一步该砍; 多租户怎么隔离,资金怎么防双花,高并发怎么扛——这些微信分润和Flyway 治理里都讲过; 一眼看出哪种方案上线必挂。 前瞻性来自经验。 AI 只看当下这一刻能不能跑。有经验的研发看得见半年后:这个设计现在没问题,用户量翻十倍会不会塌?]]></description></item></channel></rss>

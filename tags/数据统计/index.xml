@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>数据统计 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/</link><description>数据统计 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】数据大屏背后:多租户 SaaS 的统计中台怎么搭</title><link>https://xiaoshuai1024.top/posts/ai-dev-stats-dashboard/</link><pubDate>Wed, 17 Jun 2026 12:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-stats-dashboard/</guid><description><![CDATA[上一篇讲数据库地基,这篇讲建在地基上的统计中台。
+这个项目有十几个数据大屏:平台总览、交易分析、商家 KPI、连锁统计、运营统计、服务商看板……每个大屏几十个指标,全部要多租户隔离。听起来像该上 ClickHouse、上 Flink、上数仓那一套。
+我们没有。用的是 MySQL 汇总表 + Redis 实时计数 + ES 搜索,三层数据源拼装。这篇讲清楚为什么这么选,以及落地时的几个关键判断。
+一、为什么没上 ClickHouse 很多人一听「统计大屏」,第一反应是上 OLAP。我们也评估过,最后没上,理由很实在。
+数据量没到那个量级。这是多租户 SaaS,不是全民级应用,日订单几十万量级,MySQL 加索引加汇总表完全扛得住。上 ClickHouse 是杀鸡用牛刀,运维成本反而上去了。
+团队只有 4 个人。多引一个重型组件,就多一份运维负担。SaaS 创业期,运维复杂度是隐形成本。
+实时性要求没那么极致。大屏数字延迟 15 分钟完全可以接受,它本来就是决策辅助,不是交易撮合。
+核心判断是:不追求技术先进,追求「刚好够用 + 可控」。这个判断贯穿整个统计中台的设计。
+二、三层数据新鲜度:这是整个设计的核心 大屏的数据来自三个时间尺度,必须分清楚。
+T+1 层是主力。 每天凌晨 00:05 跑 StatisticsCalculationJob,把昨天的 trade_order/trade_refund/tenant_user/tenant_shop/tenant_circle_post 五张表,按租户聚合 upsert 进 stat_daily_summary。
+@Scheduled(cron = &#34;0 5 0 * * ?&#34;) // 每日 00:05 public void calculateDailyStats() { List&lt;String&gt; tenantIds = jdbc.queryForList( &#34;SELECT DISTINCT tenant_id FROM trade_order WHERE DATE(created_at) = ?]]></description></item></channel></rss>

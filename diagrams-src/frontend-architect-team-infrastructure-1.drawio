@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="基建与影响力核心关系" id="infra-1">
+    <mxGraphModel dx="980" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="A" value="前端团队发展&#xa;（核心驱动力）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="180" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G_B" value="前端基建（内功）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="430" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="B" value="前端基建&#xa;核心支撑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="190" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="B1" value="解决问题&#xa;效率低 · 质量差 · 协作难" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="300" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="B2" value="核心目标&#xa;标准化 · 自动化 · 可复用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="300" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G_C" value="技术影响力（外功）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="510" y="150" width="430" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="技术影响力&#xa;价值延伸" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="190" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="C1" value="解决问题&#xa;影响力弱 · 人才流失 · 话语权低" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="300" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="C2" value="核心目标&#xa;沉淀技术 · 辐射价值 · 凝聚人才" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="740" y="300" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="HUB" value="二者相互促进&#xa;形成正向循环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="470" width="180" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eAB" value="核心支撑" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#1e293b;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="B">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eAC" value="价值延伸" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#1e293b;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="C">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eBB1" value="解决问题" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#1e293b;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="B" target="B1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eBB2" value="核心目标" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#1e293b;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="B" target="B2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eCC1" value="解决问题" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="C" target="C1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eCC2" value="核心目标" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="C" target="C2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eHUB1" value="相互促进" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;startArrow=classic;fontSize=10;fontColor=#1e293b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="B" target="C">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="490" y="214"/><mxPoint x="490" y="214"/></Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

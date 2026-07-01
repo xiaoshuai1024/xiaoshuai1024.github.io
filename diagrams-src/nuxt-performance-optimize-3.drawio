@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="optimize-results" id="optimize-results">
+    <mxGraphModel dx="980" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="优化效果对比 (优化前 -> 优化后)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="900" height="450" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="HUB" value="SSR 优化&#xa;效果对比" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="90" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R1" value="TTFB 首屏时间&#xa;优化前 1.8s  →  优化后 0.5s" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="220" width="220" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2" value="白屏时间&#xa;优化前 1.5s  →  优化后 0.3s" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="310" y="220" width="220" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="R3" value="页面秒开率&#xa;优化前 65%  →  优化后 98%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="220" width="220" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="R4" value="QPS 上限&#xa;优化前 500  →  优化后 2000+" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="790" y="220" width="120" height="62" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R5" value="系统整体性能&#xa;相对于 SPA 提升 80% 以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="340" width="320" height="62" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EA1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HUB" target="R1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="EA2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HUB" target="R2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="EA3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.6;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HUB" target="R3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="EA4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.8;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HUB" target="R4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="EA5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;dashed=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="R2" target="R5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

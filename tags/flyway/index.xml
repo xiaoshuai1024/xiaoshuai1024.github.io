@@ -1,0 +1,26 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Flyway - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/flyway/</link><description>Flyway - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 11:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/flyway/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】850 张表 + 近 400 个迁移:多租户 SaaS 的 Flyway 治理实战</title><link>https://xiaoshuai1024.top/posts/ai-dev-flyway-governance/</link><pubDate>Wed, 17 Jun 2026 11:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-flyway-governance/</guid><description>上一篇讲分润,这篇讲它的地基——数据库迁移。
+研发账本里提过这个项目有 850 张表。但表不是一次建好的,它们分散在近 400 个迁移脚本里,4 个人并行写,跨 2 个月。没有一套治理,这种规模必崩:版本号撞车、生产漏执行、多人改同一张表冲突、历史表脏数据。
+这篇拆我们怎么用 Flyway 把它管住,全是真金白银的教训,包括一次生产 gap 事故的止血。
+一、规模先摆出来 db/migration/ 目录下,迁移脚本的真实分布:
+维度 数据 迁移脚本总数 近 400 个(squash 之后) baseline 文件 1 个,4546 行,集中了 207 张表的完整 schema 其余增量迁移 约 190 个,含 86 个建表、98 个改表、36 个 seed 涉及 tenant_id 的迁移 93 个(多租户是核心隔离维度) 4 个人 + AI,2 个月产出这个量。这种密度光靠「大家注意点」是不可能的,必须靠机制。
+二、第一道坎:squash——把历史压成一个 baseline 项目跑到第 6 周,迁移脚本累积到了 300 多个,最早那批表早就稳定了。问题来了:新环境初始化要跑 300+ 个脚本,又慢又容易在某个老脚本上挂;多租户字段 tenant_id 在历史脚本里反复加,逻辑冗余。
+我们做了一次 squash(合并历史迁移),把这 300 多个脚本合并进一个 V1__init_multi_tenant_tables.sql baseline。
+baseline 文件头有一行注释,标明它的来历:</description></item><item><title>数据库迁移治理:Flyway 版本号、squash 和那些启动失败的事故</title><link>https://xiaoshuai1024.top/posts/flyway-migration-governance/</link><pubDate>Mon, 01 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/flyway-migration-governance/</guid><description><![CDATA[在我从前端走向全栈架构的阶段,数据库这一层是我必须打通的硬骨头。这篇讲的是其中最容易被忽视、却能让整个服务起不来的一环:Flyway 迁移治理。
+某天早上我接到一个告警:某个服务启动不起来。日志翻到最后,就一行 Flyway 报错——迁移版本号对不上。
+登上去一看,前一天两个人各自合了代码,各自加了一个 V12__xxx.sql。版本号撞车,Flyway 直接罢工,服务起不来。
+事故的本质:不是粗心,是治理缺位 排查倒不复杂,改个号、重新合一下就好了。但事后我盯着那两个 V12 想了很久——这事的本质不是&quot;谁粗心&quot;,而是治理缺位。
+数据库迁移在多人协作下,如果不立规矩,迟早撞车。而且撞车的代价不是&quot;改个号&quot;,是整个服务起不来。
+下面是我们团队在 Flyway 上踩过坑后,最终固化下来的几条规矩。
+版本号:从号段分配到秒级时间戳 最早我们试过&quot;号段分配&quot;——张三负责 V100 到 V199,李四负责 V200 到 V299。想法挺好,各管一段。
+但实际跑下来全是问题:
+号段会跨、会重; 新人来了不知道找谁要号; 合并的时候还是会有人偷偷用了别人的号段。 结论:号段分配是反工程化的,它把一个本该自动化的协调问题,丢给了人。
+我们的做法:秒级时间戳 后来全换成秒级时间戳:V{YYYYMMDDHHmmss},比如 V20260611185900__add_user_field.sql。谁先建脚本,谁的时间戳就是谁。
+两个人同一天、同一分钟、同一秒撞上的概率,比号段撞车低太多了。弃用号段那一刻,工程上反而干净了——少一套要维护的&quot;分配机制&quot;,代码和流程里的东西越少越省心。
+mvn validate 阶段校验唯一性 光靠人自觉是不够的。我们写了个 Python 脚本,挂在 mvn validate 阶段,扫一遍所有迁移文件,校验版本号是否唯一。不唯一直接 fail 构建。
+这个脚本跑到现在,真实校验过的迁移有 119 个,全唯一。不是团队运气好不撞车,是脚本一直在那儿守着——谁撞了在本地构建就过不去,根本到不了 CI。
+为什么必须前置到 validate 阶段 版本号冲突这种事,一旦让它进到生产,服务启动直接失败,影响面是全量的。
+所以这种东西必须前置到最早:validate 阶段,本地一跑就知道。
+这种&quot;不出事没人感谢、出事就是大事故&ldquo;的基础设施,就得靠自动化兜,不能靠人。
+squash 是个坑:只能在本地 Flyway 有个 squash,把一堆历史迁移压成一个新的基线。听起来很爽——迁移文件越积越多,看着烦。
+但我们定的规矩是:squash 只能在本地开发库做,生产绝对禁止。
+原因:squash 会 DROP DATABASE squash 的实现是 DROP DATABASE 然后用新基线重建。本地开发库你随便重建无所谓,生产库谁敢 DROP?]]></description></item></channel></rss>

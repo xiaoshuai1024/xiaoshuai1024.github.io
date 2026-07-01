@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Skills研发生命周期" id="skills2">
+    <mxGraphModel dx="1500" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1480" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 阶段1 需求对齐 -->
+        <mxCell id="s1" value="&lt;b&gt;① 需求对齐&lt;/b&gt;&#10;&#10;brainstorming&#10;to-prd&#10;ubiquitous-language&#10;grill-me" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="30" y="90" width="200" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段2 编码 -->
+        <mxCell id="s2" value="&lt;b&gt;② 编码&lt;/b&gt;&#10;&#10;test-driven-development&#10;executing-plans&#10;springboot-tdd&#10;backend-patterns" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="90" width="200" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段3 验证审查 -->
+        <mxCell id="s3" value="&lt;b&gt;③ 验证审查&lt;/b&gt;&#10;&#10;verification-before-completion&#10;ai-regression-testing&#10;kd-review (21 subagent)&#10;receiving-code-review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="510" y="90" width="210" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段4 排障 -->
+        <mxCell id="s4" value="&lt;b&gt;④ 排障&lt;/b&gt;&#10;&#10;systematic-debugging&#10;diagnose&#10;&#10;先复现再动手" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="760" y="90" width="190" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段5 安全 -->
+        <mxCell id="s5" value="&lt;b&gt;⑤ 安全 / 数据&lt;/b&gt;&#10;&#10;security-review&#10;git-guardrails&#10;&#10;DELETE 三必查&#10;(事故后补的牢)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="90" width="200" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段6 多agent并行 -->
+        <mxCell id="s6" value="&lt;b&gt;⑥ 多 agent 并行&lt;/b&gt;&#10;&#10;dispatching-parallel-agents&#10;subagent-driven-development&#10;using-git-worktrees&#10;handoff" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="90" width="220" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- 流程箭头 -->
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=classic;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=classic;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=classic;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=classic;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=classic;" edge="1" parent="1" source="s5" target="s6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 顶部主线标题 -->
+        <mxCell id="title" value="一个需求从立项到上线，skill 卡在流程的哪里" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="1420" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 底部注释 -->
+        <mxCell id="note2" value="不是每个阶段都用满所有 skill，而是按项目风险点在关键位置焊死纪律。康豆最重投入的是③验证审查和⑤安全——数据事故是真实血泪。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="340" width="1420" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

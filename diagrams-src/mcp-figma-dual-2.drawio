@@ -1,0 +1,63 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Figma双MCP协作闭环" id="mcp2">
+    <mxGraphModel dx="1400" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 顶部主线 -->
+        <mxCell id="title" value="Figma 双 MCP 协作：官方生成图层 + figma-mcp-go 绑 Token，设计↔代码两头走通" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1240" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- 起点：HTML 代码 -->
+        <mxCell id="html" value="HTML 组件&#10;(SVG + CSS 渐变 + capture.js)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="160" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- 官方 MCP -->
+        <mxCell id="official" value="官方 Figma MCP（云端）&#10;&#10;Code to Canvas&#10;generate_figma_design&#10;&#10;写工具，不限次数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=middle;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="180" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Figma 图层 -->
+        <mxCell id="layer" value="Figma 可编辑图层&#10;(矢量/文字/渐变保留)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=middle;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="170" width="160" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- figma-mcp-go -->
+        <mxCell id="gomcp" value="figma-mcp-go（本地）&#10;&#10;绑定设计 Token&#10;create_variable / bind&#10;&#10;73 个读写工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="680" y="140" width="180" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- 还原 -->
+        <mxCell id="back" value="get_design_context&#10;读设计 + Token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="910" y="170" width="150" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Vue 代码 -->
+        <mxCell id="vue" value="Vue 代码&#10;(结构 + Token 引用 + 交互)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="170" width="150" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- 箭头 -->
+        <mxCell id="a1" value="生成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;fontColor=#475569;fontSize=10;" edge="1" parent="1" source="html" target="official"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a2" value="转图层" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;fontColor=#475569;fontSize=10;" edge="1" parent="1" source="official" target="layer"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a3" value="精修/绑 Token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=classic;fontColor=#475569;fontSize=10;" edge="1" parent="1" source="layer" target="gomcp"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a4" value="读取" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;fontColor=#475569;fontSize=10;" edge="1" parent="1" source="gomcp" target="back"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a5" value="还原" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;fontColor=#475569;fontSize=10;" edge="1" parent="1" source="back" target="vue"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- 配额坑标注 -->
+        <mxCell id="quota" value="⚠️ 配额坑：官方读工具免费版每月仅 6 次，写工具（Code to Canvas）不限&#10;→ 读取集中批处理，能写就别读，Token 对齐靠脚本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#ef4444;fontColor=#991b1b;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="240" y="330" width="620" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- 底部一句话 -->
+        <mxCell id="note" value="一个外部能力可能要拆成几个 MCP server 组合用——理解工具的能力边界，比理解协议本身更关键。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="410" width="1240" height="30" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

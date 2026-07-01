@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Agent - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/agent/</link><description>Agent - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 29 May 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/agent/" rel="self" type="application/rss+xml"/><item><title>构建一个多租户 AI 助手:Spring AI + RAG + Agent 的工程化落地</title><link>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</link><pubDate>Fri, 29 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</guid><description><![CDATA[这篇属于「前端 → 全栈 → AI 开发」这条线里的 AI 开发阶段。前面那些文章讲的是用 AI 写代码,这篇换个方向:用 AI 给产品做能力。具体是用 Spring AI 1.0.6 从 0 到 1 搭一个多租户 AI 助手,做成能上线、能治理、有安全边界的生产系统,而不只是跑通一个 demo。
+一、要解决的核心问题 运营后台要一个 AI 助手,运营同学能用自然语言查数据、改配置:&ldquo;查一下今天的订单&rdquo;、&ldquo;把这几个订单打上「已处理」标签&rdquo;。
+难点不在&quot;能不能对话&quot;,在多租户。我们的平台服务很多租户,每个租户:
+用自己的大模型(A 租户用 DeepSeek、B 租户用通义千问); 用自己的 API Key(各自的账单和额度); 有自己的知识库(检索各自的运营文档); 有自己的限流和预算。 这意味着不能像 demo 那样写死一个全局 ChatModel,所有东西都得按租户动态来。多租户和单租户的差别基本就在这一句,这篇也围绕它展开。
+二、整体架构 先看全貌。一次&quot;运营问一句话、AI 流式回答并可能调工具&quot;的链路:
+关键设计决策,后面逐个展开:
+多供应商统一走 OpenAI 协议,一套代码吃三家模型。 多租户隔离落在模型实例这一层,每个租户一个独立 ChatModel。 RAG 靠 metadata filter,一个索引管所有租户。 Agent 工具定义和 Spring AI 解耦,中间自研一层桥接。 SSE 流式,前后端各有一套处理。 一次请求的时序 文字描述不如一张时序图清楚。运营问一句话、AI 流式回答并调工具的完整链路:
+注意几个关键点:模型实例是按租户动态取的(工厂)、工具是模型自己决定调用并由 Spring AI 自动执行(internalToolExecutionEnabled)、全程流式返回。
+三、多供应商:三家模型,一套代码 我对接了 DeepSeek、智谱 GLM、通义千问三家,没有为任何一家写独立 SDK。]]></description></item><item><title>Agent / Tool Calling 桥接设计:把工具定义和 AI 框架解耦</title><link>https://xiaoshuai1024.top/posts/ai-agent-tool-calling-bridge/</link><pubDate>Sun, 24 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-agent-tool-calling-bridge/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」线上的 AI 开发阶段。AI 助手要&quot;能干活&quot;而不只是&quot;能聊天&quot;,靠的就是 Tool Calling(工具调用)。这篇讲我怎么把工具定义和 Spring AI 解耦:业务同学写起来零框架负担,换框架一行不动,写操作有确认门禁,每次调用全审计。
+一、要解决的核心问题 我们的多租户 AI 助手要服务运营同学。运营同学说的不是&quot;帮我查订单&quot;这种结构化指令,而是自然语言:&ldquo;今天的订单怎么样&quot;&ldquo;把这几个待审的代下单批一下&quot;&ldquo;这几个订单统一备注成已沟通&rdquo;。
+对模型来说,这些话背后是不同的业务动作。难的不是对话,是怎么把自然语言安全地落到真实业务方法上。这中间有几个工程问题必须先回答:
+谁决定调哪个工具? 不能写 if 用户问订单就查订单 的硬编码分支。自然语言的组合空间是无限的,if-else 永远写不完。 工具怎么定义? 业务同学写一个工具,要不要被 AI 框架的 API 绑架?今天用 Spring AI,明天换 LangChain4j,要不要把所有工具重写一遍? 多租户怎么穿透? A 租户的运营说话,工具只能查 A 租户的订单,这个隔离边界怎么从对话层一路传到业务 service? 写操作怎么兜底? 模型要是手一抖调错写操作(比如批量改错订单),怎么拦?Agent 直接改生产数据,谁来背锅? 这篇就是回答这四个问题。核心思路一句话:调度交给模型,工具实现交给业务,中间架一层自研桥接,把两边彻底解耦。
+二、整体设计 先看全貌。一次&quot;运营问一句话、模型决定调工具、框架自动执行、结果回喂模型续生成&quot;的完整链路:
+几个关键设计决策,后面逐个展开:
+不自研 Agent 框架,只桥接工具。工具调用循环交给 Spring AI,业务只实现工具本身。 工具定义和 Spring AI 解耦。自研 @AiTool + ToolHandler 一层,业务代码看不到任何框架类型。 租户上下文用 toolContext 透传,多租户隔离从对话层穿透到工具层。 写操作走确认门禁。Redis token + 参数哈希 + 消费即删,防重放防误触。 一次工具调用的时序 文字描述不如一张时序图清楚。运营问&quot;今天订单怎么样&rdquo;、模型决定调 query_orders、框架自动执行、结果回喂续生成的完整链路:]]></description></item></channel></rss>

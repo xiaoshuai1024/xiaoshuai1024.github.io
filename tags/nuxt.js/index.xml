@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Nuxt.js - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/nuxt.js/</link><description>Nuxt.js - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 17 Mar 2025 21:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/nuxt.js/" rel="self" type="application/rss+xml"/><item><title>基于nuxtjs的SSR服务性能优化</title><link>https://xiaoshuai1024.top/posts/nuxt-performance-optimize/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/nuxt-performance-optimize/</guid><description>这是我前端阶段围绕性能打的一场硬仗——用 Nuxt.js SSR 改造企业官网与营销平台,把首屏白屏和 SEO 两个老大难一次性解决。下面是这次改造的完整复盘。
+在中后台管理系统、官网类应用的开发中,SEO 优化与首屏渲染性能是核心诉求。传统 SPA（单页应用）虽能提供流畅的交互体验,但首屏渲染依赖客户端 JS 加载,存在白屏时间长、SEO 不友好的问题。
+基于此,我们选择 Nuxt.js 框架进行 SSR（服务端渲染）改造,依托其对 Vue3 的良好支持、内置的 SSR 能力,结合 Node.js 解决 SPA 的核心痛点。本文详细复盘改造过程中遇到的问题、优化方案及最终效果。
+一、系统基本情况：SSR改造背景与核心目标 我们所改造的系统为企业官网和营销平台,核心痛点集中在 SEO 适配与首屏性能,具体改造背景如下:
+1. SEO 需求迫切
+系统面向 C 端用户与合作伙伴,需要搜索引擎快速抓取页面内容、提升搜索排名。但原有 SPA 架构的页面内容由客户端 JS 渲染,搜索引擎爬虫难以抓取,SEO 效果极差。
+2. 首屏渲染体验差
+SPA 架构下,首屏需加载完整的 Vue 框架、业务 JS、静态资源,导致白屏时间过长（实测超过 3s）,用户流失率较高,无法满足企业官网和营销平台的用户体验要求。
+3. CDN 与缓存配置导致频繁白屏
+此时未进行 SSR 优化,CDN 节点配置不合理、缓存过期策略不当,会出现资源加载失败、缓存命中异常等问题。上线时频繁出现白屏故障,严重影响营销转化与官网展示效果。
+基于以上痛点,我们确定 SSR 改造的核心目标,同时明确技术选型:
+改造核心思路:基于 Nuxt.js 3 实现 SSR 实时渲染,通过 Node.js 搭建服务端承接前端渲染请求,同时联动 Egg.js 处理接口聚合与缓存逻辑,最终实现 SEO 与首屏性能的双重提升。
+二、SSR改造过程中遇到的核心问题 SSR 改造落地后,系统虽实现了服务端渲染,但随着流量增长,一系列性能与功能问题逐渐暴露,成为影响系统稳定性与用户体验的关键,具体如下:</description></item></channel></rss>

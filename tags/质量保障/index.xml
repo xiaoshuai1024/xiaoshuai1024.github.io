@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>质量保障 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C/</link><description>质量保障 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】AI 时代的大型全栈项目架构设计:把"AI 保障"建进系统骨架</title><link>https://xiaoshuai1024.top/posts/ai-dev-fullstack-arch-ai-assurance/</link><pubDate>Fri, 12 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-fullstack-arch-ai-assurance/</guid><description><![CDATA[这篇讲的是我走到 AI 开发阶段的一个核心判断:当大量代码交给 AI 生成,架构师的活儿从&quot;设计能跑的系统&quot;,变成了&quot;设计能兜住 AI 的系统&quot;。它承接的是我全栈阶段沉淀的那套多租户、契约、迁移治理的底座——那些东西在 AI 时代不但没贬值,反而最值钱。
+我的结论先放这:AI 让代码产得快,也让坏代码产得快。一个能稳定输出代码的系统,如果骨架本身兜不住,产能越高、负债累积越快。
+所以我现在反而比以前更花时间在那些&quot;无聊&quot;的基础设施上——多租户隔离、权限过滤器、契约扫描、迁移治理、可观测。不是因为它们新,恰恰因为它们旧、因为它们&quot;枯燥&quot;,才成了 AI 时代最值钱的东西。
+先说我们这个项目的底座 我们做的是一个多租户 SaaS,典型的三段式结构:C 端小程序 + 运营后台 + Java 后端。规模不算夸张,但因为是多租户,出了事影响面大,所以对隔离和契约特别较真。
+架构底座就这么几样,说出来都是老生常谈:
+多租户行级隔离,每张业务表都带 tenant_id,查询自动带过滤; RBAC 权限过滤器链,权限校验不靠人记得加,而是在过滤器里强制走; 契约驱动,前端调的 URL、后端的路由注解、SQL 引用的表、Flyway 的建表 DDL,两两对得上才算数; Flyway 迁移治理,版本号唯一、有 seed 数据、不许手改线上表结构; 可观测,Prometheus / Grafana / ELK 一套,出问题能追溯。 没有任何一项是&quot;AI 时代的新玩意儿&quot;。但我的判断是:这些东西在 AI 时代的权重,是被拉高的,不是被降低的。
+为什么&quot;无聊&quot;的基础设施变重要了 以前一个资深工程师手写代码,他脑子里有上下文:这条 SQL 多租户场景下要带 tenant_id、这个接口对外要校验权限、这次改表要写迁移。人会忘,但频率可控,靠 code review 兜得住。
+现在不一样了。AI 生成代码的时候,它没有项目级的敬畏感。它会&quot;合理地&quot;省掉一个 JOIN 条件,因为单看那条查询,不带 tenant_id 也能跑通;它会&quot;优化&quot;掉一段它看不懂的并发守卫,因为编译器不报错。
+问题不在 AI 笨。问题在于:单点视角的合理性,在系统视角上是危险的。
+所以能把&quot;系统视角&quot;焊死在骨架里的那些机制,就变成了保险绳。tenant_id 自动注入、权限走过滤器、契约两两校验、迁移版本唯一——这些是机器能 100% 执行的硬约束,不依赖任何人或 Agent 当下是否清醒。]]></description></item><item><title>【AI 研发实战】UT/IT/E2E 三层测试纪律:fail-fast、禁跳过、零占位</title><link>https://xiaoshuai1024.top/posts/ai-dev-test-discipline/</link><pubDate>Sun, 07 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-test-discipline/</guid><description>在「前端 → 全栈 → AI 开发」这条线上,这篇落在 AI 协同研发阶段——讲的是我用 Agent 干活时,测试纪律怎么落地。它和契约门禁、多 Agent 评审是一套:把模糊的「测试要写好」变成 Agent 也能照着执行的硬规则。
+测试金字塔谁画都顺手:底下 UT、中间 IT、顶上 E2E,贴在 PPT 上特别好看。可真到了项目里,这套三角形十有八九会缩水。
+UT 漏边界; IT 跑得慢干脆禁用; E2E 全绿但一上线就翻车。 我以前也画过那种金字塔,画完就贴墙上,没几个人看。
+我的做法是:金字塔不画在墙上,写进纪律里。而且这条纪律不仅人要守,Agent 也要守。下面是我们怎么把「三层测试」从口号落成可执行规矩的。
+三层,各兜一摊,谁也替不了谁 先把分工说清楚,省得有人想「用 UT 多写点、E2E 少写点」来偷懒:
+UT(*Test)兜逻辑:纯逻辑、边界、异常分支,快、多、便宜。一个工具函数的入参组合,几毫秒一轮。 IT(*IT)兜集成:到真实数据库、真实中间件这一层,验「拼起来对不对」。慢一些,但能抓 UT 抓不到的连接、序列化、SQL 语义问题。 E2E 兜真实路径:从入口点进,模拟用户真实操作,验「整条链路通不通」。 这三层不能互相替代。UT 全绿不代表集成没问题——你 mock 掉的那个表结构可能压根对不上。E2E 全绿也不代表每个分支都对——你只点了「正常路径」。
+所以关键判断是:不是「三层选一层」,是三层都得在,各管一段。
+纪律一:E2E fail-fast,第一个失败就停 E2E 最贵的不是写,是跑。一个 E2E 套件几十分钟不稀奇。
+如果第一个用例就挂了,后面几十个还在吭哧吭哧跑,跑完一堆红——纯浪费时间,还污染日志。
+我们直接定死 fail-fast:maxFailures: 1。第一个挂,立刻停。理由很直接:E2E 是端到端的,前面的失败大概率会传染后面(比如登录挂了,后面所有用例都白跑)。
+停在第一个,省下来的时间够你去看一眼到底哪断了,而不是等半小时后看一屏红。
+这条对 Agent 尤其重要。Agent 不会自己判断「这个失败要不要继续」,所以必须用配置把它钉死,不让它有发挥空间。
+纪律二:禁止跳过,禁止占位 这条是我跟团队(跟 Agent)吵过最多的一条。
+什么算「跳过」?@Ignore、skip、it.skip、条件性跳过(if 环境变量就 skip)——统统不许,明令禁止。连 Agent 自己都不许自动加 skip 来「先把测试跑绿」。</description></item></channel></rss>

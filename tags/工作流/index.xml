@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作流 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/</link><description>工作流 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 11 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】我们的 AI 研发工作流:从原型到上线的全链路</title><link>https://xiaoshuai1024.top/posts/ai-dev-workflow/</link><pubDate>Thu, 11 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-workflow/</guid><description>这是我 AI 开发阶段的主干实践。前端的工程化纪律、全栈的链路意识,在这一步被重新组织成一条可复用的 AI 研发流水线,后面讲评审、测试、契约的文章,都拿它当地图。
+先说我的判断:大多数人用 AI 写代码,还停留在「光标后面补两行」,出 bug 了再问一句「这怎么报错了」。这跟当年用 IDE 自动补全区别不大,只是更聪明了点。
+真正让玩法变了的,是把整条研发链路摊开,让 AI 在每一步都进场,把它当成流水线上的工位,而不是高级补全。
+全链路总览 整条链路长这样:
+确认需求 → HTML 原型 → 计划 → 多轮并行头脑风暴 → TDD 执行(红/绿/重构)→ 自治多 Agent 评审 → 提交/MR。 每一步都不是「问 AI 一句话」那么简单。下面逐个拆开。
+第一步:需求之后,先出 HTML 原型 确认需求之后,先出 HTML 原型,而不是直接开写。
+原因很直接:对着空气写需求,人和 AI 都容易跑偏。先把界面用 HTML 画出来,需求和实现的歧义在原型阶段就消掉了大半。
+第二步:计划阶段,确立唯一事实源 计划阶段是整个工作流里我最强调的一环。
+做法是做两轮计划,产出一份任务图 JSON,并约定它是唯一事实源。
+这条规矩的本质是解决并行的一致性:每个 agent 各自理解任务、各干各的,很快撞车——你改的文件我也要改,我设计的接口跟你对接不上。任务图摆在中间,谁做什么、依赖谁,一目了然。
+没有这个事实源,并行越多越乱。
+第三步:多轮并行头脑风暴 然后是多轮并行头脑风暴。
+我们有一条近乎硬约束的原则:能开并行 subagent 就尽量多开,团队甚至把「尽可能多地开并行 subagent 执行」写进了规矩里。
+两种用法的本质区别在于:
+串行问 AI,是把它当搜索引擎。 并行扇出去,是把它当一支团队——同一个问题让多个 agent 同时从不同角度去想,再汇总。 效率和质量都不是串行能比的。
+第四步:TDD 执行,红 / 绿 / 重构 执行阶段走 TDD:红、绿、重构。</description></item></channel></rss>

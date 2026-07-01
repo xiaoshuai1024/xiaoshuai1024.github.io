@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="命令工作流" id="cmd-workflow">
+    <mxGraphModel dx="1100" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="28 个自建命令覆盖全流程:需求 → 测试 → 评审 → MR → 部署" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="1020" height="240" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="PRD" value="/prd&#xa;产品需求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="TDD" value="/tdd&#xa;测试驱动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="210" y="120" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="E2E" value="/mp-e2e /op-e2e&#xa;端到端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="120" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="REV" value="/kd-review&#xa;自治评审" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="120" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="MR" value="/pr-fullstack&#xa;提 MR(禁推 dev)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="730" y="120" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="DEP" value="/deploy-prod-be-ops&#xa;部署" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="120" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="PRD" target="TDD"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="TDD" target="E2E"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="E2E" target="REV"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="REV" target="MR"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="MR" target="DEP"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

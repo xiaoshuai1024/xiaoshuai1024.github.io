@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>数据库治理 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B2%BB%E7%90%86/</link><description>数据库治理 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 11:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B2%BB%E7%90%86/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】850 张表 + 近 400 个迁移:多租户 SaaS 的 Flyway 治理实战</title><link>https://xiaoshuai1024.top/posts/ai-dev-flyway-governance/</link><pubDate>Wed, 17 Jun 2026 11:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-flyway-governance/</guid><description>上一篇讲分润,这篇讲它的地基——数据库迁移。
+研发账本里提过这个项目有 850 张表。但表不是一次建好的,它们分散在近 400 个迁移脚本里,4 个人并行写,跨 2 个月。没有一套治理,这种规模必崩:版本号撞车、生产漏执行、多人改同一张表冲突、历史表脏数据。
+这篇拆我们怎么用 Flyway 把它管住,全是真金白银的教训,包括一次生产 gap 事故的止血。
+一、规模先摆出来 db/migration/ 目录下,迁移脚本的真实分布:
+维度 数据 迁移脚本总数 近 400 个(squash 之后) baseline 文件 1 个,4546 行,集中了 207 张表的完整 schema 其余增量迁移 约 190 个,含 86 个建表、98 个改表、36 个 seed 涉及 tenant_id 的迁移 93 个(多租户是核心隔离维度) 4 个人 + AI,2 个月产出这个量。这种密度光靠「大家注意点」是不可能的,必须靠机制。
+二、第一道坎:squash——把历史压成一个 baseline 项目跑到第 6 周,迁移脚本累积到了 300 多个,最早那批表早就稳定了。问题来了:新环境初始化要跑 300+ 个脚本,又慢又容易在某个老脚本上挂;多租户字段 tenant_id 在历史脚本里反复加,逻辑冗余。
+我们做了一次 squash(合并历史迁移),把这 300 多个脚本合并进一个 V1__init_multi_tenant_tables.sql baseline。
+baseline 文件头有一行注释,标明它的来历:</description></item></channel></rss>

@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="分润资金流" id="profit-flow">
+    <mxGraphModel dx="1100" dy="420" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="一笔订单的钱:冻结 → 分账 → 解冻(多租户隔离)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="1020" height="320" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="U" value="用户支付&#xa;profit_sharing=true" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="150" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="F" value="资金冻结&#xa;店铺特约商户池" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="160" width="150" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="S" value="确认收货&#xa;触发分账" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="150" width="140" height="76" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="P" value="平台佣金&#xa;即时分润" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="60" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="TK" value="达人佣金&#xa;延迟分账(UN_SPLIT)&#xa;留冻结池" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="160" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="M" value="商家货款&#xa;暂冻结" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="260" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="SP" value="提现审核通过&#xa;→ 微信分账到达人零钱" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="MO" value="完结分账 unfreeze&#xa;→ 解冻可提" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="260" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="U" target="F"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="F" target="S"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="S" target="P"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="S" target="TK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="S" target="M"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="TK" target="SP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="M" target="MO"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

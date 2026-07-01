@@ -1,0 +1,172 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ingest-sequence" id="seq">
+    <mxGraphModel dx="1200" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="1040" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="lanes" value="一次入库时序（publish → 切片 → 向量化 → 写 ES → 回标）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1160" height="940" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="hO" value="运营" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="76" y="80" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hC" value="KbManagementController" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="226" y="80" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hDB" value="MySQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="406" y="80" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hI" value="IngestService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="556" y="80" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hSP" value="TokenTextSplitter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="726" y="80" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hE" value="EmbeddingModel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="906" y="80" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hES" value="Elasticsearch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1066" y="80" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lO" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="136" y="130" as="sourcePoint"/>
+            <mxPoint x="136" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lC" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="301" y="130" as="sourcePoint"/>
+            <mxPoint x="301" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lDB" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="466" y="130" as="sourcePoint"/>
+            <mxPoint x="466" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lI" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="130" as="sourcePoint"/>
+            <mxPoint x="626" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lSP" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="801" y="130" as="sourcePoint"/>
+            <mxPoint x="801" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lE" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="971" y="130" as="sourcePoint"/>
+            <mxPoint x="971" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lES" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1126" y="130" as="sourcePoint"/>
+            <mxPoint x="1126" y="960" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m1" value="1. POST /documents/{id}/publish" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="136" y="170" as="sourcePoint"/>
+            <mxPoint x="301" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="2. UPDATE status = PUBLISHED" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="301" y="210" as="sourcePoint"/>
+            <mxPoint x="466" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="3. ingest(document)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="301" y="250" as="sourcePoint"/>
+            <mxPoint x="626" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="4. split(content)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="290" as="sourcePoint"/>
+            <mxPoint x="801" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="5. List&lt;Document&gt; chunks" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="801" y="330" as="sourcePoint"/>
+            <mxPoint x="626" y="330" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="loop" value="loop 每个 chunk" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;dashed=0;verticalAlign=top;fontStyle=2;fontSize=10;fontColor=#2563eb;align=left;spacingLeft=8;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="596" y="360" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="6. put metadata(tenant_id, doc_id, ...)" style="endArrow=block;html=1;strokeColor=#2563eb;strokeWidth=1.5;fontSize=10;fontColor=#2563eb;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="400" as="sourcePoint"/>
+            <mxPoint x="626" y="424" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="700" y="400"/>
+              <mxPoint x="700" y="424"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="m7" value="7. embed(chunks)   （vectorStore.add 内部）" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="470" as="sourcePoint"/>
+            <mxPoint x="971" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" value="8. float[] vectors" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="971" y="510" as="sourcePoint"/>
+            <mxPoint x="626" y="510" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m9" value="9. bulk index(ai_knowledge)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="550" as="sourcePoint"/>
+            <mxPoint x="1126" y="550" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m10" value="10. ok" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1126" y="590" as="sourcePoint"/>
+            <mxPoint x="626" y="590" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m11" value="11. UPDATE es_indexed = 1" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="640" as="sourcePoint"/>
+            <mxPoint x="466" y="640" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m12" value="12. done" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="626" y="690" as="sourcePoint"/>
+            <mxPoint x="301" y="690" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m13" value="13. 200 已发布" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="301" y="740" as="sourcePoint"/>
+            <mxPoint x="136" y="740" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="note" value="注：vectorStore.add(chunks) 把 embedding 与写 ES 打包；embedding 由 starter 注入的 EmbeddingModel 完成，业务代码不碰向量细节。" style="text;html=1;strokeColor=#cbd5e1;fillColor=#f8fafc;fontColor=#475569;fontSize=10;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="76" y="800" width="1110" height="60" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Vue2转Vue3 codemod 事务化流程" id="vue2CodemodTx1">
+    <mxGraphModel dx="1180" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="g1" value="事务化主流程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#1e293b;verticalAlign=top;fontStyle=1;fontSize=12;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="820" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="安全网（旁挂）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#1e293b;verticalAlign=top;fontStyle=1;fontSize=12;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="860" y="40" width="300" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p1" value="Plan 计划&#xa;算出所有 change 入队" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="200" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p2" value="ChangeQueue&#xa;依赖升级 / 脚本迁移 / vite 脚手架&#xa;AST codemod / 类型生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="260" height="76" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p3" value="预检有冲突?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="190" width="140" height="76" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pabort" value="❌ 中止 · 一个字不写&#xa;报告标出冲突项" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p4" value="Apply 执行&#xa;预检过才落盘&#xa;任一步失败即停" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="190" width="200" height="76" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p5" value="Restore 还原&#xa;（从备份 zip 还原）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="320" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ok" value="迁移报告 migration-report.md&#xa;依赖变化 / 改了哪些文件 / 需人工确认的 note" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="备份 zip&#xa;感知 .gitignore，不带 node_modules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="890" y="100" width="240" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="--dry-run 试跑&#xa;跑完不写盘，输出 change 清单 + skip 项" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="890" y="210" width="240" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="restore 前&#xa;再打一次还原前备份" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="890" y="320" width="240" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p2" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3yes" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3no" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p3" target="pabort">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4fail" value="失败" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p4" target="p5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4ok" value="成功" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="p4" target="ok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="es1" value="执行前" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s1" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="es2" value="入队后可选" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s2" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="es3" value="还原时" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="p5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

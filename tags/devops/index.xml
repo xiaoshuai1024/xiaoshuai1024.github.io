@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>DevOps - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/devops/</link><description>DevOps - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 31 May 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/devops/" rel="self" type="application/rss+xml"/><item><title>可观测性不是堆工具:RequestId、统一错误信封和监控告警怎么串起来</title><link>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</link><pubDate>Sun, 31 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</guid><description><![CDATA[这是我在全栈架构师阶段沉淀下来的一套稳定性基建。打通前后端完整链路之后,最直接的考验就是:线上出事了,你能不能在第一时间定位。这套可观测性体系,就是那条链路的&quot;眼睛&quot;。
+线上出问题,最怕的不是错,是&quot;不知道哪儿错&quot; 做过稳定性的人大概都有过这种时刻:用户反馈&quot;系统卡了&quot;&ldquo;报错了&rdquo;,你登上去一看,前端没报错日志,后端日志一大堆,翻半天翻不到那一条。
+最后只能去问&quot;什么时候、什么操作、哪个页面&quot;,靠用户回忆拼现场。
+这种痛感,堆再多工具也救不了。我对这件事的判断很明确:可观测性不是工具数量的问题,是这些东西能不能串成一条链路。
+工具再多,各管各的、对不上号,排查时还是两眼一抹黑。这篇文章,复盘我们团队从&quot;堆工具&quot;到&quot;串链路&quot;走了哪几步。
+第一根线:全链路 RequestId 最便宜、收益最高的一件事,就是每个请求注入一个唯一的 RequestId,然后让它贯穿这个请求经过的所有日志。
+听起来简单,但它解决的是排查里最要命的问题:对齐。
+前端报了一个错,后端到底走没走到、走到哪一步挂了——以前靠猜,现在按 RequestId 一搜,前因后果全在一条时间线上。
+我们团队的规矩是:排查线上问题第一件事,就是拿 RequestId 去后端日志里捞这条请求的完整轨迹。没有这个 id,前后端日志就是两座孤岛。
+第二根线:统一错误信封 RequestId 解决了&quot;找日志&quot;,但还有个更烦的问题:错误格式不统一。
+以前我们的接口,每个同学自己拼错误返回结构:有的返回 code、有的返回 status、有的返回 errno。前端解析的时候痛苦得要命,日志里的异常堆栈更是五花八门。
+后来我们统一成 AppException + ApiErrorCode:
+业务里抛统一的异常类,错误码集中管理; 前端拿到的错误结构是固定的,告别&quot;每个接口自己拼错误结构&quot;。 这件事看着小,价值在于前后端对错误的理解一致了。前端不用猜返回结构长啥样,后端也不用记每个接口的错误码塞在哪儿。
+错误信封统一了,RequestId 带上错误码,一条日志就把&quot;谁错了、错在哪、什么码&quot;讲清楚。
+盯什么:Prometheus + Grafana 日志解决的是&quot;事后查&quot;,监控解决的是&quot;事中盯&quot;。我们用 Prometheus 采集、Grafana 看板,重点盯几类指标:
+API 延迟:别光看平均值,得看 P95/P99,平均值的谎言我吃过亏; QPS:知道系统在扛多少流量,心里有底; 成功率:这个比延迟更重要,成功率掉下来就是真出事了; Token 消耗:接了大模型的能力,Token 是真金白银,得盯; JVM 指标:GC、内存、线程,Java 服务的命门。 我的经验是,看板别贪多。堆一堆大屏,平时没人看,出事了也找不到那条线。盯住核心的几个,把阈值和告警配好,比 50 个面板强。
+ELK:不只是查日志 ELK(Elasticsearch + Logstash + Kibana)在我们这,除了做日志检索,还承担一件事:MySQL 到 ES 的同步,用来做业务搜索和审计。
+这里有个真实的坑要提:dev 环境 ES 是 7.17,prod 是 8.]]></description></item></channel></rss>

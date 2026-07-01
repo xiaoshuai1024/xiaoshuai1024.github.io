@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="FreezingArchRule 冻结基线" id="freeze-flow">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="R" value="新规则 ARCH-DATA-01&#xa;Frozen.frozen(rule)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="FIRST_LBL" value="首次运行" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="140" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="B" value="存量违规 467 处&#xa;写入基线文件（入库）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="P1" value="✅ 测试通过&#xa;（存量豁免）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="270" width="140" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LATER_LBL" value="后续每次运行" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="有新增违规?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="170" width="140" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="FAIL" value="❌ 测试失败&#xa;CI 拦下" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="P2" value="✅ 测试通过&#xa;代码和基线一起收敛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="320" width="170" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N1" value="核心：存量不挡路，新增必拦截&#xa;还一处存量 → 删一条基线 → 修代码" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="440" width="320" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" value="首次" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="R" target="B">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="B" target="P1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E3" value="后续" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="R" target="C">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E4" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#dc2626;fontColor=#1e293b;fontSize=10;" edge="1" parent="1" source="C" target="FAIL">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E5" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" edge="1" parent="1" source="C" target="P2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

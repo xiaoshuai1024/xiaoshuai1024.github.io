@@ -1,0 +1,12 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>微信支付 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</link><description>微信支付 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】微信分润从 0 到 1:CPS 分账、提现状态机与一次冲正降级</title><link>https://xiaoshuai1024.top/posts/ai-dev-wechat-profit-sharing/</link><pubDate>Wed, 17 Jun 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-wechat-profit-sharing/</guid><description>上一篇把总账立住了。这篇挑它最硬的一块——微信分润——拆给你看。
+分润为什么难。一笔钱要拆成几份、分几次、走不同的通道、还得多租户隔离,搞不好就是资金事故。这是整个项目里我盯得最紧、门禁立得最硬的部分。
+一、先看这笔钱怎么流 多租户电商里,一笔订单的钱不是直接进商家口袋。微信支付支持「分账」——付款时先冻结到特约商户,确认收货后再按比例拆给平台、达人、商家。
+钱大致这样流动:用户支付时标记 profit_sharing=true,资金冻结到店铺特约商户池;确认收货后触发分账,平台佣金即时分润,达人佣金延迟分账(留在达人冻结池),商家货款暂时冻结;达人提现审核通过后,才真正把达人那一份分账到零钱;最后完结分账,解冻商家货款可提。
+关键决策是达人佣金为什么延迟。确认收货那一刻,达人可能还没签约分账接收方、可能退款、可能违规。所以钱先标 UN_SPLIT 留在冻结池,等提现审核通过才真正分账。这就是后面提现状态机的来由。
+二、分账比例:基点(bp)而不是百分比 钱的事,小数点算错就是事故。我们全程用基点(万分之一),绝不用浮点百分比。
+TenantSplitConfigService 里分账比例是这样定义的:
+public record SplitConfig( String tenantId, @Min(0) @Max(5000) int platformCommissionRateBp, // 平台抽成 @Min(0) @Max(5000) int talentCommissionRateBp, // 达人佣金 @Min(0) @Max(5000) int otherSplitRateBp, // 其他分账 @Min(0) @Max(5000) int totalSplitLimitBp, // 总分账上限 boolean enabled, ...) { public int totalRateBp() { return platformCommissionRateBp + talentCommissionRateBp + otherSplitRateBp; } }几个硬约束。
+比例上限 5000bp(50%),单方不能超过。
+总比例守门 30%:totalRateBp() &amp;gt; 3000bp 时自动降级为即时分账,不走达人延迟分账,避免分账方拿太多、商家货款不够解冻。
+配送费单独算:次日达有固定金额,配送中心和自提点按 bp 分,合计不超 10000bp。
+为什么用基点。整数运算,不存在 0.</description></item></channel></rss>

@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="整体调用链路" id="bridge-overview">
+    <mxGraphModel dx="1100" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP_MAIN" value="主调用链路（模型调度 + 框架自动执行 + 结果回喂续生成）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="60" width="1040" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="U" value="运营前端&#xa;ChatService 入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="ChatService&#xa;组装 toolCallbacks + toolContext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="120" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="M" value="LLM&#xa;决定调哪个工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="410" y="120" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="BR" value="AiToolBridgeConfig&#xa;桥接层（收集/适配/透传）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="580" y="120" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="FTC" value="FunctionToolCallback&#xa;Spring AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="780" y="120" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="H" value="ToolHandler 实现&#xa;业务工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="970" y="120" width="100" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eUC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="U" target="C">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eCM" value="prompt + toolCallbacks + toolContext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;" edge="1" parent="1" source="C" target="M">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eMBR" value="决定调谁" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;" edge="1" parent="1" source="M" target="BR">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eBRFTC" value="适配" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;" edge="1" parent="1" source="BR" target="FTC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eFTCH" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="FTC" target="H">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eBack" value="ToolResult 回喂续生成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;" edge="1" parent="1" source="H" target="M">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1020" y="90"/>
+              <mxPoint x="480" y="90"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eOut" value="Flux 文本 / SSE 打字机" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;dashed=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#475569;" edge="1" parent="1" source="M" target="U">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="95"/>
+              <mxPoint x="120" y="95"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="GRP_BIZ" value="业务侧" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="940" y="300" width="140" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="S" value="业务 Service&#xa;订单 / 商品 / 店铺" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="950" y="338" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="eHS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="H" target="S">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_SUP" value="旁路支撑（审计 + 写操作门禁）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="300" width="880" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="LG" value="ai_assistant_tool_log&#xa;全量工具调用审计表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="338" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="CG" value="ConfirmationGate&#xa;Redis token + 参数哈希 + 5min TTL + 消费即删" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="338" width="320" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="eHLG" value="每次调用落审计" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#134e4a;" edge="1" parent="1" source="H" target="LG">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1020" y="280"/>
+              <mxPoint x="150" y="280"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eHCG" value="requiresConfirmation 时拦截" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;fontColor=#134e4a;" edge="1" parent="1" source="H" target="CG">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1020" y="290"/>
+              <mxPoint x="440" y="290"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

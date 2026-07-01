@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>小程序 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</link><description>小程序 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 May 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="self" type="application/rss+xml"/><item><title>uni-app + SaaS 多租户小程序:从"按租户打包"到"代开"架构</title><link>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</link><pubDate>Tue, 26 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</guid><description><![CDATA[这是「前端 → 全栈 → AI 开发」线上的 全栈阶段。我做的 SaaS 小程序平台,核心难题是&quot;一份代码,怎么变成每个租户自己的小程序&quot;。这篇讲两种模式:按租户打包,和平台代开。
+难点:微信小程序的 AppId 是构建期常量 SaaS 多租户的小程序,理想是&quot;一份代码运行时识别租户&quot;。但微信不允许:manifest.json / project.config.json 里的 appid 在构建期烧死,运行时改不了。
+所以&quot;一份代码多个租户&quot;在微信小程序上,得在构建期就把租户的 AppId 注入进去。
+模式一:按租户打包 第一种做法是每个租户打一个包。我用 Vite 插件在 buildStart 改写 manifest.json:
+VITE_WX_APPID=wx&lt;租户A的AppId&gt; VITE_TENANT_ID=t_xxx pnpm build:mp-weixin:prod插件定位 mp-weixin.appid,字符串级替换(要求 appid 以 wx 开头才换),uni 编译时烧进产物。tenantId 走 .env.prod 环境变量,运行时 import.meta.env 读取。
+一份代码,跑 N 次构建,产 N 个租户的包。简单直接,但租户多了构建成本线性涨。
+模式二:平台代开(第三方平台) 更好的是代开:用微信开放平台的第三方平台能力,一份代码模板给所有租户用,差异靠 ext_json 注入。
+关键在微信 /wxa/commit 的 ext_json 字段:
+ext_json = { extAppid, ext: { tenantId }, window: {} }一份模板代码 + ext_json 注入 tenantId,所有租户共用同一份包。小程序运行时用 wx.]]></description></item></channel></rss>

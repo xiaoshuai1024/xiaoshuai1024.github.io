@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI协同 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/ai%E5%8D%8F%E5%90%8C/</link><description>AI协同 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 14:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/ai%E5%8D%8F%E5%90%8C/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】把"用 AI"做成工程体系:28 个命令和一条自治评审回路</title><link>https://xiaoshuai1024.top/posts/ai-dev-claude-skills-system/</link><pubDate>Wed, 17 Jun 2026 14:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-claude-skills-system/</guid><description>前三篇讲的都是「用 AI 做出了什么」。这篇回头讲「怎么用 AI」——不是技巧,是体系。
+很多人对「AI 协同研发」的理解,还停在「每个人装个 Cursor,各写各的」。这种用法,4 个人撑死比以前快一倍。我们能做到 2 个月近百万行,是因为把 AI 协同沉淀成了一套可复用的工程体系:命令化的工作流、自治的评审回路、规范化的技能库。
+关键不是 AI 多强,是这套体系让每个 Agent 开机即用。
+一、不是「每个人会用 AI」就够 先说个反直觉的判断:「团队里每个人都会用 AI 工具」不等于「团队有 AI 协同能力」。
+差别看两个场景。
+没体系的用法:每个人各自调 AI,提示词五花八门,生成的代码风格不一,质量靠个人经验兜底,新人和 AI 都不知道项目规范,反复返工。
+有体系的用法:PR 有标准命令、评审有自治回路、规范固化在仓库里、E2E 一条命令跑通,新人第一天装上工具就能产出符合规范的代码。
+我们追求的是后者。这套体系跑起来,才是产能能持续放大的根,它让「4 个人 + AI」不只是 4 个独立单元,而是一支能协同的队伍。
+二、命令化工作流:28 个命令覆盖全流程 我们把高频操作固化成了 28 个自建命令(/command)。流程上大致是:/prd 出需求 → 编码 → /tdd 测试驱动 → /mp-e2e、/op-e2e 跑端到端 → /kd-review 自治评审 → /pr-fullstack 提 MR → /deploy-prod-be-ops 部署。
+为什么把操作固化成命令,有三个理由。
+第一是一致性。「提 MR」这件事,以前每人一套 git 流程,现在 /pr-fullstack 一条命令,产出统一。AI 也用这条命令,不存在人和 AI 流程割裂。</description></item></channel></rss>

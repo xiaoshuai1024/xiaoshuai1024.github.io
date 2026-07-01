@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="前端分层依赖方向" id="fe-layers">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="860" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="前端分层：只许上层依赖下层，叶子节点（api / utils / constants）不许反向依赖业务层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="800" height="580" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L1" value="业务层（上层）" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="P" value="pages / views&#xa;业务页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="160" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L2" value="复用层" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="components&#xa;组件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="S" value="stores&#xa;状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="250" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="CO" value="composables&#xa;组合式逻辑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="250" width="150" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L3" value="接口层" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="370" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="A" value="api&#xa;接口层（叶子）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="400" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="D" value="domain&#xa;领域模型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="400" width="140" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L4" value="叶子层（最底层，不可反向依赖）" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="510" width="240" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="U" value="utils&#xa;工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="540" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="K" value="constants&#xa;常量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="540" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="BAD_LBL" value="禁止：叶子反向依赖上层&#xa;（dep-cruiser 的 api-is-leaf / utils-is-leaf 规则拦截）" style="text;html=1;align=left;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="70" width="250" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="BAD1" value="❌ api → pages" style="text;html=1;align=left;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="130" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="BAD2" value="❌ utils → 任何业务层" style="text;html=1;align=left;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="BAD3" value="❌ 循环依赖（no-circular）" style="text;html=1;align=left;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="220" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E_PC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="P" target="C">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_PS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="P" target="S">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_PCO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="P" target="CO">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_CCO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="C" target="CO">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_SCO" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="S" target="CO">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_COA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="CO" target="A">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_COD" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="CO" target="D">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_AU" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="A" target="U">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_DU" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="D" target="U">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

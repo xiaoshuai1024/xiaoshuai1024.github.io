@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>测试 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E6%B5%8B%E8%AF%95/</link><description>测试 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 07 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%B5%8B%E8%AF%95/" rel="self" type="application/rss+xml"/><item><title>【AI 研发实战】UT/IT/E2E 三层测试纪律:fail-fast、禁跳过、零占位</title><link>https://xiaoshuai1024.top/posts/ai-dev-test-discipline/</link><pubDate>Sun, 07 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-test-discipline/</guid><description>在「前端 → 全栈 → AI 开发」这条线上,这篇落在 AI 协同研发阶段——讲的是我用 Agent 干活时,测试纪律怎么落地。它和契约门禁、多 Agent 评审是一套:把模糊的「测试要写好」变成 Agent 也能照着执行的硬规则。
+测试金字塔谁画都顺手:底下 UT、中间 IT、顶上 E2E,贴在 PPT 上特别好看。可真到了项目里,这套三角形十有八九会缩水。
+UT 漏边界; IT 跑得慢干脆禁用; E2E 全绿但一上线就翻车。 我以前也画过那种金字塔,画完就贴墙上,没几个人看。
+我的做法是:金字塔不画在墙上,写进纪律里。而且这条纪律不仅人要守,Agent 也要守。下面是我们怎么把「三层测试」从口号落成可执行规矩的。
+三层,各兜一摊,谁也替不了谁 先把分工说清楚,省得有人想「用 UT 多写点、E2E 少写点」来偷懒:
+UT(*Test)兜逻辑:纯逻辑、边界、异常分支,快、多、便宜。一个工具函数的入参组合,几毫秒一轮。 IT(*IT)兜集成:到真实数据库、真实中间件这一层,验「拼起来对不对」。慢一些,但能抓 UT 抓不到的连接、序列化、SQL 语义问题。 E2E 兜真实路径:从入口点进,模拟用户真实操作,验「整条链路通不通」。 这三层不能互相替代。UT 全绿不代表集成没问题——你 mock 掉的那个表结构可能压根对不上。E2E 全绿也不代表每个分支都对——你只点了「正常路径」。
+所以关键判断是:不是「三层选一层」,是三层都得在,各管一段。
+纪律一:E2E fail-fast,第一个失败就停 E2E 最贵的不是写,是跑。一个 E2E 套件几十分钟不稀奇。
+如果第一个用例就挂了,后面几十个还在吭哧吭哧跑,跑完一堆红——纯浪费时间,还污染日志。
+我们直接定死 fail-fast:maxFailures: 1。第一个挂,立刻停。理由很直接:E2E 是端到端的,前面的失败大概率会传染后面(比如登录挂了,后面所有用例都白跑)。
+停在第一个,省下来的时间够你去看一眼到底哪断了,而不是等半小时后看一屏红。
+这条对 Agent 尤其重要。Agent 不会自己判断「这个失败要不要继续」,所以必须用配置把它钉死,不让它有发挥空间。
+纪律二:禁止跳过,禁止占位 这条是我跟团队(跟 Agent)吵过最多的一条。
+什么算「跳过」?@Ignore、skip、it.skip、条件性跳过(if 环境变量就 skip)——统统不许,明令禁止。连 Agent 自己都不许自动加 skip 来「先把测试跑绿」。</description></item></channel></rss>

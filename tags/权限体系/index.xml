@@ -1,0 +1,12 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>权限体系 - Tag - 帅说帅话</title><link>https://xiaoshuai1024.top/tags/%E6%9D%83%E9%99%90%E4%BD%93%E7%B3%BB/</link><description>权限体系 - Tag - 帅说帅话</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 02 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%9D%83%E9%99%90%E4%BD%93%E7%B3%BB/" rel="self" type="application/rss+xml"/><item><title>把权限校验从手写里解放出来:RBAC 注解 + 过滤器链的设计</title><link>https://xiaoshuai1024.top/posts/rbac-permission-filter-chain/</link><pubDate>Tue, 02 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/rbac-permission-filter-chain/</guid><description><![CDATA[这是我做全栈架构时的一类典型工作:把后端的权限校验,从「散落在每个接口里的 if」收拢成一条声明 + 校验 + 对齐 + 兜底的链路。它体现的是用机制替代人记的工程判断。
+权限体系最怕的不是「没做」,而是「散着做」。
+「散着做」到底贵在哪 我接手过一个运营后台,权限校验是这种画风:这个接口开头一个 if (user.hasRole(&quot;admin&quot;)),那个接口中间塞一段 if (!user.can(&quot;edit&quot;)),还有几个接口压根没校验,靠「前端按钮不显示」硬撑。
+老实讲,这种代码最致命的不是「能不能跑」,而是谁都不敢动。一段判断摆在接口里,三个月后你想删它,第一反应不是「这判断对不对」,而是「删了会不会越权」——因为没人知道这段判断是踩了哪个坑加的,删了出了事算谁的。于是它就赖在那儿,越来越多,越来越乱。
+代价是具体的:
+谁也不敢删那段判断,因为谁也不知道删了会不会越权。 最后代码里堆满「祖传 if」,谁动谁背锅。 前端按钮不显示,不等于后端没校验漏洞。 按钮显示是前端逻辑,接口鉴权是后端职责。黑客根本不经过你的前端,直接打接口。把安全寄托在「按钮藏起来了」,等于没做。 几个接口漏校验,纯靠运气没出事。 接口多了之后,「哪个加了哪个没加」全靠人记。今天没出事,是因为没人想到去打那个接口;明天被人扫到,就是事故。 权限和业务逻辑搅在一起,改一个判断得读懂整个方法。 这段判断嵌在业务代码中间,你要重构这个方法,就得先把权限逻辑摘出来——但摘出来的过程中,你怎么知道没摘错? 所以判断标准很简单:如果你问「这个接口的权限规则是什么」,得去翻业务代码才能回答,那就是散着做。 真正该有的状态是,看一眼注解就知道。
+推倒重做时,核心思路就一句话——权限跟着接口走,不跟着人记。
+注解声明,让权限长在接口上 定义一个注解,大概长这样:
+@RequirePermission(&#34;ops:order:refund&#34;) @PostMapping(&#34;/order/refund&#34;) public Result refund(...) { ... }注意那个权限 key:ops:order:refund。它不是随手写的字符串,而要在迁移脚本的权限种子数据里先注册过。这一条最关键,后面要出事就出在这。
+key 的命名是有规范的,我们整个团队统一用「资源:动作」的三段式:{系统}:{资源}:{动作},比如 ops:order:refund(运营后台 / 订单 / 退款)、ops:order:export、fin:bill:audit。规范本身不复杂,但它解决三件事:
+key 在种子数据里必须先注册。 没注册的 key 走到运行期要么报错要么放行,两种结果都不好。所以 key 是「先在种子表里声明,再在注解里引用」,顺序不能反。 和接口绑死,新人不用通读业务。 新人看接口签名就知道「这接口吃什么权限」,不需要去翻业务逻辑、不需要去问老人。这点对团队扩张特别值钱。 权限信息和接口定义不再分家。 改接口的人顺手就能看到权限要求,删接口的人知道顺手把种子 key 也清掉。 有了注解,接口要什么权限就是声明出来的:
+新人不用通读业务逻辑,也能知道「这个接口吃 ops:order:refund」。 权限信息和接口定义绑在一起,不再散落在代码各处。 改接口的人顺手就能看到权限要求,删接口的人知道该把种子 key 也清掉。 Code review 时,「这个接口有没有权限」从「翻业务代码」变成「看注解有没有」。 比满屏 if 清爽太多。注解本身的定义也就几行:]]></description></item></channel></rss>

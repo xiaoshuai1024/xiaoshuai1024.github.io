@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层数据新鲜度" id="data-freshness">
+    <mxGraphModel dx="1000" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="统计中台三层数据新鲜度:T+1 汇总表 + 小时级 + Redis 实时(禁止扫原始表)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="920" height="440" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="T1" value="T+1 层 · 昨日及以前" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="380" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="T1A" value="每日 00:05 定时任务&#xa;StatisticsCalculationJob&#xa;→ stat_daily_summary 汇总表" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="110" width="340" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="T2" value="小时层 · 当日分时" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="490" y="70" width="380" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="T2A" value="每小时 :05 定时任务&#xa;→ stat_hourly_trade&#xa;支撑 24h 热力图" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="510" y="110" width="340" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="T3" value="实时层 · 今日累计" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d4a017;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="810" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="T3A" value="订单支付事件 → Redis INCR(今日 GMV)&#xa;DAU 用 Set SADD userId 去重 · TTL 24h&#xa;ScreenDataCounter 实时累加" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="260" width="760" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Q" value="大屏一次请求拼装三层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="360" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="RULE" value="铁律:统计查询全部走汇总表,禁止扫原始业务表" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="420" width="440" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="T1" target="Q"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="T2" target="Q"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="T3" target="Q"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
