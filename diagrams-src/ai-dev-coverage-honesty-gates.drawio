@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="防刷覆盖率三层防线" id="covgates">
+    <mxGraphModel dx="880" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="防 Agent 刷覆盖率的三层防线" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="18" width="340" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="g1" value="防线 1:扫占位断言&#10;pre-commit 扫 expect(true).toBe(true)&#10;防「凑覆盖率写假测试」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="防线 2:扫 @Ignore&#10;必须带理由 + issue 号&#10;防「用 ignore 缩小分母」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="90" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="防线 3:覆盖率 diff 卡&#10;新增代码覆盖率 ≥ 80%&#10;防「存量烂新增跟着烂」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="90" width="260" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="core" value="核心原则&#10;不卡绝对值,卡增量 · 不卡总数,卡质量&#10;「过去的债我承认,别再欠新债」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="230" width="580" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="result" value="结果:Agent 想刷也刷不动 —— 刷占位被扫、ignore 被卡、新增 diff 不达标照样红" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="320" width="620" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="g1" target="g2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="g2" target="g3"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;dashed=1;" edge="1" parent="1" source="g3" target="core"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;dashed=1;" edge="1" parent="1" source="g1" target="core"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;dashed=1;" edge="1" parent="1" source="g2" target="core"><mxGeometry relative="1" to="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

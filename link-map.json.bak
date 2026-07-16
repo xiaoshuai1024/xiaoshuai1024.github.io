@@ -1,0 +1,463 @@
+{
+  "_comment": "博客文章 -> 各平台发布链接映射表。wechat-publish 后自动回填草稿 ID;发布后请手动补充 published_url(微信永久链接)。",
+  "_schema": {
+    "slug": {
+      "weixin": {
+        "draft_appmsgid": "草稿ID(自动)",
+        "published_url": "发布后永久链接(手动)"
+      },
+      "juejin": {
+        "draft_id": "草稿/文章ID(自动)",
+        "published_url": "发布后URL(同ID,可自动)"
+      }
+    }
+  },
+  "ai-dev-cognition-shift": {
+    "weixin": {
+      "draft_appmsgid": "100000044"
+    },
+    "juejin": {
+      "draft_id": "7657419529416933382"
+    }
+  },
+  "ai-dev-productivity-ledger": {
+    "weixin": {
+      "draft_appmsgid": "100000050"
+    },
+    "juejin": {
+      "draft_id": "7657419529416949766"
+    }
+  },
+  "ai-dev-contract-gates": {
+    "weixin": {
+      "draft_appmsgid": "100000051"
+    },
+    "juejin": {
+      "draft_id": "7657015460471308307"
+    }
+  },
+  "ai-dev-what-matters": {
+    "weixin": {
+      "draft_appmsgid": "100000057"
+    },
+    "juejin": {
+      "draft_id": "7657169928601698347"
+    }
+  },
+  "ai-dev-incident-as-rule": {
+    "weixin": {
+      "draft_appmsgid": "100000058"
+    },
+    "juejin": {
+      "draft_id": "7657393797290377270"
+    }
+  },
+  "after-million-loc-my-skills": {
+    "weixin": {
+      "draft_appmsgid": "100000067"
+    },
+    "juejin": {
+      "draft_id": "7657419529416982534"
+    }
+  },
+  "ai-agent-tool-calling-bridge": {
+    "weixin": {
+      "draft_appmsgid": "100000074"
+    },
+    "juejin": {
+      "draft_id": "7657015460471341075"
+    }
+  },
+  "ai-dev-claude-skills-system": {
+    "weixin": {
+      "draft_appmsgid": "100000081"
+    },
+    "juejin": {
+      "draft_id": "7657419529417031686"
+    }
+  },
+  "ai-dev-compile-not-correct": {
+    "weixin": {
+      "draft_appmsgid": "100000086"
+    },
+    "juejin": {
+      "draft_id": "7657357573113135123"
+    }
+  },
+  "ai-dev-coverage-honesty": {
+    "weixin": {
+      "draft_appmsgid": "100000087"
+    },
+    "juejin": {
+      "draft_id": "7657419529417048070"
+    }
+  },
+  "ai-dev-flyway-governance": {
+    "weixin": {
+      "draft_appmsgid": "100000092"
+    },
+    "juejin": {
+      "draft_id": "7657169928601780267"
+    }
+  },
+  "ai-dev-fullstack-arch-ai-assurance": {
+    "weixin": {
+      "draft_appmsgid": "100000093"
+    },
+    "juejin": {
+      "draft_id": "7657357573113151507"
+    }
+  },
+  "ai-dev-no-ci-agent-review": {
+    "weixin": {
+      "draft_appmsgid": "100000094"
+    },
+    "juejin": {
+      "draft_id": "7657357573113167891"
+    }
+  },
+  "ai-dev-specs-codified": {
+    "weixin": {
+      "draft_appmsgid": "100000095"
+    },
+    "juejin": {
+      "draft_id": "7657393797290459190"
+    }
+  },
+  "ai-dev-stats-dashboard": {
+    "weixin": {
+      "draft_appmsgid": "100000101"
+    },
+    "juejin": {
+      "draft_id": "7657393797290475574"
+    }
+  },
+  "ai-dev-test-discipline": {
+    "weixin": {
+      "draft_appmsgid": "100000102"
+    },
+    "juejin": {
+      "draft_id": "7657357573113184275"
+    }
+  },
+  "ai-dev-transformation": {
+    "weixin": {
+      "draft_appmsgid": "100000103"
+    },
+    "juejin": {
+      "draft_id": "7657419529417064454"
+    }
+  },
+  "ai-dev-wechat-profit-sharing": {
+    "weixin": {
+      "draft_appmsgid": "100000110"
+    },
+    "juejin": {
+      "draft_id": "7657419529417097222"
+    }
+  },
+  "ai-dev-workflow": {
+    "weixin": {
+      "draft_appmsgid": "100000111"
+    },
+    "juejin": {
+      "draft_id": "7657419529417113606"
+    }
+  },
+  "ai-programming": {
+    "weixin": {
+      "draft_appmsgid": "100000112"
+    },
+    "juejin": {
+      "draft_id": "7657419529417129990"
+    }
+  },
+  "architecture-archunit-guardrails": {
+    "weixin": {
+      "draft_appmsgid": "100000120"
+    },
+    "juejin": {
+      "draft_id": "7657169928601796651"
+    }
+  },
+  "architecture-drive-business-growth": {
+    "weixin": {
+      "draft_appmsgid": "100000126"
+    },
+    "juejin": {
+      "draft_id": "7657169928601813035"
+    }
+  },
+  "build-multi-tenant-ai-assistant": {
+    "weixin": {
+      "draft_appmsgid": "100000133"
+    },
+    "juejin": {
+      "draft_id": "7657357573113200659"
+    }
+  },
+  "component-library-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100000134"
+    },
+    "juejin": {
+      "draft_id": "7657357573113217043"
+    }
+  },
+  "ddd-domain-model-in-lowcode-backend": {
+    "weixin": {
+      "draft_appmsgid": "100000135"
+    },
+    "juejin": {
+      "draft_id": "7657169928601829419"
+    }
+  },
+  "enterprise-frontend-architecture-vue-node-java": {
+    "weixin": {
+      "draft_appmsgid": "100000145"
+    },
+    "juejin": {
+      "draft_id": "7657419529417146374"
+    }
+  },
+  "enterprise-lowcode-fullstack-guide": {
+    "weixin": {
+      "draft_appmsgid": "100000150"
+    },
+    "juejin": {
+      "draft_id": "7657357573113233427"
+    }
+  },
+  "fe-to-architecturer": {
+    "weixin": {
+      "draft_appmsgid": "100000157"
+    },
+    "juejin": {
+      "draft_id": "7657393797290557494"
+    }
+  },
+  "flyway-migration-governance": {
+    "weixin": {
+      "draft_appmsgid": "100000158"
+    },
+    "juejin": {
+      "draft_id": "7657419529417162758"
+    }
+  },
+  "frontend-architect-team-infrastructure": {
+    "weixin": {
+      "draft_appmsgid": "100000165"
+    },
+    "juejin": {
+      "draft_id": "7657419529417179142"
+    }
+  },
+  "high-concurrency-fullstack-solution-ssr-cdn": {
+    "weixin": {
+      "draft_appmsgid": "100000166"
+    },
+    "juejin": {
+      "draft_id": "7657015460471373843"
+    }
+  },
+  "high-concurrency-lowcode-platform-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100000173"
+    },
+    "juejin": {
+      "draft_id": "7657169928601862187"
+    }
+  },
+  "load-testing-25k-users": {
+    "weixin": {
+      "draft_appmsgid": "100000174"
+    },
+    "juejin": {
+      "draft_id": "7657419529417195526"
+    }
+  },
+  "luban-lowcode-rendering-engine": {
+    "weixin": {
+      "draft_appmsgid": "100000179"
+    },
+    "juejin": {
+      "draft_id": "7657393797290573878"
+    }
+  },
+  "mcp-figma-dual-server-practice": {
+    "weixin": {
+      "draft_appmsgid": "100000185"
+    },
+    "juejin": {
+      "draft_id": "7657393797290590262"
+    }
+  },
+  "micro-front-end": {
+    "weixin": {
+      "draft_appmsgid": "100000191"
+    },
+    "juejin": {
+      "draft_id": "7657393797290606646"
+    }
+  },
+  "multi-tenant-ai-config-dynamic-chatmodel": {
+    "weixin": {
+      "draft_appmsgid": "100000198"
+    },
+    "juejin": {
+      "draft_id": "7657357573113266195"
+    }
+  },
+  "multi-tenant-data-isolation": {
+    "weixin": {
+      "draft_appmsgid": "100000203"
+    },
+    "juejin": {
+      "draft_id": "7657015460471390227"
+    }
+  },
+  "nuxt-performance-optimize": {
+    "weixin": {
+      "draft_appmsgid": "100000210"
+    },
+    "juejin": {
+      "draft_id": "7657393797290623030"
+    }
+  },
+  "observability-requestid-metrics": {
+    "weixin": {
+      "draft_appmsgid": "100000211"
+    },
+    "juejin": {
+      "draft_id": "7657393797290639414"
+    }
+  },
+  "rag-knowledge-base-spring-ai": {
+    "weixin": {
+      "draft_appmsgid": "100000218"
+    },
+    "juejin": {
+      "draft_id": "7657419529417211910"
+    }
+  },
+  "rbac-permission-filter-chain": {
+    "weixin": {
+      "draft_appmsgid": "100000223"
+    },
+    "juejin": {
+      "draft_id": "7657015460471422995"
+    }
+  },
+  "uniapp-saas-miniapp-delegate-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100000224"
+    },
+    "juejin": {
+      "draft_id": "7657419529417228294"
+    }
+  },
+  "vue2-to-vue3-codemod-tool": {
+    "weixin": {
+      "draft_appmsgid": "100000230"
+    },
+    "juejin": {
+      "draft_id": "7657419529417244678"
+    }
+  },
+  "web-stability-monitoring-system-practice": {
+    "weixin": {
+      "draft_appmsgid": "100000237"
+    },
+    "juejin": {
+      "draft_id": "7657357573113298963"
+    }
+  },
+  "ai-dev-visual-acceptance": {
+    "weixin": {
+      "draft_appmsgid": "100000276"
+    },
+    "juejin": {
+      "draft_id": "7658132883368198207"
+    }
+  },
+  "ai-dev-command-system": {
+    "weixin": {
+      "draft_appmsgid": "100000271"
+    },
+    "juejin": {
+      "draft_id": "7658085653293580342"
+    }
+  },
+  "ai-dev-everywhere-scriptable": {
+    "weixin": {
+      "draft_appmsgid": "100000281"
+    },
+    "juejin": {
+      "draft_id": "7657737434764623891"
+    }
+  },
+  "personal-knowledge-base-with-ai": {
+    "weixin": {
+      "draft_appmsgid": "100000286"
+    },
+    "juejin": {
+      "draft_id": "7658072876424609846"
+    }
+  },
+  "ai-dev-agent-hand-testing": {
+    "weixin": {
+      "draft_appmsgid": "100000301"
+    },
+    "juejin": {
+      "draft_id": "7659857454083768374"
+    }
+  },
+  "ai-dev-deploy-ops-loop": {
+    "weixin": {
+      "draft_appmsgid": "100000310"
+    },
+    "juejin": {
+      "draft_id": "7659926274945499177"
+    }
+  },
+  "ai-era-intelligent-monitoring-self-healing": {
+    "weixin": {
+      "draft_appmsgid": "100000319"
+    },
+    "juejin": {
+      "draft_id": "7659926274945515561"
+    }
+  },
+  "dev-to-product-manager": {
+    "weixin": {
+      "draft_appmsgid": "100000329"
+    },
+    "juejin": {
+      "draft_id": "7659926274945531945"
+    }
+  },
+  "jd-multi-level-cache-incident": {
+    "weixin": {
+      "draft_appmsgid": "100000335"
+    },
+    "juejin": {
+      "draft_id": "7659884568908316715"
+    }
+  },
+  "nightly-auto-test-fix": {
+    "weixin": {
+      "draft_appmsgid": "100000341"
+    },
+    "juejin": {
+      "draft_id": "7659857454083801142"
+    }
+  },
+  "pua-skill-not-a-joke": {
+    "weixin": {
+      "draft_appmsgid": "100000347"
+    },
+    "juejin": {
+      "draft_id": "7659915682704539684"
+    }
+  }
+}

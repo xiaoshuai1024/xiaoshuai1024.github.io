@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="rag-full-pipeline" id="rag-pipe">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="ING" value="入库链路" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1010" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="nO" value="运营后台&#xa;KbManagementController" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="64" y="104" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="nDB" value="MySQL&#xa;ai_knowledge_document" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="104" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="nIN" value="IngestService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="476" y="104" width="140" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="nSP" value="TokenTextSplitter&#xa;500 token / 50 overlap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="652" y="104" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="nMD" value="注入 metadata&#xa;tenant_id/doc_id/...&#xa;tags/source" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="858" y="100" width="172" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="nVS" value="Elasticsearch&#xa;ai_knowledge 索引" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="476" y="440" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="publish" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="nO" target="nDB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="DRAFT→PUBLISHED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="nDB" target="nIN">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="split" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="nIN" target="nSP">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="chunks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="nSP" target="nMD">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="add(chunks) 算向量写索引" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="nMD" target="nVS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="944" y="220"/>
+              <mxPoint x="944" y="360"/>
+              <mxPoint x="566" y="360"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="成功 / 标记 es_indexed=1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;dashed=1;endArrow=block;fontSize=10;fontColor=#475569;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="nVS" target="nDB">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="485"/>
+              <mxPoint x="390" y="440"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="QRY" value="检索链路" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="410" height="320" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="nQ" value="运营提一个问题" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="64" y="332" width="170" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="nSR" value="similaritySearch&#xa;topK=5 / threshold=0.7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="64" y="412" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="nCTX" value="拼进 Prompt&#xa;相关片段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="64" y="500" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="nLLM" value="租户 ChatModel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="500" width="160" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="q1" value="query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="nQ" target="nSR">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="q2" value="filter: tenant_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="nSR" target="nVS">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="q3" value="相关片段" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;dashed=1;fontSize=10;fontColor=#134e4a;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="nVS" target="nCTX">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="485"/>
+              <mxPoint x="440" y="528"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="nCTX" target="nLLM">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="现状" id="before">
+    <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="改造前：没有任何 CI/CD 基建" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="30" width="400" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p1" value="本地构建" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="110" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1d" value="mvn package 在自己电脑上跑&#10;谁机器快谁先编译完" style="text;html=1;align=center;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="160" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p2" value="手动 scp 上传" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="110" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2d" value="jar 直接拷到服务器&#10;运营后台 dist 也手动传" style="text;html=1;align=center;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="160" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p3" value="无测试 / 无评审" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="110" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3d" value="改完就推&#10;PR 靠口头说一声" style="text;html=1;align=center;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="790" y="160" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p4" value="回滚靠记忆" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="280" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4d" value="出问题找上一个能跑的 jar&#10;没有版本号，没有制品库" style="text;html=1;align=center;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="330" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p5" value="部署无验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="280" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5d" value="传完就以为上线了&#10;接口能不能用第二天才知道" style="text;html=1;align=center;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="330" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="risk" value="这一阶段最大的风险不是慢，是不透明&#10;谁改了什么、推上去的是哪个版本、能不能用——全是黑盒" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="430" width="600" height="56" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

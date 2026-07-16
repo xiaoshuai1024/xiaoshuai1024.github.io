@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="版本号治理三代演进" id="flytimeline">
+    <mxGraphModel dx="900" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1040" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="版本号治理:从接龙到时间戳,撞了三代才稳" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="18" width="480" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="g1" value="G1 接龙制&#10;V1 → V2 → V3&#10;4 人各开分支都觉得自己是下一个&#10;第一周就撞号" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="G2 号段制&#10;甲 1000-1999 · 乙 2000-2999&#10;resolve_flyway_segment.py 算号&#10;gap 用完尴尬 · AI 不会预约" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="395" y="80" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="G3 时间戳(当前)&#10;V20260614141405__desc.sql&#10;秒级唯一 · touch 命令生成&#10;构建期兜底校验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="80" width="250" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ex1" value="真实例子&#10;V1000 / V2014 / V2015&#10;(号段制残留,目录里还在)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="210" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="ex2" value="真实例子&#10;V202400001 / V202401001&#10;(10 位时间戳,现役主力)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="210" width="240" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lesson" value="教训:治理方案别一上来追求完美,先跑起来,撞了再改&#10;三代演进留下历史痕迹,两套版本号并存不影响 Flyway(按数值排序)" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="640" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="principle" value="核心原则:凡是能机器校验的,绝不依赖人&#10;版本号唯一 → 构建期脚本 · 漏执行 → 启动期校验 · tenant_id → review checklist" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="180" y="370" width="680" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ea" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="g1" target="g2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="g2" target="g3"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="ec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="g2" target="ex1"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="ed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="g3" target="ex2"><mxGeometry relative="1" to="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="评审与修复角色分离" id="noreviewroles">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1040" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="读写分离:评审的嘴和修复的手,是两个独立角色" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="18" width="520" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="diff" value="改动落地&#10;按模块分 6-8 桶&#10;每桶 30-50 文件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="170" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rev1" value="评审 Agent A&#10;只读 · worktree 隔离" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="90" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="rev2" value="评审 Agent B&#10;只读 · worktree 隔离" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="170" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="rev3" value="评审 Agent C&#10;只读 · worktree 隔离" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="250" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="revnote" value="并行扇出 · 不改一个字&#10;只输出「问题 / 严重度 / 建议」" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="305" y="312" width="210" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fix1" value="修复 Agent&#10;流式 · 结果回来即派" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="90" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fix2" value="修复 Agent&#10;流式 · 结果回来即派" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="200" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="boundary" value="修复边界&#10;① blocker 且方案明确 → 直接改&#10;② major 或多方案 → 给候选,人来定&#10;③ 业务语义/状态机/金额 → 禁碰,人工介入" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="300" width="380" height="84" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gate" value="收敛计数器&#10;严重连续 2 轮 + 一般连续 3 轮" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="860" y="170" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="diff" target="rev1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="diff" target="rev2"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="diff" target="rev3"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;fontSize=10;dashed=0;" edge="1" parent="1" source="rev1" target="fix1"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;fontSize=10;dashed=0;" edge="1" parent="1" source="rev3" target="fix2"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="fix2" target="gate"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;dashed=1;" edge="1" parent="1" source="fix1" target="boundary"><mxGeometry relative="1" to="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

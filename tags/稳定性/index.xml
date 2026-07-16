@@ -1,0 +1,40 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>稳定性 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E7%A8%B3%E5%AE%9A%E6%80%A7/</link><description>稳定性 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 07 Jul 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E7%A8%B3%E5%AE%9A%E6%80%A7/" rel="self" type="application/rss+xml"/><item><title>告警到 PR 全自动:五层架构搭一套线上缺陷自愈体系</title><link>https://xiaoshuai1024.top/posts/ai-era-intelligent-monitoring-self-healing/</link><pubDate>Tue, 07 Jul 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-era-intelligent-monitoring-self-healing/</guid><description><![CDATA[告警凌晨 3 点炸,值班被叫醒、排查、改代码、验证、发版,一圈走下来一上午没了。线上 MTTR 的下限,卡在人响应的速度上——告警再快,最后还是要人去排查、去改、去发版。
+我在运维侧做过一次最彻底的重构,就是把&quot;告警 → 人处理&quot;升级成&quot;告警 → AI 诊断 → 自动修复 → 自动提 PR → 人只做确认&quot;。它建立在可观测性体系、监控告警、夜间自动巡检那套稳定性基建之上,但往上走了一层:让 AI 把从发现到修复的整条链路跑通。把人的环节替换成 AI,MTTR 才能从&quot;小时级&quot;压到&quot;分钟级&quot;。
+这篇文章拆解一套五层智能监控与缺陷自愈架构,从指标定义到 changelog 生成,每一步讲清楚怎么设计、为什么这么设计。
+一、这套体系适用于什么场景 先划边界。这套五层自愈架构不是万能药，它有明确的适用条件：
+适用的场景：
+技术栈相对统一（前后端框架固定、部署方式标准化），AI 能理解代码上下文； 已有基础的监控和日志体系（至少日志可检索、指标可查询），不是从零搭； 团队有 CI/CD 流水线和代码评审机制，自动化修复的结果能进正常研发流程； 故障模式有一定重复性——同一类问题出现过多次，有规律可循。 不适用的场景：
+基础设施层面的问题（磁盘满、网络分区、K8s 节点挂了）——这类问题 AI 修不了代码，要靠运维自动化； 业务逻辑错误（&ldquo;算出来的价格少了个零&rdquo;）——AI 看不出&quot;对错&quot;，只能看出&quot;异常&quot;； 安全事件——不能自动修，必须人工介入评估影响面。 一句话定性：这套体系解决的是应用层的、可复现的、有日志/指标佐证的缺陷。不是替代 on-call，是把 on-call 从&quot;救火&quot;变成&quot;审批&quot;。
+二、核心原则：五条铁律 在设计这套体系之前，我先定了五条原则。每一条都是踩过坑之后才确认的——不是拍脑袋的设计偏好，而是&quot;不这么干就会出事&quot;的底线。
+原则 1：AI 的权限边界必须是硬的 AI 能做的事和不能做的事，要用代码锁死，不能靠 prompt 约束。
+具体来说：AI 能读日志、能读代码、能创建 fix 分支、能提交 commit、能提 PR。但 AI 不能直接合代码到 main、不能直接操作生产环境、不能修改权限配置。这些硬边界不是写在 prompt 里的&quot;建议&quot;，是 API 权限层面和 CI 流水线配置层面锁死的。]]></description></item><item><title>京东大促缓存复盘:10W QPS 扛住了,11W 倒下了</title><link>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</link><pubDate>Fri, 03 Jul 2026 14:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</guid><description>讲一次大促前夕刚做完缓存优化、活动开闸后被现实教做人的事。整个故事一句话:我把缓存放 cache(缓存)这件事做得很扎实,却忘了还有另一类流量叫 attack(攻击),它压根不走缓存。
+我那时在京东云做官网架构。大促前的几个月,我主导了一轮缓存改造——把吞吐量从 200 QPS 干到 2 万常态,大促峰值能扛到 10W。结果活动当天流量叠了一波 DDoS 冲到 11W,缓存架构被绕过,连接池打满,服务响应缓慢。最后靠 WAF 清洗和限流把系统拉回来。
+这篇复盘整个过程,核心教训一句话:多级缓存解决的是流量效率问题,解决不了流量安全问题。
+大促前夕:多级缓存怎么搭的 改造前的官网是单层 SSR,峰值 200 QPS 就顶不住。大促一开闸,服务直接拖地。
+&amp;ldquo;200 QPS 就顶不住&amp;quot;听着夸张,但单层 SSR 的瓶颈很真实:每个请求都要服务端完整渲染 HTML,渲染过程要查数据、拼模板、跑逻辑,全是 CPU 活;而且 SSR 实例的本地资源(CPU、内存)是有限的,扛不住并发渲染。200 QPS 不是网络带宽的极限,是单实例渲染能力的极限。要扛更多,要么加实例(贵),要么减少回源(缓存)。
+我搭了一条 6 层多级缓存链路,让流量逐层消化,尽量少回源:
+每层各管一段:
+① CDN:边缘节点缓存静态资源,兜底静态页。绝大部分请求在这一层消化。 ② WAF:页面级缓存 + 流量清洗 + 限流 + 安全策略。当时这层只在大促专项开启,平时不常驻。 ③ Nginx:反向代理 + 健康检查,故障节点自动摘除。 ④ SSR 实例本地 LRU:渲染好的 HTML 缓在本地,后端全挂时降级兜底。 ⑤ Node BFF:接口聚合层缓存,减少后端回源。 ⑥ Redis:分布式缓存热点数据,带互斥锁防击穿。 兜底也做了:SSR 渲染的静态页 CI 构建后上传 OSS 并刷新 CDN,后端真全挂时降级展示 CDN 静态页。</description></item><item><title>睡觉时机器替你跑测试修 bug:我的夜间巡检 daemon 怎么搭</title><link>https://xiaoshuai1024.top/posts/nightly-auto-test-fix/</link><pubDate>Sun, 05 Jul 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/nightly-auto-test-fix/</guid><description><![CDATA[你睡的时候,机器没睡。
+我给项目搭了一套夜间全量测试 + 自动修复的 daemon。每天凌晨 00:00,它自己拉 dev 最新代码,跑 8 步全量测试——后端单测、集成测、运营单测、运营 E2E、前端 H5 E2E、小程序编译验证。挂了,Claude Agent 自动诊断日志、切 fix 分支改代码、用完整测试套件回归一遍,过了才提 MR(不合并),飞书推个「已修复 + MR 链接」叫醒你。
+第二天你打开飞书,要么是「全过」,要么是「已修复待 review」,要么是「修不动了快来」。没有「早上来发现昨晚合的代码炸了」这个选项。
+这篇拆开讲这套系统怎么设计的、为什么这么设计。
+整体流程:五个阶段 每次触发(定时或手动 --once)跑五个阶段,核心逻辑是:测试归测试,开发者的工作区不能动。
+Phase 0·预检:先把现场记下来 平台检测、Node 初始化、抢运行锁(防两个 daemon 同时跑)。关键是 save_state——把每个仓库当前的分支名记到文件里。这一步是后面无损还原的伏笔。
+Phase 1·工作区准备:切到 dev,但你的改动不丢 开发者可能正卡在某个 feature 分支,有未提交的改动。脚本切 dev 之前,先把这些改动 stash 保护起来(git stash push -u -m &quot;nightly-test: &lt;repo&gt;&quot;),再 checkout dev 拉最新。你的活儿一条都不会丢。
+这里特意用 stash 而不是 auto-commit,代码注释写得很直白:用 stash 而非 commit,避免污染任何分支的历史。auto-commit 会往你当前的分支塞一个 wip 提交,即便后面能回退,也会在 reflog 里留痕、搞乱提交树;stash 是 Git 原生的暂存机制,用完 git stash pop 恢复,干干净净。stash 前还会自动确保 .]]></description></item><item><title>线上报警却找不到那条日志:RequestId 串起可观测性链路</title><link>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</link><pubDate>Sun, 31 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</guid><description><![CDATA[用户反馈&quot;下单失败&quot;,登上去一查:前端 console 干净,network 显示 500,后端日志同时间段上千条 ERROR。哪一条是这一单的?不知道。堆再多工具也救不了这种痛——可观测性的关键不是工具多,是它们能不能串成一条能排查的链路。
+线上出问题,最怕的不是错,是&quot;不知道哪儿错&quot; 做过稳定性的人大概都有过这种时刻:用户反馈&quot;系统卡了&quot;&ldquo;报错了&rdquo;,你登上去一看,前端没报错日志,后端日志一大堆,翻半天翻不到那一条。
+最后只能去问&quot;什么时候、什么操作、哪个页面&quot;,靠用户回忆拼现场。
+这种痛感,堆再多工具也救不了。我对这件事的判断很明确:可观测性不是工具数量的问题,是这些东西能不能串成一条链路。
+工具再多,各管各的、对不上号,排查时还是两眼一抹黑。你上三个 APM、两个日志平台,它们之间没有共同的 requestId 把同一次请求串起来,排查时还是得靠&quot;猜&quot;——猜这次请求在 A 工具里是哪条、在 B 平台里又对应哪条。工具数量解决不了对齐问题,串成链路才能。这篇文章,复盘我们团队从&quot;堆工具&quot;到&quot;串链路&quot;走了哪几步。
+说个真实场景,你就能体会&quot;串不起来&quot;有多痛。某次用户反馈&quot;下单失败&quot;,我们登上去一查:前端 console 干净、network 显示 500、后端日志里同时间段有上千条 ERROR。到底是哪一条对应这个用户?不知道。只能让用户复述操作时间,翻着时间戳一条条对,半小时才定位。后来铺了 requestId,同样的场景:用户报障时把错误提示里的 requestId 发过来,后端日志一搜,这一单从进入拦截器、走到下单 Service、在哪一步抛了 CONCURRENT_CONFLICT,完整轨迹一条线拉出来,3 分钟搞定。这就是&quot;串成链路&quot;和&quot;堆工具&quot;的效率差。
+第一根线:全链路 RequestId 最便宜、收益最高的一件事,就是每个请求注入一个唯一的 RequestId,然后让它贯穿这个请求经过的所有日志。
+听起来简单,但它解决的是排查里最要命的问题:对齐。
+前端报了一个错,后端到底走没走到、走到哪一步挂了——以前靠猜,现在按 RequestId 一搜,前因后果全在一条时间线上。
+我们团队的规矩是:排查线上问题第一件事,就是拿 RequestId 去后端日志里捞这条请求的完整轨迹。没有这个 id,前后端日志就是两座孤岛——前端日志记的是&quot;页面 A 报了错&quot;,后端日志记的是&quot;接口 B 抛了异常&quot;,两边都对,但你没法证明&quot;页面 A 的错就是接口 B 的异常引起的&quot;。中间可能隔着网关、缓存、异步任务,任何一个环节都可能是断点。RequestId 把这条链路缝起来,从用户点的那一刻到后端落库,一条 id 串到底。
+RequestId 的生成也有讲究:前端生成优先,后端兜底。正常情况下前端 axios 拦截器给每个请求生成一个 id 放进 header,后端 Filter 取出来用——这样同一个 id 贯穿前后端。但如果请求没经过前端(比如第三方直接调后端、或 MQ 消费),header 里没 id,后端 Filter 兜底生成一个。两段逻辑都在那个 resolveRequestId 方法里,优先用外面传进来的,没有才自己造。这个顺序保证:同一次请求,前后端用同一个 id,绝不串号。]]></description></item><item><title>2.5 万用户压测实战:压什么、怎么压、瓶颈怎么找</title><link>https://xiaoshuai1024.top/posts/load-testing-25k-users/</link><pubDate>Sat, 30 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/load-testing-25k-users/</guid><description><![CDATA[给一个多租户 SaaS 系统做 2.5 万用户压测，最容易跑偏的不是「起几万个线程」，而是压之前没想清楚压什么、压之后不知道哪儿慢——工具五分钟就能跑起来，值钱的是前面那套假设和后面那套对齐。
+压测真正的难点不在&quot;跑工具&quot;,而在&quot;压什么、怎么压、压完怎么知道哪儿慢&quot;。它检验的是一条从应用层、数据库到监控的完整链路能不能扛住真实流量。
+先想清楚压什么,再谈怎么压 接到压测任务的第一反应通常是&quot;全链路压一遍&quot;。这是错的。
+2.5 万用户不是个均匀的数字。真实业务里,有人登录、有人浏览、有人下单、有人支付,比例完全不一样。所以第一步是拆场景:
+核心链路:登录、浏览、下单、支付必须压,它们出问题用户最先骂。 读多写少 vs 写重:列表页、详情页是读;下单、支付是写。两者瓶颈模型完全不同,分开压。 峰值模拟:大促那种&quot;0 点开抢&quot;的瞬时尖峰,和平时的稳态是两个量级,分开建模。 这三件事想清楚,压测计划才算有了骨架。否则就是拿工具瞎打,跑完一堆数字,谁也说不清代表什么。
+场景拆分实操:业务占比法 具体怎么拆?我们用的是业务占比法——拉过去 30 天的真实生产日志,统计各接口的实际调用比例,按比例还原压测脚本:
+# 压测脚本里的业务占比(k6 / JMeter 都行) scenarios: browse_list: # 浏览列表(读多) weight: 45 # 占比 45% rate: 450 view_detail: # 看详情(读多) weight: 30 rate: 300 place_order: # 下单(写) weight: 15 rate: 150 pay: # 支付(写,关键链路) weight: 8 rate: 80 search: # 搜索(读,但走 ES,重) weight: 2 rate: 20这个比例不是拍脑袋,是从生产日志里 group by api_path 统计出来的。如果压测脚本里把支付比例配成 50%,但生产里支付只占 8%,压出来的瓶颈点就是错的——支付链路过载是假象,真实生产里根本没这么高占比。]]></description></item></channel></rss>

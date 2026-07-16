@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="repair-before-migrate 自愈" id="flywayRepair">
+    <mxGraphModel dx="920" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="repair 从「应急命令」变成「开机自愈」：每次 migrate 前自动 repair 去重" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="14" width="580" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="S0" value="服务启动&#10;FlywayMigrationStrategy&#10;Bean 接管 migrate()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="S1" value="repairBeforeMigrate?&#10;是 → 先 repair()&#10;去重 schema_history 重复 DELETE 行&#10;(最多 32 轮收敛)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="70" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="S2" value="migrate()&#10;失败按报错分流&#10;最多重试 6 次" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="S3" value="启动成功&#10;schema 一致" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="70" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ES1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S0" target="S1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S1" target="S2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S2" target="S3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="LBL_OK" value="报错分流" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="120" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="GAP" value="号段 gap&#10;Detected resolved migration not applied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="280" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="COR" value="schema history 损坏&#10;Corrupted schema history / multiple delete entries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="210" width="300" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="GAP_OUT" value="prod: continue-on-gap 降级&#10;告警 + 跳过 migrate 继续启动&#10;dev: out-of-order 乱序补跑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="COR_OUT" value="repair 去重失败行 → 重放&#10;脚本须幂等(INFORMATION_SCHEMA 守卫)&#10;去重循环最多 32 轮" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="300" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="EG1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;dashed=1;" edge="1" parent="1" source="GAP" target="GAP_OUT"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EG2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;dashed=1;" edge="1" parent="1" source="COR" target="COR_OUT"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="FOOT" value="魔数背后是真实事故的形状：6 次重试、32 轮去重 —— 单次 repair 分批写 DELETE 行，一批删不干净" style="text;html=1;align=center;fontColor=#2563eb;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="384" width="720" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

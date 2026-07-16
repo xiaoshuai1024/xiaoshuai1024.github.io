@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="语法依赖vs行为依赖" id="depKind3">
+    <mxGraphModel dx="1000" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="为什么删守卫编译照过：守卫是&quot;行为依赖&quot;，不是&quot;语法依赖&quot;" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="14" width="600" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="LEFT" value="语法依赖（编译器看得见）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="440" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1" value="类型 / 方法签名 / 泛型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2" value="符号引用：类 / 字段 / import 真实存在" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="165" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3" value="语法结构：括号 / 分号 / 语法糖" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="220" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4" value="删了 → 悬空调用 / 未使用变量 / 类型错&#10;编译器立刻红" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#134e4a;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="285" width="380" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="RIGHT" value="行为依赖（编译器 + AI 都看不见）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="520" y="60" width="440" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="R1" value="并发安全：锁顺序 / 竞态 / 可见性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2" value="业务语义：幂等 / 边界条件 / 重复提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="165" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="R3" value="性能边界：限流挡不挡得住 / 超时降级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="550" y="220" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="R4" value="删了 → 编译绿、单测绿、本地联调绿&#10;潜伏期数天~数周，压测/大促才爆" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#7f1d1d;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="285" width="380" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="门禁升级：compile(语法) → verify(行为)：分层测试 + 契约扫描 + E2E，三层全绿才算完" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="440" width="840" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

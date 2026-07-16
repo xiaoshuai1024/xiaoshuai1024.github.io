@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="skill场景决策树" id="skillDecision3">
+    <mxGraphModel dx="1100" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="这个场景该挂哪个 skill —— 决策树" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="10" width="460" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="ROOT" value="现在要干的事属于哪一类？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="50" width="260" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1" value="动手前 / 新需求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="D2" value="写代码 / 编码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="180" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="D3" value="声称完成 / 评审" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="180" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="D4" value="排障 / debug" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="180" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="D5" value="安全 / 数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="180" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S1" value="brainstorming&#10;to-prd / product-capability&#10;ubiquitous-language&#10;grill-me" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="270" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="S2" value="test-driven-development&#10;executing-plans&#10;springboot-tdd / jpa-patterns&#10;component-reference" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="270" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="S3" value="verification-before-completion&#10;ai-regression-testing&#10;批量审查循环(21 subagent)&#10;receiving-code-review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="270" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="S4" value="systematic-debugging&#10;diagnose(复现→最小化&#10;→假设→插桩→修→回归)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="270" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="S5" value="security-review&#10;git-guardrails&#10;CLAUDE.md 硬约束&#10;(DELETE 三必查)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="270" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="PARA" value="并行机会(2+ 互不依赖任务) → dispatching-parallel-agents + using-git-worktrees + handoff" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="900" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="原则：按项目真实风险点装，不按&quot;看着不错&quot;装；skill 是肌肉，CLAUDE.md 是骨头" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="900" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="ROOT" target="D1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="ROOT" target="D2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="ROOT" target="D3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="ROOT" target="D4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="ROOT" target="D5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="D1" target="S1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="D2" target="S2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="D3" target="S3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="D4" target="S4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="D5" target="S5"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

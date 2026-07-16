@@ -1,0 +1,111 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="请求与数据流" id="df1">
+    <mxGraphModel dx="1300" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ===== 泳道生命线（顶部角色） ===== -->
+        <mxCell id="h_browser" value="Browser" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_website" value="web :3000&#10;Nuxt SSR" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="40" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_engine" value="engine :5173&#10;设计器" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="40" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_bff" value="bff :3100" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="40" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_backend" value="backend :8080" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_redis" value="Redis :16379" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="40" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_mysql" value="MySQL :13306" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="40" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 生命线竖线 -->
+        <mxCell id="ll_browser" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="105" y="85" as="sourcePoint"/><mxPoint x="105" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_website" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="295" y="85" as="sourcePoint"/><mxPoint x="295" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_engine" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="495" y="85" as="sourcePoint"/><mxPoint x="495" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_bff" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="685" y="85" as="sourcePoint"/><mxPoint x="685" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_backend" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="885" y="85" as="sourcePoint"/><mxPoint x="885" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_redis" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1075" y="85" as="sourcePoint"/><mxPoint x="1075" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_mysql" style="endArrow=none;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="1245" y="85" as="sourcePoint"/><mxPoint x="1245" y="750" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ===== 流 A：运行态 SSR 渲染（走 web） ===== -->
+        <mxCell id="band_a" value="流 A · 运行态：访客打开活动页（走 web :3000 SSR）" style="text;align=left;fillColor=none;strokeColor=none;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="500" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="1 GET /activity/xx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="105" y="150" as="sourcePoint"/><mxPoint x="295" y="150" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="2 拉活动 Schema" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="295" y="188" as="sourcePoint"/><mxPoint x="685" y="188" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a3" value="3 查活动（先 Redis）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="685" y="226" as="sourcePoint"/><mxPoint x="885" y="226" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a4" value="命中 → 直接返回" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#16a34a;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="885" y="260" as="sourcePoint"/><mxPoint x="1075" y="260" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a5" value="未命中 → 查 MySQL 回源" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9333ea;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="885" y="295" as="sourcePoint"/><mxPoint x="1245" y="295" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a6" value="4 回写缓存" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9333ea;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="885" y="330" as="sourcePoint"/><mxPoint x="1075" y="330" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a7" value="5 Schema 注入 Nuxt SSR 渲染" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;fontStyle=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="685" y="368" as="sourcePoint"/><mxPoint x="295" y="368" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a8" value="6 返回完整 HTML" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="295" y="406" as="sourcePoint"/><mxPoint x="105" y="406" as="targetPoint"/></mxGeometry>
+        </mxCell>
+
+        <!-- ===== 流 B：设计态 Schema 持久化（走 engine） ===== -->
+        <mxCell id="band_b" value="流 B · 设计态：运营在设计器保存页面（走 engine :5173）" style="text;align=left;fillColor=none;strokeColor=none;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="445" width="500" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="1 在设计器拖拽 / 编辑物料" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="105" y="485" as="sourcePoint"/><mxPoint x="495" y="485" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="b2" value="2 拼装页面 Schema" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="495" y="523" as="sourcePoint"/><mxPoint x="685" y="523" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="b3" value="3 保存（持久化）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="685" y="561" as="sourcePoint"/><mxPoint x="885" y="561" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="b4" value="4 写入 MySQL + 失效 Redis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9333ea;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="885" y="599" as="sourcePoint"/><mxPoint x="1245" y="599" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="b5" value="5 下次 SSR（流 A）即取新 Schema" style="text;align=center;fillColor=none;strokeColor=none;fontColor=#64748b;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="700" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 图例 -->
+        <mxCell id="legend" value="实线 = 主调用&#10;绿虚 = 缓存命中&#10;紫虚 = 回源 / 写入" style="rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="700" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

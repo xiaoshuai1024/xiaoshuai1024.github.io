@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="对比" id="compare">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="leftH" value="普通 E2E" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="重心：写脚本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="只看 DOM，看不见后端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="每端一套定位策略，维护翻倍" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="230" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="失败 = 脚本报错，人排查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="业务知识断在 PRD / 人脑 / 脚本三处" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6" value="人没想到的边界不测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="410" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="rightH" value="Agent 主导 E2E" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="重心：读业务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="DOM + API + DB + 日志，并行验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="170" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="一套业务理解跨端复用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="失败 = Agent 读日志追根因，给建议" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="290" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5" value="业务知识沉淀在分析 + 脚本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="350" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6" value="主动穷尽状态和边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="sa" value="重心位移" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=classic;fontSize=12;fontColor=#0f766e;fontStyle=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="l1" target="r1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="本质：不是「AI 多写几个用例」，是把测试重心从写脚本挪到读业务" style="text;html=1;align=center;fontColor=#475569;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="800" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三侧分包" id="dddSides">
+    <mxGraphModel dx="920" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="三侧分包：C 端只读禁依赖运营写端，shared 被两侧共享，安全边界 ArchUnit 守" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="14" width="540" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="OPS" value="operatorside（运营写端）&#10;19 个 Controller：/sites /pages /leads /users...&#10;需要鉴权（X-User-ID + Admin）&#10;写 pages 草稿表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="64" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="PUB" value="publicside（C 端只读端）&#10;/public/** 留资提交&#10;免鉴权，对外暴露&#10;读 published_pages 快照，不写" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="64" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="SHARED" value="shared（共享领域层）&#10;domain/*Aggregate（充血聚合根，零框架依赖）&#10;entity（贫血 POJO）/ mapper / exception&#10;port（端口接口，publicside 经它解耦）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="320" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;strokeColor=#475569;" edge="1" parent="1" source="OPS" target="SHARED"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;strokeColor=#475569;" edge="1" parent="1" source="PUB" target="SHARED"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="BLOCK" value="✕ 禁止依赖&#10;PublicsideIsolationTest 守" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;dashed=1;fontColor=#dc2626;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="EB1" style="endArrow=block;html=1;strokeColor=#dc2626;dashed=1;startFill=0;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="104" as="sourcePoint"/>
+            <mxPoint x="340" y="104" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EB2" style="endArrow=block;html=1;strokeColor=#dc2626;dashed=1;startFill=0;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="104" as="sourcePoint"/>
+            <mxPoint x="620" y="104" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FOOT" value="依赖方向只能向下到 shared，publicside 绝不碰 operatorside —— 安全边界用测试守，不靠自觉" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="345" width="680" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

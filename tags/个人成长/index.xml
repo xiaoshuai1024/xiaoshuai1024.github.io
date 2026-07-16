@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>个人成长 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/</link><description>个人成长 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" rel="self" type="application/rss+xml"/><item><title>收藏夹吃灰怎么治:用 RAG 给自己搭一个能提问的私有大脑</title><link>https://xiaoshuai1024.top/posts/personal-knowledge-base-with-ai/</link><pubDate>Sun, 28 Jun 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/personal-knowledge-base-with-ai/</guid><description><![CDATA[我攒了十年的收藏夹、笔记、PDF,真到要用的时候一个都翻不出来。面试前临时背,学新东西时重新查,重复劳动。
+资料够多,问题在它们是死的——只能人去翻,不能被提问、不能被检索、不能主动复述。
+《RAG 知识库从 0 到 1》讲的是给业务系统搭知识库。这篇反过来,讲给自己搭一个学习大脑。
+一、个人学习的三个真实痛点 先对号入座,看看是不是都中过:
+收藏即遗忘。看到好文章存下来,&ldquo;以后再看&rdquo;,然后就没有以后了。收藏夹两千条,真记得的不到十条。 笔记即坟墓。记完的笔记再也打开。不是不想复习,是检索成本太高——记不清写在哪、关键词是什么。 学了等于没学。一个知识点当时懂了,过两个月忘干净。因为没有一个&quot;定期把知识推回脑子里&quot;的机制。 资料如果能被提问、被检索、能主动复述,学习闭环就成立了。这是个人 RAG 知识库要解决的事。
+这三个痛点背后有一个共同的根因:知识的存储方式和大脑的使用方式不匹配。大脑不是靠「翻目录」找知识的,是靠「联想」——看到一个场景,联想到相关的知识。但收藏夹和笔记软件都是「目录式」的,要找知识得先记得「它存在哪」,这本身就需要记忆,而记忆正是最容易失效的。RAG 知识库把存储从「目录式」变成了「联想式」——你不用记得知识存在哪,你只需要用自然语言描述你的问题,RAG 自动把相关的片段「联想」出来。这个匹配方式,和大脑的工作方式一致,所以它比翻笔记有效得多。
+还有一个被忽视的痛点:知识之间是孤岛。前端笔记里记了「虚拟 DOM 的 diff 算法」,架构笔记里记了「微前端的子应用隔离」,这两条知识其实是相关的(微前端隔离就用到了 diff 原理),但它们存在不同的笔记里,你从来不会把它们关联起来。RAG 知识库可以跨主题检索——你问「微前端隔离和虚拟 DOM 有什么关系」,它从两个库里各捞片段,帮你在孤岛之间搭桥。这种「跨域连接」是人脑最累的活,但恰好是 RAG 最擅长的。
+二、核心思路:把资料变成&quot;可对话的私有大脑&quot; RAG 的原理在业务版讲过:问大模型之前,先从私有资料里检索相关片段,塞进 prompt,让它看着资料回答。
+个人版的架构一模一样,只是「租户」换成了「学习主题」:
+前端资料库:笔记、收藏、PDF、博客剪藏 切片与向量化:把长文切成块,算成向量存起来 按主题隔离:前端一个库、Java 一个库、架构一个库,互不串味 检索 + 对话:问问题时,先从对应主题库捞片段,再让 AI 看着回答 关键差异在用法。业务知识库只做问答,个人学习库要支持更多场景,靠的是改 prompt,不是改架构。
+数据流向:从原始资料到回答 整套数据流一次说清,免得你照着搭时漏环节:
+资料入库:把 PDF / Markdown / 网页剪藏扔进 incoming/ 目录。 切片:按段落 + 重叠窗口(overlap 200 字)切,避免关键上下文被切断。这一步的参数直接影响检索质量——切太大召回不准,切太小上下文丢失。 向量化:每块文本过 embedding 模型,生成向量(用 OpenAI text-embedding-3-small 或本地 bge-large-zh)。 入库:向量 + 原文一起存进 ES / pgvector,带上 topic 字段做 metadata filter。 检索:用户提问 → 同样向量化 → 在指定 topic 库里做 top-k(一般 k=5)相似度检索。 组装 prompt:把 5 个片段拼进 system prompt,加上&quot;看着资料回答,没覆盖就说不知道&quot;的约束。 生成:大模型出回答,标注出处片段编号。 《RAG 知识库从 0 到 1》有完整的 Spring AI 落地代码。真正难的不是写出来,是调参——chunk size、overlap、top-k、相似度阈值,这四个参数决定了回答质量,得拿自己的资料反复调。我踩过最大的坑是 chunk size 默认 1000 字太大,导致一个 chunk 里混了两个主题,检索时召回不准。改成 400 字 + overlap 100 字后,精度立刻提上来。]]></description></item><item><title>AI 时代你还在古法学习吗?我用 Claude Code 搭了一套数据驱动的学习闭环</title><link>https://xiaoshuai1024.top/posts/ai-era-learning-loop/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-era-learning-loop/</guid><description><![CDATA[我在 front-end → 全栈 → AI 开发这条路上走得很早,也很清楚一件事:技术人的成长从来不是线性的,而是被&quot;市场需求 × 自我认知 × 学习方法&quot;三个变量反复拉扯。多数人卡在第二个和第三个——不知道自己在市场上值多少钱,也不知道该怎么把短板补到及格线。
+这篇文章讲的就是我怎么用 Claude Code 把一个私有的&quot;学习系统&quot;搭成一个可运行、可量化、可复盘的知识库。不是讲考试技巧,而是讲「在 AI 时代,一个技术人该怎么组织自己的学习」。整套东西都在本地跑,所有数据都是真实可验证的,所有流程都是一条命令触发的。
+先看结论:古法学习的核心问题是没反馈回路;AI 驱动学习的核心优势是把反馈回路压到分钟级。
+一、古法学习的三个致命缺陷 我过去十年的学习方式和大多数工程师一样:刷掘金 / 看官方文档 / 跟着教程写个 demo / 放到收藏夹里吃灰。这种&quot;查资料式学习&quot;有三个结构性缺陷,不是靠努力能弥补的。
+先说一个我自己的账本。我在学 RAG 的时候,把 LlamaIndex 官方文档、几篇高赞博客、一个 GitHub 上的 demo 项目都过了一遍,笔记做了不少,本地还 clone 了 demo。那两周我觉得自己&quot;掌握 RAG 了&quot;。后来有次技术选型会,同事问我&quot;RAG 里 chunk 大小和 overlap 在生产环境怎么定,你们踩过什么坑&quot;,我支吾了半天,只说出&quot;按经验来&quot;。回去翻收藏夹,文章还在,但具体数字全忘了,那个 demo 项目也早就没跑过。
+这不是个例,这是古法学习的结构性失败。
+第一个:学什么靠拍脑袋。 看到 RAG 火了就去学 RAG,看到 LangGraph 出新版就去翻文档,完全是被社区热点牵着走。结果半年下来,收藏夹里堆了几百篇文章,简历上写不出任何一项&quot;市场需要、我精通&quot;的技能。学到最后,自己觉得都会,一被追问就全露馅。
+更要命的是,这种学法容易陷入&quot;低难度重复&quot;。人天然喜欢学自己已经会的东西——因为那种&quot;我又看懂一篇&quot;的成就感很爽。结果就是:精通的更精通,薄弱的永远薄弱。没有外部信号告诉你&quot;你该学什么&quot;,你永远在自己的舒适区打转。
+第二个:学了=会了是幻觉。 看文档时觉得自己懂了,写 demo 时照着抄一遍跑通了,就给自己打个勾。这种&quot;理解&quot;是经不起追问的——别人问&quot;为什么这么设计&quot;&ldquo;生产环境出过什么问题&quot;&ldquo;和另一方案相比差在哪&rdquo;,多半答不上来。看十遍文档不如被追问一次,但古法学习里根本没有&quot;被追问&quot;这个环节。
+我自己有次被戳穿的经历:学 Vite 的时候,我照着官方文档配了一遍 plugin,跑通了,心里想&quot;懂了&rdquo;。后来有次技术讨论,对方问我&quot;Vite 的 pre-bundle 阶段用的什么工具,为什么 dev 比 webpack 快这么多&quot;,我只答出&quot;用了 esbuild&quot;,但说不清楚 esbuild 做了什么、为什么不直接裸跑 ESM、生产构建为什么又要切回 Rollup。回去看文档才发现,那些内容都在第 3 段,但我当时&quot;看懂了&quot;就跳过去了。]]></description></item></channel></rss>

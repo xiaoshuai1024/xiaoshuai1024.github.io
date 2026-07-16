@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="提现状态机" id="withdrawal-sm">
+    <mxGraphModel dx="900" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="提现六态状态机 + 重试三件套(防双花 / 防重打 / 反长事务)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="820" height="480" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="START" value="申请" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="PENDING" value="PENDING&#xa;待审核" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="55" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="REJECTED" value="REJECTED&#xa;审核拒绝" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="180" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="APPROVED" value="APPROVED&#xa;审核通过(条件更新)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="55" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="PROCESSING" value="PROCESSING&#xa;出款(乐观锁 attempt+1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="55" width="170" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="SUCCESS" value="SUCCESS&#xa;打款成功" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="180" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="FAILED" value="FAILED&#xa;重试耗尽(max=3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="300" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="NOTE" value="余额校验 FOR UPDATE&#xa;SUCCESS 也计入已提现(防双花)&#xa;&#xa;出款 HTTP 调用在事务外&#xa;(防长事务占连接)" style="text;html=1;align=left;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="310" width="260" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="NOTE2" value="失败重试回退 APPROVED&#xa;attempt &lt; 3&#xa;人工可 FAILED → APPROVED&#xa;(重置 attempt=0)" style="text;html=1;align=left;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="410" width="240" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="START" target="PENDING"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" value="拒绝" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="PENDING" target="REJECTED"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="通过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" edge="1" parent="1" source="PENDING" target="APPROVED"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="APPROVED" target="PROCESSING"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" value="成功" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" edge="1" parent="1" source="PROCESSING" target="SUCCESS"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E6" value="失败 attempt&lt;3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#d4a017;fontColor=#64748b;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="PROCESSING" target="APPROVED"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E7" value="耗尽" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#dc2626;fontColor=#1e293b;fontSize=10;" edge="1" parent="1" source="PROCESSING" target="FAILED"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E8" value="人工重试" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;fontColor=#64748b;fontSize=10;dashed=1;" edge="1" parent="1" source="FAILED" target="APPROVED"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

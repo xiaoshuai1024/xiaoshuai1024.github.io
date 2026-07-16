@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="claude-code">
+  <diagram name="e2e-bug-shift" id="e2e2">
+    <mxGraphModel dx="780" dy="320" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="780" pageHeight="320" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title_l" value="AI 编码时代前" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="50" y="22" width="240" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="title_r" value="AI 编码时代后" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="480" y="22" width="240" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e2e_l" value="端到端测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=#2563eb;strokeWidth=1.5;fontSize=11;fontColor=#1e3a8a;" vertex="1" parent="1">
+          <mxGeometry x="50" y="64" width="240" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="it_l" value="集成测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=#2563eb;strokeWidth=1.5;fontSize=11;fontColor=#1e3a8a;" vertex="1" parent="1">
+          <mxGeometry x="90" y="124" width="160" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ut_l" value="单元测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=#2563eb;strokeWidth=1.5;fontSize=11;fontColor=#1e3a8a;" vertex="1" parent="1">
+          <mxGeometry x="130" y="176" width="80" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="e2e_r" value="端到端测试 · bug 集中" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#1e3a8a;strokeWidth=2;fontSize=11;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="480" y="64" width="240" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="it_r" value="集成测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a5fa;strokeColor=#2563eb;strokeWidth=1.5;fontSize=11;fontColor=#1e3a8a;" vertex="1" parent="1">
+          <mxGeometry x="520" y="124" width="160" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ut_r" value="单元测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=1.5;fontSize=11;fontColor=#1e3a8a;" vertex="1" parent="1">
+          <mxGeometry x="560" y="176" width="80" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow" value="AI 时代" style="endArrow=classic;html=1;strokeWidth=2.5;strokeColor=#475569;fontSize=11;fontColor=#475569;endFill=1;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="120" as="sourcePoint" />
+            <mxPoint x="430" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#cbd5e1;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="245" y="250" width="36" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=#cbd5e1;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="281" y="250" width="36" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#1e3a8a;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="317" y="250" width="36" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_txt" value="bug 密度：低 → 高（重心上移到集成层）" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="363" y="248" width="290" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI 研发流水线" id="pipeline">
+    <mxGraphModel dx="1200" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 主标题 -->
+        <mxCell id="title" value="AI 研发流水线:从需求到 MR 的全链路" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 六个阶段节点 -->
+        <mxCell id="n1" value="① 确认需求&#10;出 HTML 原型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="② 计划阶段&#10;任务图 JSON&#10;(唯一事实源)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="180" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="③ 并行头脑风暴&#10;多个 subagent&#10;扇出 → 汇总" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="180" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="④ TDD 执行&#10;红 / 绿 / 重构&#10;先写测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="180" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="⑤ 多 Agent 评审&#10;自治回路&#10;(语义层兜底)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="180" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="⑥ 提交 / MR&#10;硬测试门禁" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="180" width="150" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- 主流程箭头 -->
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="n3" target="n4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="n4" target="n5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#dc2626;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="n5" target="n6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 每个阶段下方的兜底标签 -->
+        <mxCell id="b1" value="兜底:消歧&#10;需求 - 实现" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="270" width="130" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="兜底:并行一致性" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="270" width="130" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="兜底:效率 / 思路宽度" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="450" y="270" width="130" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="兜底:实现质量&#10;防幻觉" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="270" width="130" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="兜底:语义正确性" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="270" width="130" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6" value="兜底:仓库门禁" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="270" width="130" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 反馈回路:评审 → 回 TDD -->
+        <mxCell id="feedback" value="评审不通过 → 回到 TDD 重做" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#dc2626;dashed=1;endArrow=block;fontSize=10;fontColor=#dc2626;" edge="1" parent="1" source="n5" target="n4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="915" y="150"/>
+              <mxPoint x="715" y="150"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MCP 横向辅助层 -->
+        <mxCell id="mcp_box" value="MCP 集成层(横向接通所有阶段):代码托管 · IM · 记忆 · 设计稿" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="1150" height="44" as="geometry"/>
+        </mxCell>
+
+        <!-- 底部铁律 -->
+        <mxCell id="rule_title" value="三条铁律贯穿全链路:" style="text;html=1;align=left;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="470" width="200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="① 能并行就尽量并行" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="240" y="468" width="180" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="② 能固化就别靠记忆" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="440" y="468" width="180" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="③ 能流程兜底就别指望人盯" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="468" width="220" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- 事故铁律 -->
+        <mxCell id="rule2" value="compile 能过 ≠ 代码正确,只有 verify 算数" style="text;html=1;align=left;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="400" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

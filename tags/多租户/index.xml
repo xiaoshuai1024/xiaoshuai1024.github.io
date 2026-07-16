@@ -1,0 +1,33 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>多租户 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%A4%9A%E7%A7%9F%E6%88%B7/</link><description>多租户 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 03 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%A4%9A%E7%A7%9F%E6%88%B7/" rel="self" type="application/rss+xml"/><item><title>三家模型一套代码:多租户 AI 助手的动态 ChatModel 工厂</title><link>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</link><pubDate>Fri, 29 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</guid><description><![CDATA[前面那些文章讲的是用 AI 写代码,这篇换个方向:用 AI 给产品做能力。具体是用 Spring AI 1.0.6 从 0 到 1 搭一个多租户 AI 助手,做成能上线、能治理、有安全边界的生产系统,而不只是跑通一个 demo。
+一、要解决的核心问题 运营后台要一个 AI 助手,运营同学能用自然语言查数据、改配置:&ldquo;查一下今天的订单&rdquo;、&ldquo;把这几个订单打上「已处理」标签&rdquo;。
+难点不在&quot;能不能对话&quot;,在多租户。我们的平台服务很多租户,每个租户:
+用自己的大模型(A 租户用 DeepSeek、B 租户用通义千问); 用自己的 API Key(各自的账单和额度); 有自己的知识库(检索各自的运营文档); 有自己的限流和预算。 这意味着不能像 demo 那样写死一个全局 ChatModel,所有东西都得按租户动态来。多租户和单租户的差别基本就在这一句,这篇也围绕它展开。
+多租户 AI 助手和单租户的差别,不止是「技术复杂度增加」,还有安全责任的质变。单租户系统里,所有数据是一个公司的,即使出了串租户的 bug,也是「自己看自己的数据」,影响可控。多租户系统里,一旦串租户,就是 A 公司看到了 B 公司的数据——这是商业机密泄露,可能引发法律纠纷,直接动摇客户对平台的信任。所以多租户 AI 助手的隔离,不是「优化项」是「底线」,做不好就不是「系统不好用」,而是「系统根本不能用」,性质完全不同。
+还有一个容易被低估的难点:每个租户的 AI 使用习惯不同。有的租户把 AI 助手当「查询工具」用,主要是只读操作;有的租户让 AI 做大量写操作(批量改配置、批量打标签)。使用习惯不同,工具调用的频率和类型就不同,限流策略和审计重点也要跟着不同。我们的做法是给每个租户配独立的 rate_limit_rpm(每分钟请求限制),高频租户调高、低频调低,不是一刀切。这个「按租户差异化配置」的能力,是多租户 AI 助手比单租户复杂得多的地方——不只是隔离,还要个性化。
+二、整体架构 先看全貌。一次&quot;运营问一句话、AI 流式回答并可能调工具&quot;的链路:
+关键设计决策,后面逐个展开:
+多供应商统一走 OpenAI 协议,一套代码吃三家模型。 多租户隔离落在模型实例这一层,每个租户一个独立 ChatModel。 RAG 靠 metadata filter,一个索引管所有租户。 Agent 工具定义和 Spring AI 解耦,中间自研一层桥接。 SSE 流式,前后端各有一套处理。 一次请求的时序 文字描述不如一张时序图清楚。运营问一句话、AI 流式回答并调工具的完整链路:]]></description></item><item><title>每个租户用自己的大模型:动态 ChatModel 工厂怎么落地</title><link>https://xiaoshuai1024.top/posts/multi-tenant-ai-config-dynamic-chatmodel/</link><pubDate>Sat, 23 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/multi-tenant-ai-config-dynamic-chatmodel/</guid><description>多租户 AI 助手里最难的一块,不是 RAG、不是 Agent,是让每个租户用自己的大模型。这篇专门讲怎么用&amp;quot;动态 ChatModel 工厂&amp;quot;把这件事做扎实——从表设计、加密脱敏,到工厂的缓存与失效,再到为什么不用 Spring AI 的 starter 自动装配。
+一、问题:为什么不能写死一个全局 ChatModel 随便找一个 Spring AI 的入门 demo,大概率是这样:在 application.yml 里配一个 spring.ai.openai.api-key,启动时由 starter 自动装配出一个全局 ChatModel bean,业务里 @Autowired 直接用。单租户、单 Key、单模型,这样没问题。
+但我们的平台是多租户的。同一个 AI 助手,服务几十个租户,每个租户:
+用自己的供应商(A 用 DeepSeek、B 用通义千问、C 用智谱 GLM); 用自己的 API Key(各自的账单、各自的额度、各自的限流); 用自己的模型参数(温度、max_tokens、具体模型型号都不一样); 在运营后台随时改这些配置,改完要立刻生效。 一个全局 ChatModel bean 在第一点上就垮了——它的 apiKey 在启动时定死,运行时拿不到租户上下文。这就是多租户 AI 和单租户 AI 最本质的区别:模型实例必须按租户动态创建、缓存、失效。
+方案 能否多租户 配置生效 复杂度 全局单 ChatModel bean(starter 装配) 不能(只有一个 Key) 改配置要重启 低 每次请求都 new 一个模型 能 实时 极高(每次建连,性能不可接受) 动态 ChatModel 工厂 + 缓存 + 失效(本文) 能 配置变更 evict 后实时生效 中 结论很清楚:需要在两者之间取一个平衡点——按租户懒加载,建好后缓存复用,配置变了再失效重建。这就是下面整个设计的起点,也是多租户 AI 和单租户 AI 最根本的区别所在。</description></item><item><title>一行漏掉的 tenant_id 造成的越权,以及我织的三层兜底网</title><link>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</link><pubDate>Wed, 03 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</guid><description><![CDATA[多租户数据隔离是 SaaS 系统能不能交付的底线，绕不开。这篇记录的是这套隔离体系里最隐蔽的一个漏洞，以及怎么把它从&quot;靠人盯&quot;改成&quot;层层兜&quot;。
+先说一句结论:多租户的安全感,从来不来自&quot;开发都很细心&quot;,而来自&quot;假设迟早有人会漏,提前把网织好&quot;。后面所有内容都是为这句话找证据。
+一次越权,根因只有一个 JOIN 那次线上反馈很直接:某个客户说&quot;我能看到别人的数据&quot;。多租户系统听到这句话,基本可以判定为越权。顺着链路翻,查到一条排查 SQL,对着前端返回的字段一比,定位到一段 JOIN。
+排查路径其实不复杂。先用前端能看到的那条&quot;不该出现&quot;的数据,反查它来自哪张表、哪个接口、哪条 SQL;再把这条 SQL 在测试库里重放,逐段拆 JOIN,看哪一段把别人的数据带了出来。定位到具体那段 SQL,大概花了不到半天——真正花时间的是后面想清楚&quot;为什么会漏&quot;。
+根因是:某个 JOIN 关联两张业务表时,只在外层带了 tenant_id 条件,JOIN 的那张表没带。结果租户 A 的查询,把租户 B 的关联行也带了出来。
+不是什么精妙的 0day,也不是鉴权被绕过。就是一段 JOIN ... ON a.id = b.aid,后面漏了 AND a.tenant_id = b.tenant_id。
+修复很快,改一行加上去就完事。但这件事真正风险在于:代码能跑、单测能过、功能自测也没问题——平时你压根不会想到去构造&quot;跨租户数据&quot;的用例,它只在真实多租户、真实数据并存的线上才会爆。
+这种 bug 还有个更阴险的特点:它不会报错。大多数 bug 会抛异常、会返回错误码、会让测试红,至少告诉你「这里不对」。但漏了 tenant_id 的 JOIN 不会,它正常返回数据,只是返回的数据里混进了别人的行——程序觉得自己成功了,用户看到了不该看的,系统毫无察觉。如果不是那个客户主动反馈,这个漏洞可能还要藏很久。「不报错的 bug」是最危险的,因为所有的自动化防线(测试、监控、告警)都建立在「出错会报出来」的前提上,前提没了,防线就瞎了。
+这也是为什么多租户越权的事故,往往是「客户先发现」而不是「团队先发现」。团队的自测环境里租户少、数据简单,跨租户数据混在一起的概率低;线上的租户多、数据杂,混在一起的概率高,而且只有真实用户才会去点那些「不该看到的数据」。等客户反馈时,数据已经暴露了一段时间——这个时间窗口的长度,就是信任损失的量级。
+行级隔离的标配:为什么选它,代价是什么 先把我们的隔离方案交代清楚,后面才好聊为什么会漏。
+业界多租户隔离大体三条路:独立库、独立 schema、行级隔离。我老老实实把它们的代价摆出来,你就能理解我们为什么选行级。
+独立库:每个租户一个物理数据库。隔离最干净,但运维成本爆炸——租户一多,实例数跟着涨,备份、监控、迁移都得一个租户一个租户搞;跨租户报表、平台级统计要跨库 join,基本写不下去。除非单租户数据量极大、合规要求极严(比如金融大客户),否则扛不住。 独立 schema:一个库里每个租户一套 schema。比独立库省实例,但表结构变更要做 N 次 DDL,租户越多越痛;而且跨租户查询还是麻烦,得动态拼 schema 名。 行级隔离:所有租户的数据混在一张表,靠 tenant_id 这列区分。运维最省心(一套表结构、一次 DDL),跨租户查询天然支持,扩展租户就是加一行配置。代价就一个:每一条 SQL、每一个 JOIN 都得记得带 tenant_id。 我们这套选的是行级隔离,业务表都带 tenant_id,所有查询、所有 JOIN 都必须带条件。取舍很清楚:用&quot;每条 SQL 都要小心&quot;换&quot;运维和成本可控&quot;。对中小客户为主、租户数量会涨的 SaaS,这笔账划算。]]></description></item><item><title>一份代码怎么变成每个租户的小程序:代开 vs 按租户打包选型</title><link>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</link><pubDate>Tue, 26 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/uniapp-saas-miniapp-delegate-architecture/</guid><description><![CDATA[做过 SaaS 多租户 Web 的人，第一反应都是「运行时识别租户就行」。但这套在微信小程序上直接死——manifest.json 里的 appid 在构建期就被烧死进产物，运行时改不了。这篇就讲这个硬约束逼出来的两种解法：按租户打包（构建期注入 AppId）和平台代开（一份模板 + ext_json 注入 tenantId）。
+先把结论丢出来:
+按租户打包:构建期把租户的 AppId 烧进 manifest.json,一份代码跑 N 次构建,产 N 个小程序包。简单直接,但租户越多构建成本越线性涨。 平台代开:基于微信开放平台第三方能力,一份代码模板给所有租户用,差异完全靠 ext_json 在 commit 时注入 tenantId。租户再多代码也只有一份,这是首选。 代开才是 SaaS 多租户小程序的正解,按租户打包是兜底。下文会展开为什么。
+难点:微信小程序的 AppId 是构建期常量 做 SaaS 多租户 Web 的同学,第一反应通常是:&ldquo;运行时识别租户不就行了?根据请求里的 tenantId 加载不同配置、走不同租户的数据。&rdquo; 在浏览器里这套没问题,但在微信小程序里直接行不通。
+原因藏在微信的约束里:manifest.json / project.config.json 里的 appid 字段,在构建期就被烧死进产物,运行时改不了。微信开发者工具、上传、提审、发布,整套流程都认这个 AppId——它对应的是微信开放平台里一个独立的小程序实体。
+也就是说,&ldquo;一份代码多个租户&quot;在 Web 上成立,在小程序上必须在构建期(或发布期)就把租户的 AppId 注入进去。这是 SaaS 多租户小程序所有架构决策的前提,绕不开。
+我们最初的设计也想&quot;运行时识别&rdquo;,做了两周发现走不通,才老老实实回到构建期注入这条路上。这个弯路本身值得单独说一节,因为很多人都在这里栽。
+我们走过的弯路:运行时识别为什么死 最初的想法是用一个通用 AppId(开发者自己的)打底,运行时再根据用户登录的租户去走租户的逻辑。这个思路在&quot;开发期&quot;是成立的——本地用开发者 AppId 调试没问题。
+但一上审核就崩了:
+微信审核认的是包里烧死的 AppId,你挂羊头卖狗肉,审核驳回。 即使审核过了,用户搜不到这个小程序——它对应的微信实体是开发者自己的 AppId,不是租户的。 业务上要求&quot;每个租户有自己的品牌入口、自己的小程序码、自己的搜索结果&quot;,这就要求每个租户在微信侧是一个独立小程序实体。 所以最终只能回到&quot;构建期注入 AppId&quot;这条路。区别只是:为每个租户单独打一份包(模式一),还是用第三方平台代开,一份模板包走遍所有租户(模式二)。]]></description></item></channel></rss>

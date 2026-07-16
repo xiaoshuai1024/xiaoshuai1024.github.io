@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="luban平台调用关系" id="luban-call">
+    <mxGraphModel dx="1000" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="G_CLIENT" value="客户端层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="620" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_ADMIN" value="管理后台&#xa;luban" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="74" width="200" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_WEB" value="对外站点&#xa;luban-website" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="74" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G_EDGE" value="边缘与接入层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="164" width="620" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_CDN" value="CDN&#xa;静态 + 可选页面缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="198" width="200" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_BFF" value="luban-bff&#xa;认证 / 聚合 / 协议适配" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="198" width="200" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G_BACKEND" value="后端层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="288" width="620" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_API" value="luban-backend&#xa;或 luban-backend-go" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="322" width="240" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G_DATA" value="数据层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="412" width="620" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_REDIS" value="Redis&#xa;设置缓存 / 会话可选" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;boundedLbl=1;backgroundOutline=1;size=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="446" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_MYSQL" value="MySQL&#xa;业务真相源" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;boundedLbl=1;backgroundOutline=1;size=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="446" width="180" height="52" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G_ASSETS" value="前端资产" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="40" width="270" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_UI" value="luban-ui&#xa;Render / Designer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="720" y="80" width="210" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E_ADMIN_BFF" value="/api/* 鉴权" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_ADMIN" target="N_BFF">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_WEB_BFF" value="/api/public/* 免鉴权" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_WEB" target="N_BFF">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_BFF_API" value="/backend/*&#xa;X-User-ID, X-User-Role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_BFF" target="N_API">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_API_REDIS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.35;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_API" target="N_REDIS">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_API_MYSQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.65;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_API" target="N_MYSQL">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E_CDN_WEB" value="静态资源 / 已发布页缓存" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;dashed=1;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_CDN" target="N_WEB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_UI_ADMIN" value="被集成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;dashed=1;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_UI" target="N_ADMIN">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="110"/>
+              <mxPoint x="700" y="100"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E_UI_WEB" value="被集成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;dashed=1;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_UI" target="N_WEB">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="160"/>
+              <mxPoint x="520" y="160"/>
+              <mxPoint x="520" y="126"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="LEGEND" value="图例：白底蓝边 = 应用节点；蓝填充 = 边缘接入核心；青绿色 = 前端资产（被集成）。实线 = 运行时调用，虚线 = 构建/集成关系。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontSize=10;fontColor=#475569;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="920" height="36" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

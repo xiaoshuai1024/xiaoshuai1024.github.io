@@ -1,0 +1,110 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="命令体系全景" id="cmdmap">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="研发流程的每一环,都挂着一族 AI 命令 —— 31 条命令,3400+ 行,把纪律固化成 AI 可执行的流程" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1260" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="STAGE1" value="① 需求 / 方案" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="STAGE2" value="② 实现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="70" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="STAGE3" value="③ 自治审查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="STAGE4" value="④ 跨仓协作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="STAGE5" value="⑤ 测试 / 部署" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="70" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="STAGE6" value="⑥ 治理 / 沉淀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="70" width="160" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="SE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="STAGE1" target="STAGE2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="STAGE2" target="STAGE3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="STAGE3" target="STAGE4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="STAGE4" target="STAGE5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="STAGE5" target="STAGE6"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="C1A" value="/prd&#10;按复杂度选章节写需求文档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C1B" value="/10-bs&#10;并行十视角审视,只落综合结论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="208" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C1C" value="/plan-template  ★&#10;先讨论再定稿 · 禁分期 · §9 并行派发" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="276" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C2A" value="/tdd  ★&#10;红→绿→重构,缺服务先起" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="140" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C2B" value="/effort&#10;设推理用力档位 (max/...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="208" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C2C" value="/symphony-task&#10;云效建工作项 → 开发 → MR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="276" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C3A" value="/kd-review  ★★★&#10;21 bucket 并行 → streaming 修复&#10;→ 连续 3 轮清零收敛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="140" width="200" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="C3B" value="/super-pm&#10;产品 + UX 视角,查假功能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="216" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C3C" value="/e2e-archi&#10;架构 + E2E + 安全 + 历史事故回归" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="284" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C4A" value="/push-all&#10;多仓 add/commit/push 一条龙" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="140" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C4B" value="/pull-all&#10;拉目标分支到当前,自动解冲突" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="208" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C4C" value="/pr-all · /pr-backend ...&#10;按仓提 MR 到 dev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="276" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C4D" value="/merge-branch&#10;先 review 后合并,统一修复+changelog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="344" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C5A" value="/mp-e2e · /op-e2e&#10;小程序 / 运营后台 E2E,TDD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="140" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C5B" value="/deploy-prod-be-ops&#10;构建 + 部署后端 + 运营静态资源" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="208" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C5C" value="/prod-testing&#10;生产 API + 页面冒烟" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="276" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C5D" value="/prod-debug&#10;prod profile 启动后端排障" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="344" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C6A" value="/flyway-squash&#10;迁移文件按环境整理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="140" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C6B" value="/cron-review&#10;每日 03:00 自动 kd-review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="208" width="160" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="C6C" value="/write-ex&#10;排障经验自动沉淀成规则" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="276" width="160" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="CONC" value="一条主线: 把纪律变成命令,让 AI 自己收敛 —— 不是 31 个孤立脚本,是一套挂在研发流程上的「人定规则 / AI 执行」闸门" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="1260" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

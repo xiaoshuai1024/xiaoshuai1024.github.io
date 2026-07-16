@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="能力地图演进" id="tr2">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="stg1" value="阶段一：纯后端&#10;只盯自己一摊" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1a" value="后端 · 专家级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="95" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1b" value="其余端 · 不碰" style="text;html=1;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg2" value="阶段二：全栈&#10;前后端打通" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="290" y="40" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2a" value="后端 · 专家级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="95" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2b" value="前端 · 能交付" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="145" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg3" value="阶段三：产品开发专家&#10;一人扛全链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="540" y="40" width="240" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3a" value="后端 · 专家级（锚点）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="95" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3b" value="前端 / DevOps / 运营 · 能交付" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="145" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3c" value="产品定义 · AI 补到够用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="195" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ar12" value="AI 补前端" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="stg1" target="stg2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ar23" value="AI 削平其余门槛" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;endArrow=block;" edge="1" parent="1" source="stg2" target="stg3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="锚点不变：后端始终是专家级。变化的只是其余端从「不碰」到「能交付」到「够用」。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="680" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="warn" value="别贪：五条都专家级不现实。一条专家、其余够用，就是合理形态。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#b45309;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="680" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

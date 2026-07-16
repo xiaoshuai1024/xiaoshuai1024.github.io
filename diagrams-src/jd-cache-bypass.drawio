@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="11W 攻击绕过缓存" id="jdBypass">
+    <mxGraphModel dx="920" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="11W 攻击流量：每层缓存都「未命中放行」，全部压到后端连接池" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="14" width="480" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="NORMAL" value="10W 正常流量&#10;命中率 95%+&#10;CDN/WAF/Nginx/Redis 层层消化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ATTACK" value="1W 攻击流量&#10;命中率 ≈ 0&#10;构造的不存在 key，每层都 miss" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="TOTAL" value="11W 总流量&#10;10W 被缓存消化&#10;1W 全部回源" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="60" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="H2" value="6 层缓存的「未命中放行」逻辑，对攻击反而是帮倒忙" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="440" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1" value="① CDN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2" value="② WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="180" y="180" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3" value="③ Nginx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="180" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4" value="④ SSR 本地 LRU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="L5" value="⑤ Node BFF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="180" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="L6" value="⑥ Redis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="740" y="180" width="100" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="MISS" value="攻击流量：每层都判定「我这没缓存」→ 放行 → 一路畅通打到底" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="230" width="520" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="BE" value="后端连接池打满（100%）&#10;Socket 耗尽，P99 80ms → 800ms&#10;服务响应缓慢" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="270" width="320" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="EBE" style="endArrow=block;html=1;strokeColor=#dc2626;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="252" as="sourcePoint"/>
+            <mxPoint x="460" y="268" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RECOVER" value="恢复：WAF 清洗（IP 频次 / UA / 请求模式）+ 限流 → 等 Socket 释放&#10;（若有熔断，OPEN 快速失败会比等释放更快恢复）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="220" y="360" width="480" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="缓存架构扛效率，WAF 清洗 + 限流扛安全 —— 这两层缺一个，大促都可能翻车" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="425" width="640" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

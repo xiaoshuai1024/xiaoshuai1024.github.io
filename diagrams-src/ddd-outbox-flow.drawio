@@ -1,0 +1,38 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Outbox 双写" id="dddOutbox">
+    <mxGraphModel dx="920" dy="460" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="领域事件事务性 Outbox：事件表与业务表同事务，Relay 每 5 秒补偿投递，事件不丢" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="14" width="580" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="TX" value="同一事务（@Transactional）" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="50" width="280" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="AGG" value="聚合根 publish()&#10;改状态 + 审计字段&#10;events.add(PagePublishedEvent)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="DUP" value="DomainEventPublisher.publishAll()&#10;① applicationEventPublisher.publishEvent&#10;　 （触发 AFTER_COMMIT，即时 best-effort）&#10;② outboxMapper.insert（事务内落盘）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="320" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="DB" value="数据库&#10;domain_outbox 表&#10;processed_at IS NULL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="EA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="AGG" target="DUP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="DUP" target="DB"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="RELAY" value="OutboxRelayScheduler（每 5 秒）&#10;扫 processed_at IS NULL（每批 50）&#10;反序列化 → 投递&#10;成功 markProcessed / 失败 attempts+1 指数退避&#10;超 5 次进死信" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="210" width="320" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="HANDLER" value="事件监听器（@Async AFTER_COMMIT）&#10;PagePublishSideEffectHandler 等 7 个&#10;缓存失效 / SEO 刷新 / 短链更新&#10;消费端幂等（relay 可能重投）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="220" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ER1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="DB" target="RELAY"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ER2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="RELAY" target="HANDLER"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="FOOT" value="事件表与业务表同事务：要么一起成功要么一起回滚，不会出现「业务成了事件没了」" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="370" width="640" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

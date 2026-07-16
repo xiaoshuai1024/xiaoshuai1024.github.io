@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>可观测性 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/</link><description>可观测性 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 31 May 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" rel="self" type="application/rss+xml"/><item><title>线上报警却找不到那条日志:RequestId 串起可观测性链路</title><link>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</link><pubDate>Sun, 31 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</guid><description><![CDATA[用户反馈&quot;下单失败&quot;,登上去一查:前端 console 干净,network 显示 500,后端日志同时间段上千条 ERROR。哪一条是这一单的?不知道。堆再多工具也救不了这种痛——可观测性的关键不是工具多,是它们能不能串成一条能排查的链路。
+线上出问题,最怕的不是错,是&quot;不知道哪儿错&quot; 做过稳定性的人大概都有过这种时刻:用户反馈&quot;系统卡了&quot;&ldquo;报错了&rdquo;,你登上去一看,前端没报错日志,后端日志一大堆,翻半天翻不到那一条。
+最后只能去问&quot;什么时候、什么操作、哪个页面&quot;,靠用户回忆拼现场。
+这种痛感,堆再多工具也救不了。我对这件事的判断很明确:可观测性不是工具数量的问题,是这些东西能不能串成一条链路。
+工具再多,各管各的、对不上号,排查时还是两眼一抹黑。你上三个 APM、两个日志平台,它们之间没有共同的 requestId 把同一次请求串起来,排查时还是得靠&quot;猜&quot;——猜这次请求在 A 工具里是哪条、在 B 平台里又对应哪条。工具数量解决不了对齐问题,串成链路才能。这篇文章,复盘我们团队从&quot;堆工具&quot;到&quot;串链路&quot;走了哪几步。
+说个真实场景,你就能体会&quot;串不起来&quot;有多痛。某次用户反馈&quot;下单失败&quot;,我们登上去一查:前端 console 干净、network 显示 500、后端日志里同时间段有上千条 ERROR。到底是哪一条对应这个用户?不知道。只能让用户复述操作时间,翻着时间戳一条条对,半小时才定位。后来铺了 requestId,同样的场景:用户报障时把错误提示里的 requestId 发过来,后端日志一搜,这一单从进入拦截器、走到下单 Service、在哪一步抛了 CONCURRENT_CONFLICT,完整轨迹一条线拉出来,3 分钟搞定。这就是&quot;串成链路&quot;和&quot;堆工具&quot;的效率差。
+第一根线:全链路 RequestId 最便宜、收益最高的一件事,就是每个请求注入一个唯一的 RequestId,然后让它贯穿这个请求经过的所有日志。
+听起来简单,但它解决的是排查里最要命的问题:对齐。
+前端报了一个错,后端到底走没走到、走到哪一步挂了——以前靠猜,现在按 RequestId 一搜,前因后果全在一条时间线上。
+我们团队的规矩是:排查线上问题第一件事,就是拿 RequestId 去后端日志里捞这条请求的完整轨迹。没有这个 id,前后端日志就是两座孤岛——前端日志记的是&quot;页面 A 报了错&quot;,后端日志记的是&quot;接口 B 抛了异常&quot;,两边都对,但你没法证明&quot;页面 A 的错就是接口 B 的异常引起的&quot;。中间可能隔着网关、缓存、异步任务,任何一个环节都可能是断点。RequestId 把这条链路缝起来,从用户点的那一刻到后端落库,一条 id 串到底。
+RequestId 的生成也有讲究:前端生成优先,后端兜底。正常情况下前端 axios 拦截器给每个请求生成一个 id 放进 header,后端 Filter 取出来用——这样同一个 id 贯穿前后端。但如果请求没经过前端(比如第三方直接调后端、或 MQ 消费),header 里没 id,后端 Filter 兜底生成一个。两段逻辑都在那个 resolveRequestId 方法里,优先用外面传进来的,没有才自己造。这个顺序保证:同一次请求,前后端用同一个 id,绝不串号。]]></description></item></channel></rss>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="四道闸流程" id="cg2">
+    <mxGraphModel dx="800" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="commit" value="git commit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="闸 1：URL ↔ 路由&#10;前端 axios URL vs 后端 @RequestMapping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="闸 2：SQL ↔ DDL&#10;Mapper FROM/JOIN vs Flyway CREATE TABLE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="110" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="闸 3：权限 key ↔ 种子&#10;@RequirePermission vs sys_permission seed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="110" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4" value="闸 4：迁移版本号唯一&#10;V{N}__*.sql 不能重复" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="210" width="320" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="commit" target="g1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="commit" target="g2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="commit" target="g3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="g1" target="g4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="g3" target="g4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pass" value="✅ 全过 → 允许提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="320" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="fail" value="❌ 任一红 → 拦下" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b91c1c;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="320" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="ep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="g4" target="pass">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b91c1c;endArrow=block;dashed=1;" edge="1" parent="1" source="g4" target="fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="四道闸并行扫，串行判断：任一红就拦，全绿才放行。跑完不到 8 秒。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="780" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="新人 vs 老兵" id="newbie-veteran">
+    <mxGraphModel dx="1000" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP_N" value="新人 + AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="440" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="N1" value="判断不出坑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="150" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="N2" value="AI 加速填坑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="150" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="N3" value="越快越乱&#xa;返工吞掉收益" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="130" y="180" width="190" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="NE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="N1" target="N2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="NE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="N2" target="N3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GRP_O" value="老兵 + AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="510" y="30" width="440" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="O1" value="经验定位风险" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="80" width="150" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="O2" value="AI 加速正确的事" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="80" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="O3" value="快而不乱&#xa;产能可持续" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="180" width="190" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="OE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="O1" target="O2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="OE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="O2" target="O3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GAP" value="差一个支点:经验" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="430" y="180" width="120" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

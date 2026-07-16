@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="出款渠道路由" id="payout-router">
+    <mxGraphModel dx="900" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="出款渠道路由:责任链 + 优先级(生产无可用渠道直接抛异常)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="820" height="440" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R" value="PayoutChannelRouter&#xa;AbstractPayoutChannel 接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="220" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="PRI" value="路由优先级&#xa;① 租户偏好&#xa;② 服务商模式·微信&#xa;③ 直连·微信&#xa;④ 银行卡&#xa;⑤ dev/test · MOCK" style="text;html=1;align=left;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="80" width="200" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="W1" value="WechatPayoutChannel&#xa;partner 路径(服务商)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="190" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="W2" value="WechatPayoutChannel&#xa;direct 路径(直连)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="190" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="B" value="BankPayoutChannel&#xa;银行卡代付" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="220" width="170" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L" value="payout_channel_log&#xa;request / response / 状态&#xa;每次出款落审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="360" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="NOTE" value="大额 ≥ 2000 元传 RSA-OAEP 加密 user_name&#xa;凭证 tenant_wechat_profile(AES-GCM 加密存储)" style="text;html=1;align=left;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="400" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="R" target="W1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="R" target="W2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="R" target="B"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="W1" target="L"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="W2" target="L"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="B" target="L"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

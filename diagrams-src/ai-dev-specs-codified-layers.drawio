@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="四层规范:从软到硬" id="specslayers">
+    <mxGraphModel dx="880" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="四层规范:越往下越不可绕过" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="18" width="340" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L1" value="① 规则文件(.cursor/rules)&#10;按文件类型触发 · alwaysApply / globs&#10;硬度:提示(理论上可忽略)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="70" width="620" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2" value="② 技能库(.agents/skills)&#10;90+ 按需加载 · 教方法不教约束&#10;硬度:按需参考(不调用不生效)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bfdbfe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="160" width="540" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3" value="③ 启动清单(CLAUDE.md / AGENTS.md)&#10;开机强制过一遍 · 确认知道规矩&#10;硬度:强制加载(开机即生效)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="250" width="460" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4" value="④ 运行时 hook(.git/hooks)&#10;物理拦截 · 提交动作本身被拦&#10;硬度:不可绕过(想绕也绕不过)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="380" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="soft" value="软 ← 提示 / 参考" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="hard" value="硬 → 物理拦截" style="text;html=1;align=center;fontColor=#0f766e;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="规范所有权:从「靠人自觉」转移到「靠系统执行」 · 制定和执行分离" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="430" width="540" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

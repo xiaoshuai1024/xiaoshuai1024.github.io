@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="审查-修复收敛循环" id="puaConverge3">
+    <mxGraphModel dx="920" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="退出条件从「修了几个」变成「连续 N 轮全绿」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="14" width="480" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1" value="第 1 轮&#10;15 RED + 28 YELLOW&#10;11 agent 并行扫" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="G1" value="PUA 卡住：&#10;修完必须贴证据&#10;冰山思维扫同类" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2" value="第 2 轮&#10;降到 3 RED&#10;（修 R1 牵出的同类）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="N1" value="还有问题&#10;不许收敛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="630" y="80" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ELG" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="L1" target="G1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EGL2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="G1" target="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EL2N1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="L2" target="N1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L3" value="第 3 轮&#10;还剩 1 YELLOW&#10;（IFNULL 边界值没测）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="G3" value="PUA 卡住：&#10;RCA 诊断行 + 5 步穷尽&#10;补边界值用例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="220" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4" value="第 4 轮&#10;全绿 ✅&#10;连续 N 轮零问题" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="220" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXIT" value="允许收敛退出&#10;kd-review 挖 + PUA 卡" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="220" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="EN1L3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N1" target="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EL3G3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="L3" target="G3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EG3L4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="G3" target="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EL4EXIT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="L4" target="EXIT"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="BARE" value="对比 · 裸跑 kd-review：第 1 轮 15 RED，修 5 个最显眼的，贴一句「其余建议人工跟进」就收手" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="760" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="审查的难点不在「找不找得到」，在「找完了愿不愿意继续找」——PUA 把这个意愿卡死" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="372" width="680" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

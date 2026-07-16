@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="工程化流水线" id="pipeline">
+    <mxGraphModel dx="1100" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="从改一行代码到 npm publish:Nx 任务图怎么编排骨架" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="700" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段 1: 开发 -->
+        <mxCell id="s1" value="① 开发&#10;pnpm dev&#10;pnpm storybook" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1_note" value="源码直连:&#10;@luban-ui/source 条件&#10;改 base 立刻在 low-code 见效" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段 2: typecheck + lint -->
+        <mxCell id="s2" value="② 静态检查&#10;typecheck (tsc --noEmit)&#10;lint (eslint)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="240" y="100" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2_note" value="strict: true&#10;类型不过 = 红灯" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="190" width="180" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段 3: 单元测试 -->
+        <mxCell id="s3" value="③ 单元测试&#10;pnpm test:base&#10;pnpm test:lowcode&#10;Vitest + jsdom" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="100" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3_note" value="每个组件一个 spec&#10;dependsOn: ^build" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="190" width="180" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段 4: E2E 风格 -->
+        <mxCell id="s4" value="④ 包内 E2E&#10;test:base:e2e&#10;test:lowcode:e2e&#10;隔离的 vitest 配置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="100" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段 5: 应用 E2E -->
+        <mxCell id="s5" value="⑤ 应用 E2E&#10;pnpm test:e2e&#10;Cypress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="100" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- 阶段 6: build + publish -->
+        <mxCell id="s6" value="⑥ build + publish&#10;nx run-many -t build&#10;npm publish --access public" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="320" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s6_note" value="publish.dependsOn: [build, test]&#10;任一环节红 = 不允许 publish" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="410" width="320" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 主流程箭头 -->
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- 全部绿 → publish -->
+        <mxCell id="f5" value="①~⑤ 全绿" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#dc2626;strokeWidth=2;endArrow=block;fontSize=10;fontColor=#dc2626;" edge="1" parent="1" source="s5" target="s6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="270"/>
+              <mxPoint x="700" y="270"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 缓存说明 -->
+        <mxCell id="cache" value="Nx 缓存:同一个 target + 输入未变 → 直接复用上次产物,跳过执行" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=10;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="parallel" value="并行:无依赖的包 (luban-base, luban-utils) 并行构建/测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=10;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="320" width="320" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

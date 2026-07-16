@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="RequestId 三段贯通" id="obsFlow">
+    <mxGraphModel dx="920" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="RequestId 贯通：前端生成优先，后端 Filter 兜底，MQ 消息头跨进程透传" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="14" width="540" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="FE" value="前端 axios 拦截器&#10;crypto.randomUUID() → header&#10;X-Request-Id（无横线）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="FILTER" value="后端 RequestTraceFilter (order=1)&#10;取 header → 没有 resolveRequestId 兜底生成&#10;MDC.put + ThreadLocal&#10;finally: MDC.remove + clear" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="70" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="CTL" value="Controller / Service&#10;RequestTraceContext.getRequestId()&#10;日志自动带 requestId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="70" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="EFE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="FE" target="FILTER"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EFC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="FILTER" target="CTL"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="LFE" value="同 id 贯穿" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="90" y="148" width="100" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="MQBOX" value="跨进程：RabbitMQ 消息头透传" style="text;html=1;align=left;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="320" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="PROD" value="生产者 MqTraceHelper&#10;header x-request-id = 当前线程 id&#10;+ x-tenant-id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="CONS" value="消费者 restoreTraceContext()&#10;从消息头恢复到 MDC&#10;没带 id → 兜底生成 mq- 前缀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="230" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ASYNC" value="异步线程池&#10;MdcTaskDecorator 传播&#10;requestId + tenantId&#10;备份→执行→恢复（防嵌套串号）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="230" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="EPQ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="PROD" target="CONS"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="LMQ" value="mq- 前缀：一眼区分「来自 MQ 消费」还是「来自 HTTP」" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="440" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="Filter 比 Interceptor 更靠前：404 / 鉴权失败 401 这些走不到 Controller 的边界请求，也能拿到 requestId" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="360" width="720" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

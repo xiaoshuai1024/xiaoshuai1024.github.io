@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>架构能力 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B/</link><description>架构能力 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 16:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B/" rel="self" type="application/rss+xml"/><item><title>AI 时代研发什么能力最值钱:架构、前瞻与指导 AI 做对</title><link>https://xiaoshuai1024.top/posts/ai-dev-what-matters/</link><pubDate>Wed, 17 Jun 2026 16:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-what-matters/</guid><description><![CDATA[上一篇讲知识不再是优势。这篇接着说一个更实际的问题:知识被抹平了,什么才是新的核心竞争力。
+AI 时代真正重要的研发能力,不是&quot;会写代码&quot;,是&quot;知道怎么正确地做事&quot;。
+一、vibe coding 的热闹和它的代价 AI 编程门槛降到地板之后,vibe coding 成了一种流行玩法——不读代码、不懂架构,跟 Claude Code 或 Cursor 聊着天把应用&quot;聊&quot;出来。
+我能理解这种爽感。但作为经常要接手、维护这类系统的人,必须说一句实话:这些产物里有一大批是玩具,却被当成工业级软件在用。
+vibe coding 的爽感来自&quot;快&quot;——几个小时就能把想法变成能点的界面。但这种快掩盖了一个事实:demo 和生产软件之间,差着四道硬功夫(安全、可维护、可扩展、可验证),而这四道功夫,vibe coding 一道都没练。爽完之后的账,是后面接手维护的人(往往是别人,甚至是几个月后的你自己)在还。
+危险不在 demo 能跑,而在于&quot;能跑&quot;这件事制造了一种错觉。能跑的代码,不等于能上线;能上线的,不等于能扛住流量;能扛住流量的,不等于半年后还改得动。这三层差距,vibe coding 一个都没跨。
+具体表现在四件事上,几乎每篇 vibe coding 产物都中招:
+安全:AI 写的鉴权、SQL 拼接、密钥处理多半有洞。一个 tenant_id 漏校验,就是跨租户数据泄露。 可维护:没规范、没分层、命名混乱。三个月后作者自己都读不懂。 可扩展:逻辑全堆在一个文件,一次请求同步干十件事。用户量一上来就瘫。 可验证:没测试、没契约、没监控。改一行,不知道弄坏了哪里。 这四件事,每一件都是&quot;能跑&quot;掩盖不了的。vibe coding 产物的典型路径是:跟 AI 聊出一个能跑的 demo → 看着像那么回事 → 直接上线 → 三个月后出事,要么被攻击(SQL 注入、越权)、要么扛不住(没缓存没限流)、要么改不动(屎山)、要么查不清(没监控没日志)。&ldquo;能跑&quot;是 demo 的标准,不是生产的标准,这两者之间的鸿沟,vibe coding 一个都没填。
+我自己接手过这类系统,感受很直接:打开代码,逻辑全挤在几个大文件里,没有分层、没有契约;安全上,鉴权校验写在前端(后端裸奔)、SQL 用字符串拼接;可维护性上,改一个字段要全文搜索十几个地方。这种系统能跑,但它是隐患——不是会不会炸的问题,是什么时候炸。而把它从&quot;能跑&quot;改到&quot;能上线&rdquo;,花的力气比重写还大。
+玩具和工业级软件的分界线,从来不是&quot;能不能跑&quot;,而是出了事扛不扛得住、查不查得清、改不改得动。
+二、AI 解决执行,解决不了&quot;做对&quot; 先表明立场:我不是反对 AI。相反,Claude Code 是我的主力工具,研发账本里 4 个人 2 个月干出近百万行,没有 AI 根本做不到。我比多数人都更依赖它,也更清楚它的边界。]]></description></item></channel></rss>

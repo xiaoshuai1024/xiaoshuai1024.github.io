@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="vibe coding 代价" id="vibe-cost">
+    <mxGraphModel dx="1000" dy="360" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="vibe coding:能跑的 demo 被当成工业级软件" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="920" height="240" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="A" value="产品想法" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="110" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="B" value="vibe coding&#xa;跟 AI 聊" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="210" y="120" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="能跑的 demo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="120" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="D" value="🎉 上线&#xa;(看着像软件)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="570" y="120" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="P" value="真实代价&#xa;安全洞 / 维护不动&#xa;扩展不动 / 出事不知在哪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="770" y="100" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="A" target="B"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="B" target="C"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="看着像" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontColor=#64748b;fontSize=10;" edge="1" parent="1" source="C" target="D"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#dc2626;dashed=1;" edge="1" parent="1" source="D" target="P"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

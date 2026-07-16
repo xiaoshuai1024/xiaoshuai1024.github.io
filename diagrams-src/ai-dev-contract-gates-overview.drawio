@@ -1,0 +1,35 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="提交前的四道契约闸:用脚本守住 API、SQL、权限、迁移边" id="ai-dev-contract-gatesoverview">
+    <mxGraphModel dx="1100" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="提交前的四道契约闸:用脚本守住 API、SQL、权限、迁移边 · 核心架构" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="20" width="440" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="input" value="输入层&#10;需求 / 数据 / 上游调用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="core1" value="核心模块一&#10;提交前的四道契约闸:用脚本守住 API、SQL、权限、迁移边的左侧关键链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="core2" value="核心模块二&#10;提交前的四道契约闸:用脚本守住 API、SQL、权限、迁移边的右侧关键链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="output" value="输出 / 结果&#10;产物 / 上线 / 反馈" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="100" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="safeguard" value="兜底层&#10;质量 / 安全 / 监控 / 评审" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="240" width="500" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="要点：提交前的四道契约闸:用脚本守住 API、SQL、权限、迁移边的核心判断 = 把不确定性兜成机器可执行的规则" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="800" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="input" target="core1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="core1" target="core2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="core2" target="output"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="safeguard" target="core2"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

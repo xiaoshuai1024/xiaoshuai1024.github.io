@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>数据库迁移 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/</link><description>数据库迁移 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/" rel="self" type="application/rss+xml"/><item><title>Flyway 迁移踩坑复盘:版本号撞车让服务起不来</title><link>https://xiaoshuai1024.top/posts/flyway-migration-governance/</link><pubDate>Mon, 01 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/flyway-migration-governance/</guid><description><![CDATA[某天早上我接到一个告警:某个服务启动不起来。日志翻到最后,就一行 Flyway 报错——迁移版本号对不上。
+登上去一看,前一天两个人各自合了代码,各自加了一个 V12__xxx.sql。版本号撞车,Flyway 直接罢工,服务起不来。
+排查过程:从&quot;服务挂了&quot;到&quot;找到撞车&quot; 这次事故虽然定位不难,但排查过程值得讲——因为典型的&quot;启动失败&quot;排查路径就是这样:
+第一反应:看日志最后几行。 日志末尾就一行红字:Validate failed: Migration version mismatch for version &quot;12&quot;,直接告诉你 Flyway 校验失败。这一步省了至少 10 分钟。
+第二反应:grep V12 找撞车文件。 ls db/migration/ | grep V12 一跑,出来两个:V12__add_user_field.sql 和 V12__add_order_index.sql。撞车确认。
+第三反应:看 git log 倒查谁合的。 git log --oneline -- db/migration/V12* 发现两个文件分别在两次 PR 里合入,review 时都没注意到对方用了同一个号——因为 review 时只看自己那个 PR 的 diff,看不到另一个 PR 已经合了同名号。
+根因复盘(5 Whys):
+Why1:为什么服务起不来?因为 Flyway 校验失败,版本号不唯一。 Why2:为什么版本号不唯一?两个人各自用了 V12,合并时没有自动检测。 Why3:为什么合并时没检测?因为 CI 只跑单测,没做迁移文件唯一性校验。 Why4:为什么没做唯一性校验?团队觉得&quot;靠约定就行&quot;,没把它当工程问题。 Why5:为什么&quot;靠约定&quot;不可靠?因为多人协作时,约定无法强制——每个 PR 看自己的 diff,看不到全局,撞车必然发生。 根因清晰:不是谁粗心,是治理缺位——把本该机器化的协调问题丢给了人。
+5 Whys 走到第五层,结论就清楚了:这不是&quot;下次细心点&quot;能解决的事故。两个人都在自己 PR 的视野里做事,谁都没错,但合起来就撞车。只要协调问题还压在人身上,撞车就是迟早的事,区别只是这周撞还是下周撞。 真正的修复不是叮嘱大家&quot;小心版本号&quot;,而是把唯一性校验做成 CI 的硬门禁、把版本号换成不需要协调的时间戳——让机制替人把这道关守住。]]></description></item></channel></rss>

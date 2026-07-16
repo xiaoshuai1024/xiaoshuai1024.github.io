@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>配置管理 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/</link><description>配置管理 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Jul 2026 20:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="self" type="application/rss+xml"/><item><title>换一个 AI 助手就重配一遍?我的多 IDE 配置单一事实源 SOP</title><link>https://xiaoshuai1024.top/posts/ai-dev-multi-ide-config-ssot/</link><pubDate>Wed, 08 Jul 2026 20:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-multi-ide-config-ssot/</guid><description>我用 AI 编码助手做全栈项目两年,主力是 Claude Code,但同一个项目里 Cursor、OpenCode、Codex、Trae 都会切着用。每个 IDE 都要配 rules、commands、skills,第一年里我反复在做同一件事:改一份 rules,去五个目录同步五遍。
+这篇讲的就是怎么把这块最底层地基——配置怎么不重复——解决掉(和命令体系是配套的:那篇讲「有哪些命令」,这篇讲「这些命令怎么在多个 IDE 之间不重复地维护」)。
+为什么不能只守着一个 IDE?没有一个 AI 助手在所有任务上都最优。我的体感:Claude Code 做长链路规划(写方案、拆任务)最强,Cursor 改 bug 时定位相关文件最顺手,Codex 适合挂后台跑批量重构,Trae 在某些中文语境下理解更准。任务不同,用的工具就不同。
+这种重复不只是烦。它的真正代价是配置会漂移:Cursor 里的命令修了 bug,Trae 里还是旧的;Codex 加了新 skill,Reasonix 不知道。漂移积累到一定程度,AI 的行为就不可预测了——同一个 /kd-review 命令,在 Cursor 里收敛,在 Codex 里死循环。更隐蔽的是,漂移往往是静默的:你以为五个 IDE 行为一致,其实早就不一致了,直到某天在某个 IDE 里踩了坑才发现。
+我把这套重复彻底干掉,沉淀成一套 SOP:一个 .agents/ 目录作单一事实源,五个 IDE 用不同策略同步,锁文件保证可复现。这篇按标准 SOP 文档的格式写,你照着能在自己的项目里复现。
+一、这套 SOP 要解决什么 先说清楚它只解决什么问题,避免你套用到不合适的场景。
+痛点:一个项目同时用多个 AI 编码助手时,rules(项目规则)、commands(自定义命令)、skills(技能)这三类配置需要在每个 IDE 的约定目录里都存在。手动复制会导致:
+配置漂移:改了 A 处忘了改 B 处,行为不一致 版本失控:没有锁文件,换台机器装出来的 skill 集合不一样 心智负担:每次新增命令,要记得「同步到哪些地方」 这套 SOP 的目标是:改一处,全 IDE 生效,且可复现安装。</description></item></channel></rss>

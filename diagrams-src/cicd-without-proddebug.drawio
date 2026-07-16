@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="prod-debug" id="proddebug">
+    <mxGraphModel dx="1040" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1040" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="/prod-debug：用三条铁律把生产调试锁成「只读」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="540" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="center" value="本地调试机&#10;prod profile" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="90" width="180" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="prod" value="生产 MySQL / Redis" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="90" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#16a34a;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="center" target="prod">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecl" value="只读连接" style="text;html=1;fontColor=#16a34a;fontSize=11;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="78" width="120" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1" value="铁律①&#10;不修改业务代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1d" value="要改走 /pr-all 重走 CI&#10;不准「顺手改一行」" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="266" width="240" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2" value="铁律②&#10;不创建数据库迁移" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2d" value="Flyway out-of-order: false&#10;schema 问题只读不写" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="400" y="266" width="240" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r3" value="铁律③&#10;不触发 CD / 不重启线上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="200" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3d" value="重启走 /deploy 带验证链路&#10;排障不碰线上服务" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="740" y="266" width="240" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="er1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="r1" target="center">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="er2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="r2" target="center">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="er3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="r3" target="center">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stop" value="高危操作停下问人&#10;涉及大范围重构 / 架构改动 → 汇报等指示" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="430" width="540" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="yunxiao" value="这一步 + 停下问人：都是云效流水线做不到的——流水线单向、无「询问」中间态" style="text;html=1;align=center;fontColor=#d97706;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="520" width="800" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

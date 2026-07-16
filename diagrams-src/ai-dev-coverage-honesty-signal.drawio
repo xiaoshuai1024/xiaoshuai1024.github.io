@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="覆盖率:体检信号 vs KPI" id="covsignal">
+    <mxGraphModel dx="880" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="覆盖率当体检指标 vs 当 KPI:两种用法天差地别" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="18" width="480" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="left" value="当体检指标(推荐)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="400" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="定期看趋势 · 定位没测到的模块&#10;按业务域拆开看,不盯总数" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="门禁卡增量不卡绝对值&#10;新增代码 ≥80%,存量历史债承认" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="参考信号,人做决策&#10;覆盖率指方向,人判断要不要补" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="lres" value="→ 指标可信,能指导补测" style="text;html=1;align=center;fontColor=#0f766e;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="310" width="400" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="right" value="当 KPI(坑)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="70" width="400" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="跟绩效/发版挂钩 · 追数字&#10;刷占位、滥 ignore、只测 happy path" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="130" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="卡整体绝对值 · 逼存量还债&#10;要么发版卡死,要么造假造绿" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="190" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="数字做决策 · 人被扭曲&#10;避重就轻,难测的核心逻辑裸奔" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="250" width="400" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="rres" value="→ 指标失真,数字漂亮质量没动" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="310" width="400" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="bottom" value="覆盖率是低分辨率体温计:告诉你可能发烧了,诊断不了病因&#10;质量要分维度盯:关键路径 · 契约门禁 · 架构测试 · E2E,每样都比行覆盖率值钱" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="360" width="740" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

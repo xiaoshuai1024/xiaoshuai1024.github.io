@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>容灾备份 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%AE%B9%E7%81%BE%E5%A4%87%E4%BB%BD/</link><description>容灾备份 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Jul 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%AE%B9%E7%81%BE%E5%A4%87%E4%BB%BD/" rel="self" type="application/rss+xml"/><item><title>备份 ≠ 能恢复:3-2-1 备份与每月强制演练的完整 SOP</title><link>https://xiaoshuai1024.top/posts/data-backup-321-drill/</link><pubDate>Wed, 08 Jul 2026 20:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/data-backup-321-drill/</guid><description>我见过太多团队对「备份」的理解停留在「mysqldump 定时跑一下」。这种理解会害死人。备份和恢复是两件事,而真正决定数据安全的,是恢复——更准确地说,是你能不能在灾难发生时,确定性地把数据救回来。
+(这篇和多租户数据隔离、事故即规范是一组:那两篇讲「怎么不让数据出问题」,这篇讲「万一出了,怎么救得回来」。)
+我主导的多租户 SaaS 项目有一次差点翻车:一个清理 OSS 孤儿图片的定时任务,因为差集逻辑写反,批量物理删了一批用户图片。那次之后我定了一条规矩:任何数据资产,都必须有一套可执行的恢复 SOP,而且每月真刀真枪演练一次。这套 SOP 我跑了快一年,这篇按标准运维文档的格式把它拆开。
+一、这套 SOP 的目的与边界 目的:保证 MySQL 数据库、OSS 对象存储、秘钥配置这三类核心数据资产,在任何单一故障(磁盘损坏、误删、云厂商区域故障、勒索软件)下,RPO ≤ 5 分钟,RTO ≤ 1 小时。
+边界——什么不纳入这套 SOP:
+Redis:缓存和会话,可从 MySQL 重建,自身有 RDB+AOF 持久化兜底 Elasticsearch:业务索引可从 MySQL reindex 重建;AI 向量库重建成本高但属非事务数据 把边界划清楚很重要。什么都想备份等于什么都没备份好——资源有限,精力有限,必须聚焦在「丢了真的会死」的数据上。MySQL(交易数据)、OSS(用户内容)、秘钥(服务能不能启动)这三类是命根子,其它都能从它们重建。
+适用场景:单实例或主从架构的中型 SaaS(日均 API 百万级、OSS 日增 GB 级)。如果你已经是多活架构,这套方案是降级的;如果你只是个人项目,这套是过度设计。
+二、核心原则:3-2-1 与「演练即门禁」 整套 SOP 立在两条原则上,缺一条就垮。
+原则一:3-2-1 备份原则。
+这是备份领域的经典铁律,含义是:
+3 份副本(生产数据 + 2 份备份) 2 种不同介质(比如本地磁盘 + 对象存储) 1 份异地(不同可用区,最好不同云厂商) 3-2-1 的精神是消除单点:任何一种介质、任何一个机房、任何一家云厂商出问题,都至少还有一份能用的副本。我的项目里,MySQL dump 同时存「异地从库本地磁盘 + 七牛 OSS + 阿里云 OSS」三份,OSS 对象在「七牛主 bucket + 七牛备用 bucket + 阿里云冷备」三处。这就是 3-2-1 的落地。</description></item></channel></rss>

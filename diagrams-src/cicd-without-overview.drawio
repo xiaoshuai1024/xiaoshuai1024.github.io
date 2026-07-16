@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="总览" id="overview">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="三条命令 = CI + CD + DevOps 三阶段" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="30" width="490" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cmd1" value="/pr-all" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="130" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="cmd2" value="/deploy&#10;+ /prod-testing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="110" width="150" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="cmd3" value="/prod-debug" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="110" width="130" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ci" value="CI 阶段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cd" value="CD 阶段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="210" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="devops" value="DevOps 阶段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="210" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ci1" value="同步 dev 解冲突" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="280" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci2" value="建 MR 到 dev" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="324" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci3" value="@code-reviewer 审查" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="368" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci4" value="AI 自动修复问题" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="412" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci5" value="收敛后自动合并" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="456" width="180" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cd1" value="构建 jar + dist" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="280" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="cd2" value="scp 上传服务器" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="324" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="cd3" value="重启 + 健康检查" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="368" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="cd4" value="API 冒烟验证" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="412" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="cd5" value="H5 + 运营后台冒烟" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="456" width="180" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="do1" value="切 prod profile" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="950" y="280" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="do2" value="连生产库排查" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="950" y="324" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="do3" value="三铁律锁只读" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="950" y="368" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="do4" value="高危操作停下问人" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="412" width="180" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmd1" target="ci">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmd2" target="cd">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmd3" target="devops">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note" value="黄色框 = 云效 CI/CD 做不到、命令行独有的能力" style="text;html=1;align=left;fontColor=#475569;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="420" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="ci" target="cd">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="cd" target="devops">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="技术深耕三大模块" id="tech-deep">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="ROOT" value="前端技术深耕" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="40" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="B" value="前端框架&#xa;Vue3 底层原理：响应式、虚拟DOM、组件通信" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="250" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="服务端与中间层&#xa;Node.js + Egg.js/Express：异步原理、中间件设计、接口聚合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="325" y="170" width="250" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="D" value="工程化与性能&#xa;Webpack/Vite 构建原理、优化；数据流优化、首屏渲染" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="610" y="170" width="250" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="B1" value="延伸&#xa;TypeScript 类型系统&#xa;封装通用组件库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="250" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="C1" value="延伸&#xa;BFF 层设计、跨域方案、接口容错" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="325" y="320" width="250" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1" value="延伸&#xa;多端适配（Taro/uniapp/flutter）&#xa;缓存策略" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="610" y="320" width="250" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R2B" value="前端框架" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ROOT" target="B">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2C" value="中间层" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ROOT" target="C">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2D" value="工程化与性能" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#475569;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ROOT" target="D">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="B2B1" value="延伸" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="B" target="B1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="C2C1" value="延伸" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="C" target="C1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="D2D1" value="延伸" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;fontSize=10;fontColor=#134e4a;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="D" target="D1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

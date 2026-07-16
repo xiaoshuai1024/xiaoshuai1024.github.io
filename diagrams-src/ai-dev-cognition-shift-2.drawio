@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="能力上移" id="ability-shift">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="值钱的能力,从执行层往上挪了一层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="820" height="420" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="DEC" value="决策层 · AI 吃不掉" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="640" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1" value="架构能力&#xa;分层 / 边界 / 取舍" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="150" y="130" width="170" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="D2" value="判断力&#xa;做不做 / 做多深" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="355" y="130" width="170" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="D3" value="经验嗅觉&#xa;一眼看出迟早出事" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="130" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EXEC" value="执行层 · 被 AI 削平(语法 / API / 框架用法,过去的护城河)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#64748b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="640" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ARROW" value="AI 接管,价值归零区" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="260" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="AE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="440" y="255"/><mxPoint x="440" y="290"/></Array><mxPoint x="440" y="240" as="sourcePoint"/><mxPoint x="440" y="310" as="targetPoint"/></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

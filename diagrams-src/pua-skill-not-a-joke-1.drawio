@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="PUA三条红线与5步穷尽" id="puaModel1">
+    <mxGraphModel dx="900" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="PUA 把 AI 三个老毛病固化成硬性行为协议" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="14" width="500" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="R1" value="红线一 · 闭环意识&#10;你说做完了？数据在哪？&#10;没证据的完成 = 自嗨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2" value="红线二 · 事实驱动&#10;&quot;可能是环境问题&quot;——验证了吗？&#10;未验证的归因 = 甩锅" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="325" y="60" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="R3" value="红线三 · 穷尽一切&#10;&quot;我搞不定&quot;——5 步走完了吗？&#10;没走完 = 缺乏韧性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="610" y="60" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="STITLE" value="5 步穷尽（想放弃前必须按序走完）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="180" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="S1" value="① 复现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S2" value="② 隔离" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="220" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S3" value="③ 假设验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="220" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S4" value="④ 最小修复" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="220" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S5" value="⑤ 回归" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="220" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="ES12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S1" target="S2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S2" target="S3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S3" target="S4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ES45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="S4" target="S5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="RCA" value="RCA 诊断行（动手前必写）&#10;[PUA-DIAGNOSIS] 问题是 ___；证据是 ___；下一步动作是 ___&#10;证据来源：错误原文 / 源码 / 复现 / 官方文档 / 历史先例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="660" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="本质：把资深工程师的复盘习惯，塞进 AI 的肌肉记忆 —— 不是 PUA，是纪律执行器" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="410" width="700" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

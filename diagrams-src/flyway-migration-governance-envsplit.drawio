@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dev/prod 配置分流" id="flywayEnvsplit">
+    <mxGraphModel dx="920" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="同一开关，dev 与 prod 取舍相反：dev 让开发顺，prod 让生产稳" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="14" width="540" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="DEV_H" value="dev / 本地" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="360" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="D1" value="validate-on-migrate: false" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="104" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="D2" value="out-of-order: true（号段并行开发不被卡）" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="128" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="D3" value="h2local: enabled: false（纯内存跑单测）" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="152" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="D4" value="gap = 常态 → out-of-order 乱序补跑" style="text;html=1;align=left;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="184" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="PROD_H" value="prod（生产）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="360" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="P1" value="validate-on-migrate: ${SPRING_FLYWAY_VALIDATE_ON_MIGRATE:true}" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="104" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="P2" value="out-of-order: true" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="128" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="P3" value="continue-on-gap-failure: 降级告警（不卡死启动）" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="152" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="P4" value="repair-before-migrate: true（开机自愈）" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="176" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="P5" value="gap = 隐患 → 告警 + 维护窗口补跑" style="text;html=1;align=left;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="208" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="DIV" value="" style="endArrow=none;html=1;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="56" as="sourcePoint"/>
+            <mxPoint x="460" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VS" value="同一开关&#10;取舍相反" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="420" y="120" width="80" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="一刀切要么天天卡开发、要么生产裸奔 —— 环境分得越细，每个环境才能配得越贴" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="320" width="680" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

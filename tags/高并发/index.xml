@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>高并发 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/</link><description>高并发 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 03 Jul 2026 14:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="self" type="application/rss+xml"/><item><title>低代码平台扛 10W QPS:读多写少的缓存工程演进</title><link>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</guid><description>一个低代码平台宣称能扛 10W QPS，往往扛不住的不是渲染——渲染结果早被 CDN 挡掉了。真正先崩的，是 schema 的读写：设计器每 5 秒批量保存、运行时每次渲染都要读 schema，读写瓶颈才是高并发的命门。
+本文基于鲁班低代码平台各仓库的既定关系与调用链，推演各系统的部署关系、高并发演进与高可用保障，便于在流量与可用性要求提升时按图演进。
+项目归属说明：本文的架构经验与高并发数据（峰值 10 万+ QPS、多级缓存、P0 清零等）来自我大厂时期主导的内部低代码系统&amp;quot;鲁班&amp;quot;；而文章展开的六库架构与代码实现细节，以我个人开源项目 OpenLuban（架构同源、代码全新重写，GitHub）为准。原公司系统源码不公开。
+一、系统关系与调用链（现状锚点） 鲁班平台由六个仓库组成，边界固定、契约清晰：
+系统 职责 技术栈 下游依赖 luban-ui 组件库 + 设计器 + Render 运行时 Vue3 / Nx 无（被集成） luban 管理后台 Vue3 / Vite / Pinia / Element Plus luban-bff /api/* luban-website 对外站点（SSR） Nuxt 3 luban-bff /api/public/* luban-bff 接入层：认证、聚合、协议适配 Next.js（Node） luban-backend /backend/* luban-backend 主后端：站点/页面/用户/设置 Spring Boot / MyBatis / Redis / MySQL MySQL、Redis luban-backend-go 与主后端同契约的 Go 实现 Go / Gin MySQL、Redis 调用关系可分三层看：</description></item><item><title>京东大促缓存复盘:10W QPS 扛住了,11W 倒下了</title><link>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</link><pubDate>Fri, 03 Jul 2026 14:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</guid><description>讲一次大促前夕刚做完缓存优化、活动开闸后被现实教做人的事。整个故事一句话:我把缓存放 cache(缓存)这件事做得很扎实,却忘了还有另一类流量叫 attack(攻击),它压根不走缓存。
+我那时在京东云做官网架构。大促前的几个月,我主导了一轮缓存改造——把吞吐量从 200 QPS 干到 2 万常态,大促峰值能扛到 10W。结果活动当天流量叠了一波 DDoS 冲到 11W,缓存架构被绕过,连接池打满,服务响应缓慢。最后靠 WAF 清洗和限流把系统拉回来。
+这篇复盘整个过程,核心教训一句话:多级缓存解决的是流量效率问题,解决不了流量安全问题。
+大促前夕:多级缓存怎么搭的 改造前的官网是单层 SSR,峰值 200 QPS 就顶不住。大促一开闸,服务直接拖地。
+&amp;ldquo;200 QPS 就顶不住&amp;quot;听着夸张,但单层 SSR 的瓶颈很真实:每个请求都要服务端完整渲染 HTML,渲染过程要查数据、拼模板、跑逻辑,全是 CPU 活;而且 SSR 实例的本地资源(CPU、内存)是有限的,扛不住并发渲染。200 QPS 不是网络带宽的极限,是单实例渲染能力的极限。要扛更多,要么加实例(贵),要么减少回源(缓存)。
+我搭了一条 6 层多级缓存链路,让流量逐层消化,尽量少回源:
+每层各管一段:
+① CDN:边缘节点缓存静态资源,兜底静态页。绝大部分请求在这一层消化。 ② WAF:页面级缓存 + 流量清洗 + 限流 + 安全策略。当时这层只在大促专项开启,平时不常驻。 ③ Nginx:反向代理 + 健康检查,故障节点自动摘除。 ④ SSR 实例本地 LRU:渲染好的 HTML 缓在本地,后端全挂时降级兜底。 ⑤ Node BFF:接口聚合层缓存,减少后端回源。 ⑥ Redis:分布式缓存热点数据,带互斥锁防击穿。 兜底也做了:SSR 渲染的静态页 CI 构建后上传 OSS 并刷新 CDN,后端真全挂时降级展示 CDN 静态页。</description></item><item><title>SSR 服务高可用实战:从 QPS 跃升到三层降级兜底</title><link>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</guid><description>一个没做任何优化的 Nuxt3 SSR 服务，单实例 QPS 只有 200 左右——每个请求都要在 Node 里跑完整渲染，串行打 3 到 5 个后端接口，光等数据就 500ms 到 1 秒，CPU 大半时间在 idle 等 IO。业务流量一上来，高峰直接 502。这篇记的就是怎么把这样一台裸 SSR，从 QPS 200 一路拉到能扛高并发、且「永不宕机」：CDN 剥静态、接口缓存兜后端故障、三层降级保命、前端按需渲染。
+一、服务架构基础：Nuxt.js SSR实时渲染服务架构 本次优化的核心载体是基于 Nuxt3 的 SSR 服务。整体架构以 &amp;ldquo;Node.js 实时渲染&amp;rdquo; 为核心。
+它承接前端请求、完成服务端渲染与数据聚合,并联动 CDN、Nginx、BFF 层、后端服务,形成完整的请求链路。
+核心架构链路如下:
+用户请求 → CDN(静态内容缓存) → Nginx(负载均衡、探活、请求转发) → Nuxt.js SSR 服务(实时渲染、数据请求、兜底处理) → BFF 层(流量承接、数据聚合、接口缓存) → 后端服务(核心业务逻辑、数据持久化)。 核心职责上,Nuxt.js SSR 服务负责页面模板渲染、前端资源打包、服务端数据请求与整合,同时承接前端错误处理与兜底逻辑。它是连接用户与后端服务的关键枢纽。
+二、核心问题：流量增长与SEO优化的双重挑战 业务规模扩大后,Nuxt.js SSR 服务面临两大核心痛点,严重影响用户体验与业务增长,是优化的出发点:
+2.1 流量快速增长带来的性能与稳定性压力 业务推广与用户规模扩大,带来请求量激增。原有 SSR 服务存在明显瓶颈:
+单实例 QPS 仅 200 左右,高峰时段出现请求排队、响应超时。 部分后端服务异常时,SSR 服务无缓存兜底,直接返回错误页面。 实例故障时无法快速切换,导致服务不可用,影响用户留存。 2.</description></item><item><title>2.5 万用户压测实战:压什么、怎么压、瓶颈怎么找</title><link>https://xiaoshuai1024.top/posts/load-testing-25k-users/</link><pubDate>Sat, 30 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/load-testing-25k-users/</guid><description><![CDATA[给一个多租户 SaaS 系统做 2.5 万用户压测，最容易跑偏的不是「起几万个线程」，而是压之前没想清楚压什么、压之后不知道哪儿慢——工具五分钟就能跑起来，值钱的是前面那套假设和后面那套对齐。
+压测真正的难点不在&quot;跑工具&quot;,而在&quot;压什么、怎么压、压完怎么知道哪儿慢&quot;。它检验的是一条从应用层、数据库到监控的完整链路能不能扛住真实流量。
+先想清楚压什么,再谈怎么压 接到压测任务的第一反应通常是&quot;全链路压一遍&quot;。这是错的。
+2.5 万用户不是个均匀的数字。真实业务里,有人登录、有人浏览、有人下单、有人支付,比例完全不一样。所以第一步是拆场景:
+核心链路:登录、浏览、下单、支付必须压,它们出问题用户最先骂。 读多写少 vs 写重:列表页、详情页是读;下单、支付是写。两者瓶颈模型完全不同,分开压。 峰值模拟:大促那种&quot;0 点开抢&quot;的瞬时尖峰,和平时的稳态是两个量级,分开建模。 这三件事想清楚,压测计划才算有了骨架。否则就是拿工具瞎打,跑完一堆数字,谁也说不清代表什么。
+场景拆分实操:业务占比法 具体怎么拆?我们用的是业务占比法——拉过去 30 天的真实生产日志,统计各接口的实际调用比例,按比例还原压测脚本:
+# 压测脚本里的业务占比(k6 / JMeter 都行) scenarios: browse_list: # 浏览列表(读多) weight: 45 # 占比 45% rate: 450 view_detail: # 看详情(读多) weight: 30 rate: 300 place_order: # 下单(写) weight: 15 rate: 150 pay: # 支付(写,关键链路) weight: 8 rate: 80 search: # 搜索(读,但走 ES,重) weight: 2 rate: 20这个比例不是拍脑袋,是从生产日志里 group by api_path 统计出来的。如果压测脚本里把支付比例配成 50%,但生产里支付只占 8%,压出来的瓶颈点就是错的——支付链路过载是假象,真实生产里根本没这么高占比。]]></description></item></channel></rss>

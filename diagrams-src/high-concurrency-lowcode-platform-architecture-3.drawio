@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="演进路线" id="luban-roadmap">
+    <mxGraphModel dx="820" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="820" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="N_P0" value="P0 功能闭环&#xa;—&#xa;• 六库打通&#xa;• API 契约统一" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="420" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_P1" value="P1 高可用（稳基）&#xa;—&#xa;• MySQL / Redis 主从&#xa;• 多实例 + 健康检查&#xa;• 基础监控与日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="184" width="420" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_P2" value="P2 高并发（扛量）&#xa;—&#xa;• 读写分离&#xa;• 公开页缓存与限流 / 熔断" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="352" width="420" height="108" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_P3" value="P3 体验与成本（优化）&#xa;—&#xa;• CDN / 缓存&#xa;• 异步任务&#xa;• 多运行时 / 多地域（可选）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="504" width="420" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="N_P4" value="P4 平台化（演进）&#xa;—&#xa;• 多租户与配额&#xa;• 开放 API / Webhook&#xa;• 审计与版本 / 回滚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="672" width="420" height="124" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L_P0" value="先做出来" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L_P1" value="别宕机" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="226" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L_P2" value="扛得住流量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="386" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L_P3" value="体验 / 省钱" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="546" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L_P4" value="做成平台" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="714" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_P0" target="N_P1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_P1" target="N_P2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_P2" target="N_P3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N_P3" target="N_P4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LEGEND" value="图例：每阶段目标一句话（左侧灰底），右侧为该阶段关键工作项。阶段按顺序推进，前一阶段是后一阶段的前提。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontSize=10;fontColor=#475569;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="830" width="700" height="36" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

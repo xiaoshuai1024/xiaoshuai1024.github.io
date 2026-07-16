@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>RAG - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/rag/</link><description>RAG - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Jun 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/rag/" rel="self" type="application/rss+xml"/><item><title>三家模型一套代码:多租户 AI 助手的动态 ChatModel 工厂</title><link>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</link><pubDate>Fri, 29 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</guid><description><![CDATA[前面那些文章讲的是用 AI 写代码,这篇换个方向:用 AI 给产品做能力。具体是用 Spring AI 1.0.6 从 0 到 1 搭一个多租户 AI 助手,做成能上线、能治理、有安全边界的生产系统,而不只是跑通一个 demo。
+一、要解决的核心问题 运营后台要一个 AI 助手,运营同学能用自然语言查数据、改配置:&ldquo;查一下今天的订单&rdquo;、&ldquo;把这几个订单打上「已处理」标签&rdquo;。
+难点不在&quot;能不能对话&quot;,在多租户。我们的平台服务很多租户,每个租户:
+用自己的大模型(A 租户用 DeepSeek、B 租户用通义千问); 用自己的 API Key(各自的账单和额度); 有自己的知识库(检索各自的运营文档); 有自己的限流和预算。 这意味着不能像 demo 那样写死一个全局 ChatModel,所有东西都得按租户动态来。多租户和单租户的差别基本就在这一句,这篇也围绕它展开。
+多租户 AI 助手和单租户的差别,不止是「技术复杂度增加」,还有安全责任的质变。单租户系统里,所有数据是一个公司的,即使出了串租户的 bug,也是「自己看自己的数据」,影响可控。多租户系统里,一旦串租户,就是 A 公司看到了 B 公司的数据——这是商业机密泄露,可能引发法律纠纷,直接动摇客户对平台的信任。所以多租户 AI 助手的隔离,不是「优化项」是「底线」,做不好就不是「系统不好用」,而是「系统根本不能用」,性质完全不同。
+还有一个容易被低估的难点:每个租户的 AI 使用习惯不同。有的租户把 AI 助手当「查询工具」用,主要是只读操作;有的租户让 AI 做大量写操作(批量改配置、批量打标签)。使用习惯不同,工具调用的频率和类型就不同,限流策略和审计重点也要跟着不同。我们的做法是给每个租户配独立的 rate_limit_rpm(每分钟请求限制),高频租户调高、低频调低,不是一刀切。这个「按租户差异化配置」的能力,是多租户 AI 助手比单租户复杂得多的地方——不只是隔离,还要个性化。
+二、整体架构 先看全貌。一次&quot;运营问一句话、AI 流式回答并可能调工具&quot;的链路:
+关键设计决策,后面逐个展开:
+多供应商统一走 OpenAI 协议,一套代码吃三家模型。 多租户隔离落在模型实例这一层,每个租户一个独立 ChatModel。 RAG 靠 metadata filter,一个索引管所有租户。 Agent 工具定义和 Spring AI 解耦,中间自研一层桥接。 SSE 流式,前后端各有一套处理。 一次请求的时序 文字描述不如一张时序图清楚。运营问一句话、AI 流式回答并调工具的完整链路:]]></description></item><item><title>RAG 没那么神:用 Spring AI + ES 从 0 搭一个多租户知识库</title><link>https://xiaoshuai1024.top/posts/rag-knowledge-base-spring-ai/</link><pubDate>Mon, 25 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/rag-knowledge-base-spring-ai/</guid><description><![CDATA[RAG 在网上被讲得玄之又玄,什么&quot;企业知识大脑&quot;&ldquo;智能问答中枢&rdquo;。说穿了就是一句话:在问大模型之前,先从你的私有文档里检索出相关片段,塞进 prompt,让它&quot;看着资料&quot;回答。 它的价值不在魔法,在让大模型基于你的私有、可更新、可追溯的知识回答,而不是只靠训练时的旧记忆。
+上一篇《构建一个多租户 AI 助手》讲了整体架构,这篇把其中最被神话的一块——RAG 知识库单独拆开,从 0 到 1 讲它到底怎么落地。
+这篇不讲概念,讲工程:多租户怎么隔离、切片怎么配、向量库怎么选、入库失败的文档怎么重试、改了切片策略怎么重建。代码全部来自生产系统。
+一、要解决的核心问题 运营后台的 AI 助手要能基于每个租户的私有运营文档回答问题——A 租户问&quot;我们店铺的商品上下架流程&quot;,助手得去查 A 租户的运营手册,不能拿 B 租户的文档乱答。
+需求拆成四个硬约束:
+多租户隔离:A 绝对检索不到 B 的文档,这是底线,不是优化项。 文档可管理:运营能在后台上传、编辑、发布、删除文档,不是只能命令行灌库。 检索有质量闸:不相关的片段不能塞进 prompt,否则反而拉低回答质量。 可演进:切片策略、embedding 模型变了,得能批量重建,不能推倒重来。 RAG 的是四步:切片 → 向量化 → 存储 → 检索。但工程上远不止这四步,下面逐层展开。
+二、整体设计 先看全貌。一篇文档从上传到被检索命中的完整链路:
+几个关键设计决策,后面逐个展开:
+双存储分工:MySQL 存可编辑的业务数据(标题/正文/标签/状态),ES 存向量做检索,两边各司其职。 多租户靠 metadata filter:所有租户共用一个 ai_knowledge 索引,检索时按 tenant_id 过滤。 质量闸在检索层:similarityThreshold(0.7) 卡掉不相关结果。 生命周期可重建:DRAFT/PUBLISHED 状态机 + es_indexed 标记 + 批量 rebuild。 一次入库的时序 文字不如图清楚。运营点&quot;发布&quot;,一篇文档被切片入库的完整时序:
+注意 vectorStore.add(chunks) 这一行把 embedding 和写 ES 两件事打包了——embedding 由 starter 注入的 EmbeddingModel 完成,业务代码不碰向量细节。写成功后才回 MySQL 标 es_indexed=1,这个标记后面会反复用到。]]></description></item><item><title>收藏夹吃灰怎么治:用 RAG 给自己搭一个能提问的私有大脑</title><link>https://xiaoshuai1024.top/posts/personal-knowledge-base-with-ai/</link><pubDate>Sun, 28 Jun 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/personal-knowledge-base-with-ai/</guid><description><![CDATA[我攒了十年的收藏夹、笔记、PDF,真到要用的时候一个都翻不出来。面试前临时背,学新东西时重新查,重复劳动。
+资料够多,问题在它们是死的——只能人去翻,不能被提问、不能被检索、不能主动复述。
+《RAG 知识库从 0 到 1》讲的是给业务系统搭知识库。这篇反过来,讲给自己搭一个学习大脑。
+一、个人学习的三个真实痛点 先对号入座,看看是不是都中过:
+收藏即遗忘。看到好文章存下来,&ldquo;以后再看&rdquo;,然后就没有以后了。收藏夹两千条,真记得的不到十条。 笔记即坟墓。记完的笔记再也打开。不是不想复习,是检索成本太高——记不清写在哪、关键词是什么。 学了等于没学。一个知识点当时懂了,过两个月忘干净。因为没有一个&quot;定期把知识推回脑子里&quot;的机制。 资料如果能被提问、被检索、能主动复述,学习闭环就成立了。这是个人 RAG 知识库要解决的事。
+这三个痛点背后有一个共同的根因:知识的存储方式和大脑的使用方式不匹配。大脑不是靠「翻目录」找知识的,是靠「联想」——看到一个场景,联想到相关的知识。但收藏夹和笔记软件都是「目录式」的,要找知识得先记得「它存在哪」,这本身就需要记忆,而记忆正是最容易失效的。RAG 知识库把存储从「目录式」变成了「联想式」——你不用记得知识存在哪,你只需要用自然语言描述你的问题,RAG 自动把相关的片段「联想」出来。这个匹配方式,和大脑的工作方式一致,所以它比翻笔记有效得多。
+还有一个被忽视的痛点:知识之间是孤岛。前端笔记里记了「虚拟 DOM 的 diff 算法」,架构笔记里记了「微前端的子应用隔离」,这两条知识其实是相关的(微前端隔离就用到了 diff 原理),但它们存在不同的笔记里,你从来不会把它们关联起来。RAG 知识库可以跨主题检索——你问「微前端隔离和虚拟 DOM 有什么关系」,它从两个库里各捞片段,帮你在孤岛之间搭桥。这种「跨域连接」是人脑最累的活,但恰好是 RAG 最擅长的。
+二、核心思路:把资料变成&quot;可对话的私有大脑&quot; RAG 的原理在业务版讲过:问大模型之前,先从私有资料里检索相关片段,塞进 prompt,让它看着资料回答。
+个人版的架构一模一样,只是「租户」换成了「学习主题」:
+前端资料库:笔记、收藏、PDF、博客剪藏 切片与向量化:把长文切成块,算成向量存起来 按主题隔离:前端一个库、Java 一个库、架构一个库,互不串味 检索 + 对话:问问题时,先从对应主题库捞片段,再让 AI 看着回答 关键差异在用法。业务知识库只做问答,个人学习库要支持更多场景,靠的是改 prompt,不是改架构。
+数据流向:从原始资料到回答 整套数据流一次说清,免得你照着搭时漏环节:
+资料入库:把 PDF / Markdown / 网页剪藏扔进 incoming/ 目录。 切片:按段落 + 重叠窗口(overlap 200 字)切,避免关键上下文被切断。这一步的参数直接影响检索质量——切太大召回不准,切太小上下文丢失。 向量化:每块文本过 embedding 模型,生成向量(用 OpenAI text-embedding-3-small 或本地 bge-large-zh)。 入库:向量 + 原文一起存进 ES / pgvector,带上 topic 字段做 metadata filter。 检索:用户提问 → 同样向量化 → 在指定 topic 库里做 top-k(一般 k=5)相似度检索。 组装 prompt:把 5 个片段拼进 system prompt,加上&quot;看着资料回答,没覆盖就说不知道&quot;的约束。 生成:大模型出回答,标注出处片段编号。 《RAG 知识库从 0 到 1》有完整的 Spring AI 落地代码。真正难的不是写出来,是调参——chunk size、overlap、top-k、相似度阈值,这四个参数决定了回答质量,得拿自己的资料反复调。我踩过最大的坑是 chunk size 默认 1000 字太大,导致一个 chunk 里混了两个主题,检索时召回不准。改成 400 字 + overlap 100 字后,精度立刻提上来。]]></description></item></channel></rss>

@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="告警分级降噪" id="obsAlert">
+    <mxGraphModel dx="920" dy="460" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="告警降噪：从「一天几百条全免打扰」到「只剩几条条条值得点开」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="14" width="540" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="BAD" value="反模式：什么异常都进飞书群&#10;一天刷几百条 → 半个月全员免打扰&#10;告警通道等于废了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ARROW" value="降噪" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="84" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="GOOD" value="分级 + 去重 → 一天几条&#10;每条 actionable，通道重新生效" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="60" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="EA" style="endArrow=block;html=1;strokeColor=#475569;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="324" y="95" as="sourcePoint"/>
+            <mxPoint x="396" y="95" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H2" value="业务阈值告警（后端每 5 分钟算）" style="text;html=1;align=left;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="320" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="R1" value="支付成功率 &lt; 95%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="178" width="200" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="R2" value="退款失败率 &gt; 10%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="178" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="R3" value="结算在途 &gt; 2 小时" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="440" y="178" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="H3" value="去重：慢 SQL 同一 digest 30 分钟内不重复告警，落 slow_query_log 表" style="text;html=1;align=left;fontColor=#2563eb;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="228" width="580" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="好告警 = actionable：收到就能立刻动手；收到还得想「这要不要管」的，都是噪音" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="330" width="680" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

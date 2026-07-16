@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="双计数器收敛机制" id="noreviewconv">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="双计数器怎么判断「评审真完了」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="18" width="400" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="severe" value="严重问题计数器&#10;连续 2 轮清零才算" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="minor" value="一般问题计数器&#10;连续 3 轮清零才算" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="170" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="couple" value="耦合规则&#10;任一计数器被打断&#10;两个同时归零" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="105" width="180" height="96" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="both" value="两个计数器同时达标&#10;→ 评审收敛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="115" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="round1" value="第 1 轮&#10;严重 3 / 一般 5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="130" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="round2" value="第 2 轮&#10;严重 0 / 一般 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="290" width="130" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="round3" value="第 3 轮&#10;严重 1 / 一般 0&#10;严重计数被打断" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="284" width="150" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="round4" value="第 4 轮&#10;严重 0 / 一般 0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="290" width="130" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="round5" value="第 5 轮&#10;严重 0 / 一般 0&#10;双双达标 ✓" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="284" width="140" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="breaknote" value="↑ 第 3 轮严重问题复现 → 两个计数器同时归零,从第 4 轮重新计数" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="360" width="480" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="breaker" value="熔断阀&#10;连续 10 轮问题数不下降&#10;→ 中止回路,叫人介入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="430" width="340" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="full" value="每 5 轮强制全量复审&#10;刷新分桶,重扫全局" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="530" width="340" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="severe" target="couple"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="minor" target="couple"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;fontSize=10;" edge="1" parent="1" source="couple" target="both"><mxGeometry relative="1" to="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

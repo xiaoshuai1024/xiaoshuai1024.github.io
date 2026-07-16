@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI 视觉验收两场景对照" id="visual-2scene">
+    <mxGraphModel dx="1200" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="580" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="380 页 UI 视觉验收 — 分两个场景走" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="10" width="500" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_NEW" value="场景一 · 新功能(有原型锚点)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#2563eb;strokeWidth=2;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="540" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N1" value="高保真原型 HTML&#10;(&quot;标准答案&quot;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="92" width="200" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="N2" value="实现页&#10;(Playwright 截图 375×812)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="92" width="200" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N3" value="① pixelmatch 逐像素比对&#10;图片拦截消除噪音 + 主题色 CSS 断言" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="160" y="160" width="300" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N4" value="四级容差输出&#10;PASS_A / B / WARN_C / FAIL_D" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="160" y="228" width="300" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N5" value="回答:功能全实现了吗?&#10;样式和设计稿一致吗?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="290" width="380" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="N6" value="⚠ 已知硬伤: 内容大幅演进时失真&#10;(原型早期稿 vs 实现加新区, 59%-77% 全 FAIL_D)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="460" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EN12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="N1" target="N3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EN22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="N2" target="N3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EN34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="N3" target="N4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EN45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="N4" target="N5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EN56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="N5" target="N6"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GRP_OLD" value="场景二 · 老功能(无原型可比)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#2563eb;strokeWidth=2;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="620" y="50" width="520" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O1" value="① vision 巡查&#10;380 截图 → 启发式筛 → 5% 深审" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="92" width="440" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O1D" value="vision 会幻觉 ⚠&#10;红角标→客服按钮 / 浅渐变→白底 / 凭空紫蓝" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="146" width="440" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O2" value="② 代码审计(判真伪的真相源)&#10;design token 基线 + DOM computed-style 扫写死色" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="184" width="440" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O2D" value="423/427 走 token, 4 个文件硬编码(真问题)" style="text;html=1;align=center;fontColor=#16a34a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="238" width="440" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O3" value="交叉验证&#10;vision 出疑点 → 代码审计判真伪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="740" y="270" width="280" height="44" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O4" value="回答: 兼容性(新改动没破坏老页)?&#10;历史遗留(老代码藏的不规范)?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="328" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="O5" value="⚠ 回答不了: 老页面&quot;对不对&quot;&#10;没有原型参照, 只能判&quot;有没有变更糟&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="386" width="440" height="38" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EO12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="O1" target="O3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EO23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="O2" target="O3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EO34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="O3" target="O4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EO45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="O4" target="O5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="CONC" value="互补不互斥: 新功能保实现完整 + 样式对, 老功能保兼容 + 扫历史遗留 —— 一个版本两边一起跑, 380 页才覆盖得过来" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="980" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

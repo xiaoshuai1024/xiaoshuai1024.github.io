@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="闭环E2E总览" id="e2e-overview">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="多真实角色互操作 → 断言落在数据库" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="20" width="440" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="u2" value="用户2 (CC) · 动作发起方&#10;token: t2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="acts" value="点赞 / 评论 / 关注 / @提及&#10;（覆盖所有通知类型）&#10;连续 3 次点赞测聚合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="240" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="api" value="notifications/send API&#10;（业务接口，非 UI）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="90" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="u1" value="用户1 (小福天) · 感知方&#10;token: t1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="230" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="query" value="查通知列表 (in-app API)&#10;断言落在数据层：" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="360" y="225" width="240" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="asserts" value="① 列表非空（通知真入库）&#10;② 含互动通知（点赞/评论/关注通）&#10;③ 含@提醒（POST_MENTION 通）&#10;④ 聚合数正确（不串通知）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="210" width="290" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="u2" target="acts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="acts" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea3" value="入库" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="api" target="asserts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="u1" target="query">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea5" value="数据层断言" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="query" target="asserts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blind" value="单用户 UI 测试的盲区（这套专治）" style="text;html=1;fontColor=#475569;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="320" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="角色流转出错：A 操作了 B 没感知" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="395" width="300" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="静默后端失败：UI 绿了但数据没落库" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="400" y="395" width="300" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="聚合/串通知：3 条点赞没聚成 1 条" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="720" y="395" width="280" height="34" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

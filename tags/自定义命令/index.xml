@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>自定义命令 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</link><description>自定义命令 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 03 Jul 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/" rel="self" type="application/rss+xml"/><item><title>3 人两月交付 512 功能:30 条 AI 命令锁死测试与评审纪律</title><link>https://xiaoshuai1024.top/posts/ai-dev-command-system/</link><pubDate>Fri, 03 Jul 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-command-system/</guid><description><![CDATA[我主导的一个全栈项目(Java 后端 + Vue 小程序 + 运营后台,多模块多仓库),3 个人两个月交付了 512 个功能点。
+这个数字不是堆人堆出来的,也不是靠加班。我把研发流程里每一步该守的纪律,都固化成了 AI 可执行的命令。最终沉淀了 31 条命令、3400 多行,挂在研发流程的每个环节上。
+背后是两条工程主线,我先把它们说清楚,后面每一节都是它们的展开:
+harness 自治:人只定规则,把执行全权交给 AI。人不在审查的每一轮里,只看最终报告。harness(线束/约束)的意思是——命令不是&quot;让 AI 做事&quot;,是&quot;给 AI 套上纪律边界,让它在边界内自治&quot;。 loop engineering:把审查、修复、验证都做成自动循环,直到收敛(零问题)才退出。能循环的就不让人介入,把&quot;等同事有空&quot;这类串行等待彻底消掉。 这是 「一切皆可脚本化」那篇的延续——那篇讲「为什么该脚本化」,这篇讲「具体沉淀了什么、怎么用命令的形态落地」。
+一、命令不是脚本,是「流程契约」 先澄清一个概念。很多人把 AI 命令理解成「一段能跑的脚本」,这是低估了它。
+我项目里这 31 条命令,是流程契约:每条命令规定了一个研发环节里「AI 该怎么做、必须守什么纪律、什么时候停」。脚本只负责执行,命令还要负责约束 AI 的行为边界。
+举几个对比:
+脚本:「跑一下测试」→ AI 跑了,失败也不知道怎么处理。 命令:/tdd → 锁定红绿重构、缺服务先探测再启动、跑通后必须汇报证据。AI 的行为被约束在 TDD 纪律内。 这个区别决定了命令体系能不能撑住 512 个功能的交付量。光会跑脚本,AI 跑偏了你拉不回来;有了契约,AI 在每个环节的行为都可预期。
+再补一个对比,体会会更深。脚本版的「部署」是 ./deploy.sh,跑完就算,中间哪步挂了 AI 甩一句「脚本报错了」就停在那。命令版的 /deploy-prod-be-ops 把「构建产物 → 上传 → 重启 → 冒烟验证」串成一条带验证的链,任何一步失败都明确报出是哪一环,部署完还强制跑 /prod-testing 冒烟。区别在于:脚本只描述「做什么」,命令还描述「做完之后怎么确认做对了」。前者 AI 执行完就走人,后者 AI 执行完必须自证。512 个功能能交付,靠的就是这种「自证」嵌在每一步里。]]></description></item></channel></rss>

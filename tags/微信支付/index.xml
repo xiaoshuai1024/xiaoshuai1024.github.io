@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>微信支付 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</link><description>微信支付 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" rel="self" type="application/rss+xml"/><item><title>微信分润从 0 到 1:CPS 分账、提现六态机与一次冲正降级</title><link>https://xiaoshuai1024.top/posts/ai-dev-wechat-profit-sharing/</link><pubDate>Wed, 17 Jun 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-wechat-profit-sharing/</guid><description>上一篇把总账立住了。这篇挑它最硬的一块——微信分润——拆给你看。
+分润为什么难。一笔钱要拆成几份、分几次、走不同的通道、还得多租户隔离,搞不好就是资金事故。这是整个项目里我盯得最紧、门禁立得最硬的部分。
+一、先看这笔钱怎么流 多租户电商里,一笔订单的钱不是直接进商家口袋。微信支付支持「分账」——付款时先冻结到特约商户,确认收货后再按比例拆给平台、达人、商家。
+有人会问,为什么这么绕,用户付钱直接到账不好吗。因为这是多角色分润的电商,一笔订单涉及平台抽佣、达人带货佣金、商家货款、配送费,各方的钱到账时点不一样(平台要即时确认收入、达人要审核后才结算、商家要等完结分账解冻)。如果用户付款直接进商家口袋,平台和达人的钱就得商家手动转,这在多租户 SaaS 里根本跑不通。微信分账这套机制就是为了多角色资金拆分设计的,绕是绕,但它把「钱怎么拆」变成了平台可控的状态流转。
+钱大致这样流动:用户支付时标记 profit_sharing=true,资金冻结到店铺特约商户池;确认收货后触发分账,平台佣金即时分润,达人佣金延迟分账(留在达人冻结池),商家货款暂时冻结;达人提现审核通过后,才真正把达人那一份分账到零钱;最后完结分账,解冻商家货款可提。
+关键决策是达人佣金为什么延迟。确认收货那一刻,达人可能还没签约分账接收方、可能退款、可能违规。所以钱先标 UN_SPLIT 留在冻结池,等提现审核通过才真正分账。这就是后面提现状态机的来由。
+补充一点,这套系统里「提现」其实有三种人,出口不一样。
+达人(TALENT)走微信分账:提现审核通过后,系统把这个人关联的 cps_order_attribution 里所有 UN_SPLIT 的佣金逐单调微信分账 API,分到他的 PERSONAL_OPENID。这是最绕的一种,因为它不是「转账」而是「分账」,要回挂到原始微信支付单。
+配送点团长(DELIVERY_POINT_LEADER)和商家(MERCHANT)走出款渠道:不挂原始支付单,直接调微信商家转账到零钱或银行卡代付。团长和平台的资金关系相对干净,商家则是分账完结解冻货款后才有钱可提。
+三种人看起来都是「提现」,但余额怎么算、钱从哪出、走哪条通道,完全不同。后面会展开。
+再补一个容易忽略的环节:确认收货触发分账,不是「一次性把钱拆完」。它是一个编排过程(processTalentSplitForWithdrawal):先把这个达人关联的所有 UN_SPLIT 佣金行捞出来,逐单标 SPLITTING、逐单调微信分账 API、成功的标 SPLIT、最后还要尝试完结该订单的商家货款解冻。
+这个逐单处理是有讲究的。一个达人一次提现可能关联几十笔订单的佣金,如果打包成一个请求,中间任意一笔失败整批回滚,前面的也白调了。逐单调的好处是:失败的那笔回退到 UN_SPLIT(代码里 catch 块专门做了回滚),成功的笔保留 SPLIT,下次重试只跑失败那几笔,不重复打款。代价是慢,但资金系统宁可慢也不能错。
+还有个前置动作:分账前要先「确保达人签约了分账接收方」(ensureTalentReceiverAdded)。微信分账要求收款方是已绑定的接收方,没签约就分账会被拒。所以每一单分账前先检查、没签约先发起签约,再调分账。这一步漏了,提现就会整批失败,日志里全是「接收方不存在」。
+二、分账比例:基点(bp)而不是百分比 钱的事,小数点算错就是事故。我们全程用基点(万分之一),绝不用浮点百分比。
+TenantSplitConfigService 里分账比例是这样定义的:
+public record SplitConfig( String tenantId, @Min(0) @Max(5000) int platformCommissionRateBp, // 平台抽成 @Min(0) @Max(5000) int talentCommissionRateBp, // 达人佣金 @Min(0) @Max(5000) int otherSplitRateBp, // 其他分账 @Min(0) @Max(5000) int totalSplitLimitBp, // 总分账上限 boolean enabled, ...) { public int totalRateBp() { return platformCommissionRateBp + talentCommissionRateBp + otherSplitRateBp; } }几个硬约束。</description></item></channel></rss>

@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="凭证三层读取视图" id="credential">
+    <mxGraphModel dx="900" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 标题 -->
+        <mxCell id="title" value="同一张凭证表,三个读取视图" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="400" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 共用底层表 -->
+        <mxCell id="db" value="tenant_wechat_credential (底层物理表)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="490" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="db_note" value="AppSecret / 商户号 / API v3 密钥 / 证书&#10;敏感字段全部 AES 加密" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="575" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 视图 1: C 端匿名 -->
+        <mxCell id="v1" value="视图 1:C 端匿名" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="v1_out" value="只返回布尔能力位&#10;hasAppSecret: true&#10;wechatJsapiPayEnabled: true&#10;❌ 不返回 AppId / 商户号" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="v1_who" value="消费方:小程序前端&#10;用途:判断要不要亮起支付按钮" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="270" width="260" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 视图 2: 运营端 -->
+        <mxCell id="v2" value="视图 2:运营端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="100" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2_out" value="返回脱敏标识符&#10;appId: wx1234****abcd&#10;merchantId: 16****88&#10;❌ 不返回 secret 原文" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="440" y="160" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2_who" value="消费方:运营管理后台&#10;用途:让运营认得出是哪个租户" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="270" width="260" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 视图 3: 内部服务 -->
+        <mxCell id="v3" value="视图 3:内部服务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="100" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="v3_out" value="返回明文(仅限内网)&#10;AppSecret / 证书 / API v3 密钥&#10;用于真正调微信 OpenAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="160" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="v3_who" value="消费方:微信集成层服务&#10;用途:发起 commit / 提审 / 退款" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="780" y="270" width="260" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- 视图 → DB 的边 -->
+        <mxCell id="e_v1" value="SELECT 布尔位" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;endArrow=block;" edge="1" parent="1" source="v1_out" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_v2" value="SELECT 脱敏" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;endArrow=block;" edge="1" parent="1" source="v2_out" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_v3" value="SELECT 解密" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;endArrow=block;" edge="1" parent="1" source="v3_out" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 更新入库注释 -->
+        <mxCell id="update_note" value="入库规则:&#10;• 密钥类字段 AES 加密后存&#10;• 更新时传 null = 保留旧密文&#10;• 脱敏值回传 → 不入库" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=10;align=left;spacingLeft=8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="380" width="240" height="80" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

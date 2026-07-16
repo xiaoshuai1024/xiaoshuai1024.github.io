@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="修复验证三层流水线" id="pipeline">
+    <mxGraphModel dx="1169" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 标题 -->
+        <mxCell id="title" value="修复验证三层流水线 · 修完代码后必跑" style="text;html=1;align=center;fontSize=15;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="200" y="16" width="600" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- 起点：AI 修复 commit -->
+        <mxCell id="fix" value="AI 修复 commit&#xa;（fix/auto-&lt;date&gt;-&lt;issue-id&gt; 分支）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="58" width="260" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- 第一层：静态检查 -->
+        <mxCell id="layer1" value="第一层 · 静态检查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="150" width="260" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer1d" value="ESLint / Checkstyle / 编译检查&#xa;过不了最基础的质量门禁" style="text;html=1;align=center;fontSize=11;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="380" y="180" width="240" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 第二层：全量测试 -->
+        <mxCell id="layer2" value="第二层 · 全量测试（铁律：跑全部，不只跑失败项）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="252" width="320" height="74" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer2d" value="单元测试 + 集成测试 + E2E（核心链路）&#xa;AI 只看了失败日志，可能引入回归&#xa;只有全量通过才证明没弄坏别的" style="text;html=1;align=center;fontSize=11;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="350" y="280" width="300" height="44" as="geometry"/>
+        </mxCell>
+
+        <!-- 第三层：AI 自我 review -->
+        <mxCell id="layer3" value="第三层 · AI 自我 review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="364" width="260" height="74" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer3d" value="另一 LLM 实例（不同 review prompt）&#xa;查：真修了根因？引入新风险？&#xa;更优方案？代码风格？" style="text;html=1;align=center;fontSize=11;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="380" y="392" width="240" height="44" as="geometry"/>
+        </mxCell>
+
+        <!-- 终点：提 PR -->
+        <mxCell id="pr" value="✅ 三层全过 → 提 PR 到 dev 分支&#xa;PR 描述自动生成（含诊断摘要 + 验证结果）&#xa;保持 open，等人 review 合并（不自动合）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="478" width="320" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- 失败分支：删分支 + 通知 -->
+        <mxCell id="fail" value="✗ 任一失败&#xa;删 fix 分支&#xa;飞书通知 + 附失败原因&#xa;→ 人介入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#475569;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="240" width="200" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 主流程箭头 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="fix" target="layer1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="layer1" target="layer2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="layer2" target="layer3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="layer3" target="pr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 失败分支箭头（三条都指向 fail） -->
+        <mxCell id="ef1" value="失败" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;strokeWidth=1.5;endArrow=classic;dashed=1;fontSize=10;fontColor=#475569;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="layer1" target="fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef2" value="失败" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;strokeWidth=1.5;endArrow=classic;dashed=1;fontSize=10;fontColor=#475569;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="layer2" target="fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef3" value="失败" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;strokeWidth=1.5;endArrow=classic;dashed=1;fontSize=10;fontColor=#475569;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="layer3" target="fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 左侧设计原则注释 -->
+        <mxCell id="principle" value="设计原则&#xa;&#xa;① 测试全绿 ≠ 代码正确&#xa;② AI 修的代码要过 AI&#xa;   自己设的关&#xa;③ 合代码的决策权&#xa;   永远在人手里" style="text;html=1;align=left;fontSize=11;fontColor=#2563eb;fontStyle=0;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="200" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- 底部注释 -->
+        <mxCell id="note" value="三层任一失败 → fix 分支删除，不进入 PR 流程。这是拦住「AI 瞎改」的最后一道保险绳。" style="text;html=1;align=center;fontSize=11;fontColor=#64748b;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="150" y="580" width="700" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

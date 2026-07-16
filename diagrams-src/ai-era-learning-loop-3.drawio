@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" modified="2026-07-15T00:00:00.000Z" agent="drawio" version="24.0.0">
+  <diagram id="study-pipeline" name="/study 四步学习流水线">
+    <mxGraphModel dx="960" dy="300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- 四步 -->
+        <mxCell id="step1" value="📖 学习材料" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step1desc" value="概述+概念+代码+陷阱+对比" style="text;html=1;fontSize=12;fillColor=none;align=center;strokeColor=none;fontColor=#64748b" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step2" value="🧪 知识检测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step2desc" value="5-8题逐题作答+评分+讲解" style="text;html=1;fontSize=12;fillColor=none;align=center;strokeColor=none;fontColor=#64748b" vertex="1" parent="1">
+          <mxGeometry x="280" y="140" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step3" value="🎤 模拟面试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step3desc" value="3-5轮追问+点评+复盘" style="text;html=1;fontSize=12;fillColor=none;align=center;strokeColor=none;fontColor=#64748b" vertex="1" parent="1">
+          <mxGeometry x="520" y="140" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step4" value="📝 自动归档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="760" y="80" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step4desc" value="日志+评分+错题+清单" style="text;html=1;fontSize=12;fillColor=none;align=center;strokeColor=none;fontColor=#64748b" vertex="1" parent="1">
+          <mxGeometry x="760" y="140" width="160" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 箭头 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;strokeWidth=2" edge="1" source="step1" target="step2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;strokeWidth=2" edge="1" source="step2" target="step3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;strokeWidth=2" edge="1" source="step3" target="step4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

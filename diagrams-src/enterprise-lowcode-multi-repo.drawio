@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="鲁班多仓分工" id="lowcodeRepo">
+    <mxGraphModel dx="920" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="鲁班多仓分工：meta 仓 + submodule 统一治理，前端只管渲染、BFF 管认证、后端管领域" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="14" width="580" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="ENGINE" value="luban（引擎/设计器）&#10;Vue3.5 + Vite&#10;拖拽编辑 + schema 生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="64" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="WEB" value="luban-website（对外站点）&#10;Nuxt3 SSR&#10;拉 schema → LubanPage 渲染" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="UI" value="luban-ui（物料库）&#10;base / low-code / utils&#10;RuntimeRenderer + LubanPage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="107" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="BFF" value="luban-bff（Next.js）&#10;签 JWT → 注入 X-User-ID/Role&#10;callBackend（15s 超时）&#10;短链 / AI 代理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="64" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="BE" value="luban-backend（Spring Boot）&#10;publicside / operatorside / shared 三侧&#10;pages(草稿) + published_pages(发布快照)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="180" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="DB" value="MySQL&#10;sites / pages / published_pages&#10;users / system_settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="290" width="220" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="AI" value="luban-ai-assistant&#10;读物料 propsSchema&#10;自然语言生成页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="ENGINE" target="UI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="WEB" target="UI"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="public 接口" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontSize=9;" edge="1" parent="1" source="WEB" target="BFF"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" value="X-User-ID/Role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontSize=9;" edge="1" parent="1" source="BFF" target="BE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="BE" target="DB"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;dashed=1;" edge="1" parent="1" source="AI" target="BFF"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L1" value="link 消费 luban-ui" style="text;html=1;align=center;fontColor=#64748b;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="128" width="140" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="草稿/发布物理分离：对外读 published_pages，运营改草稿不影响线上" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="395" width="640" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

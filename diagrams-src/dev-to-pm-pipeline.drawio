@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="全自动工作流端到端" id="pipeline">
+    <mxGraphModel dx="1100" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="PRD 落盘之后,从原型到上线全自动 — 研发只参与「想清楚」这一截" style="text;html=1;align=center;fontStyle=1;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="240" y="15" width="700" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_HUMAN" value="研发参与(价值判断)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="60" width="350" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_AI" value="AI 工作流全自动(执行)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="390" y="60" width="770" height="360" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="REQ" value="模糊需求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="BS" value="/10-bs&#xa;十轮头脑风暴" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="190" y="110" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRD" value="/prd&#xa;结构化 PRD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="185" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="PLAN" value="writing-plans&#xa;实现计划 + 任务图JSON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="110" width="170" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC" value="executing-plans&#xa;多 subagent 并行 + TDD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="110" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="VER" value="verification&#xa;单测+集成测+覆盖率门禁" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="110" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="REV" value="/kd-review&#xa;21 bucket 并行审查&#xa;streaming 修复&#xa;连续3轮零问题收敛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="200" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="GATE" value="测试门禁&#xa;契约检查 · 端点冒烟 · P0 E2E&#xa;任一层失败阻断提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="200" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="PM" value="/super-pm&#xa;假功能排查 8 类&#xa;守住「看起来像但没用」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="200" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="DEP" value="/deploy-prod-be-ops&#xa;构建 + SCP + 重启" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="330" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="A1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="REQ" target="BS"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="BS" target="PRD"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="PRD" target="PLAN"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="PLAN" target="EXEC"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="EXEC" target="VER"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="VER" target="GATE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="GATE" target="REV"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="REV" target="PM"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="A9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="PM" target="DEP"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="LOOP" value="问题回流 → 下一轮重审&#xa;(连续 3 轮零问题才停)" style="text;html=1;align=center;fontSize=11;fontColor=#64748b;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="800" y="320" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ALOOP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;dashed=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="REV" target="EXEC"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

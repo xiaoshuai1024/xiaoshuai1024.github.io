@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="缓存层级" id="ssr3">
+    <mxGraphModel dx="900" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cdn" value="CDN 缓存（静态资源）&#10;JS / CSS / 图片 / SSG 预渲染页&#10;TTL: 7-30 天" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="bff" value="BFF 本地缓存（接口聚合）&#10;高频低频更新接口&#10;TTL: 5-15 分钟" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="redis" value="Redis 缓存（接口数据 + 兜底）&#10;后端挂了读这里&#10;TTL: 10s - 15min 按接口分" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="browser" value="浏览器缓存&#10;Cache-Control / ETag&#10;用户偏好 / 登录态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="180" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="fallback" value="CDN 兜底页&#10;全实例挂时 rewrite 到这&#10;静态 HTML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="csr" value="CSR 降级渲染&#10;SSR 全慢时切客户端渲染&#10;空 HTML + 前端取数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ar" value="后端异常时：BFF 读 Redis 兜底" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;endArrow=block;dashed=1;" edge="1" parent="1" source="bff" target="redis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="上排是「正常链路」的缓存加速，下排是「异常链路」的兜底降级。缓存既提速也兜底，一物两用。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="310" width="780" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

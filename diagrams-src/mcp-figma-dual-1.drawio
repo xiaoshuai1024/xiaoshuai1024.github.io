@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="MCP解决M×N" id="mcp1">
+    <mxGraphModel dx="1100" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 左侧标题 -->
+        <mxCell id="t1" value="传统：每个客户端 × 每个工具，都要写适配（M×N）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="480" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- 左：客户端 -->
+        <mxCell id="c1" value="Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="Cursor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="Cline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="130" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 左：工具 -->
+        <mxCell id="f1" value="Figma" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="GitHub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="140" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="数据库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="200" width="130" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 左：9条乱线（M×N） -->
+        <mxCell id="L1" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c1" target="f1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L2" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c1" target="f2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L3" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c1" target="f3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L4" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c2" target="f1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L5" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c2" target="f2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L6" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c2" target="f3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L7" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c3" target="f1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L8" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c3" target="f2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L9" style="edgeStyle=none;strokeColor=#ef4444;endArrow=classic;opacity=60;" edge="1" parent="1" source="c3" target="f3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="lbl1" value="9 套适配，乘法涨" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#ef4444;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="480" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- 分隔 -->
+        <mxCell id="div" value="" style="endArrow=none;dashed=1;strokeColor=#cbd5e1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="20" as="sourcePoint"/>
+            <mxPoint x="560" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 右侧标题 -->
+        <mxCell id="t2" value="MCP：中间插标准协议，两边各写一次（M+N）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="30" width="480" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- 右：客户端 -->
+        <mxCell id="rc1" value="Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="80" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="rc2" value="Cursor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="140" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="rc3" value="Cline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 右：协议层 -->
+        <mxCell id="proto" value="MCP 标准协议&#10;(JSON-RPC + Tools/Resources)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="110" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 右：工具 -->
+        <mxCell id="rf2" value="Figma / GitHub / DB&#10;各出 1 个 MCP server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="130" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- 右：干净连线 -->
+        <mxCell id="R1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;" edge="1" parent="1" source="rc1" target="proto"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="R2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;" edge="1" parent="1" source="rc2" target="proto"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="R3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=classic;" edge="1" parent="1" source="rc3" target="proto"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="R4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=classic;" edge="1" parent="1" source="proto" target="rf2"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="lbl2" value="6 个适配（3+3），加法涨，工具方写一次通吃所有客户端" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#0f766e;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="580" y="260" width="480" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,110 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="对比" id="compare">
+    <mxGraphModel dx="1100" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="命令行工作流 vs 云效 CI/CD：能力对照" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="20" width="500" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="h1" value="能力" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="命令行工作流" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="70" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" value="云效 CI/CD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="70" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="h4" value="说明" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="70" width="260" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1c1" value="CI 发现问题后自动修复" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c2" value="✓ 能" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#16a34a;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="110" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c3" value="✗ 只报红挂掉" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#dc2626;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c4" value="审查→主会话改→推送更新MR→收敛才合并" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="110" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2c1" value="连生产服务器排查" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c2" value="✓ 能" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#16a34a;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="160" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c3" value="✗ 单向流水线" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#dc2626;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c4" value="/prod-debug 切 prod profile 连生产库" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="160" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r3c1" value="高危操作停下来问人" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c2" value="✓ 有「询问」中间态" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#16a34a;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c3" value="✗ 要么过要么挂" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#dc2626;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="210" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c4" value="大重构/架构改动停下汇报等指示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="210" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r4c1" value="无人值守 / 定时触发" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c2" value="△ 靠夜间 Loop 补" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#92400e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="260" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c3" value="✓ 原生支持" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#16a34a;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="260" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c4" value="push master 自动跑，不依赖开发者机器" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="260" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r5c1" value="构建产物 / 版本 / 审计留痕" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="310" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5c2" value="△ 仅本地 jar" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#92400e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="310" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5c3" value="✓ 制品仓库 + 历史" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#16a34a;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="310" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5c4" value="制品库存 30 天，可一键回滚" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="310" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r6c1" value="标准门禁（覆盖率/ArchUnit）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6c2" value="△ 命令里写死" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#92400e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6c3" value="✓ 平台原生" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#16a34a;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="360" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6c4" value="mvn verify 内嵌 ArchUnit + JaCoCo 门禁" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="760" y="360" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend" value="前三行：命令行独占优势（需要判断的环节）&#10;后三行：云效占优（需要确定性的环节）—— 这就是两套并存的理由" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="440" width="720" height="48" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

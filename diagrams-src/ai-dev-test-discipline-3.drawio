@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="数据隔离三层" id="td3">
+    <mxGraphModel dx="800" dy="460" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="l1" value="防线一：测试库独立&#10;IT / E2E 连 test database，绝不连生产" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="280" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="防线二：租户隔离&#10;测试数据挂 test-tenant-*，不碰生产租户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="280" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="防线三：数据带前缀&#10;test- 前缀 + 定时清理，防长期积累" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="280" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="挡住：测试直接连生产库" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="60" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="挡住：测试数据混进生产租户" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="170" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="挡住：测试数据长期堆积污染" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="280" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="er1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="l1" target="r1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="er2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="l2" target="r2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="er3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="l3" target="r3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="三层叠加，某一层漏了另外两层兜底。测试数据的安全靠防线，不靠自觉。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="780" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

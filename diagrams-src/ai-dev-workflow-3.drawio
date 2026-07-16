@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="任务图事实源" id="wf3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="json" value="任务图 JSON（唯一事实源）&#10;所有 agent 只信这一份" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="40" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t0" value="T-000 订单 schema&#10;layer: data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="T-001 订单详情接口&#10;layer: backend · depends: T-000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="220" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="T-002 订单详情页&#10;layer: frontend · depends: T-001" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="220" width="210" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="dep01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;startArrow=none;" edge="1" parent="1" source="t0" target="t1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="dep12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;startArrow=none;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r0" value="读取 / 领取" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;dashed=1;endArrow=block;startArrow=none;" edge="1" parent="1" source="json" target="t0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="读取 / 领取" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;dashed=1;endArrow=block;startArrow=none;" edge="1" parent="1" source="json" target="t1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="读取 / 领取" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;dashed=1;endArrow=block;startArrow=none;" edge="1" parent="1" source="json" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent1" value="agent A&#10;后端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="400" width="100" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent2" value="agent B&#10;前端（阻塞，等 T-001）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="400" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent0" value="agent C&#10;数据层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="400" width="100" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="claim0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;startArrow=none;" edge="1" parent="1" source="agent0" target="t0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="claim1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;startArrow=none;" edge="1" parent="1" source="agent1" target="t1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="status" value="状态流转只写回 JSON：todo → doing → done&#10;agent 不得自行声称「我做完了」，以 JSON 为准" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="500" width="560" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="研发到PM的能力跃迁" id="overview">
+    <mxGraphModel dx="1100" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="研发转 PM:转变的不是技能,是思考的起点" style="text;html=1;align=center;fontStyle=1;fontSize=15;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="240" y="20" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="DEV" value="研发的起点&#xa;&#xa;「怎么做」&#xa;&#xa;技术栈 · 架构 · 接口&#xa;性能 · 边界 · 重构" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;strokeWidth=2;fontColor=#1e293b;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="280" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="PM" value="PM 的起点&#xa;&#xa;「为什么做、给谁做」&#xa;&#xa;用户 · 价值 · 指标&#xa;场景 · 范围 · 验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="650" y="110" width="280" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GAP" value="AI 削平了&#xa;这道坎" style="text;html=1;align=center;fontSize=12;fontColor=#2563eb;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="420" y="160" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="BRIDGE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;startArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="DEV" target="PM">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ESSENCE" value="本质:价值判断从「拍脑袋」变成「走流程」&#xa;命令系统逼研发把产品逻辑想透" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="390" width="480" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="DOWN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;dashed=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="320" as="sourcePoint"/>
+            <mxPoint x="490" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="NOTE1" value="执行层&#xa;AI 接管" style="text;html=1;align=center;fontSize=11;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="70" y="370" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="NOTE2" value="决策层&#xa;人留下" style="text;html=1;align=center;fontSize=11;fontColor=#2563eb;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="370" width="100" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

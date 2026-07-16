@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="五表JOIN" id="rb2">
+    <mxGraphModel dx="800" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="tenant_subject_membership&#10;用户成员身份&#10;(tenantId, realm, scope, userId)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="tenant_membership_role&#10;成员-角色关联" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="40" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="tenant_realm_role&#10;角色定义&#10;(realm 隔离, status)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="470" y="40" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" value="tenant_realm_role_perm&#10;角色-权限点关联" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t5" value="rbac_perm_catalog&#10;权限点目录&#10;(perm_key, status)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="180" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="t3" target="t4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="t4" target="t5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="out" value="结果：用户拥有的 perm_key 集合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="200" width="280" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="t5" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="每张表都带 status=1 过滤：禁用的角色/成员/权限点不参与计算。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="300" width="820" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

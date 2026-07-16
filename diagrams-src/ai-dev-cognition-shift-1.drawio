@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="护城河从知识变自来水" id="moat-shift">
+    <mxGraphModel dx="1000" dy="380" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="320" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP_OLD" value="旧时代 · 知识即护城河" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="420" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="O1" value="脑袋里的知识库存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="80" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="O2" value="我会你不会 · 信息差" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="150" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="O3" value="= 工资差" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="215" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="OE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="O1" target="O2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="OE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="O2" target="O3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GRP_NEW" value="AI 时代 · 知识变自来水" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="530" y="30" width="420" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="N1" value="工具里随取随用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="N2" value="人人都能问出答案" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="150" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="N3" value="信息差归零" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="215" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="NE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="N1" target="N2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="NE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="N2" target="N3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="ARR" value="AI 推平" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="145" width="60" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

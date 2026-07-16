@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="幻觉vs真相源决策" id="visDecision3">
+    <mxGraphModel dx="1050" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1050" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="vision 出疑点 → 代码审计判真伪：真相源是 design token + DOM 扫描，不是看图" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="10" width="820" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q" value="vision 报了一个问题" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="60" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="CHK" value="代码审计交叉验证&#10;(design token 基线 + DOM computed-style)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="150" width="320" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H1" value="幻觉一：红角标 → 客服悬浮按钮&#10;查 openShopCustomerService() → 无 fixed 悬浮按钮&#10;→ 误报，过滤" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#7f1d1d;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="H2" value="幻觉二：浅渐变 → 白底&#10;查 KdPageShell 默认 --kd-bg-gradient&#10;(#e6eeea→#fafdfb 太浅) → 误报，过滤" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#7f1d1d;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="240" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="H3" value="幻觉三：凭空紫蓝主色&#10;查全量 var(--kd-color-primary)&#10;完全合规 → 纯幻觉，过滤" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#7f1d1d;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="240" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="REAL" value="真问题：4 文件硬编码颜色(招聘模块蓝色 / FAB 蓝绿渐变)&#10;有可复现代码证据 → 立项修" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="360" width="540" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="护城河不是更强的 vision，是一个机器可读的真相源：vision 是提问题的实习生，终审靠代码事实" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="430" width="850" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_QC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="Q" target="CHK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_CH1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#dc2626;" edge="1" parent="1" source="CHK" target="H1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_CH2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#dc2626;" edge="1" parent="1" source="CHK" target="H2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_CH3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#dc2626;" edge="1" parent="1" source="CHK" target="H3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_HR" value="427 中 4 个" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16a34a;fontColor=#16a34a;fontSize=10;" edge="1" parent="1" source="H2" target="REAL"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

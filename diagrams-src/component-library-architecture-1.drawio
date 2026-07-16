@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="组件库 Monorepo 分层" id="monorepo">
+    <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="luban-ui Monorepo 分层与依赖方向" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- apps 层 -->
+        <mxCell id="apps_box" value="apps/ (应用层)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;verticalAlign=top;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="70" width="960" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="app_main" value="luban-ui&#10;(主应用 / Demo / 联调)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="105" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="app_story" value="Storybook&#10;(组件文档 / 预览)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="105" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="app_e2e" value="luban-ui-e2e&#10;(Cypress E2E)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="105" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="app_note" value="Demo / 示例数据只放 apps,&#10;不污染 packages" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="900" y="115" width="170" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- packages 层 -->
+        <mxCell id="pkg_box" value="packages/ (对外发布的包)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;fontStyle=1;verticalAlign=top;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="230" width="960" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="pkg_lowcode" value="luban-low-code&#10;设计器 + 运行时 + schema&#10;依赖: luban-base, vue, sortablejs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="160" y="270" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="pkg_base" value="luban-base&#10;基础组件 (button/form/layout)&#10;依赖: 仅 vue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="500" y="270" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="pkg_utils" value="luban-utils&#10;纯工具函数&#10;依赖: 无 / tslib" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="800" y="270" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- apps → packages 的依赖箭头 -->
+        <mxCell id="dep1" value="引用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;endArrow=block;" edge="1" parent="1" source="app_main" target="pkg_lowcode">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="dep2" value="引用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;endArrow=block;" edge="1" parent="1" source="app_story" target="pkg_base">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- low-code → base 依赖 -->
+        <mxCell id="dep3" value="external 打包时不打包 base" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=10;endArrow=block;" edge="1" parent="1" source="pkg_lowcode" target="pkg_base">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 根配置层 -->
+        <mxCell id="root_box" value="根目录配置(统一编排)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;fontStyle=1;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="450" width="960" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="root_nx" value="nx.json&#10;任务图 / 缓存&#10;@nx/vite, vitest,&#10;cypress, eslint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="490" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="root_ts" value="tsconfig.base.json&#10;strict: true&#10;customConditions:&#10;@luban-ui/source" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="490" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="root_pnpm" value="pnpm-workspace.yaml&#10;apps/*, packages/*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="490" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="root_scripts" value="根 package.json&#10;便捷脚本统一入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="880" y="490" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- 依赖方向铁律 -->
+        <mxCell id="rule" value="铁律:依赖只能自上而下,packages 不能反向依赖 apps; luban-base 不依赖任何 luban-* 包" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="595" width="960" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

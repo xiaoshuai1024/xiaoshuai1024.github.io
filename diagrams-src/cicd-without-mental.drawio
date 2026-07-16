@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="心智模型" id="mental">
+    <mxGraphModel dx="1100" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1040" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="系统化是下限，能判断才是上限" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="30" width="440" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="axisY" value="需要判断 ↑" style="text;html=1;align=center;fontColor=#475569;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="70" y="90" width="120" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="axisYd" value="机械重复 ↓" style="text;html=1;align=center;fontColor=#475569;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="70" y="440" width="120" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lowbar" value="系统化下限" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="380" width="600" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="lowbar_d" value="云效 CI/CD 守住这层：构建门禁、覆盖率、制品、无人值守、审计留痕" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="428" width="600" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="upper" value="能判断的上限" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="150" width="600" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="upper_d" value="命令行 + AI 突破这层：自动修复后合并、连生产排查、高危停下问人" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="198" width="600" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gap" value="↑&#10;这一段是命令行超越系统化的部分&#10;流水线解决不了「需要判断」的事" style="text;html=1;align=center;fontColor=#d97706;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="380" y="250" width="280" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrowUp" style="endArrow=classic;html=1;strokeColor=#d97706;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="380" as="sourcePoint"/>
+            <mxPoint x="520" y="194" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conclusion" value="所以这两套不冲突：云效是地基（下限），命令行 + AI 是上层（上限）。&#10;没有云效，命令行能独跑；有了云效，命令行的「判断」能力依然不可替代。" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="490" width="720" height="44" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

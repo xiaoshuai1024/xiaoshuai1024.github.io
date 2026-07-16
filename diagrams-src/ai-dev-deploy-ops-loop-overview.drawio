@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="总览" id="overview">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="命令化骨架 + 局部自治 Loop" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="30" width="490" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="skel_label" value="命令化骨架(人按下回车 → 机器执行)" style="text;html=1;align=left;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="85" width="490" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="skel_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="500" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="deploy" value="部署流水线&#10;/deploy-prod-be-ops&#10;&#10;构建 jar + dist → scp 上传&#10;→ systemd 重启 → 健康验证&#10;&#10;不可逆 · 留人盯" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="220" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="verify" value="生产验证&#10;/prod-testing&#10;&#10;API 冒烟 + H5 + 运营后台&#10;quick 3min / full 12min&#10;&#10;不清理测试数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="320" y="140" width="220" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sk1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="deploy" target="verify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="debug" value="生产排障&#10;/prod-debug&#10;&#10;prod profile 连真库&#10;前端切生产域名&#10;&#10;不改代码 · 不建迁移" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="160" width="220" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="loop_label" value="局部自治 Loop(机器定时跑,人介入边界)" style="text;html=1;align=left;fontColor=#0f766e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="85" width="490" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="120" width="490" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="nightly" value="夜间测试 Loop&#10;00:00 自动触发&#10;&#10;8 步全量测试 → 失败&#10;→ claude 修复 → 验证 → 提 MR&#10;&#10;可逆 · 客观验证 · 不合并" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="220" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="review" value="定时评审 Loop&#10;03:00 扫 feature 分支&#10;&#10;数 🔴 阻断问题&#10;超阈值 → 飞书告警&#10;&#10;主观 · 只告警不改" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="880" y="140" width="220" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="backup" value="每日备份 Loop&#10;03:00 从只读从库&#10;&#10;mysqldump → 跨云 OSS&#10;失败 → 飞书告警&#10;&#10;不可逆 · 人确认" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="760" y="160" width="220" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="judgement" value="边界判据: 可逆性 × 客观验证 × 失败成本 —— 可逆 + 客观 + 低成本才自治; 不可逆 / 无验证 / 高成本留人手" style="text;html=1;align=center;fontColor=#475569;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="370" width="930" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feishu" value="飞书告警贯穿所有 Loop: PASS / FAIL 都通知, 防「静默失败」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;fontStyle=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="410" width="430" height="34" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

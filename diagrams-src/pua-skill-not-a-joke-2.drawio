@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="味道路由方法论" id="puaRoute2">
+    <mxGraphModel dx="940" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="940" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="梗是外壳，方法论是内核：任务类型 → 自动路由到一套真方法论" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="14" width="600" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="T1" value="Debug / 修 bug" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="T2" value="构建新功能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="T3" value="代码审查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="T4" value="架构决策" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="T5" value="部署 / 运维" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="M1" value="华为味 · RCA 5-Why + 蓝军自攻击" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="70" width="320" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="M2" value="Musk 味 · The Algorithm：质疑→删除→简化→加速→自动化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="140" width="320" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="M3" value="Jobs 味 · 减法优先 + DRI 单人负责" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="210" width="320" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="M4" value="Amazon 味 · Working Backwards + 6-Pager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="320" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="M5" value="阿里味 · 定目标→追过程→拿结果闭环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="320" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="T1" target="M1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="T2" target="M2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="T3" target="M3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#94a3b8;" edge="1" parent="1" source="T4" target="M4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#9494a3b8;" edge="1" parent="1" source="T5" target="M5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="FOOT" value="旁白带味是好笑，但下一句它真开始走 RCA / Algorithm / Backwards 流程了" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="410" width="700" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

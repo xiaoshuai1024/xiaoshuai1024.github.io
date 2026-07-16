@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>测试SOP - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%B5%8B%E8%AF%95sop/</link><description>测试SOP - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Jul 2026 21:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%B5%8B%E8%AF%95sop/" rel="self" type="application/rss+xml"/><item><title>你的 E2E 只是在点 UI:真实业务多角色闭环测试 SOP</title><link>https://xiaoshuai1024.top/posts/e2e-multi-role-closed-loop/</link><pubDate>Wed, 08 Jul 2026 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/e2e-multi-role-closed-loop/</guid><description>我审过很多项目的 E2E 测试,十有八九长一个样:一个用户登录,点几个按钮,断言页面出现某个文本,通过。这种测试我称之为「单用户点 UI」——它能抓住「页面崩了」「按钮不见了」这类前端问题,但抓不住最危险的一类 bug:跨角色、跨端、跨时间的业务闭环出错。
+举个真实的例子。社交模块里,A 给 B 点赞,B 应该收到一条通知。单用户 E2E 永远测不出这个——因为它只有一个用户,A 点赞后没人去查「B 的通知列表有没有多一条」。这种 bug 会静默潜伏,直到用户投诉才暴露。(这篇和测试纪律、覆盖率诚实是一套:那两篇讲「测试要不要写够」,这篇讲「写出来的测试到底有没有抓住真 bug」。)
+我定了一套写 E2E 的标准做法,核心是让多个真实角色互操作,把断言落在数据上,跨端用握手衔接。这套 SOP 在我的多租户 SaaS 项目里跑了大半年,抓出过十几条单用户测试根本碰不到的闭环 bug。这篇按标准 SOP 文档的格式写明白。
+一、这套 SOP 要解决什么问题 先划清边界——它只解决一类特定问题。
+痛点:传统 E2E 测试以「单用户点 UI」为主,抓不住以下三类 bug:
+跨角色业务闭环出错(A 操作 → B 应感知,但 B 没感知) 静默后端失败(前端显示成功,后端数据没落库或落错) 跨端数据传递断裂(小程序下单 → 运营后台查不到订单) 这三类 bug 的共性是:UI 层看着全绿,业务事实是错的。单用户、纯 UI 断言的 E2E 对它们完全失明。
+这套 SOP 的目标:用「多真实角色 + 数据落库断言 + 跨端握手」组合拳,让 E2E 能抓住业务闭环级的错误,而不只是页面渲染错误。
+适用范围:有明确业务角色划分、且角色间存在状态流转的系统。典型如社交(用户互相关注/互动)、电商(买家下单→卖家发货→平台结算)、SaaS(租户管理员→普通成员→平台运营)。
+不适用:纯展示型网站、无状态工具类应用。这类没有业务闭环可言,单用户点 UI 就够了,套这套是过度设计。
+二、核心原则:三条铁律 整套 SOP 由三条原则支撑,每条都对应一类传统 E2E 的盲区。</description></item></channel></rss>

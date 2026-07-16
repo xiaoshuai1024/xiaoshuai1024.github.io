@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="事故到规则的转化闭环" id="incflow">
+    <mxGraphModel dx="880" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="事故 → 规则:复盘的终点是一条规则,不是一篇文档" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="18" width="520" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="1. 事故发生&#10;线上故障 / 险情&#10;误推分支·幽灵删除·越权" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="2. 复盘&#10;挖根因(5 Whys)&#10;不是「代码错了」挖到「流程漏了」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="90" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="3. 选载体&#10;按严重度和判断复杂度&#10;hook / 脚本 / Agent 规则" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="90" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="4. 落盘规则&#10;写代码 · 头部注释标明来历&#10;「来自 incident-XX,删除导致XX」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="90" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s5" value="5. 自动生效&#10;下次同类操作被机器拦&#10;不靠人记得" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="230" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s6" value="6. 规则库 = 事故档案&#10;新人读规则库 = 继承经验&#10;不用重新踩坑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bfdbfe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="230" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="key" value="关键:复盘不落规则 = 没复盘 · 每起事故必须产出至少一条固化规则&#10;规则库定期清理过时规则,精不要多" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=block;fontSize=10;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=block;fontSize=10;" edge="1" parent="1" source="s5" target="s6"><mxGeometry relative="1" to="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ES 统一搜索" id="es-search">
+    <mxGraphModel dx="1000" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="ES 统一搜索:4 模块 CompletableFuture 并行 + 双管线同步 + 优雅降级" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="920" height="340" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Q" value="统一搜索请求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G" value="goods&#xa;商品" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="circlePosts&#xa;圈子帖" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="135" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="S" value="shops&#xa;店铺" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="210" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="J" value="jointCards&#xa;套卡" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="285" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="PARA" value="CompletableFuture 并行&#xa;ik_smart 分词&#xa;title^3 权重&#xa;深分页 p*ps≥10000 报错" style="text;html=1;align=left;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="470" y="100" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R" value="合并结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="135" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="REC" value="全空 → 回退&#xa;租户 6 个商品推荐" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="720" y="250" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="SYNC" value="数据同步双管线:Logstash 每 30s 游标增量 + RabbitMQ 实时增量(带 traceId)" style="text;html=1;align=center;fontColor=#475569;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="600" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q" target="G"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q" target="C"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q" target="S"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q" target="J"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="G" target="R"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="C" target="R"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="R" target="REC"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

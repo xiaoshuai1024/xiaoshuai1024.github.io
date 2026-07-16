@@ -1,0 +1,132 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="环境分层发布策略" id="envrouting">
+    <mxGraphModel dx="1169" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="780" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 标题 -->
+        <mxCell id="title" value="环境分层发布策略 · 风险越高，人的决策权越靠前" style="text;html=1;align=center;fontSize=15;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="200" y="14" width="700" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- 起点：PR 合并 -->
+        <mxCell id="pr" value="AI 修复 PR · 三层验证全过" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="58" width="340" height="44" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 第一泳道：测试环境 ===== -->
+        <mxCell id="lane1" value="测试环境（test）" style="swimlane;startSize=28;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=1.5;fontColor=#1e293b;fontSize=13;fontStyle=1;horizontal=1;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="940" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="✅ 自动合并&#xa;到 dev 分支" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="lane1">
+          <mxGeometry x="40" y="38" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="✅ 自动部署&#xa;测试环境" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="lane1">
+          <mxGeometry x="260" y="38" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="自动跑冒烟 + E2E&#xa;（再验证一次）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="lane1">
+          <mxGeometry x="480" y="38" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" value="炸了无所谓&#xa;本就是用来试错的" style="text;html=1;align=center;fontSize=11;fontColor=#64748b;fontStyle=2;" vertex="1" parent="lane1">
+          <mxGeometry x="720" y="38" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="te1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="te2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 第二泳道：预发布环境 ===== -->
+        <mxCell id="lane2" value="预发布环境（staging）" style="swimlane;startSize=28;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=1.5;fontColor=#1e293b;fontSize=13;fontStyle=1;horizontal=1;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="80" y="260" width="940" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="s0" value="⚠️ 限定低风险类&#xa;（NPE/编译错等）&#xa;SQL/配置变更不自动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="20" y="40" width="160" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="✅ 自动部署&#xa;staging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="lane2">
+          <mxGeometry x="220" y="44" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="自动跑回归&#xa;+ 性能基线比对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="lane2">
+          <mxGeometry x="400" y="44" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="✗ 失败立即自动回滚&#xa;飞书通知" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;dashed=1;fontColor=#475569;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="610" y="44" width="170" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="✓ 通过 → 待生产确认" style="text;html=1;align=center;fontSize=11;fontColor=#2563eb;fontStyle=1;" vertex="1" parent="lane2">
+          <mxGeometry x="810" y="44" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="se1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane2" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="se2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane2" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 第三泳道：生产环境 ===== -->
+        <mxCell id="lane3" value="生产环境（prod）" style="swimlane;startSize=28;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;horizontal=1;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="80" y="410" width="940" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="p0" value="🔒 人工卡点&#xa;review PR&#xa;+ 合 main&#xa;+ 点发布确认" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="lane3">
+          <mxGeometry x="20" y="48" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="灰度 5%&#xa;（15 分钟）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="lane3">
+          <mxGeometry x="220" y="58" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="AIOps 自动比对&#xa;错误率 / P99 / 业务指标&#xa;vs 基线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="lane3">
+          <mxGeometry x="400" y="50" width="180" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="正常 → 自动放量 50%&#xa;再观察 15 分钟" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="lane3">
+          <mxGeometry x="620" y="50" width="170" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="持续正常&#xa;→ 自动全量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="lane3">
+          <mxGeometry x="830" y="58" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="✗ 任一阶段异常 → AIOps 自动回滚到稳定版本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;dashed=1;fontColor=#475569;fontSize=11;" vertex="1" parent="lane3">
+          <mxGeometry x="220" y="130" width="430" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="pe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane3" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane3" source="p2" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="lane3" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 泳道间的流转箭头（跨泳道，parent=1） -->
+        <mxCell id="cross1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=classic;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pr" target="lane1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cross2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;dashed=1;" edge="1" parent="1" source="lane1" target="lane2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cross3" value="🔒 人工确认" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;endArrow=classic;fontSize=11;fontColor=#2563eb;fontStyle=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="lane2" target="lane3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 右侧图例：自动化程度 -->
+        <mxCell id="legend_title" value="自动化程度" style="text;html=1;align=center;fontSize=12;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="135" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend1" value="全自动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="160" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend2" value="条件&#xa;自动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="290" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend3" value="人工&#xa;卡点" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="440" width="50" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- 底部注释 -->
+        <mxCell id="note" value="核心：非生产可全自动，生产发布必须人决策。AIOps 负责发布后的指标比对和放量/回滚决策——这是它比人更敏感的领域。" style="text;html=1;align=center;fontSize=11;fontColor=#64748b;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="610" width="900" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="假功能排查的八种类型" id="fake-features">
+    <mxGraphModel dx="1100" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="/super-pm 守住的底线:这 8 类「看起来像但没用」的东西,发现就是阻断" style="text;html=1;align=center;fontStyle=1;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="160" y="15" width="660" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="BLOCK" value="阻断级 · 不准过关" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="490" width="220" height="45" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="F1" value="弹窗代替逻辑&#xa;点了只弹提示,没状态回流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="270" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="F2" value="占位入口&#xa;按钮/菜单没绑真实逻辑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="90" width="270" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="F3" value="假数据冒充&#xa;列表/详情用硬编码数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="90" width="270" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="F4" value="骨架页冒充&#xa;只有 loading 动画没内容" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="270" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="F5" value="演示版本&#xa;以 MVP/占位/仅联调为口径" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="210" width="270" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="F6" value="假价/不可达入口&#xa;优惠点不进去或价格对不上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="270" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="F7" value="硬编码配置&#xa;业务参数/色彩值写死在代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="190" y="340" width="270" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="F8" value="假绿&#xa;全体 skip + 退出码 0 冒充通过" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="510" y="340" width="270" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="EF1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F1" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F2" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F3" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F4" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F5" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F6" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F7" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="EF8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="F8" target="BLOCK"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="4 服务架构" id="svc1">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 边界：用户 / 运营 -->
+        <mxCell id="user_visitor" value="访客浏览器" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_ops" value="运营浏览器" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 4 服务 -->
+        <mxCell id="website" value="web :3000&#10;Nuxt SSR&#10;公开站点渲染" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="55" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="engine" value="engine :5173&#10;Vue3 SPA&#10;运营后台 + /designer" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="375" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="bff" value="bff :3100&#10;Next.js BFF&#10;聚合 / 鉴权 / 转码" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="215" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="backend" value="backend :8080&#10;Spring Boot&#10;业务后端（唯一权威）" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="215" width="210" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- 中间件 -->
+        <mxCell id="mysql" value="MySQL :13306&#10;db=luban" style="shape=cylinder3;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="430" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="redis" value="Redis :16379&#10;缓存 / 会话" style="shape=cylinder3;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="520" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 边：调用链 -->
+        <mxCell id="e1" value="HTTP SSR 页面" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="user_visitor" target="website">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="HTTP 后台 / 设计器" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="user_ops" target="engine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="数据请求" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="website" target="bff">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="数据请求" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="engine" target="bff">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="REST / RPC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=10;fontStyle=1;" edge="1" parent="1" source="bff" target="backend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="backend" target="mysql">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="backend" target="redis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

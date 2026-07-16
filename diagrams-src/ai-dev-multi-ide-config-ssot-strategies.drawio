@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三种同步策略" id="ssot-strategies">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="h" value=".agents/skills/foo/  (真实内容)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="30" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="策略一：symlink" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="策略二：指针文件" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="140" width="200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="策略三：受控副本" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="140" width="200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value=".cursor/commands/foo.md  →&#10;(软链接，跟随解析)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="180" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value=".codex/skills/foo  (文件)&#10;内容: /abs/path/.agents/skills/foo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="180" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value=".trae/commands/foo.md&#10;(脚本生成的副本，禁手改)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="790" y="180" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1" target="h">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="h">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.8;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="c3" target="h">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="✅ 零同步成本&#10;✅ 改源即生效&#10;⚠ Windows 需开发者模式&#10;⚠ 部分 IDE 缓存需重启" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="290" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="✅ 对 IDE 透明&#10;✅ 适合不认软链的 IDE&#10;⚠ 路径是绝对路径&#10;⚠ 换机器需重跑初始化" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="420" y="290" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="✅ 兼容所有 IDE&#10;⚠ 副本会过期&#10;⚠ 必须 hook 兜底&#10;⚠ 文件头标注自动生成" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="790" y="290" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap" value="适用：Cursor / Trae / Reasonix          适用：Codex          适用：不认软链的 IDE" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="410" width="900" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

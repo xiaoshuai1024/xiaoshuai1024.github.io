@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="梯度加压拐点" id="lt2">
+    <mxGraphModel dx="800" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="axis" value="并发用户数 →" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="340" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="yaxis" value="P99 延迟 ↑" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="180" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="1k&#10;200ms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="5k&#10;280ms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="240" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="10k&#10;450ms&#10;⚠ 缓存命中率掉" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b45309;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="200" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" value="15k&#10;1.2s&#10;🔴 支付超时" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b91c1c;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="120" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="d5" value="25k&#10;雪崩" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b91c1c;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="50" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="d1" target="d2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="d2" target="d3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="非线性塌方" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b91c1c;endArrow=block;fontSize=11;fontStyle=1;" edge="1" parent="1" source="d3" target="d4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b91c1c;endArrow=block;" edge="1" parent="1" source="d4" target="d5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="拐点在 10k→15k 之间：P99 从 450ms 跳到 1.2s。跳过中间档直接压 25k，只能看到「挂了」，看不到「在哪个量级挂的」。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="740" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

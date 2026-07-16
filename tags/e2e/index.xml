@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>E2E - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/e2e/</link><description>E2E - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Jul 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/e2e/" rel="self" type="application/rss+xml"/><item><title>Agent 替你点完整条用户旅程:E2E 重心从写脚本挪到读业务</title><link>https://xiaoshuai1024.top/posts/ai-dev-agent-hand-testing/</link><pubDate>Wed, 08 Jul 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-agent-hand-testing/</guid><description><![CDATA[一个「下单」按钮点了没反应,可能是前端没绑事件、可能是后端端点 405、可能是小程序和 H5 的 DOM 结构根本不一样。人在这上面耗的时间,远多于写那几行 page.click()。
+E2E 测试最贵的不是写脚本,是搞清楚用户旅程到底断在哪一端。 我的做法是把整个流程交给 Agent(和测试纪律、视觉验收是一套,前面讲「分层怎么守、样式怎么验」,这篇讲端到端这一层在 AI 时代怎么写):它拿着一份业务描述,自己分析业务逻辑、自己决定从哪一端进入、自己跨系统点到点地跑完整条旅程,跑挂了自己读日志定位卡点。整个过程的副产物——它点过的每一步——沉淀成 Playwright 脚本,下次回归直接复用。
+我的做法是把整个流程交给 Agent:它拿着一份业务描述,自己分析业务逻辑、自己决定从哪一端进入、自己跨系统点到点地跑完整条旅程,跑挂了自己读日志定位卡点。整个过程的副产物——它点过的每一步——沉淀成 Playwright 脚本,下次回归直接复用。
+下面拆开讲这套方法怎么落地,以及它和普通 E2E 到底差在哪。
+为什么 E2E 这一层最该让 Agent 接手 先把范围说清楚。单元测试盯函数,集成测试盯模块边界,E2E 盯的是用户旅程——一个真实用户从进系统到完成目标的全过程。这件事的天花板不取决于代码能力,取决于对业务的理解深度:你得知道用户会怎么走、会卡在哪、前端后端小程序各自承担了什么角色。
+这是 Agent 的强项。它不是来替你写 expect() 的,是来替你做业务逻辑分析的。
+具体看普通 E2E 在多端全栈项目里的三个死结:
+死结一:旅程横跨多个系统,人很难一眼看穿断点。 一个完整的「下单 → 支付 → 分账」旅程,要经过 H5 前端、运营后台、Spring Boot 后端、微信支付、定时任务分账。任何一环挂了,现象都是「页面上没反应」。人要定位,得翻前端日志、看后端日志、对账数据库、查定时任务执行记录——这是个体力活,但更是个信息整合活,是 Agent 最擅长的事。
+死结二:多端的 DOM 结构根本不一样,脚本没法复用。 同一个「商品详情」页,在 H5 里是 &lt;uni-input&gt; 包着 &lt;input&gt;,在小程序里是裸 &lt;input&gt;,在运营后台是 Element Plus 的 el-input。普通 E2E 给每个端写一套定位策略,维护成本翻倍。Agent 不靠固定 selector,它读页面文本和语义来定位,一套业务理解能跨端复用。
+死结三:测试脚本和业务理解是两张皮。 普通写法里,业务知识留在 PRD 和人的脑子里,测试脚本只是这些知识的一层「代码投影」。PRD 一改,人要先理解改动、再翻译成脚本改动,中间隔着一层翻译损耗。Agent 主导的做法,是让业务理解本身成为可执行的东西——它读 PRD、读代码、读数据库,直接产出测试动作,翻译这一层被压缩掉了。]]></description></item></channel></rss>

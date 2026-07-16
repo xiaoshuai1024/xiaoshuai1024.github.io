@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="读写分离" id="rwsplit">
+    <mxGraphModel dx="980" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="审查与修复读写分离：AI 内部的制衡" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="20" width="420" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="reviewer" value="@code-reviewer&#10;只读 subagent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="reviewerPerm" value="edit: deny&#10;bash: deny" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="156" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="reviewerJob" value="挑问题&#10;🔴必须修 / 🟡建议修 / 🔵提示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="main" value="主会话&#10;可读写" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="90" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="mainPerm" value="edit: allow&#10;bash: allow" style="text;html=1;align=center;fontColor=#16a34a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="156" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="mainJob" value="改代码&#10;修 🔴🟡 → verify → push 更新 MR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="handoff" value="问题清单（单向传递）" style="text;html=1;align=center;fontColor=#475569;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="380" y="100" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="earrow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="reviewer" target="main">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="verify" value="mvn verify / pnpm test&#10;同一套客观验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="290" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="ever1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="mainJob" target="verify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ever2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="reviewerJob" target="verify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="principle" value="两个不同角色 = AI 内部的「人与人」制衡&#10;挑刺的不能改码，改码的不能自己判「合格」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#e2e8f0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="400" width="620" height="56" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="PRD 三档章节组合" id="prd-tiers">
+    <mxGraphModel dx="1100" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="PRD 该写多厚?看这三个问题" style="text;html=1;align=center;fontStyle=1;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="320" y="15" width="360" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="START" value="这个需求&#xa;涉及几个端?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Q2" value="有没有&#xa;状态流转?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="200" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Q3" value="要不要&#xa;算商业账?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="330" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="SMALL" value="小功能档&#xa;&#xa;背景目标 · 范围 · 角色 · 功能清单&#xa;(单端 / 1-2 页 / 无状态流转)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="280" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="MID" value="中等模块档&#xa;&#xa;加:价值指标 · 用户画像 · 核心流程&#xa;(跨端 / 3-8 页 / 有核心流程)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="290" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LARGE" value="大型产品级(全部 15 章按需取舍)&#xa;&#xa;价值主张 · ROI · 竞品 · 状态机&#xa;埋点 · 发布回滚 · 决策记录&#xa;(跨多端 / 复杂状态 / 商业价值)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="350" y="460" width="320" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" value="0-1 个" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontSize=11;fontColor=#64748b;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="START" target="SMALL"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" value="≥2 个" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontSize=11;fontColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="START" target="MID"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="Q2" target="SMALL"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="START" target="Q2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E5" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="Q2" target="Q3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E6" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;fontSize=11;fontColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Q3" target="MID"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E7" value="是 → 三个都沾边" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;fontSize=11;fontColor=#64748b;fontStyle=1;" edge="1" parent="1" source="Q3" target="LARGE"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI编程重心转移" id="cogShift1">
+    <mxGraphModel dx="900" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="AI 编程改变的不是&quot;快慢&quot;，是写代码这件事的重心" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="14" width="540" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="BEFORE" value="以前：人干执行 + 想方向" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="340" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="B1" value="查语法 / 翻文档 / 套样板&#10;(大半时间)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="110" width="260" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="B2" value="敲样板代码 / 调格式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="190" width="260" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="B3" value="调小 bug / 排查语法错" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="258" width="260" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="B4" value="想：做什么 / 怎么才对 / 边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="326" width="260" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="B5" value="&lt;i&gt;重心被压在执行层&lt;/i&gt;" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="386" width="260" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="AFTER" value="现在：AI 接执行，人专注上层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="340" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="A1" value="AI：查语法 / 套样板 / 补逻辑&#10;(被接管)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#94a3b8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="110" width="260" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="A2" value="AI：敲样板 / 调格式&#10;(被接管)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#94a3b8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="190" width="260" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="A3" value="AI：换视角帮你跳出卡壳" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="258" width="260" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="A4" value="人：做什么 / 怎么才对 / 边界 / 校验&#10;(时间大头挪到这里)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="326" width="260" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="A5" value="&lt;i&gt;重心上移，门槛挪了位置&lt;/i&gt;" style="text;html=1;align=center;fontColor=#2563eb;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="394" width="260" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="ARROW" value="接管" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#2563eb;strokeWidth=2;fontColor=#2563eb;fontSize=11;" edge="1" parent="1" source="B1" target="A1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOOT" value="坑没消失：幻觉 + 代码质量参差 → 新规矩：CLAUDE.md / 二次校验 / 精准提示 / 模板" style="text;html=1;align=center;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="455" width="700" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

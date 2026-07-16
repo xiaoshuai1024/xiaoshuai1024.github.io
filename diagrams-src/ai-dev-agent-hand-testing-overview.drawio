@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="总览" id="overview">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- 输入:业务描述 -->
+        <mxCell id="input" value="业务描述 / PRD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="150" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="inputNote" value="用户旅程&#10;应该发生什么" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="150" height="34" as="geometry"/>
+        </mxCell>
+        <!-- Agent 核心 -->
+        <mxCell id="agent" value="Agent&#10;业务逻辑分析 + 执行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="248" width="180" height="68" as="geometry"/>
+        </mxCell>
+        <!-- 三端容器 -->
+        <mxCell id="ends" value="点到点跨三端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;dashed=1;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="580" y="100" width="460" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="h5" value="H5 前端&#10;uni-app / Playwright" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="150" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="backend" value="运营后台&#10;Spring Boot + Element Plus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="150" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="mp" value="微信小程序&#10;automator / wx.login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="260" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="db" value="后端 + DB + 日志&#10;跨系统数据追踪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="260" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="pay" value="微信支付 mock&#10;定时任务分账" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="380" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <!-- 沉淀 -->
+        <mxCell id="script" value="沉淀 Playwright 脚本&#10;持续复用" style="shape=mxgraph.flowchart.document;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="470" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <!-- 边 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="input" target="agent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="跨系统点击" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="agent" target="ends">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="跑通即固化" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;endArrow=classic;dashed=1;" edge="1" parent="1" source="ends" target="script">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

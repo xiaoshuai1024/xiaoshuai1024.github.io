@@ -1,0 +1,35 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI工具场景路由" id="toolRoute2">
+    <mxGraphModel dx="900" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="按使用频率：Claude Code &gt; Cursor &gt; OpenCode &gt; Codex" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="14" width="540" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q" value="要干的活是什么？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="A_CC" value="Claude Code（主力）&#10;整件事端到端：批量重构 /&#10;跑通端到端 / 自主迭代验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="A_CUR" value="Cursor&#10;中型改动：重构一段逻辑 /&#10;跨文件改命名 / 写完整接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="200" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="A_OC" value="OpenCode&#10;开源命令行场景 /&#10;需要本地可控时切" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="200" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="A_CX" value="Codex / Copilot&#10;行内补全 / 样板联想 /&#10;注释驱动小段生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="E1" value="端到端 / 重活" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontSize=10;" edge="1" parent="1" source="Q" target="A_CC"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E2" value="编辑器内中改动" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontSize=10;" edge="1" parent="1" source="Q" target="A_CUR"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E3" value="本地可控" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontSize=10;" edge="1" parent="1" source="Q" target="A_OC"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E4" value="行内补全" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontSize=10;" edge="1" parent="1" source="Q" target="A_CX"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="NOTE" value="铁律：核心业务逻辑 / 架构设计 不外包给 AI —— 它没有你的业务上下文，&quot;对&quot;只是通用意义上的对" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="780" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

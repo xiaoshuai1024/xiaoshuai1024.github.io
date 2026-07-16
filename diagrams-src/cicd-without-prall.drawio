@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="pr-all" id="prall">
+    <mxGraphModel dx="1100" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="/pr-all 四阶段：CI 的核心是「审查 → 自动修复 → 收敛后才合并」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="20" width="740" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="阶段① 同步 dev 解冲突" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="70" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1d" value="pull-all dev：主仓 + 子模块逐个 merge&#10;冲突按约定逐文件确认，禁止 --ours 丢弃" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="120" width="360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s2" value="阶段② 建 MR 到 dev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="180" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2d" value="frontend → backend → operation → 主仓&#10;无改动的仓库跳过，单仓失败不中断" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="230" width="360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s3" value="阶段③ @code-reviewer 审查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="290" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3d" value="只读 subagent：edit/bash 都 deny&#10;输出 🔴必须修 / 🟡建议修 / 🔵提示 三级清单" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s4" value="阶段④ 自动修复 + 收敛后才合并" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="400" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4d" value="主会话修 🔴🟡 → verify 无回归 → push 更新 MR&#10;🔴 清零才 merge-all-to-dev；否则停下汇报" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="450" width="360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="loop" value="未收敛 → 回阶段③ 重审" style="text;html=1;align=center;fontColor=#d97706;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="730" y="500" width="180" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eloop" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#d97706;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;startArrow=classic;startFill=1;endArrow=none;" edge="1" parent="1" source="s4" target="s3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="422"/>
+              <mxPoint x="900" y="312"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="yunxiao" value="云效 CI 做不到阶段④：流水线只会报红挂掉，不会自己改完再合并" style="text;html=1;align=center;fontColor=#d97706;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="580" width="860" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

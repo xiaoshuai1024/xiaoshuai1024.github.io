@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="视觉验收pipeline" id="visPipeline2">
+    <mxGraphModel dx="1150" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="380 页 UI 视觉验收 pipeline（一个版本两边并行跑）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="10" width="580" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRIG" value="版本封版 / PR 提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="50" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="BR1" value="新功能分支&#10;(有原型锚点)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="BR2" value="老功能分支&#10;(无原型)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="140" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="N1" value="Playwright 双 context&#10;原型 vs 实现 375×812 截图" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="N2" value="pixelmatch 逐像素 diff&#10;图片拦截 + 主题色 CSS 断言" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="290" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="N3" value="四级容差 PASS_A/B/WARN_C/FAIL_D&#10;内容演进页 → 人工/vision 介入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="O1" value="380 截图启发式筛&#10;按文件大小异常挑代表页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="880" y="220" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="O2" value="5% 抽样(18 张) → vision 深审&#10;出疑点(会幻觉)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="880" y="290" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="O3" value="代码审计判真伪&#10;design token + DOM computed-style&#10;423/427 走 token / 4 文件硬编码(真问题)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="360" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="MERGE" value="结果汇总 → 验收报告&#10;(功能完整性 + 样式正确性 + 兼容性 + 历史遗留)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="450" width="500" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="E_TB1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="TRIG" target="BR1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_TB2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="TRIG" target="BR2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_N12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="N1" target="N2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_N23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="N2" target="N3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_O12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="O1" target="O2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_O23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="O2" target="O3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_N3M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="N3" target="MERGE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E_O3M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;" edge="1" parent="1" source="O3" target="MERGE"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,12 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI协同 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/ai%E5%8D%8F%E5%90%8C/</link><description>AI协同 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 14:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/ai%E5%8D%8F%E5%90%8C/" rel="self" type="application/rss+xml"/><item><title>把"用 AI"做成工程体系:28 个命令和一条自治评审回路</title><link>https://xiaoshuai1024.top/posts/ai-dev-claude-skills-system/</link><pubDate>Wed, 17 Jun 2026 14:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-claude-skills-system/</guid><description>前三篇讲的都是「用 AI 做出了什么」。这篇回头讲「怎么用 AI」——不是技巧,是体系。
+很多人对「AI 协同研发」的理解,还停在「每个人装个 Cursor,各写各的」。这种用法,4 个人撑死比以前快一倍。我们能做到 2 个月近百万行,是因为把 AI 协同沉淀成了一套可复用的工程体系:命令化的工作流、自治的评审回路、规范化的技能库。
+关键不是 AI 多强,是这套体系让每个 Agent 开机即用。
+这篇把这套体系拆开讲三块:命令化工作流(28 个命令怎么设计、为什么这么设计)、自治评审回路(它是体系的心脏,怎么兜住百万行的质量)、规范固化(怎么让每个 Agent 一进来就知道规矩)。最后聊聊这套体系的本质——它解决的核心问题是「怎么让 4 个人的经验,放大到指挥一群 Agent 还不失控」。这套体系不是一天建成的,是项目跑下来一边做一边沉淀的,这里讲的是沉淀后的终态。
+一、不是「每个人会用 AI」就够 先说个反直觉的判断:「团队里每个人都会用 AI 工具」不等于「团队有 AI 协同能力」。
+差别看两个场景。
+没体系的用法:每个人各自调 AI,提示词五花八门,生成的代码风格不一,质量靠个人经验兜底,新人和 AI 都不知道项目规范,反复返工。
+有体系的用法:PR 有标准命令、评审有自治回路、规范固化在仓库里、E2E 一条命令跑通,新人第一天装上工具就能产出符合规范的代码。
+我们追求的是后者。这套体系跑起来,才是产能能持续放大的根,它让「4 个人 + AI」不只是 4 个独立单元,而是一支能协同的队伍。
+这两者的差距,在项目规模小的时候看不出来——3 个文件的小项目,有体系没体系都能做。但项目一大(几百个文件、几十个模块),没体系的用法就会崩:代码风格分裂、规范执行不了、新 Agent 反复返工、质量全靠人肉兜底兜不住。体系的价值是随规模放大的:项目越大,体系的杠杆越大。所以我们不是「一开始就建体系」,是「项目大到一定程度,不建体系就跑不动了」才逼出来的。
+还有一点要诚实:建体系是有成本的。28 个命令、评审回路、规范固化,这些东西不是免费的,前期投入的时间不少。但这个投入是一次性的——建完之后,第二个、第三个项目都能复用(命令和规范的思路是通用的,只是具体内容要按项目调)。所以体系的投入是「前重后轻」,熬过前期的沉淀期,后面就能享受复利。怕的是团队等不到复利就放弃,觉得「建体系太慢不如直接写代码」,结果永远停留在「每个人各写各的」的低效状态。
+二、命令化工作流:28 个命令覆盖全流程 我们把高频操作固化成了 28 个自建命令(/command)。流程上大致是:/prd 出需求 → 编码 → /tdd 测试驱动 → /mp-e2e、/op-e2e 跑端到端 → /kd-review 自治评审 → /pr-fullstack 提 MR → /deploy-prod-be-ops 部署。</description></item></channel></rss>

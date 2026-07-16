@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="nginx坑" id="nginxtt">
+    <mxGraphModel dx="980" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="nginx root 坑：scp -r dist 为什么部署不生效" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="20" width="500" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="wrongTitle" value="❌ 错误写法" style="text;html=1;align=center;fontColor=#dc2626;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="70" width="380" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="nginxBad" value="nginx root = /www/.../operation-backend/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="distBad" value="dist/&#10;├─ index.html&#10;├─ assets/&#10;│  └─ app.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="380" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="noteBad" value="scp -r dist → 文件落在 .../operation-backend/dist/&#10;nginx 读根目录，不读 dist 子目录&#10;部署不生效，线上还是旧版本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#92400e;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="270" width="380" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rightTitle" value="✓ 正确写法" style="text;html=1;align=center;fontColor=#16a34a;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="70" width="380" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="nginxBood" value="nginx root = /www/.../operation-backend/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="110" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="flatGood" value="operation-backend/&#10;├─ index.html  ← tar 解压到根目录&#10;├─ assets/&#10;│  └─ app.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="530" y="170" width="380" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="noteGood" value="rm -rf assets index.html → tar xzf 到根目录&#10;nginx 直接读根目录新文件&#10;部署生效，清掉 ._ Apple 元数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#166534;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="270" width="380" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cmd" value="ssh ... &quot;cd /www/.../operation-backend &amp;&amp; rm -rf assets index.html &amp;&amp; tar xzf /tmp/op-dist.tar.gz&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#e2e8f0;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="120" y="380" width="740" height="36" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

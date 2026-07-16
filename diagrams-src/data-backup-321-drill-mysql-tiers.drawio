@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="MySQL三层备份" id="mysql-tiers">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="master" value="生产 MySQL 主库&#10;8.152.101.216:3306&#10;binlog_format=ROW · sync_binlog=1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;size=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="第一层" style="text;html=1;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="40" width="100" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="第二层" style="text;html=1;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="220" width="100" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="第三层" style="text;html=1;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="420" width="100" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="异地只读从库&#10;&#10;独立服务器/独立云账号&#10;复制延迟 &lt; 5min（超阈值飞书告警）&#10;不承接业务流量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="30" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="每日全量 mysqldump (03:00 从从库取数)&#10;&#10;--single-transaction --master-data=2&#10;→ gzip → SHA256 → 本地留 7 天&#10;→ rclone 上传跨云 OSS (永久冷备)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="210" width="300" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="manifest 清单 + 飞书日报 (06:00)&#10;&#10;汇总：dump 是否成功/大小/哈希&#10;OSS 同步对象数 · 从库复制延迟&#10;→ JSON 清单存 OSS + 推飞书" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="410" width="300" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="el1" value="binlog 复制" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="master" target="l1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="el2" value="mysqldump 取数" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="master" target="l2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="el3" value="状态汇总" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="master" target="l3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="role1" value="RPO 主力：主库挂了，从库提升为主，秒级切换" style="text;html=1;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="130" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="role2" value="干净逻辑快照：binlog 损坏/数据被污染时兜底" style="text;html=1;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="role3" value="防静默失败：脚本挂了没人知道才是最可怕的" style="text;html=1;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="520" width="340" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

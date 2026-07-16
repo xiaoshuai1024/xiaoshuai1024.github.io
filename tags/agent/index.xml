@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Agent - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/agent/</link><description>Agent - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Jul 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/agent/" rel="self" type="application/rss+xml"/><item><title>三家模型一套代码:多租户 AI 助手的动态 ChatModel 工厂</title><link>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</link><pubDate>Fri, 29 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/build-multi-tenant-ai-assistant/</guid><description><![CDATA[前面那些文章讲的是用 AI 写代码,这篇换个方向:用 AI 给产品做能力。具体是用 Spring AI 1.0.6 从 0 到 1 搭一个多租户 AI 助手,做成能上线、能治理、有安全边界的生产系统,而不只是跑通一个 demo。
+一、要解决的核心问题 运营后台要一个 AI 助手,运营同学能用自然语言查数据、改配置:&ldquo;查一下今天的订单&rdquo;、&ldquo;把这几个订单打上「已处理」标签&rdquo;。
+难点不在&quot;能不能对话&quot;,在多租户。我们的平台服务很多租户,每个租户:
+用自己的大模型(A 租户用 DeepSeek、B 租户用通义千问); 用自己的 API Key(各自的账单和额度); 有自己的知识库(检索各自的运营文档); 有自己的限流和预算。 这意味着不能像 demo 那样写死一个全局 ChatModel,所有东西都得按租户动态来。多租户和单租户的差别基本就在这一句,这篇也围绕它展开。
+多租户 AI 助手和单租户的差别,不止是「技术复杂度增加」,还有安全责任的质变。单租户系统里,所有数据是一个公司的,即使出了串租户的 bug,也是「自己看自己的数据」,影响可控。多租户系统里,一旦串租户,就是 A 公司看到了 B 公司的数据——这是商业机密泄露,可能引发法律纠纷,直接动摇客户对平台的信任。所以多租户 AI 助手的隔离,不是「优化项」是「底线」,做不好就不是「系统不好用」,而是「系统根本不能用」,性质完全不同。
+还有一个容易被低估的难点:每个租户的 AI 使用习惯不同。有的租户把 AI 助手当「查询工具」用,主要是只读操作;有的租户让 AI 做大量写操作(批量改配置、批量打标签)。使用习惯不同,工具调用的频率和类型就不同,限流策略和审计重点也要跟着不同。我们的做法是给每个租户配独立的 rate_limit_rpm(每分钟请求限制),高频租户调高、低频调低,不是一刀切。这个「按租户差异化配置」的能力,是多租户 AI 助手比单租户复杂得多的地方——不只是隔离,还要个性化。
+二、整体架构 先看全貌。一次&quot;运营问一句话、AI 流式回答并可能调工具&quot;的链路:
+关键设计决策,后面逐个展开:
+多供应商统一走 OpenAI 协议,一套代码吃三家模型。 多租户隔离落在模型实例这一层,每个租户一个独立 ChatModel。 RAG 靠 metadata filter,一个索引管所有租户。 Agent 工具定义和 Spring AI 解耦,中间自研一层桥接。 SSE 流式,前后端各有一套处理。 一次请求的时序 文字描述不如一张时序图清楚。运营问一句话、AI 流式回答并调工具的完整链路:]]></description></item><item><title>业务代码零框架依赖:自研 @AiTool 桥接 Spring AI Tool Calling</title><link>https://xiaoshuai1024.top/posts/ai-agent-tool-calling-bridge/</link><pubDate>Sun, 24 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-agent-tool-calling-bridge/</guid><description><![CDATA[AI 助手要&quot;能干活&quot;而不只是&quot;能聊天&quot;,靠的就是 Tool Calling(工具调用)。这篇讲我怎么把工具定义和 Spring AI 解耦:业务同学写起来零框架负担,换框架一行不动,写操作有确认门禁,每次调用全审计。
+一、要解决的核心问题 我们的多租户 AI 助手要服务运营同学。运营同学说的不是&quot;帮我查订单&quot;这种结构化指令,而是自然语言:&ldquo;今天的订单怎么样&quot;&ldquo;把这几个待审的代下单批一下&quot;&ldquo;这几个订单统一备注成已沟通&rdquo;。
+对模型来说,这些话背后是不同的业务动作。难的不是对话,是怎么把自然语言安全地落到真实业务方法上。这中间有几个工程问题必须先回答:
+谁决定调哪个工具? 不能写 if 用户问订单就查订单 的硬编码分支。自然语言的组合空间是无限的,if-else 永远写不完。 工具怎么定义? 业务同学写一个工具,要不要被 AI 框架的 API 绑架?今天用 Spring AI,明天换 LangChain4j,要不要把所有工具重写一遍? 多租户怎么穿透? A 租户的运营说话,工具只能查 A 租户的订单,这个隔离边界怎么从对话层一路传到业务 service? 写操作怎么兜底? 模型要是手一抖调错写操作(比如批量改错订单),怎么拦?Agent 直接改生产数据,谁来背锅? 这篇就是回答这四个问题。核心思路一句话:调度交给模型,工具实现交给业务,中间架一层自研桥接,把两边彻底解耦。
+这四个问题里,第四个(写操作兜底)是最容易被新手忽略、却最先在真线上出事的。很多人做 Agent 工具调用,demo 阶段全用只读工具,觉得一切都很美好;一旦上写操作,模型一个理解偏差,批量改错一批订单,善后成本极高。所以这套设计从一开始就把「写操作和只读操作分开,写操作必须过确认门禁」当硬约束,而不是事后补丁。这个意识有没有,决定了你的 Agent 是 demo 还是生产系统。
+二、整体设计 先看全貌。一次&quot;运营问一句话、模型决定调工具、框架自动执行、结果回喂模型续生成&quot;的完整链路:
+几个关键设计决策,后面逐个展开:
+不自研 Agent 框架,只桥接工具。工具调用循环交给 Spring AI,业务只实现工具本身。 工具定义和 Spring AI 解耦。自研 @AiTool + ToolHandler 一层,业务代码看不到任何框架类型。 租户上下文用 toolContext 透传,多租户隔离从对话层穿透到工具层。 写操作走确认门禁。Redis token + 参数哈希 + 消费即删,防重放防误触。 一次工具调用的时序 文字描述不如一张时序图清楚。运营问&quot;今天订单怎么样&rdquo;、模型决定调 query_orders、框架自动执行、结果回喂续生成的完整链路:]]></description></item><item><title>Agent 替你点完整条用户旅程:E2E 重心从写脚本挪到读业务</title><link>https://xiaoshuai1024.top/posts/ai-dev-agent-hand-testing/</link><pubDate>Wed, 08 Jul 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-agent-hand-testing/</guid><description><![CDATA[一个「下单」按钮点了没反应,可能是前端没绑事件、可能是后端端点 405、可能是小程序和 H5 的 DOM 结构根本不一样。人在这上面耗的时间,远多于写那几行 page.click()。
+E2E 测试最贵的不是写脚本,是搞清楚用户旅程到底断在哪一端。 我的做法是把整个流程交给 Agent(和测试纪律、视觉验收是一套,前面讲「分层怎么守、样式怎么验」,这篇讲端到端这一层在 AI 时代怎么写):它拿着一份业务描述,自己分析业务逻辑、自己决定从哪一端进入、自己跨系统点到点地跑完整条旅程,跑挂了自己读日志定位卡点。整个过程的副产物——它点过的每一步——沉淀成 Playwright 脚本,下次回归直接复用。
+我的做法是把整个流程交给 Agent:它拿着一份业务描述,自己分析业务逻辑、自己决定从哪一端进入、自己跨系统点到点地跑完整条旅程,跑挂了自己读日志定位卡点。整个过程的副产物——它点过的每一步——沉淀成 Playwright 脚本,下次回归直接复用。
+下面拆开讲这套方法怎么落地,以及它和普通 E2E 到底差在哪。
+为什么 E2E 这一层最该让 Agent 接手 先把范围说清楚。单元测试盯函数,集成测试盯模块边界,E2E 盯的是用户旅程——一个真实用户从进系统到完成目标的全过程。这件事的天花板不取决于代码能力,取决于对业务的理解深度:你得知道用户会怎么走、会卡在哪、前端后端小程序各自承担了什么角色。
+这是 Agent 的强项。它不是来替你写 expect() 的,是来替你做业务逻辑分析的。
+具体看普通 E2E 在多端全栈项目里的三个死结:
+死结一:旅程横跨多个系统,人很难一眼看穿断点。 一个完整的「下单 → 支付 → 分账」旅程,要经过 H5 前端、运营后台、Spring Boot 后端、微信支付、定时任务分账。任何一环挂了,现象都是「页面上没反应」。人要定位,得翻前端日志、看后端日志、对账数据库、查定时任务执行记录——这是个体力活,但更是个信息整合活,是 Agent 最擅长的事。
+死结二:多端的 DOM 结构根本不一样,脚本没法复用。 同一个「商品详情」页,在 H5 里是 &lt;uni-input&gt; 包着 &lt;input&gt;,在小程序里是裸 &lt;input&gt;,在运营后台是 Element Plus 的 el-input。普通 E2E 给每个端写一套定位策略,维护成本翻倍。Agent 不靠固定 selector,它读页面文本和语义来定位,一套业务理解能跨端复用。
+死结三:测试脚本和业务理解是两张皮。 普通写法里,业务知识留在 PRD 和人的脑子里,测试脚本只是这些知识的一层「代码投影」。PRD 一改,人要先理解改动、再翻译成脚本改动,中间隔着一层翻译损耗。Agent 主导的做法,是让业务理解本身成为可执行的东西——它读 PRD、读代码、读数据库,直接产出测试动作,翻译这一层被压缩掉了。]]></description></item></channel></rss>

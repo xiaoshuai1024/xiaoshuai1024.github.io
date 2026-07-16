@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>DevOps - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/devops/</link><description>DevOps - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Jul 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/devops/" rel="self" type="application/rss+xml"/><item><title>告警到 PR 全自动:五层架构搭一套线上缺陷自愈体系</title><link>https://xiaoshuai1024.top/posts/ai-era-intelligent-monitoring-self-healing/</link><pubDate>Tue, 07 Jul 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-era-intelligent-monitoring-self-healing/</guid><description><![CDATA[告警凌晨 3 点炸,值班被叫醒、排查、改代码、验证、发版,一圈走下来一上午没了。线上 MTTR 的下限,卡在人响应的速度上——告警再快,最后还是要人去排查、去改、去发版。
+我在运维侧做过一次最彻底的重构,就是把&quot;告警 → 人处理&quot;升级成&quot;告警 → AI 诊断 → 自动修复 → 自动提 PR → 人只做确认&quot;。它建立在可观测性体系、监控告警、夜间自动巡检那套稳定性基建之上,但往上走了一层:让 AI 把从发现到修复的整条链路跑通。把人的环节替换成 AI,MTTR 才能从&quot;小时级&quot;压到&quot;分钟级&quot;。
+这篇文章拆解一套五层智能监控与缺陷自愈架构,从指标定义到 changelog 生成,每一步讲清楚怎么设计、为什么这么设计。
+一、这套体系适用于什么场景 先划边界。这套五层自愈架构不是万能药，它有明确的适用条件：
+适用的场景：
+技术栈相对统一（前后端框架固定、部署方式标准化），AI 能理解代码上下文； 已有基础的监控和日志体系（至少日志可检索、指标可查询），不是从零搭； 团队有 CI/CD 流水线和代码评审机制，自动化修复的结果能进正常研发流程； 故障模式有一定重复性——同一类问题出现过多次，有规律可循。 不适用的场景：
+基础设施层面的问题（磁盘满、网络分区、K8s 节点挂了）——这类问题 AI 修不了代码，要靠运维自动化； 业务逻辑错误（&ldquo;算出来的价格少了个零&rdquo;）——AI 看不出&quot;对错&quot;，只能看出&quot;异常&quot;； 安全事件——不能自动修，必须人工介入评估影响面。 一句话定性：这套体系解决的是应用层的、可复现的、有日志/指标佐证的缺陷。不是替代 on-call，是把 on-call 从&quot;救火&quot;变成&quot;审批&quot;。
+二、核心原则：五条铁律 在设计这套体系之前，我先定了五条原则。每一条都是踩过坑之后才确认的——不是拍脑袋的设计偏好，而是&quot;不这么干就会出事&quot;的底线。
+原则 1：AI 的权限边界必须是硬的 AI 能做的事和不能做的事，要用代码锁死，不能靠 prompt 约束。
+具体来说：AI 能读日志、能读代码、能创建 fix 分支、能提交 commit、能提 PR。但 AI 不能直接合代码到 main、不能直接操作生产环境、不能修改权限配置。这些硬边界不是写在 prompt 里的&quot;建议&quot;，是 API 权限层面和 CI 流水线配置层面锁死的。]]></description></item><item><title>荒芜之地长出 CI/CD：没有流水线，三条命令跑通了 CI、CD 和 DevOps</title><link>https://xiaoshuai1024.top/posts/ci-cd-without-ci-cd/</link><pubDate>Mon, 13 Jul 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ci-cd-without-ci-cd/</guid><description>跟同行聊 CI/CD，对方都默认你至少有个 GitLab Runner 或者 GitHub Actions。我接手的一个全栈项目，那段日子什么都没有：没有流水线，没有自动化测试，没有提交规范，连 PR 流程都是口头说一声「我推上去了你看下」。部署是本地 mvn package 出 jar，再 scp 拷到服务器，运营后台的 dist 目录手动传。
+按教科书，这种状态就该立刻上 CI 平台。但我做了个反直觉的决定：先不碰平台，用三条 AI 命令把 CI、CD、DevOps 三阶段全跑通了。这三条命令是 /pr-all、/deploy（加 /prod-testing）、/prod-debug——挂在 Claude Code 上，每次发版一条龙走完。
+更反直觉的是后面的事。一年后，我们补了一套基于阿里云云效的正规 CI/CD 系统。按常理，正规系统上线，土法命令行该退役了。但我一条都没退，因为这一年跑下来我发现：在「需要判断」的环节上，命令行比系统化流水线更强。云效流水线只会报红等人，命令行能让 AI 自己修完再合并；流水线进不去生产现场，命令行能连生产库调试；流水线没有「停下来问人」这个状态，命令行有。
+这篇文章讲的就是这件事：怎么从一无所有搭起三阶段，以及为什么补了正规系统之后，土法命令行反而成了不可替代的那层。先说结论——它不是 CI 系统的替代品，是 CI 系统够不着的那层「判断力」的载体，是流水线进不去、又必须有人盯的那些环节的兜底。
+一、荒芜之地：没有 CI 的研发长什么样 先把现状摆清楚，不美化。
+那时候改完代码，流程是这样的：自己机器上 mvn clean package 编译，过就推到远端；没单测、没集成测，过不过全靠手点页面，点过就算过；评审是口头一句「帮我看看那个接口」，没人真看就合了；部署是 scp jar 包到生产服务器，运营后台的 dist 目录手动传；回滚靠记忆——出问题翻聊天记录找「上次能跑的那个 jar 在哪」，没有制品库，没有版本号。
+举个真实的场景。有一次改了佣金结算的接口，编译过了、手点了几下没问题就推了。第二天运营来报障，说某个商家的佣金算出来是负数。排查发现是新代码里一个边界条件没处理，但这个 bug 在「手点几下」的阶段根本触发不到——它得某个商家当月刚好有一笔退款，金额恰好等于某笔佣金，才会撞上那个边界。这种 bug，没有系统化的测试覆盖，靠人手点是抓不到的。
+更要命的是部署的不透明。jar 包 scp 上去，systemctl restart，进程起来了就觉得「上线成功」。但有一次上线后，新代码其实根本没生效——旧进程没杀干净，还占着端口，新进程绑端口失败静默退出，健康检查命中的是旧进程。我们盯着日志以为一切正常，直到用户开始报障才发现线上跑的还是上一版。
+这套流程最伤的不是慢，是不透明。谁改了什么、推上去的是哪个版本、现在线上到底能不能用，全是黑盒。半夜发完版，第二天用户报障，你才知道某个接口昨晚就挂了。
+有人会说，这阶段直接上 GitLab CI 不就行了？算过账不划算。我们当时是 3 个人、单机部署、流量可预期，养一套 Runner、写 pipeline YAML、处理证书和并发缓存，投入产出比很差。更要命的是，CI 平台解决的是「自动跑测试」，但我们当时连测试都没有——上了 CI 也不知道让它跑什么。更需要的是一套轻量、能立刻拦住「黑盒」的机制，而不是一套重型平台。</description></item><item><title>线上报警却找不到那条日志:RequestId 串起可观测性链路</title><link>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</link><pubDate>Sun, 31 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/observability-requestid-metrics/</guid><description><![CDATA[用户反馈&quot;下单失败&quot;,登上去一查:前端 console 干净,network 显示 500,后端日志同时间段上千条 ERROR。哪一条是这一单的?不知道。堆再多工具也救不了这种痛——可观测性的关键不是工具多,是它们能不能串成一条能排查的链路。
+线上出问题,最怕的不是错,是&quot;不知道哪儿错&quot; 做过稳定性的人大概都有过这种时刻:用户反馈&quot;系统卡了&quot;&ldquo;报错了&rdquo;,你登上去一看,前端没报错日志,后端日志一大堆,翻半天翻不到那一条。
+最后只能去问&quot;什么时候、什么操作、哪个页面&quot;,靠用户回忆拼现场。
+这种痛感,堆再多工具也救不了。我对这件事的判断很明确:可观测性不是工具数量的问题,是这些东西能不能串成一条链路。
+工具再多,各管各的、对不上号,排查时还是两眼一抹黑。你上三个 APM、两个日志平台,它们之间没有共同的 requestId 把同一次请求串起来,排查时还是得靠&quot;猜&quot;——猜这次请求在 A 工具里是哪条、在 B 平台里又对应哪条。工具数量解决不了对齐问题,串成链路才能。这篇文章,复盘我们团队从&quot;堆工具&quot;到&quot;串链路&quot;走了哪几步。
+说个真实场景,你就能体会&quot;串不起来&quot;有多痛。某次用户反馈&quot;下单失败&quot;,我们登上去一查:前端 console 干净、network 显示 500、后端日志里同时间段有上千条 ERROR。到底是哪一条对应这个用户?不知道。只能让用户复述操作时间,翻着时间戳一条条对,半小时才定位。后来铺了 requestId,同样的场景:用户报障时把错误提示里的 requestId 发过来,后端日志一搜,这一单从进入拦截器、走到下单 Service、在哪一步抛了 CONCURRENT_CONFLICT,完整轨迹一条线拉出来,3 分钟搞定。这就是&quot;串成链路&quot;和&quot;堆工具&quot;的效率差。
+第一根线:全链路 RequestId 最便宜、收益最高的一件事,就是每个请求注入一个唯一的 RequestId,然后让它贯穿这个请求经过的所有日志。
+听起来简单,但它解决的是排查里最要命的问题:对齐。
+前端报了一个错,后端到底走没走到、走到哪一步挂了——以前靠猜,现在按 RequestId 一搜,前因后果全在一条时间线上。
+我们团队的规矩是:排查线上问题第一件事,就是拿 RequestId 去后端日志里捞这条请求的完整轨迹。没有这个 id,前后端日志就是两座孤岛——前端日志记的是&quot;页面 A 报了错&quot;,后端日志记的是&quot;接口 B 抛了异常&quot;,两边都对,但你没法证明&quot;页面 A 的错就是接口 B 的异常引起的&quot;。中间可能隔着网关、缓存、异步任务,任何一个环节都可能是断点。RequestId 把这条链路缝起来,从用户点的那一刻到后端落库,一条 id 串到底。
+RequestId 的生成也有讲究:前端生成优先,后端兜底。正常情况下前端 axios 拦截器给每个请求生成一个 id 放进 header,后端 Filter 取出来用——这样同一个 id 贯穿前后端。但如果请求没经过前端(比如第三方直接调后端、或 MQ 消费),header 里没 id,后端 Filter 兜底生成一个。两段逻辑都在那个 resolveRequestId 方法里,优先用外面传进来的,没有才自己造。这个顺序保证:同一次请求,前后端用同一个 id,绝不串号。]]></description></item></channel></rss>

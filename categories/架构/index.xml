@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>架构 - Category - 1024 工程笔记</title><link>https://xiaoshuai1024.top/categories/%E6%9E%B6%E6%9E%84/</link><description>架构 - Category - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Jul 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/categories/%E6%9E%B6%E6%9E%84/" rel="self" type="application/rss+xml"/><item><title>备份 ≠ 能恢复:3-2-1 备份与每月强制演练的完整 SOP</title><link>https://xiaoshuai1024.top/posts/data-backup-321-drill/</link><pubDate>Wed, 08 Jul 2026 20:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/data-backup-321-drill/</guid><description>我见过太多团队对「备份」的理解停留在「mysqldump 定时跑一下」。这种理解会害死人。备份和恢复是两件事,而真正决定数据安全的,是恢复——更准确地说,是你能不能在灾难发生时,确定性地把数据救回来。
+(这篇和多租户数据隔离、事故即规范是一组:那两篇讲「怎么不让数据出问题」,这篇讲「万一出了,怎么救得回来」。)
+我主导的多租户 SaaS 项目有一次差点翻车:一个清理 OSS 孤儿图片的定时任务,因为差集逻辑写反,批量物理删了一批用户图片。那次之后我定了一条规矩:任何数据资产,都必须有一套可执行的恢复 SOP,而且每月真刀真枪演练一次。这套 SOP 我跑了快一年,这篇按标准运维文档的格式把它拆开。
+一、这套 SOP 的目的与边界 目的:保证 MySQL 数据库、OSS 对象存储、秘钥配置这三类核心数据资产,在任何单一故障(磁盘损坏、误删、云厂商区域故障、勒索软件)下,RPO ≤ 5 分钟,RTO ≤ 1 小时。
+边界——什么不纳入这套 SOP:
+Redis:缓存和会话,可从 MySQL 重建,自身有 RDB+AOF 持久化兜底 Elasticsearch:业务索引可从 MySQL reindex 重建;AI 向量库重建成本高但属非事务数据 把边界划清楚很重要。什么都想备份等于什么都没备份好——资源有限,精力有限,必须聚焦在「丢了真的会死」的数据上。MySQL(交易数据)、OSS(用户内容)、秘钥(服务能不能启动)这三类是命根子,其它都能从它们重建。
+适用场景:单实例或主从架构的中型 SaaS(日均 API 百万级、OSS 日增 GB 级)。如果你已经是多活架构,这套方案是降级的;如果你只是个人项目,这套是过度设计。
+二、核心原则:3-2-1 与「演练即门禁」 整套 SOP 立在两条原则上,缺一条就垮。
+原则一:3-2-1 备份原则。
+这是备份领域的经典铁律,含义是:
+3 份副本(生产数据 + 2 份备份) 2 种不同介质(比如本地磁盘 + 对象存储) 1 份异地(不同可用区,最好不同云厂商) 3-2-1 的精神是消除单点:任何一种介质、任何一个机房、任何一家云厂商出问题,都至少还有一份能用的副本。我的项目里,MySQL dump 同时存「异地从库本地磁盘 + 七牛 OSS + 阿里云 OSS」三份,OSS 对象在「七牛主 bucket + 七牛备用 bucket + 阿里云冷备」三处。这就是 3-2-1 的落地。</description></item><item><title>企业级前端架构演进:Vue+Node+Java 全链路的分层决策</title><link>https://xiaoshuai1024.top/posts/enterprise-frontend-architecture-vue-node-java/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/enterprise-frontend-architecture-vue-node-java/</guid><description>业务从一条线滚到多条线，应用从几个涨到上百个，「前端写页面、后端写接口」那套老分工，根本扛不住——这是我第一次完整主导一条 Vue + Node.js + Java 全链路时撞上的现实。
+动笔之前我以为前端架构就是组件库加工程化。做完整条链路才发现那只是一小块：高并发来了扛不扛得住、跨团队怎么协作不打架、多端怎么适配不重复造轮子、前后端怎么解耦不互相等，这些才是真正吃力的地方。这套东西我用 Vue3 + Node.js（Nuxt / Egg / Express）+ Java + SpringBoot 从单体一路演进到全链路分层，前前后后支撑过上百个应用——研发成本砍掉 70%、线上可用性 99.99%、大促峰值 10w+ QPS，都是上线后真实量到的。这篇讲这套架构怎么一步步长出来的：核心逻辑、分层落地、演进过程、工程化和监控，还有踩过的坑。
+一、企业级前端架构设计的核心逻辑 那企业级前端架构到底在解决什么问题？我拆成四个方面来讲，这也是我们团队每次做技术选型时反复对标的四条逻辑。
+注意，这四条不是抄来的“最佳实践”，是我们从上百个应用的坑里一点点磨出来的。
+1.1 技术栈统一与边界清晰原则 基于指定技术栈，明确各技术的应用边界，做到专技专用、无缝衔接。这能避免技术栈混乱导致的维护成本增加，同时保证团队开发的标准化与高效性。
+前端渲染层：统一使用 Vue3 作为核心框架，基于组合式 API 实现组件化、模块化开发，适配多端业务场景，替代 Vue2 提升代码可维护性与复用性。
+服务端渲染 / 跨端：使用 Nuxt.js（Nuxt3），解决 SPA 应用首屏加载慢、SEO 差的核心痛点，实现 SSR（服务端渲染）/ SSG（静态站点生成）/ ISR（增量静态再生）混合渲染。
+BFF 中间层：Egg.js 用于中大型高并发项目，内置企业级开发规范，支持集群部署；Express 用于轻量快速迭代项目，轻量灵活、快速上手。二者共同承接前后端协同的核心能力。
+后端服务层：统一使用 Java + SpringBoot，输出标准化 RESTful API，承载核心业务逻辑与数据持久化，适配企业级业务的高可靠性需求。
+1.2 前后端解耦与高效协同原则 企业级业务的核心痛点之一，是前后端耦合导致的迭代效率低。架构设计通过 BFF 层（Egg.js / Express）实现前后端彻底解耦，让前端自主掌控数据层逻辑，打破「前端等后端接口」的迭代瓶颈。
+BFF 层作为前后端的枢纽，承接数据聚合、接口脱敏、权限控制、接口缓存、跨域处理等核心能力。
+前端不再直接调用 SpringBoot 后端接口，而是通过 BFF 层获取标准化、个性化的数据，适配多端场景的需求。</description></item><item><title>低代码平台扛 10W QPS:读多写少的缓存工程演进</title><link>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-lowcode-platform-architecture/</guid><description>一个低代码平台宣称能扛 10W QPS，往往扛不住的不是渲染——渲染结果早被 CDN 挡掉了。真正先崩的，是 schema 的读写：设计器每 5 秒批量保存、运行时每次渲染都要读 schema，读写瓶颈才是高并发的命门。
+本文基于鲁班低代码平台各仓库的既定关系与调用链，推演各系统的部署关系、高并发演进与高可用保障，便于在流量与可用性要求提升时按图演进。
+项目归属说明：本文的架构经验与高并发数据（峰值 10 万+ QPS、多级缓存、P0 清零等）来自我大厂时期主导的内部低代码系统&amp;quot;鲁班&amp;quot;；而文章展开的六库架构与代码实现细节，以我个人开源项目 OpenLuban（架构同源、代码全新重写，GitHub）为准。原公司系统源码不公开。
+一、系统关系与调用链（现状锚点） 鲁班平台由六个仓库组成，边界固定、契约清晰：
+系统 职责 技术栈 下游依赖 luban-ui 组件库 + 设计器 + Render 运行时 Vue3 / Nx 无（被集成） luban 管理后台 Vue3 / Vite / Pinia / Element Plus luban-bff /api/* luban-website 对外站点（SSR） Nuxt 3 luban-bff /api/public/* luban-bff 接入层：认证、聚合、协议适配 Next.js（Node） luban-backend /backend/* luban-backend 主后端：站点/页面/用户/设置 Spring Boot / MyBatis / Redis / MySQL MySQL、Redis luban-backend-go 与主后端同契约的 Go 实现 Go / Gin MySQL、Redis 调用关系可分三层看：</description></item><item><title>京东大促缓存复盘:10W QPS 扛住了,11W 倒下了</title><link>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</link><pubDate>Fri, 03 Jul 2026 14:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</guid><description>讲一次大促前夕刚做完缓存优化、活动开闸后被现实教做人的事。整个故事一句话:我把缓存放 cache(缓存)这件事做得很扎实,却忘了还有另一类流量叫 attack(攻击),它压根不走缓存。
+我那时在京东云做官网架构。大促前的几个月,我主导了一轮缓存改造——把吞吐量从 200 QPS 干到 2 万常态,大促峰值能扛到 10W。结果活动当天流量叠了一波 DDoS 冲到 11W,缓存架构被绕过,连接池打满,服务响应缓慢。最后靠 WAF 清洗和限流把系统拉回来。
+这篇复盘整个过程,核心教训一句话:多级缓存解决的是流量效率问题,解决不了流量安全问题。
+大促前夕:多级缓存怎么搭的 改造前的官网是单层 SSR,峰值 200 QPS 就顶不住。大促一开闸,服务直接拖地。
+&amp;ldquo;200 QPS 就顶不住&amp;quot;听着夸张,但单层 SSR 的瓶颈很真实:每个请求都要服务端完整渲染 HTML,渲染过程要查数据、拼模板、跑逻辑,全是 CPU 活;而且 SSR 实例的本地资源(CPU、内存)是有限的,扛不住并发渲染。200 QPS 不是网络带宽的极限,是单实例渲染能力的极限。要扛更多,要么加实例(贵),要么减少回源(缓存)。
+我搭了一条 6 层多级缓存链路,让流量逐层消化,尽量少回源:
+每层各管一段:
+① CDN:边缘节点缓存静态资源,兜底静态页。绝大部分请求在这一层消化。 ② WAF:页面级缓存 + 流量清洗 + 限流 + 安全策略。当时这层只在大促专项开启,平时不常驻。 ③ Nginx:反向代理 + 健康检查,故障节点自动摘除。 ④ SSR 实例本地 LRU:渲染好的 HTML 缓在本地,后端全挂时降级兜底。 ⑤ Node BFF:接口聚合层缓存,减少后端回源。 ⑥ Redis:分布式缓存热点数据,带互斥锁防击穿。 兜底也做了:SSR 渲染的静态页 CI 构建后上传 OSS 并刷新 CDN,后端真全挂时降级展示 CDN 静态页。</description></item><item><title>睡觉时机器替你跑测试修 bug:我的夜间巡检 daemon 怎么搭</title><link>https://xiaoshuai1024.top/posts/nightly-auto-test-fix/</link><pubDate>Sun, 05 Jul 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/nightly-auto-test-fix/</guid><description><![CDATA[你睡的时候,机器没睡。
+我给项目搭了一套夜间全量测试 + 自动修复的 daemon。每天凌晨 00:00,它自己拉 dev 最新代码,跑 8 步全量测试——后端单测、集成测、运营单测、运营 E2E、前端 H5 E2E、小程序编译验证。挂了,Claude Agent 自动诊断日志、切 fix 分支改代码、用完整测试套件回归一遍,过了才提 MR(不合并),飞书推个「已修复 + MR 链接」叫醒你。
+第二天你打开飞书,要么是「全过」,要么是「已修复待 review」,要么是「修不动了快来」。没有「早上来发现昨晚合的代码炸了」这个选项。
+这篇拆开讲这套系统怎么设计的、为什么这么设计。
+整体流程:五个阶段 每次触发(定时或手动 --once)跑五个阶段,核心逻辑是:测试归测试,开发者的工作区不能动。
+Phase 0·预检:先把现场记下来 平台检测、Node 初始化、抢运行锁(防两个 daemon 同时跑)。关键是 save_state——把每个仓库当前的分支名记到文件里。这一步是后面无损还原的伏笔。
+Phase 1·工作区准备:切到 dev,但你的改动不丢 开发者可能正卡在某个 feature 分支,有未提交的改动。脚本切 dev 之前,先把这些改动 stash 保护起来(git stash push -u -m &quot;nightly-test: &lt;repo&gt;&quot;),再 checkout dev 拉最新。你的活儿一条都不会丢。
+这里特意用 stash 而不是 auto-commit,代码注释写得很直白:用 stash 而非 commit,避免污染任何分支的历史。auto-commit 会往你当前的分支塞一个 wip 提交,即便后面能回退,也会在 reflog 里留痕、搞乱提交树;stash 是 Git 原生的暂存机制,用完 git stash pop 恢复,干干净净。stash 前还会自动确保 .]]></description></item><item><title>DDD 落地低代码后端:从限界上下文到领域异常的取舍</title><link>https://xiaoshuai1024.top/posts/ddd-domain-model-in-lowcode-backend/</link><pubDate>Mon, 17 Mar 2025 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ddd-domain-model-in-lowcode-backend/</guid><description><![CDATA[低代码平台的后端，如果只按「表结构 + Controller + Service」平铺，业务规则很快会散得到处都是——同一个规则在三个地方写了三遍还各不相同。这篇以 luban-backend 的实现为蓝本，讲 DDD 的领域模型思维怎么把这个烂摊子收起来：限界上下文怎么划、聚合根怎么封装不变量、领域异常怎么统一、ArchUnit 怎么把分层锁成测试。
+项目归属说明：本文 DDD 建模经验源自大厂时期主导的内部系统&quot;鲁班&quot;，代码实现以个人开源项目 OpenLuban（架构同源、代码全新重写）为准。
+一、为什么低代码后端需要领域模型 低代码后端的核心职责可以概括为四块:
+内容模型:站点(Site)与页面(Page + PageSchema)的创建、发布、按路径访问。 身份与权限:用户(User)与认证(登录、/auth/me)、基于角色的访问控制(RequireUser / RequireAdmin)。 系统配置:系统设置(SystemSettings)的读写与缓存(如 Redis)。 对外能力:按站点 slug + 路径对外暴露已发布页面,无需鉴权(供官网等消费)。 若仅按「表结构 + Controller + Service」平铺,很容易出现三类问题:
+业务规则散落在各处,修改一处忘记另一处,时间一长就出现&quot;同一个规则在三个地方写了三遍、还各不相同&quot;的失控。 错误语义不统一,前端/BFF 难以稳定处理——同一个&quot;资源不存在&quot;,有的接口返回 500,有的返回 404,有的返回 200 带个 error 字段。 扩展新资源或新上下文时边界模糊,影响可维护性——新功能该放哪个包、能不能依赖那个 Service,全靠拍脑袋。 引入 DDD 的领域模型思维(不必强求完整 DDD 框架),可以在保持实现轻量的前提下,获得清晰的边界、一致的业务语义和可演进的 API 契约。下面从战略与战术两方面结合 luban-backend 说明。
+&ldquo;不必强求完整 DDD 框架&quot;这句要展开——很多人对 DDD 的误解是&quot;要么全做要么不做&rdquo;,觉得得引入四层架构、CQRS、事件溯源全套才算 DDD。其实 DDD 的核心价值在&quot;领域模型为中心&quot;这个思维,不在用了多少模式。luban-backend 用了聚合根、领域事件、ArchUnit 守分层,但没引入事件溯源(用的是 Outbox + 当前状态)、没搞完整的 CQRS(只是读写分表)。挑对你场景有用的模式用,不为模式而模式,这才是务实的 DDD 落地。低代码后端这种 CRUD 为主、偶有复杂状态流转的场景,聚合根 + 事件 + 架构守护这三件套就够用了,硬上事件溯源反而是过度设计。]]></description></item><item><title>SSR 服务高可用实战:从 QPS 跃升到三层降级兜底</title><link>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</link><pubDate>Mon, 17 Mar 2025 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/high-concurrency-fullstack-solution-ssr-cdn/</guid><description>一个没做任何优化的 Nuxt3 SSR 服务，单实例 QPS 只有 200 左右——每个请求都要在 Node 里跑完整渲染，串行打 3 到 5 个后端接口，光等数据就 500ms 到 1 秒，CPU 大半时间在 idle 等 IO。业务流量一上来，高峰直接 502。这篇记的就是怎么把这样一台裸 SSR，从 QPS 200 一路拉到能扛高并发、且「永不宕机」：CDN 剥静态、接口缓存兜后端故障、三层降级保命、前端按需渲染。
+一、服务架构基础：Nuxt.js SSR实时渲染服务架构 本次优化的核心载体是基于 Nuxt3 的 SSR 服务。整体架构以 &amp;ldquo;Node.js 实时渲染&amp;rdquo; 为核心。
+它承接前端请求、完成服务端渲染与数据聚合,并联动 CDN、Nginx、BFF 层、后端服务,形成完整的请求链路。
+核心架构链路如下:
+用户请求 → CDN(静态内容缓存) → Nginx(负载均衡、探活、请求转发) → Nuxt.js SSR 服务(实时渲染、数据请求、兜底处理) → BFF 层(流量承接、数据聚合、接口缓存) → 后端服务(核心业务逻辑、数据持久化)。 核心职责上,Nuxt.js SSR 服务负责页面模板渲染、前端资源打包、服务端数据请求与整合,同时承接前端错误处理与兜底逻辑。它是连接用户与后端服务的关键枢纽。
+二、核心问题：流量增长与SEO优化的双重挑战 业务规模扩大后,Nuxt.js SSR 服务面临两大核心痛点,严重影响用户体验与业务增长,是优化的出发点:
+2.1 流量快速增长带来的性能与稳定性压力 业务推广与用户规模扩大,带来请求量激增。原有 SSR 服务存在明显瓶颈:
+单实例 QPS 仅 200 左右,高峰时段出现请求排队、响应超时。 部分后端服务异常时,SSR 服务无缓存兜底,直接返回错误页面。 实例故障时无法快速切换,导致服务不可用,影响用户留存。 2.</description></item><item><title>一行漏掉的 tenant_id 造成的越权,以及我织的三层兜底网</title><link>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</link><pubDate>Wed, 03 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/multi-tenant-data-isolation/</guid><description><![CDATA[多租户数据隔离是 SaaS 系统能不能交付的底线，绕不开。这篇记录的是这套隔离体系里最隐蔽的一个漏洞，以及怎么把它从&quot;靠人盯&quot;改成&quot;层层兜&quot;。
+先说一句结论:多租户的安全感,从来不来自&quot;开发都很细心&quot;,而来自&quot;假设迟早有人会漏,提前把网织好&quot;。后面所有内容都是为这句话找证据。
+一次越权,根因只有一个 JOIN 那次线上反馈很直接:某个客户说&quot;我能看到别人的数据&quot;。多租户系统听到这句话,基本可以判定为越权。顺着链路翻,查到一条排查 SQL,对着前端返回的字段一比,定位到一段 JOIN。
+排查路径其实不复杂。先用前端能看到的那条&quot;不该出现&quot;的数据,反查它来自哪张表、哪个接口、哪条 SQL;再把这条 SQL 在测试库里重放,逐段拆 JOIN,看哪一段把别人的数据带了出来。定位到具体那段 SQL,大概花了不到半天——真正花时间的是后面想清楚&quot;为什么会漏&quot;。
+根因是:某个 JOIN 关联两张业务表时,只在外层带了 tenant_id 条件,JOIN 的那张表没带。结果租户 A 的查询,把租户 B 的关联行也带了出来。
+不是什么精妙的 0day,也不是鉴权被绕过。就是一段 JOIN ... ON a.id = b.aid,后面漏了 AND a.tenant_id = b.tenant_id。
+修复很快,改一行加上去就完事。但这件事真正风险在于:代码能跑、单测能过、功能自测也没问题——平时你压根不会想到去构造&quot;跨租户数据&quot;的用例,它只在真实多租户、真实数据并存的线上才会爆。
+这种 bug 还有个更阴险的特点:它不会报错。大多数 bug 会抛异常、会返回错误码、会让测试红,至少告诉你「这里不对」。但漏了 tenant_id 的 JOIN 不会,它正常返回数据,只是返回的数据里混进了别人的行——程序觉得自己成功了,用户看到了不该看的,系统毫无察觉。如果不是那个客户主动反馈,这个漏洞可能还要藏很久。「不报错的 bug」是最危险的,因为所有的自动化防线(测试、监控、告警)都建立在「出错会报出来」的前提上,前提没了,防线就瞎了。
+这也是为什么多租户越权的事故,往往是「客户先发现」而不是「团队先发现」。团队的自测环境里租户少、数据简单,跨租户数据混在一起的概率低;线上的租户多、数据杂,混在一起的概率高,而且只有真实用户才会去点那些「不该看到的数据」。等客户反馈时,数据已经暴露了一段时间——这个时间窗口的长度,就是信任损失的量级。
+行级隔离的标配:为什么选它,代价是什么 先把我们的隔离方案交代清楚,后面才好聊为什么会漏。
+业界多租户隔离大体三条路:独立库、独立 schema、行级隔离。我老老实实把它们的代价摆出来,你就能理解我们为什么选行级。
+独立库:每个租户一个物理数据库。隔离最干净,但运维成本爆炸——租户一多,实例数跟着涨,备份、监控、迁移都得一个租户一个租户搞;跨租户报表、平台级统计要跨库 join,基本写不下去。除非单租户数据量极大、合规要求极严(比如金融大客户),否则扛不住。 独立 schema:一个库里每个租户一套 schema。比独立库省实例,但表结构变更要做 N 次 DDL,租户越多越痛;而且跨租户查询还是麻烦,得动态拼 schema 名。 行级隔离:所有租户的数据混在一张表,靠 tenant_id 这列区分。运维最省心(一套表结构、一次 DDL),跨租户查询天然支持,扩展租户就是加一行配置。代价就一个:每一条 SQL、每一个 JOIN 都得记得带 tenant_id。 我们这套选的是行级隔离,业务表都带 tenant_id,所有查询、所有 JOIN 都必须带条件。取舍很清楚:用&quot;每条 SQL 都要小心&quot;换&quot;运维和成本可控&quot;。对中小客户为主、租户数量会涨的 SaaS,这笔账划算。]]></description></item><item><title>权限校验散在每个接口里:我把它收成注解 + 过滤器链 + 契约闸</title><link>https://xiaoshuai1024.top/posts/rbac-permission-filter-chain/</link><pubDate>Tue, 02 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/rbac-permission-filter-chain/</guid><description><![CDATA[权限体系最怕的不是「没做」，而是「散着做」——这个接口开头一个 if (user.hasRole(&quot;admin&quot;))，那个接口中间塞一段 if (!user.can(&quot;edit&quot;))，还有几个接口压根没校验，靠「前端按钮不显示」硬撑。
+把后端的权限校验从「散落在每个接口里的 if」收拢成一条声明 + 校验 + 对齐 + 兜底的链路，是用机制替代人记的工程判断。这篇讲怎么收。
+「散着做」到底贵在哪 我接手过一个运营后台,权限校验是这种画风:这个接口开头一个 if (user.hasRole(&quot;admin&quot;)),那个接口中间塞一段 if (!user.can(&quot;edit&quot;)),还有几个接口压根没校验,靠「前端按钮不显示」硬撑。
+老实讲,这种代码最致命的不是「能不能跑」,而是谁都不敢动。一段判断摆在接口里,三个月后你想删它,第一反应不是「这判断对不对」,而是「删了会不会越权」——因为没人知道这段判断是踩了哪个坑加的,删了出了事算谁的。于是它就赖在那儿,越来越多,越来越乱。
+代价是具体的:
+谁也不敢删那段判断,因为谁也不知道删了会不会越权。 最后代码里堆满「祖传 if」,谁动谁背锅。 前端按钮不显示,不等于后端没校验漏洞。 按钮显示是前端逻辑,接口鉴权是后端职责。黑客根本不经过你的前端,直接打接口。把安全寄托在「按钮藏起来了」,等于没做。 几个接口漏校验,纯靠运气没出事。 接口多了之后,「哪个加了哪个没加」全靠人记。今天没出事,是因为没人想到去打那个接口;明天被人扫到,就是事故。 权限和业务逻辑搅在一起,改一个判断得读懂整个方法。 这段判断嵌在业务代码中间,你要重构这个方法,就得先把权限逻辑摘出来——但摘出来的过程中,你怎么知道没摘错? 所以判断标准很简单:如果你问「这个接口的权限规则是什么」,得去翻业务代码才能回答,那就是散着做。 真正该有的状态是,看一眼注解就知道。
+「散着做」还有一个被严重低估的成本:权限审查没法做。合规审计要求「列出所有需要 admin 权限的接口」,如果权限散在代码里,你得 grep 全项目,还可能 grep 不全(因为有些判断不是 hasRole(&quot;admin&quot;) 这种字面量,而是 user.getLevel() &gt; 5 这种隐式的)。注解声明的好处在这里就体现了——@RequirePermission 是结构化的,grep 一下注解就能列出所有接口及其权限要求,审计报告几分钟就出。散着做的项目,这种审计能折腾一周还不敢保证全。
+散着做还会让「权限测试」无从下手。测试要验「无权限的用户调这个接口应该 403」,但如果权限判断散在业务逻辑里,测试得把业务逻辑跑通才能验到权限——有些权限判断在业务流程的很后面(比如「提交订单时检查用户有没有下单权限」),测试得走到提交那一步才能触发。注解声明在接口入口就拦,测试直接调接口验 403,不用跑业务流程。权限测试的效率,差了一个数量级。
+推倒重做时,核心思路就一句话——权限跟着接口走,不跟着人记。
+注解声明,让权限长在接口上 定义一个注解,大概长这样:
+@RequirePermission(&#34;ops:order:refund&#34;) @PostMapping(&#34;/order/refund&#34;) public Result refund(...) { ... }注意那个权限 key:ops:order:refund。它不是随手写的字符串,而要在迁移脚本的权限种子数据里先注册过。这一条最关键,后面要出事就出在这。
+key 的命名是有规范的,我们整个团队统一用「资源:动作」的三段式:{系统}:{资源}:{动作},比如 ops:order:refund(运营后台 / 订单 / 退款)、ops:order:export、fin:bill:audit。规范本身不复杂,但它解决三件事:
+key 在种子数据里必须先注册。 没注册的 key 走到运行期要么报错要么放行,两种结果都不好。所以 key 是「先在种子表里声明,再在注解里引用」,顺序不能反。 和接口绑死,新人不用通读业务。 新人看接口签名就知道「这接口吃什么权限」,不需要去翻业务逻辑、不需要去问老人。这点对团队扩张特别值钱。 权限信息和接口定义不再分家。 改接口的人顺手就能看到权限要求,删接口的人知道顺手把种子 key 也清掉。 有了注解,接口要什么权限就是声明出来的:]]></description></item><item><title>低代码渲染引擎揭秘:schema 驱动到可编辑画布的取舍</title><link>https://xiaoshuai1024.top/posts/luban-lowcode-rendering-engine/</link><pubDate>Wed, 27 May 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/luban-lowcode-rendering-engine/</guid><description><![CDATA[拿一份 JSON 渲个页面发个 demo，这类项目 GitHub 上一抓一把。真正卡人的是后面三件事：能编辑、能扩展、能演进。我主导的低代码平台「鲁班」核心就是一个自研的渲染引擎 + 设计器，这篇把它拆开——schema 怎么设计、渲染器怎么递归、设计器怎么拖拽编辑。
+项目归属说明：渲染引擎的设计经验源自大厂时期主导的内部系统&quot;鲁班&quot;，本文代码实现以个人开源项目 OpenLuban（架构同源、代码全新重写，GitHub）为准。
+schema:一棵树 + 一个表单值字典 低代码引擎的起点是 schema。我把它设计得很薄,有意压到最小:
+interface NodeSchema { id: string type: string // 组件类型,如 &#39;LubanButton&#39; props?: Record&lt;string, unknown&gt; children?: NodeSchema[] } interface PageSchema { root: NodeSchema formState?: Record&lt;string, unknown&gt; // 表单值绑定容器 }一个关键决定:表单控件的值不挂在每个节点上,而是统一放在顶层 formState 字典里,以控件的 props.name 为 key。运行时只要一个扁平字典就能驱动整页所有表单字段,提交、校验、回填都简单。
+老实讲这步我纠结过。每个节点自己存自己的值,直觉上更「自然」,写 schema 的人也省心。但一落地就发现问题:提交时要遍历整棵树去收集,校验时要在树里找控件,后端回填要把值塞回各自的 props——三个环节都要重新爬树。换成顶层一个字典,提交是 JSON.stringify(formState),校验是对字典跑规则,回填是 Object.assign。一个数据结构,省掉三处脏活。
+还有一个更隐蔽的取舍:schema 要薄,但版本治理要从第一天留口子。PageSchema 现在没显式的 version 字段,不是忘了,是早期的 demo 还不值得为它背兼容包袱。但 NodeSchema 的结构我刻意没塞多余东西,留出加 version / compatibility 的余地。一旦真有存量页面要演进,加个字段、走个 migrator 就能接住。第一天就把 schema 塞满,后面想改一处得动全身——这种坑我见太多了。]]></description></item></channel></rss>

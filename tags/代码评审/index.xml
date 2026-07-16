@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>代码评审 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/</link><description>代码评审 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 10 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1/" rel="self" type="application/rss+xml"/><item><title>一条 CI 都没有:自治多 Agent 评审回路怎么兜住代码质量</title><link>https://xiaoshuai1024.top/posts/ai-dev-no-ci-agent-review/</link><pubDate>Wed, 10 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-no-ci-agent-review/</guid><description>跟同行聊起质量保障,大家第一反应都是「你们 CI 怎么配的?跑多少分钟?」。我的回答每次都让对方愣一下:我们的仓库,一条 CI 流水线都没有。
+没有 GitHub Actions,没有 GitLab CI,没有 Jenkins。.yml 里一个 job 都找不到。
+那质量靠谁?靠一套自治多 Agent 评审回路,我已经稳定跑了一年多。这篇把它拆开:它兜住了什么,又诚实地讲一句,它替代不了什么。
+为什么一开始就没配 CI,不是嫌麻烦。这个项目是 4 个人 + AI、两个月冲百万行代码的节奏,代码改动密度极高,一天几十次提交是常态。传统 CI 跑一轮完整测试要十几分钟,等它绿了黄花菜都凉了——AI 协同研发的节奏根本等不起串行流水线。
+其次,CI 抓的问题有限。流水线擅长抓「编译过不过、测试红不红、lint 报不报」,但抓不了「这段代码的设计对不对」「跨模块的契约对不对」「这坨改动有没有引入语义错误」。而 AI 写代码最容易犯的就是后者——编译能过、测试能绿,但逻辑是错的(270 行静默蒸发就是典型)。我需要一道能读语义的关,CI 给不了。
+这两个动机合在一起,就催生了这套 Agent 评审回路:用并行的、能读代码的 Agent 替代 CI 的静态检查和人工评审,用双计数器收敛让它自治,用硬测试门禁兜住动态行为。它不是「省掉 CI」,是「换一种更适合 AI 协同节奏的质量保障形态」。
+回路全貌:从「人盯」到「流程兜底」 先说整条回路长什么样,后面再展开关键设计:
+scope 分桶 → 并行只读评审 → 流式自动修复 → 双计数器收敛 → 硬测试门禁 → 放行提交。
+整个评审回路是我们那条 AI 研发工作流 的最后一道关。前面 TDD 已经把红/绿/重构走完了,到这里要决定「这坨改动能不能进仓库」。
+关键的判断是:既然能开并行 subagent,就尽量多开。这是团队写进硬约束的一句话。所以这套回路从设计第一天起,就是奔着「并行扇出」去的,不是排队串行。
+scope 分桶:并行扇出的第一步 很多人把并行评审理解成「开 N 个 Agent 同时看一坨代码」,这是错的。N 个 Agent 看同一份 diff,要么互相重复(都说同一个问题),要么互相打架(一个说要加锁一个说不用)。并行的前提是scope 不重叠。</description></item></channel></rss>

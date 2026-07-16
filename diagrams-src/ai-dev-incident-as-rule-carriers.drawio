@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="事故教训的三种固化载体" id="inccarriers">
+    <mxGraphModel dx="880" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="事故教训固化成什么:三种载体从硬到软" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="18" width="420" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c1" value="git hook · 最硬&#10;动作发生瞬间拦截&#10;判断简单(分支名/文件名)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="pre-commit 脚本 · 次硬&#10;提交前拦截&#10;判断中等(正则扫SQL/契约)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="Agent 评审规则 · 最软&#10;评审时拦截&#10;判断复杂(理解语义/逻辑)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="280" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ex1" value="例:推错分支 → 拦 push&#10;危险命令 → 拦执行" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ex2" value="例:JOIN 漏 tenant_id → 扫&#10;URL↔路由对不上 → 扫" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="200" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ex3" value="例:缺幂等校验 → 标红&#10;边界场景漏 → 标红" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="200" width="280" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="principle" value="原则:能早拦的别晚拦 · 严重度决定载体 · 载体和能力匹配&#10;安全级用 hook,优化级用 Agent 规则,跨层契约用脚本" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="290" width="740" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrow" value="← 硬 · 不可绕过                                                                          软 · 可被覆盖但留痕 →" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="900" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

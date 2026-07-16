@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="告警路由决策树" id="routing">
+    <mxGraphModel dx="1169" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="780" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 起点：告警 -->
+        <mxCell id="alert" value="告警到达&#xa;（错误率 / 延迟 / 业务异常）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="30" width="240" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- 去重 -->
+        <mxCell id="dedup" value="去重（同服务 + 同异常，5 分钟窗口合并）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="120" width="260" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 分流判断 1：环境 vs 代码 -->
+        <mxCell id="classify" value="异常类型?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="190" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- 左分支：环境问题 → 升级 -->
+        <mxCell id="infra" value="基础设施异常&#xa;Connection refused / OOM&#xa;disk full" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="210" width="220" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="escalate1" value="直接升级人工&#xa;（不进自愈链路）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="310" width="180" height="46" as="geometry"/>
+        </mxCell>
+
+        <!-- 右分支：应用异常 → AI 诊断 -->
+        <mxCell id="apperr" value="应用异常&#xa;NPE / SQLException / Timeout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="210" width="240" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- AI 诊断步骤 -->
+        <mxCell id="diag" value="AI 诊断（5 步）&#xa;① 捞全链路日志（按 RequestId）&#xa;② 捞关联指标（前后 30 分钟）&#xa;③ bot 拉代码定位堆栈&#xa;④ LLM 分析根因 + 可修复性&#xa;⑤ 输出诊断结论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=1.5;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=8;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="690" y="310" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- 分流判断 2：诊断结果 -->
+        <mxCell id="fixable" value="可修复?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="460" width="120" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- 三路分流结果 -->
+        <mxCell id="r1" value="✅ 可自动修复&#xa;→ 进第四层&#xa;（修代码 + 验证 + PR）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="580" width="240" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="⚠️ 可修但风险高&#xa;→ 生成报告 + 飞书通知&#xa;→ 人决策" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="580" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="❌ 不可修（架构 / 不确定）&#xa;→ 生成报告 + 升级人工" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#475569;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="580" width="220" height="64" as="geometry"/>
+        </mxCell>
+
+        <!-- 边 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="alert" target="dedup">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="dedup" target="classify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="环境/基础设施" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;strokeWidth=1.5;endArrow=classic;fontSize=11;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="classify" target="infra">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="应用异常" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=1.5;endArrow=classic;fontSize=11;fontColor=#2563eb;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="classify" target="apperr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;strokeWidth=1.5;endArrow=classic;dashed=1;" edge="1" parent="1" source="infra" target="escalate1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="apperr" target="diag">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="diag" target="fixable">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=1.5;endArrow=classic;fontSize=11;fontColor=#2563eb;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="fixable" target="r1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="高风险" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;fontSize=11;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="fixable" target="r2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;strokeWidth=1.5;endArrow=classic;dashed=1;fontSize=11;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="fixable" target="r3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 关键设计注释 -->
+        <mxCell id="note" value="关键：环境问题不进自愈链路 —— AI 修不了基础设施。&#xa;只有「能精准定位到代码行」的告警才进自愈。" style="text;html=1;align=left;fontSize=11;fontColor=#64748b;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="380" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

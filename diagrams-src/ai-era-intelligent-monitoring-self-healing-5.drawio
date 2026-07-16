@@ -1,0 +1,84 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI 调度器选型决策" id="selection">
+    <mxGraphModel dx="1169" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="860" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 标题 -->
+        <mxCell id="title" value="AI 调度器选型 · 先分清你要「大脑」还是「手脚」" style="text;html=1;align=center;fontSize=15;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="200" y="14" width="700" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- 起点 -->
+        <mxCell id="start" value="要落地自愈体系" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="56" width="200" height="44" as="geometry"/>
+        </mxCell>
+
+        <!-- 第一个判断：你要搭哪一层？ -->
+        <mxCell id="q1" value="搭哪一层?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="130" width="160" height="76" as="geometry"/>
+        </mxCell>
+
+        <!-- 左分支：编排框架（大脑）容器 -->
+        <mxCell id="brain" value="第一类 · 通用编排框架（搭「大脑」）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=1.5;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=8;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="460" height="290" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="LangGraph&#xa;有状态图编排 · 持久化执行&#xa;2026 企业采用率第一&#xa;✅ 生产首选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="brain">
+          <mxGeometry x="20" y="48" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="Dify&#xa;可视化编排 · 自带运维面板&#xa;拖拽拼原型&#xa;✅ 快速验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="brain">
+          <mxGeometry x="240" y="48" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="AutoGen / AG2&#xa;多 agent 对话 · 微软系&#xa;⚠️ 生产慎用（难收敛）&#xa;研究 / 实验用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#475569;fontSize=11;" vertex="1" parent="brain">
+          <mxGeometry x="130" y="168" width="200" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- 右分支：AIOps 专用 agent（手脚）容器 -->
+        <mxCell id="hand" value="第二类 · AIOps 专用 agent（搭「手脚」）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=1.5;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=8;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="240" width="520" height="290" as="geometry"/>
+        </mxCell>
+        <mxCell id="h1" value="K8sGPT&#xa;K8s 诊断器 · analyzers&#xa;只动嘴：给修复建议&#xa;✅ 渐进式第一步" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="hand">
+          <mxGeometry x="20" y="48" width="230" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="Robusta + HolmesGPT&#xa;CNCF 沙箱 · 最完整&#xa;半动手：调查 + 提 PR&#xa;✅ K8s 原生首选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="hand">
+          <mxGeometry x="270" y="48" width="230" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" value="Kubernaut&#xa;主打「闭环」 · 经 MCP&#xa;全自动 · 配审批门控&#xa;⚠️ 需先建好分层发布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#475569;fontSize=11;" vertex="1" parent="hand">
+          <mxGeometry x="145" y="168" width="230" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- 第一层判断的边 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;endArrow=classic;" edge="1" parent="1" source="start" target="q1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="LLM 多步推理&#xa;编排诊断流程" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=1.5;endArrow=classic;fontSize=11;fontColor=#2563eb;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="q1" target="brain">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="对接 Prometheus/K8s&#xa;真正执行修复" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=1.5;endArrow=classic;fontSize=11;fontColor=#2563eb;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="q1" target="hand">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 组合使用提示 -->
+        <mxCell id="combo" value="💡 常态：组合使用 — 编排框架管「大脑」，专用 agent 管「手脚」&#xa;例：Robusta 处理 K8s 告警 + LangGraph 编排应用层代码修复流程，各管一段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=12;fontStyle=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="140" y="570" width="820" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- 三条决策原则 -->
+        <mxCell id="principles_t" value="三条选型原则（按顺序问自己）" style="text;html=1;align=center;fontSize=13;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="300" y="650" width="500" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="① 愿意养多少代码?&#xa;不愿养 → Dify / 专用 agent&#xa;愿养 → LangGraph 自研编排" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="686" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="② 故障源是 K8s 吗?&#xa;是 → Robusta / K8sGPT&#xa;否 → 通用框架 + 自写适配" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="410" y="686" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="③ 自愈阶段定「动手程度」&#xa;只诊断 → K8sGPT&#xa;提 PR → Robusta → 全闭环 → Kubernaut" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="740" y="686" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="deploy" id="deploy">
+    <mxGraphModel dx="1180" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="CD 阶段：/deploy 六步构建部署 + /prod-testing 三层冒烟" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="20" width="700" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="label1" value="构建" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1" value="Step 1&#10;mvn clean package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2" value="Step 2&#10;make build-prod (dist)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="label2" value="上传" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="70" width="140" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3" value="Step 3&#10;scp jar 上服务器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="100" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step4" value="Step 4&#10;tar 解压到 nginx root" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="170" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step4d" value="不能 scp -r dist&#10;nginx root 不是 dist 子目录" style="text;html=1;align=center;fontColor=#d97706;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="250" y="226" width="180" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="label3" value="重启" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="140" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="step5" value="Step 5&#10;systemctl restart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="100" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step5d" value="pkill -f '[b]ackend.jar'&#10;方括号绕开自杀匹配" style="text;html=1;align=center;fontColor=#d97706;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="460" y="156" width="180" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="label4" value="验证" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="70" width="140" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="step6" value="Step 6&#10;grep ERROR 日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="690" y="100" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step6d" value="systemctl active&#10;+ 进程数=1 + 健康检查 200" style="text;html=1;align=center;fontColor=#475569;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="670" y="156" width="180" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step3" target="step4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step4" target="step5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step5" target="step6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="divider" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="320" as="sourcePoint"/>
+            <mxPoint x="1120" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="testing" value="部署完必跑 /prod-testing —— 三层冒烟" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="340" width="500" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t1" value="Layer 1&#10;API 冒烟" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1d" value="22 个核心接口&#10;quick 模式 ~3 分钟" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="110" y="468" width="220" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t2" value="Layer 2&#10;C 端 H5 页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="400" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2d" value="首页 / 结算 / 佣金 / 提现&#10;本地 H5 指向生产 API" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="468" width="220" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t3" value="Layer 3&#10;运营后台页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="400" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3d" value="结算 / 对账 / 圈子 / 套卡&#10;full 模式 ~12 分钟" style="text;html=1;align=center;fontColor=#475569;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="790" y="468" width="220" height="32" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="et1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="et2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="summary" value="「部署成功」和「线上可用」是两件事 —— 中间那道冒烟验证，云效流水线要么不跑，要么得另接一套" style="text;html=1;align=center;fontColor=#d97706;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="980" height="28" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

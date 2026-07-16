@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="class-design" id="cls">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="bg" value="三层各司其职：管理编排 / RAG 管线 / 向量存储" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1020" height="540" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c1" value="KbManagementController" style="swimlane;fontStyle=1;align=center;startSize=30;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="64" y="92" width="220" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1a" value="+ listDocuments(tenantId)&#xa;+ createDocument(dto)&#xa;+ publish(id)&#xa;+ rebuildIndex(tenantId)&#xa;+ delete(id)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;html=1;whiteSpace=wrap;fontColor=#1e293b;fontSize=11;spacingLeft=8;spacingTop=4;" vertex="1" parent="c1">
+          <mxGeometry y="30" width="220" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c2" value="IngestService" style="swimlane;fontStyle=1;align=center;startSize=30;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="314" y="92" width="220" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2a" value="+ ingest(KbDocument)&#xa;+ rebuild(tenantId)&#xa;&#xa;- SPLITTER:&#xa;   TokenTextSplitter" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;html=1;whiteSpace=wrap;fontColor=#1e293b;fontSize=11;spacingLeft=8;spacingTop=4;" vertex="1" parent="c2">
+          <mxGeometry y="30" width="220" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c3" value="VectorStore  «Spring AI»" style="swimlane;fontStyle=1;align=center;startSize=30;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="564" y="92" width="230" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3a" value="+ add(chunks)&#xa;+ similaritySearch(req)&#xa;+ delete(filter)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;html=1;whiteSpace=wrap;fontColor=#134e4a;fontSize=11;spacingLeft=8;spacingTop=4;" vertex="1" parent="c3">
+          <mxGeometry y="30" width="230" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c4" value="KbDocument" style="swimlane;fontStyle=1;align=center;startSize=30;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="814" y="92" width="220" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4a" value="tenant_id&#xa;title / content&#xa;tags / source&#xa;status&#xa;es_indexed" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;html=1;whiteSpace=wrap;fontColor=#1e293b;fontSize=11;spacingLeft=8;spacingTop=4;" vertex="1" parent="c4">
+          <mxGeometry y="30" width="220" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r1" value="publish / rebuild" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#475569;exitX=1;exitY=0.25;entryX=0;entryY=0.25;" edge="1" parent="1" source="c1" target="c2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="CRUD" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#475569;exitX=1;exitY=0.75;entryX=0;entryY=0.75;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1" target="c4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="339" y="242"/>
+              <mxPoint x="339" y="360"/>
+              <mxPoint x="789" y="360"/>
+              <mxPoint x="789" y="242"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3" value="add / delete" style="endArrow=open;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="c2" target="c3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="标记 es_indexed" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#475569;exitX=1;exitY=0.9;entryX=0;entryY=0.9;" edge="1" parent="1" source="c2" target="c4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="589" y="272"/>
+              <mxPoint x="589" y="390"/>
+              <mxPoint x="789" y="390"/>
+              <mxPoint x="789" y="272"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="noteVS" value="换向量库（如 Milvus / Qdrant）只动 VectorStore 注入层，上面两层不动 — Spring AI 抽象层换来的解耦红利" style="text;html=1;strokeColor=#5eead4;fillColor=#f0fdfa;fontColor=#134e4a;fontSize=11;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="64" y="420" width="970" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lgd" value="实线 = 调用 / 依赖&#xa;虚线 = 标记/反向回写&#xa;蓝 = 业务层（编排/管线）&#xa;青 = Spring AI 抽象层" style="text;html=1;strokeColor=#cbd5e1;fillColor=#ffffff;fontColor=#475569;fontSize=10;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="64" y="500" width="300" height="70" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

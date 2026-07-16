@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="夜间Loop五阶段" id="nightly">
+    <mxGraphModel dx="1100" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="夜间 AI Loop: 五阶段流转" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="20" width="410" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="nightly-test.sh · 每天 00:00 · 自管理 daemon · 失败全程飞书告警" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="46" width="530" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p0" value="Phase 0&#10;保存现场&#10;&#10;stash 未提交改动&#10;记下当前分支名" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="170" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="Phase 1&#10;同步 dev&#10;&#10;fetch + checkout dev&#10;reset --hard origin/dev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="260" y="100" width="170" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="Phase 2&#10;8 步全量测试&#10;&#10;后端单测 ∥ 前端单测&#10;→ 后端 IT → 运营单测&#10;→ 起后端 → 运营 E2E&#10;→ H5 E2E → 小程序编译" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="470" y="90" width="200" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="diamond" value="测试结果?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="105" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pass" value="PASS&#10;&#10;飞书通知通过&#10;→ Phase 4 恢复现场" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="60" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fail" value="FAIL" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="210" width="110" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p3a" value="Phase 3a · Agent 修复&#10;&#10;claude -p 切 fix/nightly-xxx 分支&#10;分析日志 → 改代码 → push&#10;&#10;约束: 不改测试断言 · 不强行改&#10;不确定的根因输出说明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3b" value="Phase 3b · 独立验证&#10;&#10;切 fix 分支跑完整测试套件&#10;(同一套, 非自己判自己)&#10;&#10;全过 → 提 MR(不合并)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="250" width="260" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3c" value="不过 →&#10;删 fix 分支&#10;飞书叫人" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="260" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p4" value="Phase 4 · 恢复现场&#10;&#10;切回原分支 → pop stash&#10;开发者第二天打开电脑, 工作区和昨晚一模一样" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="260" y="420" width="540" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="p0" target="p1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="p1" target="p2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2d" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="p2" target="diamond"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="edp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;dashed=1;" edge="1" parent="1" source="diamond" target="pass"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="edf" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#dc2626;endArrow=classic;" edge="1" parent="1" source="diamond" target="p3a"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_ab" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="p3a" target="p3b"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_ac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#dc2626;endArrow=classic;dashed=1;" edge="1" parent="1" source="p3a" target="p3c"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_b4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="p3b" target="p4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=classic;dashed=1;" edge="1" parent="1" source="pass" target="p4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="note" value="信任边界: Agent 干活, 客观验证判对错, 人拍板合并" style="text;html=1;align=center;fontColor=#0f766e;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="530" width="500" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

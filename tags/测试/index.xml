@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>测试 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%B5%8B%E8%AF%95/</link><description>测试 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 07 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%B5%8B%E8%AF%95/" rel="self" type="application/rss+xml"/><item><title>UT/IT/E2E 三层测试纪律:fail-fast、禁跳过、零占位</title><link>https://xiaoshuai1024.top/posts/ai-dev-test-discipline/</link><pubDate>Sun, 07 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-test-discipline/</guid><description>测试金字塔谁画都顺手:底下 UT、中间 IT、顶上 E2E,贴在 PPT 上特别好看。可真到了项目里,这套三角形十有八九会缩水:
+UT 漏边界,只测 happy path; IT 跑得慢,有人嫌烦干脆 @Ignore; E2E 全绿但一上线就翻车——因为只点了「正常路径」。 我以前也画过那种金字塔,画完贴墙上,没几个人看。金字塔不画在墙上,写进纪律里——而且这条纪律不仅人要守,Agent 也要守。
+下面是我们怎么把「三层测试」从口号落成可执行规矩的。
+三层,各兜一摊,谁也替不了谁 先把分工说清楚,省得有人想「用 UT 多写点、E2E 少写点」来偷懒:
+层级 命名约定 兜什么 跑多快 典型反模式 UT *Test 纯逻辑、边界、异常分支 毫秒级 只测 happy path,边界一个不测 IT *IT 真实数据库 / 中间件集成 秒级 mock 掉一切,等于没集成 E2E *E2E 真实用户路径,端到端 分钟级 全绿但只点了正常路径 这三层不能互相替代,理由很具体:
+UT 全绿不代表集成没问题——你 mock 掉的那个表结构,可能压根和数据库对不上。我见过一个 UserMapperTest 全绿,但实际表里根本没有 deleted_at 字段,上线一查全表 NPE。 E2E 全绿不代表每个分支都对——你只点了「正常登录 + 正常下单」,边界条件(库存为 0、余额不足、并发抢同一商品)一个没覆盖。 不是「三层选一层」,是三层都得在,各管一段。任何「我们 UT 写得很全,E2E 就少点」的说法,都是在为偷懒找借口。
+把「真金字塔」和「反金字塔」画出来对比,为什么底宽顶窄才对、倒过来为什么崩,一目了然:
+反金字塔(E2E 肥大)是大多数团队的真实状态。UT 少写、IT 被 mock 掉、所有用例堆进 E2E,跑一次 40 分钟,团队嫌慢就降频率——从每次提交跑变成每天跑,再变成每周跑,最后 E2E 形同虚设,名义上有测试,实际没人看结果。金字塔倒过来不是「测试多了」,是「测试错位了」——快的该多的反而少,慢的该少的反而多,整套测试又慢又没用。</description></item></channel></rss>

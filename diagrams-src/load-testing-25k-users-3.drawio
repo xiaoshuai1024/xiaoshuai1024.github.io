@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层下钻" id="lt3">
+    <mxGraphModel dx="800" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="l1" value="第一层：看 P99 而非均值&#10;均值 200ms 掩盖了 P99 = 1.5s&#10;每 100 个请求有 1 个用户等 1.5 秒" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="第二层：链路追踪拆耗时&#10;trace 显示：网关 5ms + 应用 50ms&#10;+ 分布式锁等待 1100ms = 1.2s&#10;瓶颈 = 锁等待" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="第三层：监控交叉验证&#10;P99 飙升同时刻：&#10;Redis 命中率 92% → 68%&#10;锁竞争 → 缓存击穿 → 连环效应" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="280" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="知道慢，不知哪儿慢" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontColor=#b45309;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="440" y="55" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="知道链路，不知全局影响" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontColor=#b45309;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="440" y="180" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="根因：锁竞争引发缓存击穿" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontColor=#0f766e;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="310" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="三层从粗到细：现象 → 链路 → 根因。缺任何一层，定位都停在半路。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="740" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

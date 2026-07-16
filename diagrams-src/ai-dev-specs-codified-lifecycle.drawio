@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="规范的自我生长循环" id="specslifecycle">
+    <mxGraphModel dx="880" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="踩坑 → 沉淀:规范怎么自我生长" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="18" width="340" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="1. 踩坑&#10;人或 Agent 犯错&#10;浮点金额 / 漏 tenant_id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="2. 复盘&#10;事故复盘会当场产出&#10;一条规则或技能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="3. 落盘&#10;判断类型:约束→规则&#10;方法→技能 · 进仓库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="120" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="4. 自动生效&#10;新 Agent 启动即加载&#10;下次想犯直接被拦" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="280" width="190" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="5. 规则越攒越厚&#10;项目越来越聪明&#10;同类坑不再踩第二次" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="280" width="190" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="key" value="关键:落盘要及时 · 踩坑当场进仓库,不「等有空再补」&#10;复盘不开完不算完,规则没落盘的复盘 = 没复盘" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="280" width="230" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ea" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="ec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;fontSize=10;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="ed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=block;fontSize=10;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" to="geometry"/></mxCell>
+        <mxCell id="ee" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=block;dashed=1;fontSize=10;" edge="1" parent="1" source="s5" target="s1"><mxGeometry relative="1" to="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

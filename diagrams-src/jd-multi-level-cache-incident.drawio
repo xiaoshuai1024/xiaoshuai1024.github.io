@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="6层多级缓存与大促击穿" id="cache-incident">
+    <mxGraphModel dx="1200" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE_USER" value="大促流量 + DDoS 攻击" style="text;html=1;align=center;fontColor=#dc2626;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="20" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="FLOW_IN" value="峰值 11W QPS (正常大促 10W + 攻击 1W)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontStyle=1;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="48" width="360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L1" value="① CDN 边缘缓存&#10;静态资源 + 兜底静态页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="120" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1_DESC" value="消化静态, 回源少" style="text;html=1;align=center;fontColor=#16a34a;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="172" width="220" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L2" value="② WAF 流量清洗&#10;页面缓存 + 安全策略" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="120" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2_DESC" value="⚠ 当时未常态化, 攻击未拦住" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="172" width="260" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L3" value="③ Nginx 反向代理&#10;健康检查 + 故障摘除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="740" y="120" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="L1" target="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="L2" target="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="BYPASS" value="异常流量绕过业务缓存" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="232" width="220" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L4" value="④ SSR 本地 LRU&#10;渲染好的 HTML, 降级兜底" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="L5" value="⑤ Node BFF 接口聚合&#10;减少回源" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="260" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="L6" value="⑥ Redis 分布式缓存&#10;热点数据 + 互斥锁" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="740" y="260" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="E45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="L4" target="L5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="E56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="L5" target="L6"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="E63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;dashed=1;strokeColor=#dc2626;strokeWidth=2;" edge="1" parent="1" source="L6" target="BACKEND"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="HIT_WALL" value="未命中 → 连接池打满" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="335" width="220" height="16" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="BACKEND" value="后端服务 + 数据库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#dc2626;strokeWidth=2;fontStyle=1;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="360" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="CRASH_DESC" value="Socket 连接耗尽 → 服务响应缓慢" style="text;html=1;align=center;fontColor=#dc2626;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="404" width="440" height="18" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="RECOVER" value="恢复: WAF 识别 IP 频次/UA/请求模式 → 清洗拦截 + 限流 → Socket 逐步释放" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;strokeWidth=2;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="680" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LESSON" value="多级缓存解决流量效率, 解决不了流量安全 —— WAF 清洗 + 限流从此常态化" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="494" width="760" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="脚本 vs MCP 怎么选" id="evscript2">
+    <mxGraphModel dx="860" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="940" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="脚本 vs MCP:什么时候用哪个" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="18" width="280" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="script" value="脚本&#10;主动触发 · 时机确定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="执行者:人(主动跑)&#10;触发:你记得去做" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="135" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="适合:固定流程&#10;发布 / 对账 / 巡检" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="195" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="输出:文字报告,人决策" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="255" width="380" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="mcp" value="MCP&#10;被动响应 · 时机不确定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="70" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="执行者:AI(按需调用)&#10;触发:AI 判断需要时自己调" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="500" y="135" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="适合:探索性任务&#10;查问题 / 联调 / 调试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="500" y="195" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="输出:结构化数据,AI 直接消费&#10;⚠️ 必须配套安全边界(只读/限定域)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="500" y="255" width="380" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rule" value="判断标准:被动响应 → MCP · 主动触发 → 脚本 · 搞混了事倍功半" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="320" width="580" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

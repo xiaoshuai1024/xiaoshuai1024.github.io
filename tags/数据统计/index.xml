@@ -1,0 +1,12 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>数据统计 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/</link><description>数据统计 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 17 Jun 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/" rel="self" type="application/rss+xml"/><item><title>15 个大屏不上 ClickHouse:多租户 SaaS 统计中台的务实选型</title><link>https://xiaoshuai1024.top/posts/ai-dev-stats-dashboard/</link><pubDate>Wed, 17 Jun 2026 12:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-stats-dashboard/</guid><description>上一篇讲数据库地基,这篇讲建在地基上的统计中台。
+这个项目有十几个数据大屏:平台总览、交易分析、商家 KPI、连锁统计、运营统计、服务商看板……每个大屏几十个指标,全部要多租户隔离。听起来像该上 ClickHouse、上 Flink、上数仓那一套。
+我们没有。用的是 MySQL 汇总表 + Redis 实时计数 + ES 搜索,三层数据源拼装。这篇讲清楚为什么这么选,以及落地时的几个关键判断。
+先说清楚统计中台在这个项目里解决什么问题。多租户 SaaS 平台,每个租户(商家)要看自己的经营数据(GMV、订单、用户),平台运营要看全局数据(全平台 GMV、活跃租户、增长趋势),服务商要看自己服务的租户数据。这三类视角,加上时间维度(实时、今日、本周、本月),组合出几十个统计场景。如果每个场景都实时去查原始业务表,生产数据库会扛不住(一个大屏查询可能 GROUP BY 几十万行)。统计中台的存在,就是把这些查询压力从生产表转移到预聚合的汇总表,让「看数据」不打扰「做交易」。
+统计中台的设计核心是「分层 + 隔离」。分层,是指数据按新鲜度分三层(实时/小时/T+1),各层用不同技术(Redis/汇总表/定时任务);隔离,是指多租户数据严格按 tenant_id 隔离,统计查询绝不扫生产表。这两个设计原则,贯穿整个统计中台的实现。理解了这两点,后面的技术选型和落地细节就好懂了。
+一、为什么没上 ClickHouse 很多人一听「统计大屏」,第一反应是上 OLAP。我们也评估过,最后没上,理由很实在。
+数据量没到那个量级。这是多租户 SaaS,不是全民级应用,日订单几十万量级,MySQL 加索引加汇总表完全扛得住。上 ClickHouse 是杀鸡用牛刀,运维成本反而上去了。
+团队只有 4 个人。多引一个重型组件,就多一份运维负担。SaaS 创业期,运维复杂度是隐形成本。
+实时性要求没那么极致。大屏数字延迟 15 分钟完全可以接受,它本来就是决策辅助,不是交易撮合。
+不追求技术先进,追求「刚好够用 + 可控」。这个判断贯穿整个统计中台的设计。
+这里要展开讲一下「不上 ClickHouse」的完整算账。ClickHouse 的优势是 OLAP 查询快(亿级数据秒级聚合),代价是运维复杂(分布式集群、数据均衡、版本升级)和学习曲线(它有自己一套 SQL 方言)。对一个日订单几十万的 SaaS,MySQL 加汇总表查询响应在百毫秒级,完全满足大屏需求;上 ClickHouse 查询能快到十毫秒,但用户感知不到这 90 毫秒的差距(大屏刷新本来就有延迟)。而运维成本是实打实的——多一个分布式组件,就多一套监控、备份、故障排查的负担,4 个人的团队根本扛不住。所以「不上 ClickHouse」不是技术落后,是 ROI 算账后的理性选择。
+还有一个隐性成本:数据同步。ClickHouse 要从 MySQL 同步数据过去(用 Canal 或 Flink CDC),这套同步链路本身就是一个故障源——同步延迟、同步丢失、schema 变更不同步,每个都可能让大屏数据不准。而 MySQL 汇总表直接在同一个库里,没有跨系统同步问题,数据一致性天然有保障。少一个同步链路,就少一类「数据对不上」的事故。所以不上 ClickHouse 也少了一类故障面。</description></item></channel></rss>

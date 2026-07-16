@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="幽灵删除事故时序" id="incidentSeq2">
+    <mxGraphModel dx="1100" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TITLE" value="幽灵删除事故：从一次&quot;无害&quot;重构到线上超卖" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="10" width="580" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C1" value="AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="50" width="120" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="C2" value="编译器" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="50" width="120" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="C3" value="门禁(旧)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="50" width="120" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="C4" value="线上高并发" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="50" width="120" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="C5" value="数据/超卖" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="50" width="120" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="LIFE1" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="86" as="sourcePoint"/><mxPoint x="120" y="540" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="LIFE2" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="320" y="86" as="sourcePoint"/><mxPoint x="320" y="540" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="LIFE3" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="520" y="86" as="sourcePoint"/><mxPoint x="520" y="540" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="LIFE4" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="720" y="86" as="sourcePoint"/><mxPoint x="720" y="540" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="LIFE5" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="920" y="86" as="sourcePoint"/><mxPoint x="920" y="540" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="M1" value="1. &quot;搜索优化&quot;：删 270 行并发守卫(看着没人调)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="120" as="sourcePoint"/><mxPoint x="120" y="160" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="M2" value="2. mvn compile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontColor=#1e293b;fontSize=11;" edge="1" parent="1" source="C1" target="C2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="M3" value="3. 编译绿(语法契约全过)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16a34a;fontColor=#16a34a;fontSize=11;" edge="1" parent="1" source="C2" target="C3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="M4" value="4. 门禁放行(只验语法)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16a34a;fontColor=#16a34a;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="520" y="260" as="sourcePoint"/><mxPoint x="520" y="300" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="M5" value="5. 合入主分支 → 静默潜伏数天" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#475569;fontColor=#1e293b;fontSize=11;dashed=1;" edge="1" parent="1" source="C3" target="C4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="M6" value="6. 大促放量，并发抢同一订单" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#dc2626;fontColor=#dc2626;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="720" y="380" as="sourcePoint"/><mxPoint x="720" y="420" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="M7" value="7. 守卫没了 → 超卖/串号" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#dc2626;strokeWidth=2;fontColor=#dc2626;fontSize=11;" edge="1" parent="1" source="C4" target="C5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ROOTCAUSE" value="根因：编译器只校验语法契约，看不见行为依赖；门禁停在 compile，没跑到 verify" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="510" width="860" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

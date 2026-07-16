@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="云效流水线四阶段" id="pipeline">
+    <mxGraphModel dx="1100" dy="550" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="云效 CI/CD 流水线：代码提交到生产部署" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="430" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage1" value="① 代码提交触发" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stage1_desc" value="push 到主分支&#10;或提 MR&#10;自动触发" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="245" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage2" value="② 构建 + 测试 + 扫描" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2a" value="mvn package&#10;npm run build" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="195" width="140" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2b" value="单测 + 契约测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="228" width="140" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2c" value="SonarQube 静态扫描" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="261" width="140" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="gate2" value="失败即熔断 ✕" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="245" y="278" width="150" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage3" value="③ 制品打包入库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stage3_desc" value="Docker 镜像 / jar&#10;推到云效制品仓库&#10;带 git commit hash" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="455" y="245" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stage4" value="④ 三环境部署" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="150" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4a" value="dev（冒烟测试）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="190" width="140" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4b" value="staging（冒烟测试）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="223" width="140" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4c" value="prod（全量上线）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="256" width="140" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="gate4" value="每环境冒烟挂 → 熔断 ✕" style="text;html=1;align=center;fontColor=#dc2626;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="655" y="278" width="170" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;fillColor=#2563eb;fontSize=11;" edge="1" parent="1" source="stage1" target="stage2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;fillColor=#2563eb;" edge="1" parent="1" source="stage2" target="stage3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=block;fillColor=#2563eb;" edge="1" parent="1" source="stage3" target="stage4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="footnote" value="把「能不能上线」从「我觉得没问题」变成「机器验证没问题」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="330" width="450" height="25" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

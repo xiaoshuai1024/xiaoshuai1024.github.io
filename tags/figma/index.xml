@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Figma - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/figma/</link><description>Figma - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 19 Jun 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/figma/" rel="self" type="application/rss+xml"/><item><title>MCP 接 Figma 实战:把工具接入从 M×N 标准化成 M+N</title><link>https://xiaoshuai1024.top/posts/mcp-figma-dual-server-practice/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/mcp-figma-dual-server-practice/</guid><description>接个订单查询,写个 OrderQueryTool;接个设计平台的 API,又得写一套适配。工具越多,适配代码越堆。直到我接 Figma,踩了一通坑,才搞懂 MCP(Model Context Protocol)到底在解决什么——它不是又一个新协议让你学,是把&amp;quot;每个工具都重写一遍适配&amp;quot;这层标准化掉。
+(上一篇我讲的是自研 Tool Calling 桥接,把工具定义和框架解耦;这篇往上走一层。)
+这篇就用我把 Figma 接进 AI 工作流的真实过程,讲 MCP 怎么落地。不讲虚的,讲配额怎么省、双 server 怎么配合、怎么装。
+一、MCP 到底解决什么:M×N 变 M+N 先说它解决的那个根本问题。
+假设你有 3 个 AI 客户端(Claude Code、Cursor、Cline),要接 3 个外部工具(Figma、GitHub、数据库)。传统做法是每个客户端给每个工具写一套适配——3×3=9 套。客户端加一个、工具加一个,适配数就是乘法涨。这就是 M×N 问题。
+MCP 做的事是中间插一个标准协议:客户端只跟协议说话,工具也只跟协议说话。于是 3 个客户端 + 3 个工具,只需要 3+3=6 个适配,每边各管各的。涨法从乘法变加法。
+落到 Figma 这个例子上:我不需要为「Claude Code 怎么调 Figma」写适配,也不需要为「Cursor 怎么调 Figma」再写一遍。Figma 那边出一个 MCP server,任何支持 MCP 的客户端都能直接用。这就是它最实在的价值——工具方写一次,所有客户端通吃。
+M×N 变 M+N 还有个容易被忽略的收益:工具方和客户端可以独立演进。M×N 模式下,Figma API 升级了,所有客户端的 Figma 适配都要跟着改——3 个客户端改 3 遍。M+N 模式下,Figma 升级了,只改 Figma MCP server 这一处,所有客户端自动受益。这个「解耦后各自演进」的红利,在工具多、客户端多的场景下特别值钱——每次 API 升级省下来的适配工作,是持续的复利。</description></item></channel></rss>

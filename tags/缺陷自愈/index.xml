@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>缺陷自愈 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E7%BC%BA%E9%99%B7%E8%87%AA%E6%84%88/</link><description>缺陷自愈 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 07 Jul 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E7%BC%BA%E9%99%B7%E8%87%AA%E6%84%88/" rel="self" type="application/rss+xml"/><item><title>告警到 PR 全自动:五层架构搭一套线上缺陷自愈体系</title><link>https://xiaoshuai1024.top/posts/ai-era-intelligent-monitoring-self-healing/</link><pubDate>Tue, 07 Jul 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-era-intelligent-monitoring-self-healing/</guid><description><![CDATA[告警凌晨 3 点炸,值班被叫醒、排查、改代码、验证、发版,一圈走下来一上午没了。线上 MTTR 的下限,卡在人响应的速度上——告警再快,最后还是要人去排查、去改、去发版。
+我在运维侧做过一次最彻底的重构,就是把&quot;告警 → 人处理&quot;升级成&quot;告警 → AI 诊断 → 自动修复 → 自动提 PR → 人只做确认&quot;。它建立在可观测性体系、监控告警、夜间自动巡检那套稳定性基建之上,但往上走了一层:让 AI 把从发现到修复的整条链路跑通。把人的环节替换成 AI,MTTR 才能从&quot;小时级&quot;压到&quot;分钟级&quot;。
+这篇文章拆解一套五层智能监控与缺陷自愈架构,从指标定义到 changelog 生成,每一步讲清楚怎么设计、为什么这么设计。
+一、这套体系适用于什么场景 先划边界。这套五层自愈架构不是万能药，它有明确的适用条件：
+适用的场景：
+技术栈相对统一（前后端框架固定、部署方式标准化），AI 能理解代码上下文； 已有基础的监控和日志体系（至少日志可检索、指标可查询），不是从零搭； 团队有 CI/CD 流水线和代码评审机制，自动化修复的结果能进正常研发流程； 故障模式有一定重复性——同一类问题出现过多次，有规律可循。 不适用的场景：
+基础设施层面的问题（磁盘满、网络分区、K8s 节点挂了）——这类问题 AI 修不了代码，要靠运维自动化； 业务逻辑错误（&ldquo;算出来的价格少了个零&rdquo;）——AI 看不出&quot;对错&quot;，只能看出&quot;异常&quot;； 安全事件——不能自动修，必须人工介入评估影响面。 一句话定性：这套体系解决的是应用层的、可复现的、有日志/指标佐证的缺陷。不是替代 on-call，是把 on-call 从&quot;救火&quot;变成&quot;审批&quot;。
+二、核心原则：五条铁律 在设计这套体系之前，我先定了五条原则。每一条都是踩过坑之后才确认的——不是拍脑袋的设计偏好，而是&quot;不这么干就会出事&quot;的底线。
+原则 1：AI 的权限边界必须是硬的 AI 能做的事和不能做的事，要用代码锁死，不能靠 prompt 约束。
+具体来说：AI 能读日志、能读代码、能创建 fix 分支、能提交 commit、能提 PR。但 AI 不能直接合代码到 main、不能直接操作生产环境、不能修改权限配置。这些硬边界不是写在 prompt 里的&quot;建议&quot;，是 API 权限层面和 CI 流水线配置层面锁死的。]]></description></item></channel></rss>

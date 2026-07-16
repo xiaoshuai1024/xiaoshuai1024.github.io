@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>架构守护 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%9E%B6%E6%9E%84%E5%AE%88%E6%8A%A4/</link><description>架构守护 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 26 Jun 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%9E%B6%E6%9E%84%E5%AE%88%E6%8A%A4/" rel="self" type="application/rss+xml"/><item><title>Controller 直连数据库怎么治:用 ArchUnit 把架构钉成测试</title><link>https://xiaoshuai1024.top/posts/architecture-archunit-guardrails/</link><pubDate>Fri, 26 Jun 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/architecture-archunit-guardrails/</guid><description>做过几年架构的人都遇到过这个场面:某天 code review,发现一个 Controller 直接 @Autowired 了 JdbcTemplate 在查数据库,绕过了 Service。问起来,答「这次比较急,先这么写」。
+架构图贴在墙上,分层写得清清楚楚。可代码是活的,它会随每一次「图方便」悄悄偏移。等你发现时,Controller 已经散落在各处直连数据库、两个业务模块缠成了死结、循环依赖改都改不动。
+靠人盯,盯不住的。 这篇就讲我怎么把架构边界写成测试,让机器来盯。
+一、架构腐化的三种典型 不是有人故意搞破坏,都是「这一次图方便」累积出来的。我见得最多的三种:
+跨层调用最常见。Controller 本来只该做路由和参数校验,但有人嫌 Service 套一层麻烦,直接把 JdbcTemplate 拉进来查库。一次两次没事,等这个模式扩散开,分层就成了摆设。
+模块缠绕更要命。我们项目有十几个业务模块——tenant、trade、circle、marketing…本来该各管各的。但今天 tenant 模块需要算一笔佣金,顺手 import 了 trade 的 Repository;明天 trade 又用了 tenant 的工具类。半年后想拆微服务,发现拆不动,因为没人记得清谁依赖谁。
+循环依赖是缠绕的极端形态。A 依赖 B,B 又反过来依赖 A,编译能过(运行时可能爆),但删一个就崩一串。这种债最难还。
+循环依赖还有个特别恶心的变体:间接循环。A 不直接依赖 B,而是 A 依赖 C,C 依赖 B,B 依赖 A。编译能过,但依赖图上 A→C→B→A 形成了环。这种循环肉眼很难发现(你要同时看三个文件才能拼出这个环),但 dependency-cruiser 的 no-circular 规则一扫就出来。这也是为什么架构守护要靠工具不能靠人——人能发现「A 直接依赖 B」的显式循环,但「A→C→B→A」的间接循环,人眼根本拼不出来,工具能。
+这三种腐化还有一个共同特点:它们都是「温水煮青蛙」。单看每一次违规,都很小——「就这一次图方便,下次不这样了」。但「下次」永远不会来,下一次还是图方便。等你发现架构烂了,已经积了几百处违规,还债的工作量大到没人敢动。架构守护的价值,就是在「第一次图方便」时就拦住,不让温水开始煮。防微杜渐说起来老套,但在架构腐化这件事上,它是唯一有效的策略。
+二、先解决一个现实问题:存量怎么办 引入架构测试,第一个拦路虎是存量。
+我们项目引入 ArchUnit 的时候,代码已经写了两个月了。一跑,Controller 直连数据层的违规 467 处,业务层用 SQL 注解的 84 处。要是让测试直接 fail,CI 当场全红,谁也推不动。</description></item></channel></rss>

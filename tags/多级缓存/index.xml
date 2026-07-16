@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>多级缓存 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/</link><description>多级缓存 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 03 Jul 2026 14:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98/" rel="self" type="application/rss+xml"/><item><title>京东大促缓存复盘:10W QPS 扛住了,11W 倒下了</title><link>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</link><pubDate>Fri, 03 Jul 2026 14:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/jd-multi-level-cache-incident/</guid><description>讲一次大促前夕刚做完缓存优化、活动开闸后被现实教做人的事。整个故事一句话:我把缓存放 cache(缓存)这件事做得很扎实,却忘了还有另一类流量叫 attack(攻击),它压根不走缓存。
+我那时在京东云做官网架构。大促前的几个月,我主导了一轮缓存改造——把吞吐量从 200 QPS 干到 2 万常态,大促峰值能扛到 10W。结果活动当天流量叠了一波 DDoS 冲到 11W,缓存架构被绕过,连接池打满,服务响应缓慢。最后靠 WAF 清洗和限流把系统拉回来。
+这篇复盘整个过程,核心教训一句话:多级缓存解决的是流量效率问题,解决不了流量安全问题。
+大促前夕:多级缓存怎么搭的 改造前的官网是单层 SSR,峰值 200 QPS 就顶不住。大促一开闸,服务直接拖地。
+&amp;ldquo;200 QPS 就顶不住&amp;quot;听着夸张,但单层 SSR 的瓶颈很真实:每个请求都要服务端完整渲染 HTML,渲染过程要查数据、拼模板、跑逻辑,全是 CPU 活;而且 SSR 实例的本地资源(CPU、内存)是有限的,扛不住并发渲染。200 QPS 不是网络带宽的极限,是单实例渲染能力的极限。要扛更多,要么加实例(贵),要么减少回源(缓存)。
+我搭了一条 6 层多级缓存链路,让流量逐层消化,尽量少回源:
+每层各管一段:
+① CDN:边缘节点缓存静态资源,兜底静态页。绝大部分请求在这一层消化。 ② WAF:页面级缓存 + 流量清洗 + 限流 + 安全策略。当时这层只在大促专项开启,平时不常驻。 ③ Nginx:反向代理 + 健康检查,故障节点自动摘除。 ④ SSR 实例本地 LRU:渲染好的 HTML 缓在本地,后端全挂时降级兜底。 ⑤ Node BFF:接口聚合层缓存,减少后端回源。 ⑥ Redis:分布式缓存热点数据,带互斥锁防击穿。 兜底也做了:SSR 渲染的静态页 CI 构建后上传 OSS 并刷新 CDN,后端真全挂时降级展示 CDN 静态页。</description></item></channel></rss>

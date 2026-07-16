@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="精力迁移" id="tr3">
+    <mxGraphModel dx="900" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="before" value="转型前" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="360" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="bexec" value="执行（敲代码）&#10;约 80% 精力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="90" y="90" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="bdec" value="决策&#10;约 20%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="210" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="after" value="转型后" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="360" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="aexec" value="执行（交给 AI + 把关）&#10;约 30% 精力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="590" y="90" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="adec" value="决策（定义问题 / 设计系统 / 把控质量）&#10;约 70% 精力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="590" y="155" width="300" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow" value="精力大头从执行挪到决策" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=12;fontStyle=1;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="before" target="after">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note2" value="总量没变少，变的是分配：AI 吃掉执行的量，人把腾出的精力全投到判断上。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="720" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="note3" value="自检：一天里「想」的时间是不是比「敲」的多。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#0f766e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="345" width="720" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

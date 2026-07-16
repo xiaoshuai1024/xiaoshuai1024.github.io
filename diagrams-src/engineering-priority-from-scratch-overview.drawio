@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="工程化基建优先级金字塔" id="overview">
+    <mxGraphModel dx="900" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="t1" value="第 1 层：监控&#10;投入 1 周｜立刻看见线上有没有事&#10;→ 不做它，后面全是瞎的" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="120" width="520" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t2" value="第 2 层：自动化测试&#10;投入 1 个月｜解除「不敢改代码」的阻塞&#10;→ 没测试，重构 / 升级 / 新人碰代码全都不敢动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="230" width="560" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t3" value="第 3 层：CI/CD 流水线（云效）&#10;投入 2 周｜把前两步放大&#10;→ 测试靠人跑一定会漏，监控探针靠流水线部署" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="340" width="600" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="t4" value="第 4 层：敏捷协作（云效）&#10;持续磨合｜让团队用起来前三步&#10;→ 基建搭好没人按流程走，等于白搭" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="450" width="640" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrow" value="先做（投入产出比最高）" style="text;html=1;align=left;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="135" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="arrow2" value="后做（放大前层）" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="465" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="title" value="工程化基建优先级：越往下越早做" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="380" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="endArrow=none;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="540" as="sourcePoint"/>
+            <mxPoint x="80" y="140" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrowhead" style="endArrow=block;strokeColor=#2563eb;fillColor=#2563eb;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="160" as="sourcePoint"/>
+            <mxPoint x="80" y="140" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

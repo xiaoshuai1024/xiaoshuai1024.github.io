@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="保守跳过决策树" id="cm3">
+    <mxGraphModel dx="900" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="root" value="扫描到一个 new Vue().$mount()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="30" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="q1" value="文件里有几个这种入口?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="130" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="root" target="q1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="multi" value="多个 → 跳过,记 note&#10;（不确定该转哪个）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b45309;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_multi" value="≥2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="q1" target="multi">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="q2" value="render 是干净标识符吗?&#10;（h =&gt; h(App)）" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="260" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_q2" value="仅 1 个" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="q1" target="q2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="skip2" value="不是 → 跳过&#10;（JSX / 嵌套函数手改更稳）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b45309;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="390" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_skip2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="q2" target="skip2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="q3" value="$mount 参数是字符串字面量吗?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="270" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_q3" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="q2" target="q3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="skip3" value="不是（如 $mount(el)）→ 跳过&#10;Vue3 mount 只收选择器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b45309;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="390" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_skip3" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=block;" edge="1" parent="1" source="q3" target="skip3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ok" value="执行转换&#10;createApp(App).mount(...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="390" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_ok" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;endArrow=block;" edge="1" parent="1" source="q3" target="ok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="保守原则：宁可跳过记 note，也不改错。跳过的都进报告，人工逐个确认。" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontColor=#1e293b;fontSize=12;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="500" width="720" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="投入产出比矩阵" id="matrix">
+    <mxGraphModel dx="800" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="四块基建的投入产出比位置" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="320" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="axis_y_top" value="回报高" style="text;html=1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="95" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="axis_y_bot" value="回报低" style="text;html=1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="485" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="axis_y_label" value="见 效 速 度" style="text;html=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="275" width="60" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="axis_x_left" value="投入小" style="text;html=1;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="515" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="axis_x_right" value="投入大" style="text;html=1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="515" width="60" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="hline" value="" style="endArrow=none;strokeColor=#94a3b8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="300" as="sourcePoint"/>
+            <mxPoint x="680" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vline" value="" style="endArrow=none;strokeColor=#94a3b8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="120" as="sourcePoint"/>
+            <mxPoint x="450" y="500" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="frame" value="" style="rounded=0;fillColor=none;strokeColor=#cbd5e1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="120" width="430" height="380" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="q1" value="先做区&#10;高回报 + 低投入" style="text;html=1;align=left;fontColor=#64748b;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="260" y="128" width="180" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="monitor" value="监 控&#10;1 周搭完，立刻见效&#10;第一做" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="285" y="180" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="test" value="自动化测试&#10;解除最大阻塞&#10;第二做" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="305" y="345" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pipeline" value="CI/CD 流水线&#10;放大前两步，投入较大&#10;第三做" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="495" y="200" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="agile" value="敏捷协作&#10;持续磨合，长期杠杆&#10;第四做" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="495" y="360" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="seq" value="优先级顺序：监控 → 测试 → 流水线 → 敏捷" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="555" width="400" height="25" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="十轮并行头脑风暴的十个视角" id="ten-rounds">
+    <mxGraphModel dx="1100" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="TITLE" value="十个独立视角同时审视同一命题,逼出研发看不见的盲区" style="text;html=1;align=center;fontStyle=1;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="220" y="15" width="560" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="CORE" value="同一个需求&#xa;命题" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="300" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="V1" value="1 业务闭环&#xa;链路走得通吗" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V2" value="2 技术可行&#xa;现有架构做得了吗" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V3" value="3 多租户隔离&#xa;数据会不会串租户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="80" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V4" value="4 安全合规&#xa;敏感信息 · 合规风险" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="80" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="V5" value="5 性能容量&#xa;高并发扛得住吗" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V6" value="6 运维发布&#xa;怎么发 · 怎么回滚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="180" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V7" value="7 可观测性&#xa;出问题怎么排查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V8" value="8 架构对齐&#xa;和已有域冲突吗" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="V9" value="9 契约兼容&#xa;会不会破坏老版本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="460" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="V10" value="10 风险依赖&#xa;有没有卡进度的外部依赖" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="460" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="NOTE" value="落盘时只写综合结论,不写十轮辩论过程&#xa;过程是给 AI 看的,结论才是给人看的" style="text;html=1;align=center;fontSize=11;fontColor=#64748b;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="560" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V1" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V2" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V3" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V4" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V5" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V6" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V7" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V8" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V9" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="L10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;startArrow=classic;" edge="1" parent="1" source="V10" target="CORE"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

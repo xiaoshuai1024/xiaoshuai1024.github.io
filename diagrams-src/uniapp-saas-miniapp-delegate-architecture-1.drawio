@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="两种模式对比" id="modecompare">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 左侧标题:模式一 -->
+        <mxCell id="title1" value="模式一:按租户打包(构建期)" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="380" height="30" as="geometry"/>
+        </mxCell>
+        <!-- 右侧标题:模式二 -->
+        <mxCell id="title2" value="模式二:平台代开(运行期)" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="380" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- 左:一份源码 -->
+        <mxCell id="src1" value="一份源码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="90" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- 左:Vite 插件改 manifest -->
+        <mxCell id="vite" value="Vite 插件&#10;buildStart 改写 manifest.json&#10;注入 AppId / tenantId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="170" y="170" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- 左:N 个包 -->
+        <mxCell id="pkgs" value="N 个产物包&#10;每个租户一个独立小程序" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="270" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <!-- 左:构建成本 -->
+        <mxCell id="cost1" value="构建成本: O(N)&#10;租户多了线性涨" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="350" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src1" target="vite">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="vite" target="pkgs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="pkgs" target="cost1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 右:一份源码 -->
+        <mxCell id="src2" value="一份源码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="90" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- 右:一个模板包 -->
+        <mxCell id="tmpl" value="一份代码模板&#10;所有租户共用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="170" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <!-- 右:微信第三方平台 commit -->
+        <mxCell id="commit" value="微信 /wxa/commit&#10;ext_json = { extAppid, ext:{tenantId} }&#10;运行时 wx.getExtConfigSync()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="250" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <!-- 右:N 个租户 -->
+        <mxCell id="tenants" value="N 个租户小程序&#10;同一份代码,差异化靠 ext_json" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="350" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <!-- 右:构建成本 -->
+        <mxCell id="cost2" value="构建成本: O(1)&#10;租户再多代码也只一份" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="430" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src2" target="tmpl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="tmpl" target="commit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="commit" target="tenants">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="tenants" target="cost2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 中间分隔虚线 -->
+        <mxCell id="divider" value="" style="endArrow=none;html=1;strokeColor=#94a3b8;dashed=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="30" as="sourcePoint"/>
+            <mxPoint x="570" y="510" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

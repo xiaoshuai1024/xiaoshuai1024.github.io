@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Skills包管理机制" id="skills1">
+    <mxGraphModel dx="1200" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 上游来源容器 -->
+        <mxCell id="src_box" value="上游 Skill 生态（三类来源）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="240" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_sp" value="obra/superpowers&#10;工程纪律：TDD / 调试 / 验证 / 计划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="92" width="200" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_ecc" value="everything-claude-code&#10;技术栈模式：Spring Boot / JPA / API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="172" width="200" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_mp" value="mattpocock / caveman&#10;单点工具：诊断 / PRD / 原型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="252" width="200" height="66" as="geometry"/>
+        </mxCell>
+
+        <!-- skills-lock.json -->
+        <mxCell id="lock" value="&lt;b&gt;skills-lock.json&lt;/b&gt;&#10;&#10;锁定每个 skill 的：&#10;• source 来源&#10;• sourceType (local/github)&#10;• computedHash 哈希" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="330" y="130" width="180" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- .agents/skills -->
+        <mxCell id="agents" value="&lt;b&gt;.agents/skills/&lt;/b&gt;&#10;&#10;&lt;name&gt;/SKILL.md&#10;真实内容落地处&#10;哈希校验防篡改" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="570" y="130" width="180" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- .claude/skills -->
+        <mxCell id="claude" value="&lt;b&gt;.claude/skills/&lt;/b&gt;&#10;&#10;&lt;name&gt; → 符号链接&#10;指向 .agents 真实内容&#10;Claude Code 发现入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="810" y="130" width="180" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- 会话 -->
+        <mxCell id="session" value="&lt;b&gt;Claude Code 会话&lt;/b&gt;&#10;&#10;按触发条件&#10;自动加载对应 skill&#10;约束 agent 行为" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="130" width="140" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- 箭头 -->
+        <mxCell id="e1" value="登记来源" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#475569;fontSize=10;endArrow=classic;" edge="1" parent="1" source="src_box" target="lock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="同步+校验" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#475569;fontSize=10;endArrow=classic;" edge="1" parent="1" source="lock" target="agents">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="symlink" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#475569;fontSize=10;endArrow=classic;" edge="1" parent="1" source="agents" target="claude">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="自动加载" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#475569;fontSize=10;endArrow=classic;" edge="1" parent="1" source="claude" target="session">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 底部一句话 -->
+        <mxCell id="note" value="机制像 npm：lock 锁版本 + 哈希校验，symlink 挂载，真相源始终是 .agents 那份。装 skill 装的是「行为约束」，不是函数库。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="30" y="430" width="1150" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
