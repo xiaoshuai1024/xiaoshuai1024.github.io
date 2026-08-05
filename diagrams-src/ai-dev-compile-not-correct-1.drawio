@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="门禁从compile升级到verify" id="compileVerifyUpgrade1">
+    <mxGraphModel dx="1180" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="g_old" value="旧门禁（被淘汰）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#1e293b;verticalAlign=top;fontStyle=1;fontSize=12;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="240" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="old_trigger" value="开发者 / AI 提交改动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="180" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="old_compile" value="mvn compile&#xa;只校验语法契约&#xa;类型 / 签名 / 引用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="190" width="180" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="old_result" value="❌ 绿灯放行&#xa;并发守卫 / 行为被静默删除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="180" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_old1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="old_trigger" target="old_compile">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_old2" value="语法没问题" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="old_compile" target="old_result">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="g_new" value="新门禁" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontColor=#1e293b;verticalAlign=top;fontStyle=1;fontSize=12;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="800" height="460" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="new_trigger" value="开发者 / AI 提交改动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="180" height="48" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="new_verify" value="mvn verify&#xa;提交前置门禁（Proof-of-Work）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;strokeWidth=2;fontStyle=1;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="170" width="300" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="layer1" value="分层测试 UT / IT / E2E&#xa;并发路径、锁顺序、幂等键" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="280" width="220" height="68" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer2" value="契约扫描&#xa;路由注解 / 权限 key / 限流策略" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="630" y="280" width="220" height="68" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer3" value="E2E 兜底&#xa;真实链路再拦一道" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="890" y="280" width="220" height="68" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ok" value="三层全绿 → 允许提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="410" width="220" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="fail" value="❌ 任一红 → 拦截提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;dashed=1;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="810" y="410" width="220" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_new1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="new_trigger" target="new_verify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_v1" value="①" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="new_verify" target="layer1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_v2" value="②" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="new_verify" target="layer2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_v3" value="③" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="new_verify" target="layer3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_ok" value="全绿" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="layer1" target="ok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_fail" value="任一红" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="layer3" target="fail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_cross" value="替换" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontColor=#475569;fontSize=10;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="old_compile" target="new_verify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

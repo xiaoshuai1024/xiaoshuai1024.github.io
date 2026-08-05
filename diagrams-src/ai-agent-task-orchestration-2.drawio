@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Agent 编排五层骨架" id="dia2">
+    <mxGraphModel dx="1100" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Agent 编排的五层骨架" style="text;html=1;fontSize=18;fontColor=#1e293b;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="15" width="700" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub" value="每一层解决一个工程问题，可替换实现但骨架不变" style="text;html=1;fontSize=12;fontColor=#64748b;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="55" width="700" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Layer 1: y=100, h=130 ===== -->
+        <mxCell id="l1bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="40" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1num" value="①" style="text;html=1;fontSize=24;fontColor=#2563eb;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="135" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1title" value="意图理解" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="100" width="910" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1body" value="功能：分类用户输入的意图（生成 / 编辑 / 咨询）&#10;实现：function calling 强制结构化输出 GenerationIntent&#10;降级：LLM 失败 → 默认最常见的意图继续，不阻断&#10;权衡：低代码场景宁可猜错继续；医疗/法律场景反过来——必须阻断" style="text;html=1;fontSize=11;fontColor=#475569;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="105" y="130" width="880" height="95" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Layer 2: y=245, h=130 ===== -->
+        <mxCell id="l2bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="40" y="245" width="40" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2num" value="②" style="text;html=1;fontSize=24;fontColor=#2563eb;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2title" value="上下文检索（RAG）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="245" width="910" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2body" value="功能：阻止 LLM 编造——把真实可用资源喂给它&#10;实现：hybrid RAG，dense(0.6) + sparse(0.4) 双路召回 + 归一化加权融合&#10;降级：检索服务挂 → 全量资源名塞 prompt（资源库小才可用）&#10;权衡：简单词频代替 BM25，资源库膨胀后失效" style="text;html=1;fontSize=11;fontColor=#475569;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="105" y="275" width="880" height="95" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Layer 3: y=390, h=145 (5 lines, tallest) ===== -->
+        <mxCell id="l3bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="40" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3num" value="③" style="text;html=1;fontSize=24;fontColor=#2563eb;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="432" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3title" value="结构化生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="390" width="910" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3body" value="功能：保证 LLM 输出可靠 parse 成目标对象&#10;实现：instructor + Pydantic，底层走 function calling（不是提示词约束）&#10;关键：response_model=PydanticModel ≠ 提示词约束；instructor 把 Pydantic&#10;    转 JSON Schema 塞进 tools=[...] 调 LLM 的 function calling 接口&#10;局限：function calling 只保证结构合法，语义正确要靠校验闸" style="text;html=1;fontSize=11;fontColor=#475569;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="105" y="420" width="880" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Layer 4: y=550, h=130 ===== -->
+        <mxCell id="l4bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;" vertex="1" parent="1">
+          <mxGeometry x="40" y="550" width="40" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4num" value="④" style="text;html=1;fontSize=24;fontColor=#d97706;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="585" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4title" value="校验闸" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d97706;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="550" width="910" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4body" value="功能：function calling 之后的语义验证&#10;实现：六道校验——结构 / 存在性 / propsSchema / 表达式沙箱 / 循环引用 / ID 唯一&#10;关键：表达式沙箱黑名单与下游执行侧逐字对齐（测试用例共享）&#10;策略：「缺资源不崩」——记录但不阻断，由人决定；不抛错中断流程" style="text;html=1;fontSize=11;fontColor=#475569;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="105" y="580" width="880" height="95" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Layer 5: y=695, h=130 ===== -->
+        <mxCell id="l5bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#059669;" vertex="1" parent="1">
+          <mxGeometry x="40" y="695" width="40" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5num" value="⑤" style="text;html=1;fontSize=24;fontColor=#059669;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="730" width="40" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5title" value="HITL 与回环" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#059669;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="90" y="695" width="910" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5body" value="功能：人怎么介入、失败怎么兜&#10;HITL：校验通过后等人确认，走 SSE confirm + HTTP 恢复（不走 WS——重连复杂）&#10;回环：校验失败重试 max_retries=3 次；中间态持久化到 Postgres 便于恢复&#10;局限：当前 feedback 不把 error 拼回 prompt——隐式重试，可能重复犯错（P2 改进点）" style="text;html=1;fontSize=11;fontColor=#475569;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="105" y="725" width="880" height="95" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Takeaway: y=840 ===== -->
+        <mxCell id="takeaway" value="骨架不变，实现可换：换场景时换的是每层节点的具体实现（医疗 AI 的 understand 失败必须阻断；电商的 retrieve 必须上 BM25），不是这套五层骨架本身。" style="text;html=1;fontSize=12;fontColor=#1e293b;fontStyle=2;align=center;verticalAlign=middle;fillColor=#f8fafc;strokeColor=#e2e8f0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="840" width="960" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

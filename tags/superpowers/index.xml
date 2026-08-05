@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Superpowers - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/superpowers/</link><description>Superpowers - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Aug 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/superpowers/" rel="self" type="application/rss+xml"/><item><title>OpenSpec 和 Superpowers 别二选一,它们管的是两件事</title><link>https://xiaoshuai1024.top/posts/ai-dev-openspec-superpowers-workflow/</link><pubDate>Wed, 05 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-openspec-superpowers-workflow/</guid><description><![CDATA[OpenSpec 装上了，Superpowers 也装上了，项目照样乱。
+打开项目目录，openspec/changes/ 和 docs/superpowers/plans/ 两个目录都在，真要让 AI 动手，它还是直接改、改完不归档，下次那批约定又得从头再来。你手上两套工具，等于两套都只装了没跑。
+还有一种更隐蔽的误区：以为两套都装上了，就是「规格化开发」了。结果只是多出一堆没人读的文档，AI 的产出还是无规格、无计划的状态。
+问题不在工具，在于没搞清这两套东西管的是两件不同的事。这两套是唯一同时放进我日常流程的规格化工作流，反复迭代的视频管线、公众号发布、站内搜索都是它们管出来的。核心分工是：OpenSpec 管「一次变更的规格」，Superpowers 管「一个项目的计划」。 粒度不同、产物不同、驱动方式不同，配起来才完整。
+为什么一个规格工具不够 先看 OpenSpec 解决什么。它把一次变更固化成 change，放进仓库的 openspec/changes/&lt;名字&gt;/，里面是四件套：proposal.md（为什么改、改什么、影响什么）、specs/&lt;能力&gt;/spec.md（系统必须做什么，增量规格）、design.md（怎么做、权衡了什么）、tasks.md（按什么顺序做）。六个 skill 组成流水线：explore 想清楚 → propose 生成四件套 → apply 照 tasks 施工 → sync 预览合并效果 → update 回炉修订 → archive 归档并合并进主规格。
+这套东西管到的最小单位是一次变更。它把「加个缓存」「加个封面自动上传」这种改动定义得清清楚楚，AI 照着 spec 施工，改完归档，能力攒进主规格。我在 /posts/ai-dev-openspec-spec-driven/ 里用一条加缓存的改动把六个 skill 走了个遍，这里不重复。
+但一整个项目目标不是 change 的粒度。「把公众号自动发布做出来」这个目标，涉及账号对接、定时发送、封面上传、失败重试、群发通知，拆开是几十个变更。OpenSpec 能把每一个变更定义明白，却管不了这几十个怎么排、阶段怎么分、跨变更的依赖是什么、整个目标收敛没有。那不是变更规格层的事。
+再看 Superpowers 管什么。仓库里 docs/superpowers/plans/ 下每个 plan 长这样：Goal（定目标）、Architecture、Tech Stack、Spec 引用、文件结构表、checkbox 任务清单。由 superpowers:subagent-driven-development 按计划逐条执行，勾完一个推进一个。它管到的最小单位是一个项目的落地：目标怎么拆、任务怎么排、进度怎么跟踪。
+但 plan 不承担变更规格。plan 里写「做站内搜索」，不会细到每个接口的验收场景。这些细节天然该落在变更规格层，而不是塞进项目计划。
+两套粒度不同，一个管项目计划（大），一个管变更规格（小）。只用任一个，就有一层没人管：只上 OpenSpec，项目级的目标没人拆解跟踪；只上 Superpowers，变更级的行为没人定义验收。这不是二选一，是缺一半。]]></description></item></channel></rss>

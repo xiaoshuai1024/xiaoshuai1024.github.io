@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="个人 RAG 知识库按主题分库" id="kb">
+    <mxGraphModel dx="1200" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP_QA" value="问答层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1100" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q1" value="提问" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="60" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q2" value="检索(指定主题库)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="60" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q3" value="大模型 + system prompt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="60" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="Q4" value="回答(标出处)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="890" y="60" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="QE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q1" target="Q2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="QE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q2" target="Q3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="QE3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="Q3" target="Q4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GRP_LIB" value="主题库(按学习阶段分,互不串味 —— 个人版的「多租户」)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="160" width="880" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1" value="前端库&#10;&#10;Vue / React · 工程化&#10;性能优化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="205" width="180" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2" value="后端库&#10;&#10;Java · Spring&#10;数据库 · 中间件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="205" width="180" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3" value="架构库&#10;&#10;微服务 · DDD&#10;高并发设计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="205" width="180" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4" value="AI 开发库&#10;&#10;RAG · Agent&#10;Prompt 工程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="205" width="180" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LE_Q2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="Q2" target="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="LE_Q2b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="Q2" target="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GRP_PROMPT" value="三种 system prompt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="940" y="160" width="190" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="PR1" value="查资料&#10;「这个知识点是什么」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="960" y="205" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="PR2" value="模拟面试&#10;「考考我」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="960" y="265" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="PR3" value="知识连接&#10;「A 和 B 的取舍」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="960" y="325" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="Q3" target="PR2"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="GRP_SRC" value="资料层(一次性入库,之后只动 prompt)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="400" width="880" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="S1" value="笔记 / 收藏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="445" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S2" value="PDF / 电子书" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="445" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S3" value="博客剪藏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="445" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="S4" value="切片 + 向量化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="445" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="SE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="S1" target="S4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="S2" target="S4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#94a3b8;" edge="1" parent="1" source="S3" target="S4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="SE_UP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;dashed=1;" edge="1" parent="1" source="S4" target="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="CONC" value="同一套架构,只改 system prompt 就切换学习场景 —— 资料入库一次,检索 / 出题 / 对比都交给 AI" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="530" width="1100" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

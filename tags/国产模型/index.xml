@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>国产模型 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/</link><description>国产模型 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 02 Aug 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%9B%BD%E4%BA%A7%E6%A8%A1%E5%9E%8B/" rel="self" type="application/rss+xml"/><item><title>Claude Code 又被封号？CcSwitch 切国产模型，省 99%</title><link>https://xiaoshuai1024.top/posts/claude-code-ccswitch-domestic-models/</link><pubDate>Sun, 02 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-ccswitch-domestic-models/</guid><description>做 AI 开发，主力客户端我用 Claude Code。Skills、MCP、subagents 这套框架能力，目前没有对手。但官方账号绕不开一个问题：我的号就封过。
+Anthropic 不向中国地区提供服务，注册只能借其他地区的通道。中国地区封号极频繁，Claude Code 源码里直接写了地区判断，识别到国内环境就视为违规。个人号如此，团队共享 key 风险更大。被封那天，我一点都不慌。
+后来我换了一条路。Claude Code 客户端本身是开源的，模型供应商可以换。用 CcSwitch 把 DeepSeek、Qwen、Kimi、GLM 这些国产模型接进同一个客户端。封号之后，我全量切到国产模型，切一次就不回官方。
+读完后你能做到：一套 Claude Code 客户端全量跑国产模型；月账单从官方 $100+ 掉到几美元；账号也不再随时面临封号风险。
+Claude Code 强在哪，官方号为什么容易封 为什么离不开 Claude Code，答案在框架层。它和「填提示词的工具」是两代产品，差别在下面四样能力：
+Skills：把常用工作流封装成可复用的技能，一个命令执行整套流程 MCP：接任意外部工具，数据库、浏览器、设计稿都能连 subagents：按角色派多个子代理并行干活，主会话只做收敛 多会话编排：一个任务拆成多个会话并行跑，最后合流 这套能力属于客户端的框架层，不是某个大模型的独有能力。模型是发动机，客户端是底盘。底盘好用，换个发动机照样开。
+问题出在根本上：Anthropic 根本不向中国地区提供服务。想用官方号，只能借非中国地区的通道注册。
+账号一回到中国地区网络，封号就成了高频事件，源码里就有地区判断，识别到国内环境就视为违规。封号和你的使用模式无关，是你所在的地区本身就不在服务范围内。对重度用户来说，这等于脖子上一直悬着一把刀。
+适用人群与前提 这篇文章适合两类人：
+重度用 Claude Code / Codex，但官方号被风控或快被风控的人 想用 Codex 但接不上官方模型、想换国产模型的人 前提不多，三样东西：
+已装 Claude Code 或 Codex CLI 一个国产模型平台的 API key（DeepSeek / Qwen / Kimi / GLM 任选） 一个桌面小工具，macOS 或 Windows 都行 版本我用的：Claude Code 最新稳定版、CcSwitch v3.</description></item></channel></rss>

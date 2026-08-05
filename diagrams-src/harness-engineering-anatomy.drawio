@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="harness engineering 解剖图" id="harness">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="harness engineering:给模型套上能被驾驭的装备" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="760" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rider" value="你(骑手)&#10;下指令 · 把方向 · 拍板" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="re1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="rider" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="loop" value="Agent Loop(核心循环)&#10;&#10;读上下文 → 决定动作(思考/调工具)&#10;→ 执行工具 → 结果塞回上下文 → 再读再决定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="430" y="180" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="model" value="底层模型&#10;(会生成 token 的马)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="470" y="310" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="le1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="loop" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="skill" value="Skill 技能&#10;&#10;注入领域知识 + 标准流程&#10;让模型按团队规范干活" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="memory" value="Memory 记忆&#10;&#10;短期:当前任务摘要压缩&#10;长期:跨会话持久化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="270" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="context" value="Context 上下文工程&#10;&#10;有限窗口里放什么、不放什么&#10;检索 / 摘要 / 按需加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="860" y="150" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp" value="MCP 工具协议&#10;&#10;标准可插拔工具接入&#10;(相当于 AI 的 USB 接口)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="860" y="270" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="loopctl" value="Loop Control 循环控制(驾驶术)&#10;步数上限防死循环 · 校验点等人确认 · 回滚机制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;fontColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="430" width="460" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="se1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=none;startArrow=none;" edge="1" parent="1" source="skill" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=none;startArrow=none;" edge="1" parent="1" source="memory" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=none;startArrow=none;" edge="1" parent="1" source="context" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="se4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;endArrow=none;startArrow=none;" edge="1" parent="1" source="mcp" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=block;endFill=1;" edge="1" parent="1" source="loopctl" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="模型是马,harness 是马具,你是骑手——harness engineering 就是「把会生成的模型武装成能干活、又能被约束的 agent」" style="text;html=1;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="160" y="500" width="840" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

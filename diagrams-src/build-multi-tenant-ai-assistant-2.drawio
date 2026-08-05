@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="工具层类关系" id="ai-cls">
+    <mxGraphModel dx="1100" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP_SELF" value="自研工具层（业务只依赖这一层）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="700" height="600" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_SPRING" value="桥接层 + Spring AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="760" y="30" width="310" height="600" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C_AIT" value="&lt;i&gt;&amp;lt;&amp;lt;annotation&amp;gt;&amp;gt;&lt;/i&gt;&#xa;@AiTool&#xa;—&#xa;+ name : String&#xa;+ description : String&#xa;+ requiresConfirmation : boolean&#xa;+ module : String" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="230" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C_TH" value="&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&#xa;ToolHandler&#xa;—&#xa;+ execute(args,&#xa;       ctx) : ToolResult" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="340" y="70" width="240" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C_ORD" value="OrderQueryTool&#xa;（业务工具实现）&#xa;—&#xa;+ execute(args, ctx)&#xa;  : 按 ctx 做租户隔离" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="340" y="440" width="240" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C_BRIDGE" value="AiToolBridgeConfig&#xa;—&#xa;+ bridge()&#xa;       : FunctionToolCallback" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="70" width="270" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="C_FTC" value="&lt;i&gt;&amp;lt;&amp;lt;Spring AI&amp;gt;&amp;gt;&lt;/i&gt;&#xa;FunctionToolCallback&#xa;—&#xa;+ builder(name, fn)&#xa;+ description(...)&#xa;+ inputType(Map.class)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="240" width="270" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="R_ORD_TH" value="implements" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#475569;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="C_ORD" target="C_TH">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="415"/>
+              <mxPoint x="460" y="415"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R_ORD_AIT" value="@AiTool 标注" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#475569;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="C_ORD" target="C_AIT">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="165" y="515"/>
+              <mxPoint x="165" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="R_BRIDGE_TH" value="收集所有 ToolHandler bean" style="endArrow=open;dashed=1;html=1;strokeColor=#14b8a6;strokeWidth=1.5;fontSize=10;fontColor=#134e4a;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.65;entryDx=0;entryDy=0;" edge="1" parent="1" source="C_BRIDGE" target="C_TH">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="220"/>
+              <mxPoint x="700" y="220"/>
+              <mxPoint x="700" y="170"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R_BRIDGE_FTC" value="适配进去" style="endArrow=block;html=1;strokeColor=#14b8a6;strokeWidth=1.5;fontSize=10;fontColor=#134e4a;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="C_BRIDGE" target="C_FTC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="LEGEND" value="图例：白底蓝边 = 自研类型；蓝填充 = 核心抽象 / 业务实现；青绿色 = 桥接 + Spring AI 侧。实线 = 实现，虚线 = 标注 / 依赖关系。换 AI 框架只改青绿色区域。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontSize=10;fontColor=#475569;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="780" y="430" width="270" height="110" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
