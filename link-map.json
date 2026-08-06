@@ -586,5 +586,18 @@
       "evidence": "2026-08-03 合集修复:旧副本 100001248 无合集→取消排期→新建 100001271(挂 AI 合集)→UI 重新定时副本 100001273(AI 合集已回读验证),schedule_ui_v2 time_send ret=0",
       "album": "AI"
     }
+  },
+  "ai-dev-openspec-superpowers-workflow": {
+    "weixin": {
+      "draft_appmsgid": "100001282",
+      "publish_status": "published_free_no_push",
+      "published_at": "2026-08-05T22:20:00+08:00",
+      "scheduled_appmsgid": "100001290",
+      "scheduled_at": "2026-08-10T08:00:00+08:00",
+      "incident_2026-08-05": "schedule_ui_v2 定时「今天 22:25」假失败真发布:isFreePublish=true 免费发布,文章静默上主页(无推送)。发表记录:08-05 22:20 已发表(59 阅读/15 分享)、22:25 一条副本已删。用户决定保留不撤回(挂太久)。08-10 群发通知排期仍在,若保留会重复推送同一篇,待用户定夺。",
+      "quota_check": "08-05 剩余 0(幽灵占位);08-06~08-09 已被 4 篇既有排期占满;08-10 有群发通知次数(1)已被本次排期用掉",
+      "evidence": ".wechat-build/ui_run_0810.log time_send ret=0 (isFreePublish=false 群发通知),副本 100001290 已离草稿箱",
+      "album": "AI"
+    }
   }
 }

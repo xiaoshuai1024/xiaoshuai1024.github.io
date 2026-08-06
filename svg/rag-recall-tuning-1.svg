@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="20.0 -10.0 1250.0 530.0" width="1250.0" height="530.0">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Virgil';
+        src: url('https://fonts.excalidraw.com/Virgil.woff2') format('woff2');
+        font-display: swap;
+      }
+    </style>
+  </defs>
+  <rect x="20.0" y="-10.0" width="1250.0" height="530.0" fill="#ffffff"/>
+  <text x="60.0" y="50.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="20" fill="#1e293b" text-anchor="start" dominant-baseline="auto">
+      <tspan x="60.0" dy="0.0">token 硬切:信息被切碎</tspan>
+  </text>
+  <path d="M 60.7,79.9 L 531.5,80.3 L 529.4,81.4 L 529.2,123.1 L 61.5,120.5 L 60.7,123.6 L 60.8,122.8 L 59.4,80.6 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="295.0" y="101.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="295.0" dy="0.0">…需要运营确认,确认后 24 小时生效…</tspan>
+  </text>
+  <path d="M 59.3,158.5 L 290.9,161.6 L 291.0,161.3 L 289.2,223.6 L 59.8,225.3 L 60.4,223.6 L 59.5,224.2 L 61.1,160.2 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="175.0" y="192.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="175.0" dy="0.0">…需要运营确</tspan>
+  </text>
+  <path d="M 298.5,160.6 L 529.8,160.5 L 528.5,158.9 L 531.1,225.0 L 300.5,223.8 L 300.4,224.7 L 301.6,222.5 L 301.1,160.8 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="415.0" y="192.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="415.0" dy="0.0">认后 24 小时…</tspan>
+  </text>
+  <line x1="295.0" y1="122.0" x2="175.0" y2="160.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="175.0,160.0 183.2,152.7 185.9,161.3" fill="#475569"/>
+  <line x1="340.0" y1="122.0" x2="415.0" y2="160.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="415.0,160.0 404.0,159.5 408.1,151.5" fill="#475569"/>
+  <text x="60.0" y="263.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#b91c1c" text-anchor="start" dominant-baseline="auto">
+      <tspan x="60.0" dy="0.0">关键信息被切成两半,命中哪个都答不准</tspan>
+  </text>
+  <text x="640.0" y="50.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="20" fill="#1e293b" text-anchor="start" dominant-baseline="auto">
+      <tspan x="640.0" dy="0.0">贴着语义边界切:信息完整</tspan>
+  </text>
+  <path d="M 639.8,80.1 L 920.9,81.4 L 918.7,80.7 L 919.7,142.8 L 638.4,145.1 L 640.6,144.6 L 640.7,145.5 L 638.5,79.4 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="780.0" y="112.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="780.0" dy="0.0">…需要运营确认</tspan>
+  </text>
+  <path d="M 948.4,79.1 L 1230.3,80.1 L 1229.7,81.5 L 1230.0,145.5 L 949.1,144.2 L 950.4,144.6 L 948.4,144.9 L 949.6,78.6 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="1090.0" y="112.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="1090.0" dy="0.0">确认后 24 小时内生效</tspan>
+  </text>
+  <text x="640.0" y="183.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#0f766e" text-anchor="start" dominant-baseline="auto">
+      <tspan x="640.0" dy="0.0">每个 chunk 都能独立看懂</tspan>
+  </text>
+  <text x="60.0" y="347.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="17" fill="#1e293b" text-anchor="start" dominant-baseline="auto">
+      <tspan x="60.0" dy="0.0">overlap:跨块引用至少在一个 chunk 里完整</tspan>
+  </text>
+  <path d="M 118.7,398.7 L 479.3,398.5 L 479.5,400.8 L 479.4,481.1 L 118.8,480.3 L 119.1,481.2 L 119.3,480.1 L 120.5,399.9 Z" fill="transparent" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
+  <text x="300.0" y="440.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#0f766e" text-anchor="middle" dominant-baseline="central">
+      <tspan x="300.0" dy="0.0">chunk A:…需要运营确认…</tspan>
+  </text>
+  <path d="M 390.5,398.7 L 749.3,399.3 L 750.3,401.1 L 750.7,479.0 L 390.7,479.4 L 389.9,480.7 L 390.6,481.2 L 388.7,399.4 Z" fill="transparent" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
+  <text x="570.0" y="440.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#0f766e" text-anchor="middle" dominant-baseline="central">
+      <tspan x="570.0" dy="0.0">chunk B:…确认后 24 小时…</tspan>
+  </text>
+  <text x="402.0" y="438.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="12" fill="#0f766e" text-anchor="start" dominant-baseline="auto">
+      <tspan x="402.0" dy="0.0">重叠区</tspan>
+      <tspan x="402.0" dy="14.4">=overlap</tspan>
+  </text>
+</svg>
