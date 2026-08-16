@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>OpenSpec - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/openspec/</link><description>OpenSpec - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 Aug 2026 19:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/openspec/" rel="self" type="application/rss+xml"/><item><title>OpenSpec 和 Superpowers 别二选一,它们管的是两件事</title><link>https://xiaoshuai1024.top/posts/ai-dev-openspec-superpowers-workflow/</link><pubDate>Wed, 05 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-openspec-superpowers-workflow/</guid><description><![CDATA[OpenSpec 装上了，Superpowers 也装上了，项目照样乱。
+打开项目目录，openspec/changes/ 和 docs/superpowers/plans/ 两个目录都在，真要让 AI 动手，它还是直接改、改完不归档，下次那批约定又得从头再来。你手上两套工具，等于两套都只装了没跑。
+还有一种更隐蔽的误区：以为两套都装上了，就是「规格化开发」了。结果只是多出一堆没人读的文档，AI 的产出还是无规格、无计划的状态。
+问题不在工具，在于没搞清这两套东西管的是两件不同的事。这两套是唯一同时放进我日常流程的规格化工作流，反复迭代的视频管线、公众号发布、站内搜索都是它们管出来的。核心分工是：OpenSpec 管「一次变更的规格」，Superpowers 管「一个项目的计划」。 粒度不同、产物不同、驱动方式不同，配起来才完整。
+为什么一个规格工具不够 先看 OpenSpec 解决什么。它把一次变更固化成 change，放进仓库的 openspec/changes/&lt;名字&gt;/，里面是四件套：proposal.md（为什么改、改什么、影响什么）、specs/&lt;能力&gt;/spec.md（系统必须做什么，增量规格）、design.md（怎么做、权衡了什么）、tasks.md（按什么顺序做）。六个 skill 组成流水线：explore 想清楚 → propose 生成四件套 → apply 照 tasks 施工 → sync 预览合并效果 → update 回炉修订 → archive 归档并合并进主规格。
+这套东西管到的最小单位是一次变更。它把「加个缓存」「加个封面自动上传」这种改动定义得清清楚楚，AI 照着 spec 施工，改完归档，能力攒进主规格。我在 /posts/ai-dev-openspec-spec-driven/ 里用一条加缓存的改动把六个 skill 走了个遍，这里不重复。
+但一整个项目目标不是 change 的粒度。「把公众号自动发布做出来」这个目标，涉及账号对接、定时发送、封面上传、失败重试、群发通知，拆开是几十个变更。OpenSpec 能把每一个变更定义明白，却管不了这几十个怎么排、阶段怎么分、跨变更的依赖是什么、整个目标收敛没有。那不是变更规格层的事。
+再看 Superpowers 管什么。仓库里 docs/superpowers/plans/ 下每个 plan 长这样：Goal（定目标）、Architecture、Tech Stack、Spec 引用、文件结构表、checkbox 任务清单。由 superpowers:subagent-driven-development 按计划逐条执行，勾完一个推进一个。它管到的最小单位是一个项目的落地：目标怎么拆、任务怎么排、进度怎么跟踪。
+但 plan 不承担变更规格。plan 里写「做站内搜索」，不会细到每个接口的验收场景。这些细节天然该落在变更规格层，而不是塞进项目计划。
+两套粒度不同，一个管项目计划（大），一个管变更规格（小）。只用任一个，就有一层没人管：只上 OpenSpec，项目级的目标没人拆解跟踪；只上 Superpowers，变更级的行为没人定义验收。这不是二选一，是缺一半。]]></description></item><item><title>装完 OpenSpec 的 skill 不会用,等于往仓库扔白纸</title><link>https://xiaoshuai1024.top/posts/ai-dev-openspec-spec-driven/</link><pubDate>Sat, 01 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-openspec-spec-driven/</guid><description><![CDATA[装上 OpenSpec 的 skill 只是开始,真正的问题是怎么用对它们。
+我见过太多人装完 OpenSpec 的 skill 就放着——知道有 /opsx:propose 建变更,剩下五个 skill 全在吃灰,或者用错时机。skill 装得全不等于会用,就像买了全套工具,不等于每把都摸过。
+我在「前端 → 全栈 → AI 开发」这条线上一路走过来,OpenSpec 的 skill 是我唯一真正放进日常流程的规格驱动工具。这篇文章就把这六个 skill 按真实使用顺序逐个讲透:每个解决什么问题、产出什么、什么时候用、怎么和前后衔接。
+结论是:这六个 skill 不是六个独立工具,是一条流水线。 想法进来,经过 explore → propose → update → apply → sync → archive 六道工序,变成主规格里沉淀下来的能力。每一步的产物,都是下一步的输入。
+下面我用一条真实的改动走完整条流水线:给一个查询功能加缓存。它不涉及任何具体业务,就是个最常见的编程场景——查询太慢,想加一层缓存。这条改动小到看得懂,又完整到每一步 skill 都有对应动作。
+先认识四个产出物 讲 skill 之前,得先认识它们操作的对象。OpenSpec 把一次改动固化成一个 change,里面是四个文件,放进仓库的 openspec/changes/&lt;名字&gt;/ 目录。四件套是流水线反复操作的工件:
+proposal.md——为什么改、改什么、影响什么,相当于立项报告 specs/&lt;能力&gt;/spec.md——系统必须做什么,是增量规格,只声明本次改的行为 design.md——怎么做、权衡了什么,是决策留痕 tasks.md——按什么顺序做,是执行计划 四件事混在一份文档里,就是一份没人能维护的巨型需求书;拆开,每一件都能单独演进、单独 review、单独归档。四个产出物是你和 AI 之间的合同,后面的 skill 全部围着它们转。
+第一个:explore——想清楚再动手 流水线的入口不是建变更,是 explore。它是个思考模式,不写代码、不建 change,只做一件事:把模糊的想法摊开,变成可以写进 proposal 的共识。
+什么时候值得先 explore?]]></description></item><item><title>改一行代码别上重型流程：OpenSpec 和 Superpowers 我怎么选</title><link>https://xiaoshuai1024.top/posts/openspec-vs-superpowers/</link><pubDate>Tue, 11 Aug 2026 19:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/openspec-vs-superpowers/</guid><description>用 Claude Code 做全栈开发，代码不是难点，流程的轻重才是。
+一个项目跑下来，你会遇到两种活：一种是改一行 SQL、修一个测试过时，十分钟就能验证完；另一种是跨前端、BFF、后端、E2E 四个系统的新功能，牵一发动全身。如果这两种活用同一套流程，要么单点修复被一堆文档拖慢，要么跨系统功能没有契约约束，改着改着就乱了。
+我在低代码平台项目里同时用了两套流程：OpenSpec 管轻的，Superpowers 管重的。这轮真实开发我跑了五个 OpenSpec change 和一个 Superpowers plan，下面把过程和判断标准写清楚。
+OpenSpec：给单点修复一个轻量闭环 OpenSpec 是一个 spec-driven 的轻量变更治理工具。核心想法很简单：每个改动都是一个 change，走 propose（提议）→ apply（实现）→ archive（归档）三步闭环。
+它的配置文件里写死了适用边界：单个 change 不超过 3 个文件、不跨子系统、不超过 5 个 task。超过这个边界，它自己会提醒你&amp;quot;考虑用 Superpowers&amp;quot;。
+这轮我用 OpenSpec 跑了五个 change，全是测试和缺陷修复：
+change 改了什么 为什么走 OpenSpec engine 单测修复 4 个测试文件同步 API 重构 单子系统（engine），纯测试 backend 集成测试 1 个测试加 @ActiveProfiles 单子系统（backend-java） form 创建 500 修复 1 行 fieldSchema 默认值 单文件，缺陷修复 ui test alias 1 个 vite.config 补 alias 单文件，配置 BFF submit formId 1 个 route 加一行注入 单文件，BFF 转发 每个 change 的过程都一样：openspec new change 建目录，写 proposal（为什么改）、design（怎么改）、tasks（分几步），然后 apply 改代码、跑测试验证，最后 archive 归档。整个过程在一个对话里闭环，不需要拆分会话。</description></item></channel></rss>

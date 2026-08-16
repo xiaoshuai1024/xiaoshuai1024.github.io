@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三个 skill 仓库对比" id="ecc-repos">
+    <mxGraphModel dx="950" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="三个 20 万级 skill 仓库，三种哲学" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="14" width="400" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="official" value="anthropics/skills&#10;16.7 万星 · 官方" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="70" width="280" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="officialD" value="14 个示例 + spec&#10;解决「skill 长什么样」&#10;定义格式，少而权威" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="150" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="matt" value="mattpocock/skills&#10;21 万星 · 单人打磨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="70" width="280" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="mattD" value="25 个 skill 一条 SDLC 主线&#10;解决「skill 怎么组织」&#10;小而准，一个判断一个流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="150" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ecc" value="affaan-m/ECC&#10;24 万星 · 全家桶" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="70" width="280" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="eccD" value="284 skill + 68 agent + 7 工具&#10;解决「我全都给你」&#10;大而全，适合当零件库拆" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="150" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="官方定标准" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="330" width="240" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="mattpocock 立流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="330" width="240" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="ECC 当零件库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="330" width="240" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="顺序反了会吃亏：先看全家桶，你会以为 skill 就是堆数量。判断标准：每个 skill 都要答得上「它替我拦住了哪一步会翻车的操作」。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="430" width="800" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

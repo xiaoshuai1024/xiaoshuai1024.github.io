@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>开发者工具 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/</link><description>开发者工具 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 01 Aug 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>你的 Claude Code 只用了三成功力,缺的是这 12 个插件</title><link>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</link><pubDate>Sat, 01 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</guid><description><![CDATA[Claude Code 裸装，是个能干的终端 agent；装对插件和 skills，才是把它的能力放大的那个乘数。
+同一个 Claude Code，装了 spec 驱动、浏览器自动化、实时文档、token 压缩、代码图谱这些之后，能干的事是完全不同的量级。这篇把我验证过、值得分享的开源插件和 skills 按 GitHub Star 排了一下，每个的安装命令都从对应仓库的 README 抓的真实写法，照着复制就能装。Star 数截至 2026 年 8 月，来自 GitHub，每天在涨，仅作量级参考。
+先看排行 下面按 Star 从高到低逐个讲。
+1. Superpowers · 约 26 万 stars 仓库：github.com/obra/superpowers
+它是什么：一套 agentic skills 框架 + 软件开发方法论。不是单个插件，是一整套&quot;怎么用 AI 做软件&quot;的技能包——brainstorm、设计、TDD、代码审查、调试、执行计划，每个环节都有对应 skill。跨 11 个 agent 平台（Claude Code、Codex、Cursor、Antigravity、Gemini CLI、OpenCode 等），是这套生态里 star 最高的。
+为什么值得装：它把&quot;高手怎么用 AI 编程&quot;沉淀成可复用技能，而不是让你每次从零写提示词。executing-plans（每步验证门）、grill-me（拷问方案）、brainstorming（创意前置）这些 skill，覆盖了从想到做的完整链路。
+安装（Claude Code）：
+/plugin marketplace add obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace2. ECC · 约 23.]]></description></item></channel></rss>

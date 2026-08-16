@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="工具执行四阶段管线" id="tools">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="calls" value="toolCalls（模型输出）&#10;JSON.parse 容错：catch { return raw }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="create" value="① createExecution&#10;参数快照 deepFreeze&#10;输出 schema 校验器绑定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="prepare" value="② prepareExecution&#10;tools/pre-execute：allow / deny / ask&#10;serviceAsk 审批 UI，3 次 caller 取消检查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="dispatch" value="③ dispatch（waterfall）&#10;tools/execute 前后钩子&#10;dispatchScheduledExecution 真正执行&#10;started body 永不放弃（fuseToolSignals）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="finish" value="④ finalize / finish&#10;tools/post-execute：accept / replace / block&#10;deepFreeze 后 tools/result 落盘" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="590" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="replay" value="结果进下一轮请求&#10;abort 的调用补合成错误结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="720" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="concurrency" value="并发分组（executionMode）&#10;模型原序提交：commitReady 只推连续就绪槽&#10;bounded rolling pool（maxParallelToolCalls）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="170" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="failclosed" value="fail-closed：没显式声明 isConcurrencySafe&#10;一律 exclusive（整批排队）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="300" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="sandbox" value="沙箱分档（sandbox-local）&#10;Linux：bwrap → Landlock 探测降级&#10;macOS：Seatbelt；Windows：ACL 受限令牌&#10;每档启动时真跑一次 true 验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="410" width="340" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="code" value="Code Mode：collapse 判定命中时&#10;除 run_code 外全部折叠禁直调&#10;SDK 渲染器 typescript / python" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="570" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="calls" target="create">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="create" target="prepare">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="prepare" target="dispatch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="dispatch" target="finish">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="finish" target="replay">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="分组后进入管线" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;dashed=1;" edge="1" parent="1" source="concurrency" target="create">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="bash/pwsh 在沙箱内执行" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;dashed=1;" edge="1" parent="1" source="sandbox" target="dispatch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

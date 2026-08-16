@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="插件安装挂载流程" id="installflow">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cmd" value="&lt;b&gt;dsh plugin --profile web add&lt;/b&gt;&#xa;github:dsh-external/dsh-memory#main" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="pnpm" value="&lt;b&gt;转发给 pnpm&lt;/b&gt;&#xa;在 profile 目录里装依赖&#xa;实测约 12 秒" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="pkg" value="&lt;b&gt;~/.dsh/profiles/web/&lt;/b&gt;&#xa;package.json 依赖表 +1&#xa;dsh.profile.bundles +1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="530" y="80" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="restart" value="&lt;b&gt;重启 dsh web&lt;/b&gt;&#xa;Loader 重新组装插件树&#xa;新插件挂载激活" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="780" y="80" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="verify" value="&lt;b&gt;两种验证方式&lt;/b&gt;&#xa;dsh --dump-config 出现新节&#xa;设置页 Plugin list 出现新行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="80" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="warn" value="常见提示：peer 依赖缺 cordis / dsh-tools 的 rc 版本&#xa;预览期正常现象，装完能跑就不用管" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="210" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="cmd" target="pnpm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="pnpm" target="pkg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="pkg" target="restart">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="restart" target="verify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="报 peer 警告" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="pnpm" target="warn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

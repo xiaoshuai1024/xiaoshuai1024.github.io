@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="跃升对比" id="growth">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="V4 Flash 正式版 vs 预览版 · 不改结构，只做后训练" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="900" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg1" value="■ 预览版（旧）" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="58" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg2" value="■ 正式版（新）" style="text;html=1;align=left;fontColor=#4D6BFE;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="58" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1n" value="DeepSWE" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="160" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1b1" value="7.3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cbd5e1;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="180" width="44" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1b2" value="54.4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D6BFE;strokeColor=#4D6BFE;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="310" y="60" width="44" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1m" value="↑ 7.5x" style="text;html=1;align=left;fontColor=#4D6BFE;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="150" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2n" value="CyberGym" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="120" width="160" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2b1" value="38.7" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cbd5e1;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="610" y="140" width="44" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2b2" value="76.7" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D6BFE;strokeColor=#4D6BFE;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="670" y="60" width="44" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2m" value="↑ 2x" style="text;html=1;align=left;fontColor=#4D6BFE;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="150" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="baseline" value="" style="endArrow=none;html=1;strokeColor=#94a3b8;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="320" as="sourcePoint"/>
+            <mxPoint x="780" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" value="同样的 2840亿参数 / 130亿激活，后训练把 DeepSWE 从 7.3 拉到 54.4" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="350" width="900" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="src" value="数据：DeepSeek 官方测试（经 InfoQ 报道）" style="text;html=1;align=right;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="30" y="380" width="900" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

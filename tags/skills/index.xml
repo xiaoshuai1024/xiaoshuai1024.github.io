@@ -1,0 +1,30 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Skills - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/skills/</link><description>Skills - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 14 Aug 2026 09:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/skills/" rel="self" type="application/rss+xml"/><item><title>TypeScript 教父开源 21 万 Star 的 25 个 Skill：把工程师自律焊进 AI 流程</title><link>https://xiaoshuai1024.top/posts/ai-dev-stop-discipline/</link><pubDate>Mon, 10 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-stop-discipline/</guid><description>让 AI 写代码的人，大概率见过这三种翻车：
+需求只说了一半，AI 就敢往下编，编出来的代码「看着像回事、一跑就露馅」。
+方向错了，它一路错到底。你让它做 A，它从第一步就走偏，之后每一步都在给错误的方案补细节，全程不喊停。
+改 bug 也是。你让它改，它就改。改完复测，旧 bug 没了，新 bug 冒出来，来回三轮，代码已经看不出原样。
+遇到这种问题，多数人的第一反应是换模型、调提示词、改温度。我的做法不一样：先搞清楚翻车的根源在哪，再找对应的工具。这篇文章讲的就是我在这个过程中挖到的一个项目，它把「资深工程师为什么不会翻车」这件事，拆成了 25 个可执行的 skill。
+一、翻车不怪模型，怪流程里没有「停」 先看 AI 的工作方式。它是「续写器」：接收输入，预测最合理的下一步。这个机制决定了两个天性：有输入就输出，有错误就继续。
+需求含糊，它不会停下来问「你说的 A 具体指什么」，而是开写它最熟悉的那个 A。测试没过，它不会停下来承认失败，而是分析一下「可能哪里不对」，改两行继续跑。
+这些行为放在人身上很好理解：没人喊停，就一直干。AI 比人更顺从，人累了会停，AI 不会。
+所以问题不在模型聪明不聪明，在流程里有没有「停」这个环节。资深工程师和新手的差别就在这里：新手拿到需求就写，写错了再改；老手会先盘问需求、先写测试、先把 bug 复现出来。不是老手写得快，是老手停得准。
+这个认知不新鲜，但把「停得准」变成 AI 绕不过的流程，最近有个项目做到了极致。
+二、mattpocock/skills：一个 21 万 Star 的开源技能库 这个项目是 mattpocock/skills，作者 Matt Pocock，TypeScript 社区的知名教育者（Total TypeScript 作者）。他把自己日常写代码用的整套 Agent 技能库开源了，MIT 协议，GitHub 上 21 万 Star。
+仓库简介一句话：Skills for Real Engineers，给真实工程师用的技能，不是 vibe coding（瞎写）用的。
+先看整体结构。25 个 skill 按两大轴组织：一类是 Engineering（工程向），一类是 Productivity（通用向）；按触发方式又分两种，用户主动敲的（/grill-me）和模型自动触发的（/tdd）。
+安装简单到不像一个 21 万 Star 的项目：</description></item><item><title>黑客松冠军开源 24 万星的 ECC：把 agent 工程做成了操作系统</title><link>https://xiaoshuai1024.top/posts/ecc-agent-os/</link><pubDate>Fri, 14 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ecc-agent-os/</guid><description>让 agent 干活的都见过这类场面：让它改个配置，它顺手动了测试文件；让它加个功能，它把三个模块的重构一起做了；让它查个问题，它给出两套自相矛盾的结论。
+遇到这种问题，多数人的第一反应是换更强的模型、写更细的提示词。我的做法不一样：先搞清楚翻车的根源在哪。根源不在模型——模型聪明得很。根源在环境：agent 干活的每一步，没有人在旁边立规矩。
+这篇文章讲的就是我在这个过程中挖到的一个项目。它把「给 agent 搭环境」这件事，做成了一座能安装的仓库。
+一、翻车不怪模型，怪环境里没有「停」 资深工程师干活为什么不翻车？他周围的工程环境在替他踩刹车——规范文档告诉他边界在哪，代码审查在他出错时拦住他，测试在他改坏时叫醒他。刹车踩得准的人，干得不一定快，但翻不了车。agent 缺的正是这套环境。给 agent 搭这套环境，就是 harness 这个词的全部含义。
+2026 年上半年，skill 仓库扎堆冲上 10 万星：官方 anthropics/skills 16.7 万，mattpocock/skills 21 万，ECC 24 万——三个 20 万级仓库一年之内全冒出来。这在前端框架身上见过，在配置仓库身上是头一回。星数把「怎么用 AI 干活」推成了现象级话题，也让 skill 仓库从个人经验分享变成了一场生态竞赛。ECC 是这场竞赛里跑得最快的那个。
+二、ECC：一个 24 万星的 agent 工程操作系统 这个项目是 affaan-m/ECC，全称 everything-claude-code，作者 Affaan Mustafa，在 Anthropic 黑客松上用 Claude Code 8 小时做出产品夺冠的开发者——冠军奖是 1.5 万美元的 API 额度，他拿它继续打磨这套工作流。打磨了 10 个月之后开源，MIT 协议，GitHub 上 24 万 Star，8 个月超过 Linux 内核。
+仓库简介一句话：the agent harness performance optimization system——agent 运行环境的性能优化系统，给 agent 搭运行环境，让它每一步都有人管。</description></item><item><title>百万行代码全是 AI 写的,没这 100 个 Skill 我早翻车了</title><link>https://xiaoshuai1024.top/posts/after-million-loc-my-skills/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/after-million-loc-my-skills/</guid><description>2026 年 6 月,线上数据丢了一批。
+一个定时清理任务,逻辑是「扫整个对象存储,凡是数据库里没记录的,就当孤儿删掉」。听着合理,对吧?存储里有、库里没有的,可不就是垃圾。直到某天一个写入链路抖了一下——文件先落库、对象后上传,中间这几秒,定时任务扫过去了,「库里有、存储还没到」的对象被当成孤儿删了个干净。
+这是我维护的一个多租户社交电商全栈项目。前端 uni-app(Vue 3)小程序、后端 Spring Boot 3 + MyBatis-Plus + MySQL + Redis + RabbitMQ、运营后台 Vue 3 + Element Plus。代码量早就过百万行,而其中绝大部分是 AI 写的。
+事故复盘的时候我没怪模型。我怪的是:我给了 AI 一把没有保险的枪。它执行得又快又准,快到我没来得及看它要删什么。
+百万行代码之后,我真正想明白一件事:瓶颈不在模型够不够聪明,在我怎么把工程纪律变成 AI 逃不掉的流程。我选的方式,是在项目里沉淀一套 Skills。
+这篇就讲这套东西:我实际在用哪些 skill、每个在项目里管什么、以及它们是怎么装进来的。
+一、Skill 不是教 AI 新知识 很多人对 Skill 有个误解,觉得它是「给模型补充训练数据里没有的知识」。不是。
+模型的知识已经够多了。它知道 Spring Boot 怎么写、知道 Flyway 怎么迁移、知道 RBAC 怎么设计。它缺的不是知识,是约束——是你的项目里那套「必须先写测试」「DELETE 必须带 tenant_id」「声称完成前必须贴证据」的纪律。
+Skill 干的就是这个:把「你应该怎么干活」写成一份可复用的指令,在合适的时机自动加载进会话。它不增加模型的能力上限,它抬高的是模型在你项目里的下限。
+这是为什么我不去追「更强的模型」,而去攒「更密的 Skill 网」。模型每代都在变强,但你项目里那个「AI 一高兴就 DELETE FROM 不带 where」的风险,换什么模型都在。能焊死这个的只有流程,不是参数量。
+二、这套 Skills 是怎么装进来的 先讲安装,因为这是最容易被问到的。我不是手写了几十个 skill——那不现实,也违背「复用」的初衷。项目里的 skill 来自一套类似 npm 的 skill 包管理器。</description></item></channel></rss>

@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="四阶段演进总览" id="overview">
+    <mxGraphModel dx="950" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="cpu" value="大模型&#10;裸 CPU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cpuNote" value="算力强&#10;没有系统" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="135" width="150" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s1" value="① Prompt 工程&#10;围绕一段对话" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="70" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s1sub" value="补：指令&#10;天花板：长任务掉质量&#10;知识不沉淀" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="135" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s2" value="② Context 工程&#10;围绕上下文和知识" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="70" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s2sub" value="补：内存管理 + 文件系统&#10;天花板：纪律不统一" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="135" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3" value="③ Harness 工程&#10;围绕纪律和流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="70" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s3sub" value="补：进程调度 + 系统调用&#10;天花板：命令单点" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="780" y="135" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s4" value="④ 自治体系&#10;围绕治理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="70" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s4sub" value="补：内核 + 权限&#10;当前阶段" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="135" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="os" value="操作系统：AI 稳定地、大规模地干活" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="420" width="560" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="osNote" value="犯错成本最低&#10;正确路径最短" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="485" width="560" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="cpu" target="s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="每一层的天花板，是下一层的起点" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=12;endArrow=classic;dashed=1;fontFamily=Helvetica;" parent="1" source="s4" target="os">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

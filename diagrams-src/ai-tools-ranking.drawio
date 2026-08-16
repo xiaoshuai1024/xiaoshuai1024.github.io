@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI编程工具个人排名" id="tools">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="AI 编程工具·个人排名（声明:纯个人使用体感,非客观排名）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="20" width="720" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r1no" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="90" width="34" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r1n" value="Claude Code — 命令行级 agent,端到端能力最强,「帮我把这事做完」首选" style="text;html=1;align=left;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="93" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r1t" value="主力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="94" width="50" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r2no" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="150" width="34" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r2n" value="Codex — OpenAI 官方 CLI agent,端到端快速追赶中,Python/OpenAI 生态最顺手" style="text;html=1;align=left;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="153" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r2t" value="准主力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="154" width="50" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r3no" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="210" width="34" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r3n" value="Cursor — 曾很好用,近一年更新节奏和方向掉队,多步骤任务被前两名拉开" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="213" width="540" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r3t" value="掉队中" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="214" width="50" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r4no" value="4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="270" width="34" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r4n" value="OpenCode — 开源可控备选,网络受限/自托管场景下的首选" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="273" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r4t" value="开源备选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="274" width="50" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

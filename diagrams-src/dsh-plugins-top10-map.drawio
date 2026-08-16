@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="十个插件三档地图" id="top10map">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="col1" value="不装难受：先解决 dsh 的明显缺口" style="rounded=0;whiteSpace=wrap;html=1;swimlane;startSize=34;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="330" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="col2" value="装完变强：补上模型没有的能力" style="rounded=0;whiteSpace=wrap;html=1;swimlane;startSize=34;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="330" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="col3" value="炫给别人看：演示和迁移场景" style="rounded=0;whiteSpace=wrap;html=1;swimlane;startSize=34;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="60" width="330" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="&lt;b&gt;dsh-cc-tui&lt;/b&gt;&#xa;官方没有终端，这个补上 Claude Code 风格 TUI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col1">
+          <mxGeometry x="25" y="50" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;dsh-turn-rewind&lt;/b&gt;&#xa;AI 改错文件一键回滚上一轮" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col1">
+          <mxGeometry x="25" y="140" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="&lt;b&gt;dsh-memory&lt;/b&gt;&#xa;跨会话长期记忆，官方 Discussions 呼声最高" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col1">
+          <mxGeometry x="25" y="230" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3n" value="进阶：dsh-memory-evolve 加自我进化" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="col1">
+          <mxGeometry x="25" y="300" width="280" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="&lt;b&gt;dsh-vision&lt;/b&gt;&#xa;纯文本的 DeepSeek 补上看图：截图、设计稿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col2">
+          <mxGeometry x="25" y="50" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="&lt;b&gt;dsh-plan-execute&lt;/b&gt;&#xa;规划用推理模型、执行用快模型，省钱不掉质量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col2">
+          <mxGeometry x="25" y="140" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p6" value="&lt;b&gt;dsh-code-map&lt;/b&gt;&#xa;给仓库建 symbol 索引，模型拿到代码地图" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col2">
+          <mxGeometry x="25" y="230" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p7" value="&lt;b&gt;dsh-session-search&lt;/b&gt;&#xa;dsh / Claude Code / Codex 会话拢到一处全文搜" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col2">
+          <mxGeometry x="25" y="320" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p8" value="&lt;b&gt;dsh-web-ui&lt;/b&gt;&#xa;任务看板（cron 定时）、Git 图谱、7 款皮肤" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col3">
+          <mxGeometry x="25" y="50" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p9" value="&lt;b&gt;dsh-browser-panel&lt;/b&gt;&#xa;WebUI 内嵌真实浏览器，模型实时操控网页" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="col3">
+          <mxGeometry x="25" y="140" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p10" value="&lt;b&gt;dsh-plugin-claude-bridge&lt;/b&gt;&#xa;把 CLAUDE.md、Skills、记忆整个搬进 dsh" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;" vertex="1" parent="col3">
+          <mxGeometry x="25" y="230" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p10n" value="从 Claude Code 迁移的人先装这个，迁移成本清零" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;" vertex="1" parent="col3">
+          <mxGeometry x="25" y="300" width="280" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="筛选范围：GitHub dsh-plugin 话题 + awesome-dsh-plugins 目录，2026-08-15 快照；按「解决什么痛点」分档，同一档内按优先级从上到下" style="text;html=1;align=left;fontColor=#64748b;fontSize=11;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="1090" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

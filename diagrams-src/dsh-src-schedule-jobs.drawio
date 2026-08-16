@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="调度与作业" id="sched">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="events" value="会话事件日志&#10;（timer 相关事件都在里面）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="fold" value="foldScheduleEvents&#10;事件溯源：回放日志重建定时器状态&#10;超长延迟按 MAX_TIMER_DELAY_MS 分段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="drive" value="driveOnce：决策 → runMaintenance&#10;→ agent.followup（source kind 'plugin'）&#10;→ flush barrier；agent idle 再驱动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="210" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="registry" value="LocalJobRegistry（jobs-local）&#10;maxConcurrentJobsPerOwner = 10&#10;owner 隔离 assertAccess，settle 先到先得" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="tooljobs" value="tool-jobs：job_output / job_list / job_kill&#10;waitTimeoutMs 30s&#10;maxConsecutiveWakes = 3（防自激）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="510" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="subagent" value="SubagentRuntime（subagent/src/index.ts:171-497）&#10;命名 provider 注册表；能力检查；maxDepth 断言&#10;startContinuable / followup / reportFrom" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="360" width="340" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="delegation" value="委托上下文（child-agent.ts:135-139）&#10;权限范围在启动时固定；被拒操作不重试；&#10;回复里说明受限状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="510" width="340" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="conc" value="并发模型：单进程事件循环&#10;bash/pwsh 走子进程；worker 线程只用于&#10;workflow-worker-thread 和 code-runtime，没有通用线程池" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="650" width="420" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="回放" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="events" target="fold">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="fold" target="drive">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="作业完成唤醒 agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;dashed=1;" edge="1" parent="1" source="registry" target="drive">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="提交/查询/终止" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="tooljobs" target="registry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="followup 走子代理" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;dashed=1;" edge="1" parent="1" source="drive" target="subagent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="subagent" target="delegation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

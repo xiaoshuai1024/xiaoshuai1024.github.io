@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="四件套生命周期" id="openspec-lifecycle">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="规格驱动的一次变更:四件套 → 实现 → 归档" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="280" y="16" width="480" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="proposal" value="proposal&#10;为什么改·改什么·影响" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="design" value="design&#10;怎么做·权衡留痕" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="90" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="spec" value="spec&#10;系统必须做什么(增量)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="130" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="tasks" value="tasks&#10;按什么顺序做" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="90" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="apply" value="apply 实现&#10;照 spec 施工" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="130" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="archive" value="archive 归档&#10;增量合并进主规格" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="280" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="proposal" target="design"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="design" target="spec"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="spec" target="tasks"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="tasks" target="apply"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="实现完,变更可归档" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="apply" target="archive"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" value="实现发现问题 → 更新 spec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="apply" target="spec"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Codex+CcSwitch+DeepSeek" id="codex-cs-ds">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="codex" value="Codex 桌面版&#10;(agent 前端)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="130" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccswitch" value="CcSwitch&#10;(配置管理)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="90" y="330" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ds" value="DeepSeek API&#10;api.deepseek.com&#10;Responses 协议" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="430" y="200" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="deepseek-v4-flash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="225" width="140" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=12;" edge="1" parent="1" source="ccswitch" target="codex">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="330" as="sourcePoint"/>
+            <mxPoint x="180" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l1" value="写入 ~/.codex/config.toml + auth.json" style="edgeLabel;html=1;fontColor=#475569;fontSize=12;" vertex="1" connectable="0" parent="e1">
+          <mxGeometry x="-0.35" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=12;" edge="1" parent="1" source="codex" target="ds">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="跳过 ChatGPT 登录，直接调模型" style="edgeLabel;html=1;fontColor=#2563eb;fontSize=12;" vertex="1" connectable="0" parent="e2">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=12;" edge="1" parent="1" source="ds" target="model">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note" value="不需要 OpenAI 账号 · 不交订阅费 · 国产模型按量付费" style="text;html=1;align=center;fontColor=#0f766e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="340" width="420" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

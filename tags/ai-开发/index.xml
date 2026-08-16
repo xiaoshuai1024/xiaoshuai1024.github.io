@@ -1,0 +1,48 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI 开发 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/ai-%E5%BC%80%E5%8F%91/</link><description>AI 开发 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 16 Aug 2026 19:30:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/ai-%E5%BC%80%E5%8F%91/" rel="self" type="application/rss+xml"/><item><title>DeepSeek 开源自研Harness，模型、工具、Agent Loop 一切皆插件</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-first-look/</link><pubDate>Thu, 13 Aug 2026 20:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-first-look/</guid><description>打开 GitHub，DeepSeek Harness（dsh）的仓库挂在趋势榜第一。创建时间 2026-08-13 11:56:32 UTC，发布时 star 已经 1.5 万，到我实测时已涨到 2.9 万——发布 12 小时不到，逼近 3 万。模型厂商下场做 Agent 工具链，这本来就是大事，但真正让我放下手头活去装的，是仓库描述里那句话：Everything is a Plugin，一切皆插件。
+装完跑了一圈，我的结论先放在这：dsh 没有把 Claude Code 或 Codex 重新实现一遍，它做的是把 Agent harness 从「封闭产品」拆成「插件平台」——模型、工具、会话、沙箱、UI 全部是插件，任何一块都能替换。这是 Agent 工具链形态上的一个变化，不是又一个 CLI 工具。但它现在是 developer preview，Node 版本有硬门槛，插件生态刚爆发还没沉淀，我的判断是：值得装来看，别急着全切。
+这篇文章把「我看到了什么、怎么装、为什么这么设计、实测体感、插件生态、有哪些坑」完整讲一遍。内容基于 2026-08-13 发布到 2026-08-14 的真实操作，版本号以我实测时的 0.1.0-rc.6 为准。
+反常的地方：没有 CLI，是一个 Web 服务 用惯了 Claude Code、Codex 这类终端工具，第一反应是去找 dsh 命令。装完才发现方向反了——dsh 的入口是一个常驻的 node 后台服务，真正的操作界面是浏览器。
+安装只有一行：
+npx @deepseek-ai/dsh web第一次运行会自动拉取 @deepseek-ai/dsh 包，初始化 web 和 headless 两个 profile，然后起服务。启动成功的输出只有一行：dsh web: http://127.</description></item><item><title>DeepSeek Harness 源码深读：内核、调度、提示词、上下文一次讲透</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-source-internals/</link><pubDate>Sat, 15 Aug 2026 13:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-source-internals/</guid><description>三天前我上手实测了 dsh，装完跑了一圈任务，看完插件生态。但实测只能回答「它好用吗」，回答不了「它为什么这样做」。这三天我把 deepseek-ai/deepseek-harness 的源码从头到尾读了一遍——80MB 的 TypeScript monorepo，133 个插件包，外加一套 vendored 的 Cordis 内核。这篇文章是完整的源码笔记，从启动流程一路讲到上下文压缩和定时调度，所有结论都带 file:line 引用，你可以拿着仓库对照看。
+我的总体读后感先放这：dsh 是我读过的 Agent harness 里工程约束执行得最彻底的一个。它不是功能最多的，但每一个「容易写歪的地方」——重试、压缩、沙箱、并发、持久化——都用了同一种手法：把决策变成事件，把状态变成投影，把危险变成默认拒绝。这篇文章就是要把这个手法在六七个子系统里怎么落地的拆开看。
+版本说明：分析基于我手上的 clone（根 package.json 版本 0.1.0-rc.5，实测文章用的 rc.6），行号以这份代码为准，开发者预览期重构频繁，行号可能漂移。
+一、先看地形：仓库结构和那套 vendored 内核 clone 下来第一眼要看的其实是根目录的 vendor/，packages/ 反而可以后看。里面有五个目录：cordis、loader、include、hmr、timer——全部是直接拷进仓库的源码，不走 npm 依赖。
+Cordis 是一个「依赖注入 + 插件生命周期」框架（koishi 生态那套思路）：核心概念是 Context（上下文）、Fiber（插件的运行时载体，一个状态机）、Service（命名服务）。插件就是一个对象：
+{ name, inject, Config, apply(ctx) }inject 声明依赖的服务名，apply 在激活时拿到 Context 挂自己的服务。Loader 负责按声明拓扑加载，服务没就绪时依赖方 fiber 停在 pending 状态，Service.check 就绪后放行。
+为什么 vendor 而不是装 npm 包？我的看法：harness 对内核的稳定性要求是「每一行都要为我负责」。插件内核是整个系统的地基，升级一个第三方包带来的行为漂移，在 133 个插件的系统里排查成本极高。拷进来，锁死，自己改。这个选择本身就说明了 dsh 团队对「内核」的界定有多严格。
+packages/ 下的分组也值得记一下，后面全要用到：
+packages/boot/* —— 启动、profile、cmdline、app-boot packages/core/* —— agent-loop、session、tools、system-prompt packages/llm/* —— LlmRuntime、deepseek 适配器、重试 packages/context/* —— compaction、spill、todo、plan-mode、goal packages/schedule/*、packages/jobs/* —— 定时调度和后台作业 packages/subagent/、packages/sandbox/、packages/skill/ —— 子代理、沙箱、技能 apps/cli、apps/web —— 启动器和浏览器前端 packages/host/* —— webserver、apiproxy 整棵树的地形是这样的：</description></item><item><title>DeepSeek Harness 插件 90% 是玩具，实测筛完我只留这 10 个</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</link><pubDate>Sun, 16 Aug 2026 19:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</guid><description>三天前我上手实测 dsh 的时候，dsh-plugin 话题下是 275 个仓库；写这篇文章的今天，这个数字过了 1400。中间我又把源码从头读了一遍。生态爆发的另一面是泥沙俱下：这里面有给 Web UI 加 2005 年风格广告的整活插件，有「写代码的时候账户不能同时亏钱」的炒股面板，一天写完就没人维护的占了相当比例。
+这篇文章的目标很具体：读完之后，你能在 20 分钟内把 10 个真正值得装的插件装好，并且知道先装哪个、后装哪个、装不上怎么办。筛选标准不是 star 数，是「解决什么痛点」——没有明确痛点的，再火也不进清单。
+先看全景，10 个插件按三档排：
+1400 个仓库怎么砍到 10 个 先交代筛法，你可以拿同样的标准自己去筛，不必认我的清单。
+第一刀砍没有维护动作的。生态爆发期的典型寿命是「发布当天一个 commit，之后永远沉默」。我看仓库先看最近一次提交时间，再看 issue 区有没有人报错、作者有没有回。三天内没有任何动静的仓库，装了就是把排错责任揽到自己身上。
+第二刀砍不声明适配版本的。dsh 三天发了 6 个 rc，插件作者如果连「我适配的是 rc 几」都没写，说明他自己也没认真跟。这个信号在 README 第一屏就能看到，两秒钟排除一个。
+第三刀砍痛点不明的。回到那个标准：这个插件解决什么问题，一句话说不清的不要。「一切皆插件」的架构降低了写插件的门槛，也就降低了写玩具的门槛——dsh-ads 给 Web UI 加 2005 年风格广告，dsh-stock-market 的卖点是「写代码的时候账户不能同时亏钱」，这类整活作品 star 再高也不是生产力的菜。
+三刀下去，1400 个仓库剩下的百来个才有看的价值。下面的 10 个，是从这百来个里按「解决真实痛点 + 维护活跃」再排出来的。
+你需要先准备好的东西 这篇是系列第三篇，前两篇的结论直接沿用，这里只列清单：
+Node 22.14+，建议直接上 24 LTS。这是硬门槛：会话持久化插件用了 zstd 压缩，createZstdDecompress 是 Node 22.14 才进的 node:zlib。v22.13 启动会直接崩，而且报错信息完全看不出跟 Node 版本有关。nvm 用户 nvm install 24 切过去 dsh 0.</description></item><item><title>GLM-5.3 发布实测：编程暴涨 50%，开源第一的成色拆开看</title><link>https://xiaoshuai1024.top/posts/glm-5-3-coding-evaluation/</link><pubDate>Sat, 15 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/glm-5-3-coding-evaluation/</guid><description>2026-08-14，智谱发布新一代基座模型 GLM-5.3。官方通稿的关键词很直白：编程能力最强的开源模型。这个月的国产大模型赛道已经卷成一锅粥——一个月内三家厂商先后完成关键版本迭代，智谱这一发是其中最受程序员关注的一发。
+我盯 GLM 系列有段时间了。从 GLM-5 到 5.1、5.2 再到 5.3，半年四代，每一代都在编程榜上往前拱一截。5.1 那代在 SWE-Bench Pro 上超过 Claude Opus 4.6 的时候，我还专门跑过对比；这次 5.3 的通稿数字更猛：内部体感评测较 5.2 提升 50%。
+数字越猛，越要拆开看。这篇我把 GLM-5.3 的每项成绩按口径归类——哪些是公开榜、哪些是内部评测、哪些是第三方对比，再串起 GLM-5 系列这半年的榜单轨迹，最后落到最实际的问题：这套能力怎么接进日常工作流，Coding Plan 的钱花得值不值。
+先看清这是一次什么发布 GLM-5.3 的发布节奏分两步。API 在 2026-08-14 当天上线，全量用户可用，同时纳入 GLM Coding Plan；模型权重在发布约两周后开放，开源地址在 zai-org/GLM-5 仓库，MIT 权重协议——这是智谱一贯的打法，先服务后权重，商业化和开源声誉两头都要。
+能力参数这边，GLM-5 系列的基础规格是 200K 上下文窗口、128K 最大输出；从 5.2 开始，Coding Plan 用户在编程场景下可以用到 1M 上下文。1M 这个数字对 agent 工作流是有实际意义的：把一个完整中型工程连同依赖清单、构建脚本塞进同一条推理链路，200K 会勉强，1M 才算从容。
+128K 最大输出这个参数值得单独说一句，因为它经常被上下文窗口的光环盖住。输出窗口决定了模型单次能产出的代码量上限——重构一个大文件、一次性生成完整的脚手架、输出一整份带注释的迁移脚本，这些任务真正吃的是输出 token 而不是输入。很多模型的输出上限卡在 8K 到 32K，遇到大文件就得拆着写，拆的过程就是出错的过程。128K 意味着绝大多数单文件任务可以一口气写完，配合 1M 上下文读入整个工程，一来一回都留足了余量。
+定位上，5.3 没有换架构叙事，通稿强调的重点是三个：AI 编程、Agent、长程任务。这三个词不是并列的口号，是一条递进链——编程是单点能力，Agent 是把单点串成多步骤执行，长程任务是串起来之后还能稳定跑完。评测成绩的分布也印证了这个重心：最强的项全在终端执行和持续工程这一侧。</description></item><item><title>大模型是裸 CPU，我花一年给它装了个操作系统</title><link>https://xiaoshuai1024.top/posts/ai-agent-engineering-evolution/</link><pubDate>Thu, 13 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-agent-engineering-evolution/</guid><description>写了十二年代码，前六年在前端，中间补成全栈，去年开始把 AI 真正用进研发。这轮转型里我见过最多的场景，是有人拿着一个模型在聊「AI 能不能干这活」，聊完发现长任务干不动、规矩守不住、换模型也没用。
+我的体感是：问题不在模型，在视角。大模型是一块裸 CPU——算力强，但没有内存管理、没有文件系统、没有进程调度。你往裸 CPU 上怼程序，指望它稳定跑一个企业级服务，跑不动才是正常的。可绝大多数人把它当成了「一台装好系统的电脑」，缺了哪块就抱怨「这个 AI 不行」，然后去换一台。
+我这一年的演进，本质是在给它补操作系统。过程分成四段：先是把话说清楚（Prompt 工程），再是管好它看什么（Context 工程），然后是让规矩焊死在流程里（Harness 工程），最后是让它在边界里自己干（自治体系）。每上一层，都是被下一层的天花板逼出来的。这个「裸 CPU → 操作系统」的类比不是修辞，它精确对应了每一段工程在补哪块系统能力——这也是我写这篇的动机：把这条线完整画出来，你看完能自己判断，手头的 AI 卡在哪一层。
+这篇文章把这条演进线完整讲一遍。每一段我都会说：当时怎么做、撞到什么天花板、为什么下一段必须出现。结论先放在这——AI 工程化的每一步，都是在为「稳定地、大规模地让 AI 干活」清障碍。这条线和 《别再背 AI 黑话了》里那条主线是同一条：那篇讲每个词是什么，这篇讲这些词背后，工程是怎么一层层长出来的。
+先看清裸 CPU 的四个先天缺陷 动手之前，先认识对手。大模型的四个缺陷不会因为模型变大而消失，所有工程手段都是在跟它们周旋。这四个缺陷不是我从论文里读来的，是我在真实项目里一个一个撞出来的。
+缺陷一：有输入就输出，没人喊停就一直干。 AI 本质是续写器：接收输入，预测最合理的下一步。需求只说了半句，它不会停下来问「你说的 A 具体指什么」，而是开写它最熟悉的那个 A；测试没过，它不会承认失败，而是改两行继续跑。这个天性我后来总结成「翻车三连」：需求含糊就往下编、方向错了错到底、改 bug 越改越乱。资深工程师和新手的差别就在这——不是老手写得快，是老手停得准，而 AI 天生不会停。项目里所有「加一个停字」的设计，都是从这个缺陷长出来的。
+缺陷二：上下文窗口是稀缺资源，长任务必然掉质量。 同一个任务，3 步的时候干得干净利落，加到 15 步就开始胡说。不是模型变笨了，是窗口里塞满了前面步骤的中间产物——一次工具调用返回几万字符的 JSON，三步之后窗口就被历史占满，后面真正有用的信息被稀释。我在长链路任务里反复踩这个，最初以为是模型不行，换了几轮模型指标纹丝不动，后来把上下文里的大 JSON 挪出去，指标立刻回升。物理容量和有效容量是两回事。
+缺陷三：无状态，每次对话都是新生。 昨天踩过的坑，今天换个会话继续踩。规则在上一轮说得清清楚楚，新会话里它又按自己的理解来一遍。跨会话的知识完全靠人肉搬运——把踩坑结论复制粘贴进下一段提示词，粘漏一次就重蹈覆辙。这个问题在一个人用的时候还能忍，团队用起来就是灾难：每个人都在跟 AI 重复教一遍同样的东西。
+缺陷四：指令遵从率随链路衰减。 规则写在提示词里，短任务时遵从率能到九成以上，链路一长，规则就从「必须遵守」退化成「仅供参考」。你没法在每一步都提醒它一次，提醒本身也在占用上下文。更隐蔽的是，模型会「礼貌性忽略」——它不反驳你的规则，只是不执行，你以为它记住了，它其实早忘了。
+这四个缺陷对应操作系统的四块缺失：没有内存管理（上下文膨胀）、没有文件系统（知识无法持久化）、没有进程调度（长任务不可控）、没有中断机制（没人喊停）。我后面的每一段工程，都是在补其中一块。
+顺带说一个观察：这四个缺陷在网上被讨论的程度差别很大。上下文窗口聊得最多，无状态也常被提起；「有输入就输出」和「遵从率衰减」几乎没人当回事——但它们恰恰是后面三、四段工程的直接原因。讨论度高的缺陷有人给你方案，讨论度低的缺陷只能自己撞出来。所以我后面几段的工程，重点全压在没人讨论的那两个上。
+还有人会问：为什么不一步到位直接上命令体系？因为每一段工程都有前置条件——命令要管住的是长任务，长任务的前提是上下文管得住；上下文管得住的前提是知道哪些信息值得保留、哪些可以丢；这些判断全依赖前面撞出来的认知。跳过任何一段，都是在不知道问题长什么样的时候造解决方案。
+一、Prompt 工程：一切从一段对话开始 第一段演进最朴素：把该说的都写进提示词。角色、业务规则、行为约束、项目路径映射，一股脑塞进 System Prompt 和 CLAUDE.md。
+刚开始效果是惊艳的。3 到 5 步的小任务，规则写清楚后几乎不会出错，写页面、改接口、补测试，速度比我自己写快一个量级。我把项目里的目录结构、部署命令、代码规范全部写进 CLAUDE.md，感觉像是在给这个 AI「上岗培训」。那段时间我的判断是：AI 编程的差距就在提示词，谁的提示词写得细，谁就赢。</description></item><item><title>改一行代码别上重型流程：OpenSpec 和 Superpowers 我怎么选</title><link>https://xiaoshuai1024.top/posts/openspec-vs-superpowers/</link><pubDate>Tue, 11 Aug 2026 19:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/openspec-vs-superpowers/</guid><description>用 Claude Code 做全栈开发，代码不是难点，流程的轻重才是。
+一个项目跑下来，你会遇到两种活：一种是改一行 SQL、修一个测试过时，十分钟就能验证完；另一种是跨前端、BFF、后端、E2E 四个系统的新功能，牵一发动全身。如果这两种活用同一套流程，要么单点修复被一堆文档拖慢，要么跨系统功能没有契约约束，改着改着就乱了。
+我在低代码平台项目里同时用了两套流程：OpenSpec 管轻的，Superpowers 管重的。这轮真实开发我跑了五个 OpenSpec change 和一个 Superpowers plan，下面把过程和判断标准写清楚。
+OpenSpec：给单点修复一个轻量闭环 OpenSpec 是一个 spec-driven 的轻量变更治理工具。核心想法很简单：每个改动都是一个 change，走 propose（提议）→ apply（实现）→ archive（归档）三步闭环。
+它的配置文件里写死了适用边界：单个 change 不超过 3 个文件、不跨子系统、不超过 5 个 task。超过这个边界，它自己会提醒你&amp;quot;考虑用 Superpowers&amp;quot;。
+这轮我用 OpenSpec 跑了五个 change，全是测试和缺陷修复：
+change 改了什么 为什么走 OpenSpec engine 单测修复 4 个测试文件同步 API 重构 单子系统（engine），纯测试 backend 集成测试 1 个测试加 @ActiveProfiles 单子系统（backend-java） form 创建 500 修复 1 行 fieldSchema 默认值 单文件，缺陷修复 ui test alias 1 个 vite.config 补 alias 单文件，配置 BFF submit formId 1 个 route 加一行注入 单文件，BFF 转发 每个 change 的过程都一样：openspec new change 建目录，写 proposal（为什么改）、design（怎么改）、tasks（分几步），然后 apply 改代码、跑测试验证，最后 archive 归档。整个过程在一个对话里闭环，不需要拆分会话。</description></item></channel></rss>

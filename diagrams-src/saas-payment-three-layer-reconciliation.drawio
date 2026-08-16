@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层对账流程" id="pay-recon">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Top: 微信账单 -->
+        <mxCell id="src" value="微信账单&#10;(平台商户号 + 各子商户)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="src-arrow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="90" as="sourcePoint" />
+            <mxPoint x="410" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 解析导入 -->
+        <mxCell id="parse" value="下载 &amp; 解析" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="130" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="parse-arrow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="165" as="sourcePoint" />
+            <mxPoint x="410" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 对账引擎 -->
+        <mxCell id="engine" value="对账引擎" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="210" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Two branches -->
+        <mxCell id="e-l" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="250" as="sourcePoint" />
+            <mxPoint x="170" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="250" as="sourcePoint" />
+            <mxPoint x="610" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Left: 平台订单表 -->
+        <mxCell id="orders" value="比对平台订单表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="90" y="280" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="o-arrow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="315" as="sourcePoint" />
+            <mxPoint x="170" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Order match results -->
+        <mxCell id="o-match" value="✅ 一致 → 通过" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#22c55e;fontColor=#166534;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="360" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="o-diff" value="❌ 差异 → 分类处理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="360" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="o-arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="350" as="sourcePoint" />
+            <mxPoint x="95" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o-arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="350" as="sourcePoint" />
+            <mxPoint x="245" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Diff types -->
+        <mxCell id="o-types" value="• 金额不一致 → 告警&#10;• 微信有/订单无 → 查询原因&#10;• 已退款未同步 → 同步修正" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="170" y="410" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Right: 分账记录 -->
+        <mxCell id="splits" value="比对分账记录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="280" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s-arrow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="315" as="sourcePoint" />
+            <mxPoint x="630" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Split match results -->
+        <mxCell id="s-match" value="✅ 一致 → 通过" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#22c55e;fontColor=#166534;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="495" y="360" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s-diff" value="❌ 差异 → 分类处理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#dc2626;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="645" y="360" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s-arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="350" as="sourcePoint" />
+            <mxPoint x="560" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="350" as="sourcePoint" />
+            <mxPoint x="710" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Diff types -->
+        <mxCell id="s-types" value="• 分账失败 → 重试&#10;• 金额不一致 → 告警&#10;• 未分账 → 触发分账" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="635" y="410" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Timer annotation -->
+        <mxCell id="timer" value="24h 窗口对账(非单日)&#10;避免结算延迟导致误告警" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="510" width="160" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

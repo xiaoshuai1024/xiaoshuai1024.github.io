@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="启动与补丁层叠" id="boot">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bin" value="bin.ts：Commander passThrough&#10;只认 --profile / --patch / --dump-config&#10;第一个未知 token 之后全归内层应用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="boot" value="boot()：分层 .env → cmdlineArgs 服务&#10;→ failLoud（unhandledRejection 退出）&#10;→ mountRootInclude → fiber 状态审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="640" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="1. bundle 层（按 dsh.profile.bundles 顺序）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="2. profile 目录的 cordis.patch.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="110" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="3. $DSH_HOME/cordis.patch.yml（home 层）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="4. --patch 命令行补丁（可多个，按出现顺序）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="250" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="5. 遥测开关补丁（DSH_TELEMETRY_MODE）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="merged" value="applyEntryPatches 合并&#10;带 id 的补丁整键替换（不深合并）&#10;!!js 表达式保留原文、激活时插值&#10;vendor/include/src/index.ts:58-128" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="420" width="380" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="loader" value="Loader 激活每一行插件&#10;Service.check 让依赖方 pending 直到服务就绪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="560" width="380" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="apps" value="应用 provider：webStartup（拒绝 --host 0.0.0.0）&#10;headlessStartup（一次性任务跑完即退）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="660" width="380" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="解析 profile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="bin" target="l1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l3" target="l4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="低 → 高优先级" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="l4" target="l5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l5" target="merged">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="merged" target="loader">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="loader" target="apps">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="boot" target="loader">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

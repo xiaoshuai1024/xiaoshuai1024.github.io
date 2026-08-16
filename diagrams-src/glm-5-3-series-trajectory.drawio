@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="traj" name="series-trajectory">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="760" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t0" value="GLM-5 系列半年四代：编程榜轨迹" style="text;html=1;fontSize=14;fontColor=#1e293b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="32" y="18" width="400" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="GLM-5&#10;2026-02" style="rounded=1;fillColor=#eff6ff;strokeColor=#2563eb;fontSize=14;fontColor=#1e293b;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="34" y="82" width="130" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1n" value="SWE-bench Verified 72.8&#10;单次成本 $0.53" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="34" y="148" width="180" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="GLM-5.1&#10;约 2026-04" style="rounded=1;fillColor=#eff6ff;strokeColor=#2563eb;fontSize=14;fontColor=#1e293b;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="212" y="70" width="130" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2n" value="SWE-Bench Pro 58.4&#10;首次压过 Opus 4.6（57.3）" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="212" y="136" width="190" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="GLM-5.2&#10;约 2026-06" style="rounded=1;fillColor=#eff6ff;strokeColor=#2563eb;fontSize=14;fontColor=#1e293b;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="396" y="84" width="130" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3n" value="SWE-bench Pro 62.1&#10;SWE-bench+ 82.8；1M 上下文" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="396" y="150" width="200" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4" value="GLM-5.3&#10;2026-08-14" style="rounded=1;fillColor=#2563eb;strokeColor=none;fontSize=14;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="584" y="74" width="130" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4n" value="Terminal-Bench 3.0 开源第一&#10;ALE 84.5；权重两周后开放" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="570" y="140" width="190" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="g1" target="g2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="g2" target="g3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="g3" target="g4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="两月一代、连续爬坡：从刷分数榜转向讲终端执行和体感，5.3 的重心是 Agent 与长程任务。" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="34" y="226" width="620" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

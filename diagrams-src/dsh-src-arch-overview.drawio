@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="整体架构分层" id="arch">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="860" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="launcher" value="dsh 启动器&#10;apps/cli/src/bin.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="profile" value="Profile 组装&#10;profile-boot.ts composeProfile&#10;bundles → profile 补丁 → home 补丁 → --patch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="cordis" value="Cordis 内核（vendored）&#10;Context / Fiber / Service&#10;inject 声明依赖，fiber 状态机 ACTIVE 才算启动成功" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="270" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="plugbox" value="插件层（packages/*，133+ 个包）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="40" width="740" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-core" value="core：agent-loop（主循环）&#10;session（事件日志）tools（工具运行时）&#10;system-prompt（提示词注册表）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="30" y="50" width="320" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-llm" value="llm：adapter 注册表&#10;deepseek 官方 provider（fetch + SSE）&#10;llm-retry（指数退避重试）token-meter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="30" y="180" width="320" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-ctx" value="context / compaction / spill：&#10;surface 投影、80% 阈值压缩、&#10;工具结果外溢磁盘" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="30" y="310" width="320" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-sub" value="subagent / mcp / sandbox / shell&#10;子代理编排、MCP 桥、&#10;bwrap→Landlock / Seatbelt 沙箱" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="30" y="440" width="320" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-host" value="host：webserver（路由/SPA）&#10;apiproxy（传输无关 RPC 网关）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="400" y="50" width="310" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-client" value="client：__DSH_BOOT__ 模块图注入&#10;connection（/api 信任栅栏 + WebSocket 事件流）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="400" y="160" width="310" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-sched" value="schedule / jobs：&#10;定时器事件投影、后台作业注册表&#10;（owner 限并发，完成唤醒 agent）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="400" y="270" width="310" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="plug-skill" value="skill：SKILL.md 六层 rank 发现&#10;目录 digest 幂等发布&#10;/name 手势注入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="plugbox">
+          <mxGeometry x="400" y="390" width="310" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="browser" value="浏览器 Web UI&#10;apps/web（React 前端）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="660" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="disk" value="$DSH_HOME（~/.dsh）&#10;settings.yaml / profiles / sessions / objects" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="640" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="launcher" target="profile">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="挂载插件树" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="profile" target="cordis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="加载/激活" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="cordis" target="plugbox">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="HTTP /api + WebSocket（127.0.0.1:3080）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="plug-host" target="browser">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="事件日志 / 内容寻址附件落盘" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="plug-ctx" target="disk">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

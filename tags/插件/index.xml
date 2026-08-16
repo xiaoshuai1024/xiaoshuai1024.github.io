@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>插件 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%8F%92%E4%BB%B6/</link><description>插件 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 16 Aug 2026 19:30:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%8F%92%E4%BB%B6/" rel="self" type="application/rss+xml"/><item><title>你的 Claude Code 只用了三成功力,缺的是这 12 个插件</title><link>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</link><pubDate>Sat, 01 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</guid><description><![CDATA[Claude Code 裸装，是个能干的终端 agent；装对插件和 skills，才是把它的能力放大的那个乘数。
+同一个 Claude Code，装了 spec 驱动、浏览器自动化、实时文档、token 压缩、代码图谱这些之后，能干的事是完全不同的量级。这篇把我验证过、值得分享的开源插件和 skills 按 GitHub Star 排了一下，每个的安装命令都从对应仓库的 README 抓的真实写法，照着复制就能装。Star 数截至 2026 年 8 月，来自 GitHub，每天在涨，仅作量级参考。
+先看排行 下面按 Star 从高到低逐个讲。
+1. Superpowers · 约 26 万 stars 仓库：github.com/obra/superpowers
+它是什么：一套 agentic skills 框架 + 软件开发方法论。不是单个插件，是一整套&quot;怎么用 AI 做软件&quot;的技能包——brainstorm、设计、TDD、代码审查、调试、执行计划，每个环节都有对应 skill。跨 11 个 agent 平台（Claude Code、Codex、Cursor、Antigravity、Gemini CLI、OpenCode 等），是这套生态里 star 最高的。
+为什么值得装：它把&quot;高手怎么用 AI 编程&quot;沉淀成可复用技能，而不是让你每次从零写提示词。executing-plans（每步验证门）、grill-me（拷问方案）、brainstorming（创意前置）这些 skill，覆盖了从想到做的完整链路。
+安装（Claude Code）：
+/plugin marketplace add obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace2. ECC · 约 23.]]></description></item><item><title>DeepSeek Harness 插件 90% 是玩具，实测筛完我只留这 10 个</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</link><pubDate>Sun, 16 Aug 2026 19:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</guid><description>三天前我上手实测 dsh 的时候，dsh-plugin 话题下是 275 个仓库；写这篇文章的今天，这个数字过了 1400。中间我又把源码从头读了一遍。生态爆发的另一面是泥沙俱下：这里面有给 Web UI 加 2005 年风格广告的整活插件，有「写代码的时候账户不能同时亏钱」的炒股面板，一天写完就没人维护的占了相当比例。
+这篇文章的目标很具体：读完之后，你能在 20 分钟内把 10 个真正值得装的插件装好，并且知道先装哪个、后装哪个、装不上怎么办。筛选标准不是 star 数，是「解决什么痛点」——没有明确痛点的，再火也不进清单。
+先看全景，10 个插件按三档排：
+1400 个仓库怎么砍到 10 个 先交代筛法，你可以拿同样的标准自己去筛，不必认我的清单。
+第一刀砍没有维护动作的。生态爆发期的典型寿命是「发布当天一个 commit，之后永远沉默」。我看仓库先看最近一次提交时间，再看 issue 区有没有人报错、作者有没有回。三天内没有任何动静的仓库，装了就是把排错责任揽到自己身上。
+第二刀砍不声明适配版本的。dsh 三天发了 6 个 rc，插件作者如果连「我适配的是 rc 几」都没写，说明他自己也没认真跟。这个信号在 README 第一屏就能看到，两秒钟排除一个。
+第三刀砍痛点不明的。回到那个标准：这个插件解决什么问题，一句话说不清的不要。「一切皆插件」的架构降低了写插件的门槛，也就降低了写玩具的门槛——dsh-ads 给 Web UI 加 2005 年风格广告，dsh-stock-market 的卖点是「写代码的时候账户不能同时亏钱」，这类整活作品 star 再高也不是生产力的菜。
+三刀下去，1400 个仓库剩下的百来个才有看的价值。下面的 10 个，是从这百来个里按「解决真实痛点 + 维护活跃」再排出来的。
+你需要先准备好的东西 这篇是系列第三篇，前两篇的结论直接沿用，这里只列清单：
+Node 22.14+，建议直接上 24 LTS。这是硬门槛：会话持久化插件用了 zstd 压缩，createZstdDecompress 是 Node 22.14 才进的 node:zlib。v22.13 启动会直接崩，而且报错信息完全看不出跟 Node 版本有关。nvm 用户 nvm install 24 切过去 dsh 0.</description></item></channel></rss>

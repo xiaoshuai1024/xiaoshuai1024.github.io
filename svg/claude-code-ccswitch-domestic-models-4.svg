@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="100.0 -16.0 680.0 702.0" width="680.0" height="702.0">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Virgil';
+        src: url('https://fonts.excalidraw.com/Virgil.woff2') format('woff2');
+        font-display: swap;
+      }
+    </style>
+  </defs>
+  <rect x="100.0" y="-16.0" width="680.0" height="702.0" fill="#ffffff"/>
+  <text x="140.0" y="50.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="26" fill="#1e1e1e" text-anchor="start" dominant-baseline="auto">
+      <tspan x="140.0" dy="0.0">CcSwitch 添加国产 provider：5 步</tspan>
+  </text>
+  <path d="M 179.1,108.9 L 698.5,109.9 L 701.5,108.8 L 701.5,169.8 L 181.6,169.6 L 179.9,168.7 L 181.3,169.2 L 181.6,110.9 Z" fill="#ffffff" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="140.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#2563eb" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">① 顶部应用切换器：选 Claude Code（不是 Desktop）</tspan>
+  </text>
+  <line x1="440.0" y1="170.0" x2="440.0" y2="212.0" stroke="#868e96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="440.0,212.0 435.5,202.0 444.5,202.0" fill="#868e96"/>
+  <path d="M 179.2,212.9 L 701.0,212.0 L 700.9,211.6 L 699.2,271.4 L 181.1,273.1 L 179.2,271.6 L 179.0,272.6 L 178.9,210.8 Z" fill="#ffffff" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="242.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#2563eb" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">② 右上角 +：打开「添加供应商」面板</tspan>
+  </text>
+  <line x1="440.0" y1="272.0" x2="440.0" y2="314.0" stroke="#868e96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="440.0,314.0 435.5,304.0 444.5,304.0" fill="#868e96"/>
+  <path d="M 179.7,313.1 L 701.5,314.6 L 700.9,313.4 L 698.6,374.3 L 179.8,375.0 L 180.3,374.9 L 178.9,375.4 L 180.2,312.5 Z" fill="#ffffff" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="344.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#2563eb" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">③ 预设下拉：选 DeepSeek（名称端点自动填充）</tspan>
+  </text>
+  <line x1="440.0" y1="374.0" x2="440.0" y2="416.0" stroke="#868e96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="440.0,416.0 435.5,406.0 444.5,406.0" fill="#868e96"/>
+  <path d="M 179.7,417.5 L 701.0,416.0 L 699.9,414.8 L 700.0,476.2 L 181.4,474.8 L 181.4,476.8 L 180.7,477.0 L 179.5,417.2 Z" fill="#ffffff" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="446.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#2563eb" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">④ 粘贴 API Key，点「添加」（可 Fetch Models 拉模型）</tspan>
+  </text>
+  <line x1="440.0" y1="476.0" x2="440.0" y2="518.0" stroke="#868e96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="440.0,518.0 435.5,508.0 444.5,508.0" fill="#868e96"/>
+  <path d="M 180.1,518.2 L 701.3,518.7 L 699.8,517.4 L 700.3,578.5 L 179.7,578.7 L 180.3,576.5 L 178.7,579.3 L 179.6,518.6 Z" fill="#ffffff" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="548.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#2563eb" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">⑤ 卡片点「启用」→ 配置写入本机，即时生效</tspan>
+  </text>
+  <text x="180.0" y="625.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="15" fill="#868e96" text-anchor="start" dominant-baseline="auto">
+      <tspan x="180.0" dy="0.0">完整配置参考官方手册：github.com/farion1231/cc-switch → docs/user-manual</tspan>
+  </text>
+</svg>

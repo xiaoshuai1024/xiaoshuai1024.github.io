@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ECC 五大件架构" id="ecc-arch">
+    <mxGraphModel dx="1000" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="ECC · 五大件挂在 7 个 harness 上" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="16" width="500" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="skills" value="skills&#10;284 个" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="76" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="agents" value="agents&#10;68 个角色" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="76" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="instincts" value="instincts&#10;会话里攒经验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="76" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="memory" value="memory&#10;hooks 存取上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="76" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="shield" value="AgentShield&#10;102 规则 + 1282 测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="76" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="adapter" value="DRY Adapter · 一套定义，多端翻译" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="210" width="500" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="hc" value="Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="340" width="130" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hcx" value="Codex" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="340" width="130" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hcu" value="Cursor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="130" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hco" value="OpenCode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="340" width="130" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hcg" value="Gemini" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="340" width="130" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hcz" value="Zed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="340" width="120" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hcp" value="GitHub Copilot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="340" width="130" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="每个 harness 目录下同样的分层：skills / agents / hooks / commands。284 个 skill 里包含 12 种语言，你用不到的部分也打包给你。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="170" y="430" width="820" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="skills" target="adapter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="agents" target="adapter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="instincts" target="adapter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="memory" target="adapter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="shield" target="adapter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hc"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hcx"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hcu"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hco"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hcg"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hcz"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="adapter" target="hcp"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

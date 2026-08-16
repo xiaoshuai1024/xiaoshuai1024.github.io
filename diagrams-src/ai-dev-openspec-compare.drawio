@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="对比" id="openspec-compare">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="对话式编程 vs 规格驱动" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="360" y="16" width="400" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="boxL" value="对话式编程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="320" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="验收缺位:做完拿什么判断它对?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxL">
+          <mxGeometry x="20" y="55" width="280" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="上下文稀释:细节在对话里丢了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxL">
+          <mxGeometry x="20" y="115" width="280" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="决策无痕:为什么这么做没记录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxL">
+          <mxGeometry x="20" y="175" width="280" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="做完,靠感觉验收" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;spacingLeft=8;" vertex="1" parent="boxL">
+          <mxGeometry x="20" y="245" width="280" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="boxR" value="规格驱动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="80" width="340" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="proposal 管边界:改什么·影响谁" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxR">
+          <mxGeometry x="20" y="55" width="300" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="spec 管契约:系统必须做什么(WHEN/THEN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxR">
+          <mxGeometry x="20" y="115" width="300" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="design 管权衡:为什么这么选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxR">
+          <mxGeometry x="20" y="175" width="300" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="tasks 管顺序:实证先行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="boxR">
+          <mxGeometry x="20" y="235" width="300" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow" value="改变的是验收时机" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="boxL" target="boxR"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

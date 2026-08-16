@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Agent 主循环时序" id="loop">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="880" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="actor" value="用户 /&#10;调度器" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="30" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent" value="ReactLoopAgent（agent.ts）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="session" value="Session 事件日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="llm" value="LlmRuntime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="40" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="tools" value="ToolRuntime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="620" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="followup / steer / inject（kick 唤醒）" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1" source="actor" target="agent">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="130" as="sourcePoint"/>
+            <mxPoint x="200" y="130" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="turn()：append turn/start" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="170" as="sourcePoint"/>
+            <mxPoint x="610" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="deriveMessages（surface 投影 + 折叠补丁）" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;direction=west;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="230" as="sourcePoint"/>
+            <mxPoint x="310" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="buildRequest：request/header 折叠&#10;+ agent/request 瀑布（provider/effort/maxTokens）" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="290" as="sourcePoint"/>
+            <mxPoint x="880" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="llm.stream 瀑布：adapter → 重试中间件 → fetch" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="360" as="sourcePoint"/>
+            <mxPoint x="880" y="360" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="每个 chunk 落盘 assistant/chunk" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="430" as="sourcePoint"/>
+            <mxPoint x="310" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="BlockAssembler：分段 → finish kind&#10;error / aborted / max-tokens / completed" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="480" as="sourcePoint"/>
+            <mxPoint x="310" y="530" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" value="有 toolCalls？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="550" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="m9" value="executeToolCalls" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1" source="m8" target="tools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m10" value="结果落盘 → 下一轮 step()" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="700" as="sourcePoint"/>
+            <mxPoint x="310" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m11" value="completed：turn 结束&#10;agent/turn-stopping 最后钩子" style="html=1;verticalAlign=bottom;startSize=8;fontColor=#1e293b;fontSize=11;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="590" as="sourcePoint"/>
+            <mxPoint x="150" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8a" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#64748b;" edge="1" parent="1" source="m7" target="m8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="loopback" value="while(await this.turn())——内部循环到 completed" style="text;html=1;fontColor=#64748b;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="460" y="730" width="400" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

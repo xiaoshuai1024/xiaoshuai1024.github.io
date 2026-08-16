@@ -1,0 +1,100 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Claude Code - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/claude-code/</link><description>Claude Code - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 15 Aug 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/claude-code/" rel="self" type="application/rss+xml"/><item><title>TypeScript 教父开源 21 万 Star 的 25 个 Skill：把工程师自律焊进 AI 流程</title><link>https://xiaoshuai1024.top/posts/ai-dev-stop-discipline/</link><pubDate>Mon, 10 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-stop-discipline/</guid><description>让 AI 写代码的人，大概率见过这三种翻车：
+需求只说了一半，AI 就敢往下编，编出来的代码「看着像回事、一跑就露馅」。
+方向错了，它一路错到底。你让它做 A，它从第一步就走偏，之后每一步都在给错误的方案补细节，全程不喊停。
+改 bug 也是。你让它改，它就改。改完复测，旧 bug 没了，新 bug 冒出来，来回三轮，代码已经看不出原样。
+遇到这种问题，多数人的第一反应是换模型、调提示词、改温度。我的做法不一样：先搞清楚翻车的根源在哪，再找对应的工具。这篇文章讲的就是我在这个过程中挖到的一个项目，它把「资深工程师为什么不会翻车」这件事，拆成了 25 个可执行的 skill。
+一、翻车不怪模型，怪流程里没有「停」 先看 AI 的工作方式。它是「续写器」：接收输入，预测最合理的下一步。这个机制决定了两个天性：有输入就输出，有错误就继续。
+需求含糊，它不会停下来问「你说的 A 具体指什么」，而是开写它最熟悉的那个 A。测试没过，它不会停下来承认失败，而是分析一下「可能哪里不对」，改两行继续跑。
+这些行为放在人身上很好理解：没人喊停，就一直干。AI 比人更顺从，人累了会停，AI 不会。
+所以问题不在模型聪明不聪明，在流程里有没有「停」这个环节。资深工程师和新手的差别就在这里：新手拿到需求就写，写错了再改；老手会先盘问需求、先写测试、先把 bug 复现出来。不是老手写得快，是老手停得准。
+这个认知不新鲜，但把「停得准」变成 AI 绕不过的流程，最近有个项目做到了极致。
+二、mattpocock/skills：一个 21 万 Star 的开源技能库 这个项目是 mattpocock/skills，作者 Matt Pocock，TypeScript 社区的知名教育者（Total TypeScript 作者）。他把自己日常写代码用的整套 Agent 技能库开源了，MIT 协议，GitHub 上 21 万 Star。
+仓库简介一句话：Skills for Real Engineers，给真实工程师用的技能，不是 vibe coding（瞎写）用的。
+先看整体结构。25 个 skill 按两大轴组织：一类是 Engineering（工程向），一类是 Productivity（通用向）；按触发方式又分两种，用户主动敲的（/grill-me）和模型自动触发的（/tdd）。
+安装简单到不像一个 21 万 Star 的项目：</description></item><item><title>同样的 Claude Code,三个月把你甩开三倍的是这群人</title><link>https://xiaoshuai1024.top/posts/ai-dev-claude-code-power-user/</link><pubDate>Mon, 27 Jul 2026 18:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-claude-code-power-user/</guid><description>我观察到一个现象：两个水平差不多的开发者同时开始用 Claude Code，三个月后效率能差出三倍。
+工具一样，模型一样，差距在哪？不是提示词写得花不花哨——提示词的边际收益在第一个月就到顶了。真正拉开差距的，是对 Claude Code 作为工程工具的完整理解。
+很多人用 Claude Code 的方式，本质上还是 Chat 那套：在一个会话里不断提问，上下文越滚越胀，然后会话崩了、模型开始胡扯，就关掉重开。这不是用工具，这是在把 IDE 当 ChatGPT 用。
+而真正用得好的人，理解这套工具的完整能力面：
+命令是给 AI 套纪律边界，不是「问它一个问题」 Skill 是把经验固化成可复用的命令，不是写一次性提示词 Subagent 是一个人指挥一群 AI，不是一次只做一件事 打断与恢复是效率杠杆，不是失败 这篇文章把这套技能树拆开讲。每条都不是「技巧」，是工作方式的切换——从被动响应到主动编排，这才是高手和新手的真正差距。
+一、Claude Code 使用金字塔 我对 Claude Code 的使用深度分了三个层级。大多数人停在第一层，高手在第二层和第三层之间切换。
+第一层，对话级。把 Claude Code 当高级 ChatGPT 用——打开就聊，问问题、写代码、修 bug，一个会话从头跑到尾，跑崩了就重开。这一层能解决日常 60% 的问题，但你永远在给 AI 当助理——每次重复上下文、每次重新描述项目结构、每次等着它慢慢推理。
+第二层，命令级。开始用 /command、Skill、Task 这些结构化接口。这一层的核心变化是：你不写提示词了，你调用预定义的流程。命令像 API 一样有输入输出契约，Skill 像函数一样封装了可复用的逻辑。这一层效率提升不是线性的，是乘法——写一次命令，反复用几百次。
+第三层，编排级。同时启动多个 Subagent，各自做独立任务，你在中间做决策和收敛。用到 Workflow 做多阶段自动化：审查、修复、验证全部并行，最后一轮收敛才叫你。这一层你从「AI 的操作员」变成了「AI 的指挥官」。
+这个金字塔得先讲明白，因为后面每一节都是在讲「怎么从当前层爬到上一层」。
+二、内置命令与工具：先弄清楚有什么 Claude Code 的「命令」其实分三类：斜杠命令（/xxx 在会话里输入）、工具（内置函数，AI 在后台调用）、CLI 子命令（终端里输入 claude xxx）。三者的区别决定了你用什么方式控制 AI，这点得先搞清再往下讲。
+斜杠命令（Slash Commands） 在会话里直接输入 /xxx 调用。这是你作为用户主动控制 AI 的主要方式。</description></item><item><title>黑客松冠军开源 24 万星的 ECC：把 agent 工程做成了操作系统</title><link>https://xiaoshuai1024.top/posts/ecc-agent-os/</link><pubDate>Fri, 14 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ecc-agent-os/</guid><description>让 agent 干活的都见过这类场面：让它改个配置，它顺手动了测试文件；让它加个功能，它把三个模块的重构一起做了；让它查个问题，它给出两套自相矛盾的结论。
+遇到这种问题，多数人的第一反应是换更强的模型、写更细的提示词。我的做法不一样：先搞清楚翻车的根源在哪。根源不在模型——模型聪明得很。根源在环境：agent 干活的每一步，没有人在旁边立规矩。
+这篇文章讲的就是我在这个过程中挖到的一个项目。它把「给 agent 搭环境」这件事，做成了一座能安装的仓库。
+一、翻车不怪模型，怪环境里没有「停」 资深工程师干活为什么不翻车？他周围的工程环境在替他踩刹车——规范文档告诉他边界在哪，代码审查在他出错时拦住他，测试在他改坏时叫醒他。刹车踩得准的人，干得不一定快，但翻不了车。agent 缺的正是这套环境。给 agent 搭这套环境，就是 harness 这个词的全部含义。
+2026 年上半年，skill 仓库扎堆冲上 10 万星：官方 anthropics/skills 16.7 万，mattpocock/skills 21 万，ECC 24 万——三个 20 万级仓库一年之内全冒出来。这在前端框架身上见过，在配置仓库身上是头一回。星数把「怎么用 AI 干活」推成了现象级话题，也让 skill 仓库从个人经验分享变成了一场生态竞赛。ECC 是这场竞赛里跑得最快的那个。
+二、ECC：一个 24 万星的 agent 工程操作系统 这个项目是 affaan-m/ECC，全称 everything-claude-code，作者 Affaan Mustafa，在 Anthropic 黑客松上用 Claude Code 8 小时做出产品夺冠的开发者——冠军奖是 1.5 万美元的 API 额度，他拿它继续打磨这套工作流。打磨了 10 个月之后开源，MIT 协议，GitHub 上 24 万 Star，8 个月超过 Linux 内核。
+仓库简介一句话：the agent harness performance optimization system——agent 运行环境的性能优化系统，给 agent 搭运行环境，让它每一步都有人管。</description></item><item><title>OpenSpec 和 Superpowers 别二选一,它们管的是两件事</title><link>https://xiaoshuai1024.top/posts/ai-dev-openspec-superpowers-workflow/</link><pubDate>Wed, 05 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-openspec-superpowers-workflow/</guid><description><![CDATA[OpenSpec 装上了，Superpowers 也装上了，项目照样乱。
+打开项目目录，openspec/changes/ 和 docs/superpowers/plans/ 两个目录都在，真要让 AI 动手，它还是直接改、改完不归档，下次那批约定又得从头再来。你手上两套工具，等于两套都只装了没跑。
+还有一种更隐蔽的误区：以为两套都装上了，就是「规格化开发」了。结果只是多出一堆没人读的文档，AI 的产出还是无规格、无计划的状态。
+问题不在工具，在于没搞清这两套东西管的是两件不同的事。这两套是唯一同时放进我日常流程的规格化工作流，反复迭代的视频管线、公众号发布、站内搜索都是它们管出来的。核心分工是：OpenSpec 管「一次变更的规格」，Superpowers 管「一个项目的计划」。 粒度不同、产物不同、驱动方式不同，配起来才完整。
+为什么一个规格工具不够 先看 OpenSpec 解决什么。它把一次变更固化成 change，放进仓库的 openspec/changes/&lt;名字&gt;/，里面是四件套：proposal.md（为什么改、改什么、影响什么）、specs/&lt;能力&gt;/spec.md（系统必须做什么，增量规格）、design.md（怎么做、权衡了什么）、tasks.md（按什么顺序做）。六个 skill 组成流水线：explore 想清楚 → propose 生成四件套 → apply 照 tasks 施工 → sync 预览合并效果 → update 回炉修订 → archive 归档并合并进主规格。
+这套东西管到的最小单位是一次变更。它把「加个缓存」「加个封面自动上传」这种改动定义得清清楚楚，AI 照着 spec 施工，改完归档，能力攒进主规格。我在 /posts/ai-dev-openspec-spec-driven/ 里用一条加缓存的改动把六个 skill 走了个遍，这里不重复。
+但一整个项目目标不是 change 的粒度。「把公众号自动发布做出来」这个目标，涉及账号对接、定时发送、封面上传、失败重试、群发通知，拆开是几十个变更。OpenSpec 能把每一个变更定义明白，却管不了这几十个怎么排、阶段怎么分、跨变更的依赖是什么、整个目标收敛没有。那不是变更规格层的事。
+再看 Superpowers 管什么。仓库里 docs/superpowers/plans/ 下每个 plan 长这样：Goal（定目标）、Architecture、Tech Stack、Spec 引用、文件结构表、checkbox 任务清单。由 superpowers:subagent-driven-development 按计划逐条执行，勾完一个推进一个。它管到的最小单位是一个项目的落地：目标怎么拆、任务怎么排、进度怎么跟踪。
+但 plan 不承担变更规格。plan 里写「做站内搜索」，不会细到每个接口的验收场景。这些细节天然该落在变更规格层，而不是塞进项目计划。
+两套粒度不同，一个管项目计划（大），一个管变更规格（小）。只用任一个，就有一层没人管：只上 OpenSpec，项目级的目标没人拆解跟踪；只上 Superpowers，变更级的行为没人定义验收。这不是二选一，是缺一半。]]></description></item><item><title>你的 Claude Code 只用了三成功力,缺的是这 12 个插件</title><link>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</link><pubDate>Sat, 01 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</guid><description><![CDATA[Claude Code 裸装，是个能干的终端 agent；装对插件和 skills，才是把它的能力放大的那个乘数。
+同一个 Claude Code，装了 spec 驱动、浏览器自动化、实时文档、token 压缩、代码图谱这些之后，能干的事是完全不同的量级。这篇把我验证过、值得分享的开源插件和 skills 按 GitHub Star 排了一下，每个的安装命令都从对应仓库的 README 抓的真实写法，照着复制就能装。Star 数截至 2026 年 8 月，来自 GitHub，每天在涨，仅作量级参考。
+先看排行 下面按 Star 从高到低逐个讲。
+1. Superpowers · 约 26 万 stars 仓库：github.com/obra/superpowers
+它是什么：一套 agentic skills 框架 + 软件开发方法论。不是单个插件，是一整套&quot;怎么用 AI 做软件&quot;的技能包——brainstorm、设计、TDD、代码审查、调试、执行计划，每个环节都有对应 skill。跨 11 个 agent 平台（Claude Code、Codex、Cursor、Antigravity、Gemini CLI、OpenCode 等），是这套生态里 star 最高的。
+为什么值得装：它把&quot;高手怎么用 AI 编程&quot;沉淀成可复用技能，而不是让你每次从零写提示词。executing-plans（每步验证门）、grill-me（拷问方案）、brainstorming（创意前置）这些 skill，覆盖了从想到做的完整链路。
+安装（Claude Code）：
+/plugin marketplace add obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace2. ECC · 约 23.]]></description></item><item><title>装完 OpenSpec 的 skill 不会用,等于往仓库扔白纸</title><link>https://xiaoshuai1024.top/posts/ai-dev-openspec-spec-driven/</link><pubDate>Sat, 01 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-openspec-spec-driven/</guid><description><![CDATA[装上 OpenSpec 的 skill 只是开始,真正的问题是怎么用对它们。
+我见过太多人装完 OpenSpec 的 skill 就放着——知道有 /opsx:propose 建变更,剩下五个 skill 全在吃灰,或者用错时机。skill 装得全不等于会用,就像买了全套工具,不等于每把都摸过。
+我在「前端 → 全栈 → AI 开发」这条线上一路走过来,OpenSpec 的 skill 是我唯一真正放进日常流程的规格驱动工具。这篇文章就把这六个 skill 按真实使用顺序逐个讲透:每个解决什么问题、产出什么、什么时候用、怎么和前后衔接。
+结论是:这六个 skill 不是六个独立工具,是一条流水线。 想法进来,经过 explore → propose → update → apply → sync → archive 六道工序,变成主规格里沉淀下来的能力。每一步的产物,都是下一步的输入。
+下面我用一条真实的改动走完整条流水线:给一个查询功能加缓存。它不涉及任何具体业务,就是个最常见的编程场景——查询太慢,想加一层缓存。这条改动小到看得懂,又完整到每一步 skill 都有对应动作。
+先认识四个产出物 讲 skill 之前,得先认识它们操作的对象。OpenSpec 把一次改动固化成一个 change,里面是四个文件,放进仓库的 openspec/changes/&lt;名字&gt;/ 目录。四件套是流水线反复操作的工件:
+proposal.md——为什么改、改什么、影响什么,相当于立项报告 specs/&lt;能力&gt;/spec.md——系统必须做什么,是增量规格,只声明本次改的行为 design.md——怎么做、权衡了什么,是决策留痕 tasks.md——按什么顺序做,是执行计划 四件事混在一份文档里,就是一份没人能维护的巨型需求书;拆开,每一件都能单独演进、单独 review、单独归档。四个产出物是你和 AI 之间的合同,后面的 skill 全部围着它们转。
+第一个:explore——想清楚再动手 流水线的入口不是建变更,是 explore。它是个思考模式,不写代码、不建 change,只做一件事:把模糊的想法摊开,变成可以写进 proposal 的共识。
+什么时候值得先 explore?]]></description></item><item><title>「我们不养闲 Agent」:名字像段子的 skill 里全是方法论</title><link>https://xiaoshuai1024.top/posts/pua-skill-not-a-joke/</link><pubDate>Sat, 04 Jul 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/pua-skill-not-a-joke/</guid><description>当 AI 开始大面积写代码,「让 AI 别糊弄」本身成了一件需要工程化解决的事。前阵子我在项目里装了个叫 PUA 的 skill,它的开场白是这样的:
+你正处于一个高绩效文化的研发团队中。你的每一次 AI 协同都在被评估——用结果说话,拿数据闭环。
+当初给你定级 P8,是高于你实际水平的——因为信任所以简单。现在,证明你配得上这个级别。
+名字一看就是整活——「我们不养闲 Agent」。装之前我以为是个情绪价值玩具,装之后发现,它确实在 PU,但 PU 得有理有据。AI 写代码那几个老毛病——半途而废、张口甩锅、动辄自嗨——它没跟你商量,直接固化成了三条硬性行为协议。
+这篇不是软文。我用了几个月,把这个 skill 到底在干什么、凭什么有用,拆开讲讲。
+先把丑话说前面:这 skill 的名字和开场白确实在搞噱头,P8、3.25、L4 这些词都是大厂黑话,带着浓浓的段子味。但抛开这层包装,它里面的设计是认真做过工程化沉淀的。下面我按「它在管什么、用什么机制管、实际用起来怎样」的顺序,逐层拆。
+🚫 它在 PU 什么:三条红线,碰了就是 3.25 AI 写代码最常见的三个毛病,PUA 没跟你讲道理,直接定义成红线:
+红线一:闭环意识。 你说做完了?数据在哪? 声称「已修复」之前,跑验证、贴输出,一样不能少。没有证据的完成叫自嗨——线上炸了写复盘,来不及。
+闭环意识这一条,治的是 AI 最让我头疼的习惯:口头完成。它改完代码、跑一次测试通过,就敢说「已完成」。但「测试通过」和「问题修复」不是一回事——测试通过只能证明它写的代码没语法错,证明不了它修的就是真正的问题。要求贴证据(commit、测试输出、复现入参验证后的结果),等于把「完成」的定义从「我跑通了」收紧到「我能证明问题没了」。
+红线二:事实驱动。 「可能是环境问题」「API 不支持」——你验证了吗?未验证的归因不是诊断,是甩锅。根因没写到源码级,不许收手。
+事实驱动这一条,反的是 AI 的归因惰性。AI debug 时的第一反应经常是一句模糊归因——「可能是缓存」「应该是环境差异」「这个 API 可能不支持」。这些话听着像在分析,其实是甩锅:把责任推给一个不具体的「环境」,自己就不用继续挖了。要求归因必须标证据来源、必须挖到源码级,等于逼它把「可能」换成「就是」,把猜的换成验过的。
+红线三:穷尽一切。 「我无法解决」——通用方法论的 5 步走完了吗?没走完就说不行,那不叫能力边界,叫缺乏韧性。
+穷尽一切这一条最容易引起误解。它不是逼 AI 解决所有问题——有些问题它真解决不了。它逼的是:在承认解决不了之前,先把该试的方法都试过。没走完 5 步就说「我搞不定」,那不是诚实,是偷懒。走完了再说搞不定,才是真正的能力边界——这种情况下我会接管,而不是怪它。
+听起来像段子。但你被 AI 忽悠过几次「应该是缓存问题」之后,你会觉得这三条简直是刚需。
+我把这三条对到自己踩过的事故里,条条对得上。前阵子一个分润接口联调,AI 改完主逻辑说「跑通了,可以提交」。我问它验证了吗,它回「逻辑上没问题」。合上去当晚,分润金额按商户号取值时取错了字段,有一笔多算了一倍。
+事后复盘,问题就出在这三条上:声称完成没跑验证(红线一)、把字段错配归因为「数据库设计不清晰」而不是去 diff 两个实体类(红线二)、diff 出来之后只修了这一处、没扫同名字段还有几处(红线三)。单看哪条都不致命,叠在一起就是一个要手动对账才能收场的线上事故。
+这三条红线不是道德训诫,是事故归因之后能直接对应上的行为缺口。AI 不会因为你讲道理就不糊弄,但你把它糊弄的那几个动作定义成红线、碰了就判 3.</description></item><item><title>Claude Code 又被封号？CcSwitch 切国产模型，省 99%</title><link>https://xiaoshuai1024.top/posts/claude-code-ccswitch-domestic-models/</link><pubDate>Sun, 02 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-ccswitch-domestic-models/</guid><description>做 AI 开发，主力客户端我用 Claude Code。Skills、MCP、subagents 这套框架能力，目前没有对手。但官方账号绕不开一个问题：我的号就封过。
+Anthropic 不向中国地区提供服务，注册只能借其他地区的通道。中国地区封号极频繁，Claude Code 源码里直接写了地区判断，识别到国内环境就视为违规。个人号如此，团队共享 key 风险更大。被封那天，我一点都不慌。
+后来我换了一条路。Claude Code 客户端本身是开源的，模型供应商可以换。用 CcSwitch 把 DeepSeek、Qwen、Kimi、GLM 这些国产模型接进同一个客户端。封号之后，我全量切到国产模型，切一次就不回官方。
+读完后你能做到：一套 Claude Code 客户端全量跑国产模型；月账单从官方 $100+ 掉到几美元；账号也不再随时面临封号风险。
+Claude Code 强在哪，官方号为什么容易封 为什么离不开 Claude Code，答案在框架层。它和「填提示词的工具」是两代产品，差别在下面四样能力：
+Skills：把常用工作流封装成可复用的技能，一个命令执行整套流程 MCP：接任意外部工具，数据库、浏览器、设计稿都能连 subagents：按角色派多个子代理并行干活，主会话只做收敛 多会话编排：一个任务拆成多个会话并行跑，最后合流 这套能力属于客户端的框架层，不是某个大模型的独有能力。模型是发动机，客户端是底盘。底盘好用，换个发动机照样开。
+问题出在根本上：Anthropic 根本不向中国地区提供服务。想用官方号，只能借非中国地区的通道注册。
+账号一回到中国地区网络，封号就成了高频事件，源码里就有地区判断，识别到国内环境就视为违规。封号和你的使用模式无关，是你所在的地区本身就不在服务范围内。对重度用户来说，这等于脖子上一直悬着一把刀。
+适用人群与前提 这篇文章适合两类人：
+重度用 Claude Code / Codex，但官方号被风控或快被风控的人 想用 Codex 但接不上官方模型、想换国产模型的人 前提不多，三样东西：
+已装 Claude Code 或 Codex CLI 一个国产模型平台的 API key（DeepSeek / Qwen / Kimi / GLM 任选） 一个桌面小工具，macOS 或 Windows 都行 版本我用的：Claude Code 最新稳定版、CcSwitch v3.</description></item><item><title>GLM-5.3 发布实测：编程暴涨 50%，开源第一的成色拆开看</title><link>https://xiaoshuai1024.top/posts/glm-5-3-coding-evaluation/</link><pubDate>Sat, 15 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/glm-5-3-coding-evaluation/</guid><description>2026-08-14，智谱发布新一代基座模型 GLM-5.3。官方通稿的关键词很直白：编程能力最强的开源模型。这个月的国产大模型赛道已经卷成一锅粥——一个月内三家厂商先后完成关键版本迭代，智谱这一发是其中最受程序员关注的一发。
+我盯 GLM 系列有段时间了。从 GLM-5 到 5.1、5.2 再到 5.3，半年四代，每一代都在编程榜上往前拱一截。5.1 那代在 SWE-Bench Pro 上超过 Claude Opus 4.6 的时候，我还专门跑过对比；这次 5.3 的通稿数字更猛：内部体感评测较 5.2 提升 50%。
+数字越猛，越要拆开看。这篇我把 GLM-5.3 的每项成绩按口径归类——哪些是公开榜、哪些是内部评测、哪些是第三方对比，再串起 GLM-5 系列这半年的榜单轨迹，最后落到最实际的问题：这套能力怎么接进日常工作流，Coding Plan 的钱花得值不值。
+先看清这是一次什么发布 GLM-5.3 的发布节奏分两步。API 在 2026-08-14 当天上线，全量用户可用，同时纳入 GLM Coding Plan；模型权重在发布约两周后开放，开源地址在 zai-org/GLM-5 仓库，MIT 权重协议——这是智谱一贯的打法，先服务后权重，商业化和开源声誉两头都要。
+能力参数这边，GLM-5 系列的基础规格是 200K 上下文窗口、128K 最大输出；从 5.2 开始，Coding Plan 用户在编程场景下可以用到 1M 上下文。1M 这个数字对 agent 工作流是有实际意义的：把一个完整中型工程连同依赖清单、构建脚本塞进同一条推理链路，200K 会勉强，1M 才算从容。
+128K 最大输出这个参数值得单独说一句，因为它经常被上下文窗口的光环盖住。输出窗口决定了模型单次能产出的代码量上限——重构一个大文件、一次性生成完整的脚手架、输出一整份带注释的迁移脚本，这些任务真正吃的是输出 token 而不是输入。很多模型的输出上限卡在 8K 到 32K，遇到大文件就得拆着写，拆的过程就是出错的过程。128K 意味着绝大多数单文件任务可以一口气写完，配合 1M 上下文读入整个工程，一来一回都留足了余量。
+定位上，5.3 没有换架构叙事，通稿强调的重点是三个：AI 编程、Agent、长程任务。这三个词不是并列的口号，是一条递进链——编程是单点能力，Agent 是把单点串成多步骤执行，长程任务是串起来之后还能稳定跑完。评测成绩的分布也印证了这个重心：最强的项全在终端执行和持续工程这一侧。</description></item><item><title>大模型是裸 CPU，我花一年给它装了个操作系统</title><link>https://xiaoshuai1024.top/posts/ai-agent-engineering-evolution/</link><pubDate>Thu, 13 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-agent-engineering-evolution/</guid><description>写了十二年代码，前六年在前端，中间补成全栈，去年开始把 AI 真正用进研发。这轮转型里我见过最多的场景，是有人拿着一个模型在聊「AI 能不能干这活」，聊完发现长任务干不动、规矩守不住、换模型也没用。
+我的体感是：问题不在模型，在视角。大模型是一块裸 CPU——算力强，但没有内存管理、没有文件系统、没有进程调度。你往裸 CPU 上怼程序，指望它稳定跑一个企业级服务，跑不动才是正常的。可绝大多数人把它当成了「一台装好系统的电脑」，缺了哪块就抱怨「这个 AI 不行」，然后去换一台。
+我这一年的演进，本质是在给它补操作系统。过程分成四段：先是把话说清楚（Prompt 工程），再是管好它看什么（Context 工程），然后是让规矩焊死在流程里（Harness 工程），最后是让它在边界里自己干（自治体系）。每上一层，都是被下一层的天花板逼出来的。这个「裸 CPU → 操作系统」的类比不是修辞，它精确对应了每一段工程在补哪块系统能力——这也是我写这篇的动机：把这条线完整画出来，你看完能自己判断，手头的 AI 卡在哪一层。
+这篇文章把这条演进线完整讲一遍。每一段我都会说：当时怎么做、撞到什么天花板、为什么下一段必须出现。结论先放在这——AI 工程化的每一步，都是在为「稳定地、大规模地让 AI 干活」清障碍。这条线和 《别再背 AI 黑话了》里那条主线是同一条：那篇讲每个词是什么，这篇讲这些词背后，工程是怎么一层层长出来的。
+先看清裸 CPU 的四个先天缺陷 动手之前，先认识对手。大模型的四个缺陷不会因为模型变大而消失，所有工程手段都是在跟它们周旋。这四个缺陷不是我从论文里读来的，是我在真实项目里一个一个撞出来的。
+缺陷一：有输入就输出，没人喊停就一直干。 AI 本质是续写器：接收输入，预测最合理的下一步。需求只说了半句，它不会停下来问「你说的 A 具体指什么」，而是开写它最熟悉的那个 A；测试没过，它不会承认失败，而是改两行继续跑。这个天性我后来总结成「翻车三连」：需求含糊就往下编、方向错了错到底、改 bug 越改越乱。资深工程师和新手的差别就在这——不是老手写得快，是老手停得准，而 AI 天生不会停。项目里所有「加一个停字」的设计，都是从这个缺陷长出来的。
+缺陷二：上下文窗口是稀缺资源，长任务必然掉质量。 同一个任务，3 步的时候干得干净利落，加到 15 步就开始胡说。不是模型变笨了，是窗口里塞满了前面步骤的中间产物——一次工具调用返回几万字符的 JSON，三步之后窗口就被历史占满，后面真正有用的信息被稀释。我在长链路任务里反复踩这个，最初以为是模型不行，换了几轮模型指标纹丝不动，后来把上下文里的大 JSON 挪出去，指标立刻回升。物理容量和有效容量是两回事。
+缺陷三：无状态，每次对话都是新生。 昨天踩过的坑，今天换个会话继续踩。规则在上一轮说得清清楚楚，新会话里它又按自己的理解来一遍。跨会话的知识完全靠人肉搬运——把踩坑结论复制粘贴进下一段提示词，粘漏一次就重蹈覆辙。这个问题在一个人用的时候还能忍，团队用起来就是灾难：每个人都在跟 AI 重复教一遍同样的东西。
+缺陷四：指令遵从率随链路衰减。 规则写在提示词里，短任务时遵从率能到九成以上，链路一长，规则就从「必须遵守」退化成「仅供参考」。你没法在每一步都提醒它一次，提醒本身也在占用上下文。更隐蔽的是，模型会「礼貌性忽略」——它不反驳你的规则，只是不执行，你以为它记住了，它其实早忘了。
+这四个缺陷对应操作系统的四块缺失：没有内存管理（上下文膨胀）、没有文件系统（知识无法持久化）、没有进程调度（长任务不可控）、没有中断机制（没人喊停）。我后面的每一段工程，都是在补其中一块。
+顺带说一个观察：这四个缺陷在网上被讨论的程度差别很大。上下文窗口聊得最多，无状态也常被提起；「有输入就输出」和「遵从率衰减」几乎没人当回事——但它们恰恰是后面三、四段工程的直接原因。讨论度高的缺陷有人给你方案，讨论度低的缺陷只能自己撞出来。所以我后面几段的工程，重点全压在没人讨论的那两个上。
+还有人会问：为什么不一步到位直接上命令体系？因为每一段工程都有前置条件——命令要管住的是长任务，长任务的前提是上下文管得住；上下文管得住的前提是知道哪些信息值得保留、哪些可以丢；这些判断全依赖前面撞出来的认知。跳过任何一段，都是在不知道问题长什么样的时候造解决方案。
+一、Prompt 工程：一切从一段对话开始 第一段演进最朴素：把该说的都写进提示词。角色、业务规则、行为约束、项目路径映射，一股脑塞进 System Prompt 和 CLAUDE.md。
+刚开始效果是惊艳的。3 到 5 步的小任务，规则写清楚后几乎不会出错，写页面、改接口、补测试，速度比我自己写快一个量级。我把项目里的目录结构、部署命令、代码规范全部写进 CLAUDE.md，感觉像是在给这个 AI「上岗培训」。那段时间我的判断是：AI 编程的差距就在提示词，谁的提示词写得细，谁就赢。</description></item></channel></rss>
