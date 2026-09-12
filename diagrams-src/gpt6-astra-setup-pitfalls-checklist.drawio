@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="八件准备事" id="cl1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="GPT-6 开放前八件准备事（备查卡）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="30" width="660" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="订阅决策组" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="i1" value="① 查订阅档位是否在第二段开放范围（Plus/Pro/Business/Enterprise），Pro 系确认 Astra Pro 覆盖&#10;② 算清自己走订阅还是 API：重活长活优先订阅额度，零碎活留给便宜模型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="790" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="入口与预算组" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="190" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="i2" value="③ API 侧备好组织与密钥，设预算告警和月度上限（输出价是输入 5 倍，不设上限等于裸奔）&#10;④ 需要云通道的提前核对 AWS 渠道开通状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="180" width="790" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="试用队列组" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="i3" value="⑤ 排定试用队列：十个真实需求 + 三类代表任务（全库分析 / 超长编码 / 深度调试），环境与提示词先固定&#10;⑥ 打印验收三维度清单：一次通过率、成本结构、二十万字长上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ca8a04;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="280" width="790" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4" value="已知坑规避组" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="i4" value="⑦ 价格结构预演：先按「输出 = 输入 ×5」给自己最常用的任务类型估一遍月开销&#10;⑧ 知识截止 2026-04-30：新框架特性提前备好要喂的文档清单，开放即测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="380" width="790" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="开放当天动作：入口到手 → 先跑试用队列三代表 → 当晚对照验收三维度出第一版数据" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#475569;fontSize=12;dashed=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="490" width="880" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

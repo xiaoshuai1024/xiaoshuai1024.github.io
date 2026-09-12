@@ -1,0 +1,32 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Codex压缩双路" id="cxcompact">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="660" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="trig" value="触发：turn loop 每轮检查 token_limit_reached&#10;（session/context_window.rs :: context_window_token_status）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="50" width="840" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="local" value="本地压缩（compact.rs）&#10;run_compact_task :143（手动）/ run_inline_auto_compact_task :111（自动）&#10;发 CodexResponsesRequestKind::Compaction 独立摘要请求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="400" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="remote" value="服务端压缩（compact_remote*.rs）&#10;历史在云端，客户端不拉全量&#10;配 compact_model_fallback.rs：主模型失败换备选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="170" width="400" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="cow" value="历史结构：ContextManager（history.rs:52）&#10;items: Arc&lt;Vec&lt;ResponseItemEnvelope&gt;&gt;，oldest 在前，copy-on-write&#10;每次 compaction / rollback bump history_version，旧快照可查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="840" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="pre" value="写入前截断：truncate_function_output_items_with_policy&#10;（codex-utils-output-truncation crate）——防患于未然，不是事后清理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="420" width="840" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="disk" value="落盘：rollout crate——JSONL（recorder.rs）+ 倒序扫描&#10;（reverse_jsonl_scanner.rs）+ SQLite 索引（state_db.rs）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="516" width="840" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="云端会话走这边" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="trig" target="local"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="trig" target="remote"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="local" target="cow"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="cow" target="disk"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

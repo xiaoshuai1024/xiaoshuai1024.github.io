@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="vsds" name="glm-5-3-vs-deepseek">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="760" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="GLM-5.3 vs DeepSeek V4 系列：能力和价格（2026-08 快照）" style="text;html=1;fontSize=14;fontColor=#1e293b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="36" y="18" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="SWE-bench Pro（%）" style="text;html=1;fontSize=12;fontColor=#64748b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="36" y="56" width="200" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r11" value="GLM-5.2" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="140" y="80" width="80" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r11b" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="82" width="310" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r11t" value="62.1" style="text;html=1;fontSize=12;fontColor=#2563eb;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="544" y="80" width="44" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r12" value="GLM-5.1" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="140" y="104" width="80" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r12b" value="" style="rounded=0;fillColor=#dbeafe;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="106" width="292" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r12t" value="58.4" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="526" y="104" width="44" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r13" value="V4 Pro" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="140" y="128" width="80" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r13b" value="" style="rounded=0;fillColor=#94a3b8;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="130" width="277" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r13t" value="≈55.4" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="511" y="128" width="50" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r14" value="V4" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="140" y="152" width="80" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r14b" value="" style="rounded=0;fillColor=#cbd5e1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="154" width="263" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r14t" value="≈52.6" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="497" y="152" width="50" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="输出价（元 / 百万 tokens，按量）" style="text;html=1;fontSize=12;fontColor=#64748b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="36" y="192" width="260" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r21" value="GLM API（5.2 参照）" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="60" y="216" width="160" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r21b" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="218" width="310" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r21t" value="≈31（$4.4）" style="text;html=1;fontSize=12;fontColor=#2563eb;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="544" y="216" width="90" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r22" value="V4 Pro" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="140" y="240" width="80" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r22b" value="" style="rounded=0;fillColor=#94a3b8;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="242" width="60" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r22t" value="6" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="294" y="240" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r23" value="V4" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="140" y="264" width="80" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="r23b" value="" style="rounded=0;fillColor=#cbd5e1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="228" y="266" width="20" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="r23t" value="2" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="254" y="264" width="30" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="强项一句话" style="text;html=1;fontSize=12;fontColor=#64748b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="36" y="300" width="140" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="GLM-5.3：终端执行、长链路 agent（DeepSWE 66 / TB3.0 开源第一）、Coding Plan 149 元包月 + 1M 上下文" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;fillColor=#eff6ff;rounded=0;strokeColor=#bfdbfe;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="36" y="324" width="600" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="V4 Pro：单文件难题、算法（LiveCodeBench ≈93–94）、按量便宜到不用犹豫" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;fillColor=#f8fafc;rounded=0;strokeColor=#e2e8f0;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="36" y="356" width="600" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="V4：日常迭代性价比档，杂活批处理专用" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;fillColor=#f8fafc;rounded=0;strokeColor=#e2e8f0;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="36" y="388" width="600" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="注：跨榜口径不同；GLM-5.3 按量价未公布，以 5.2 参照；DeepSeek 高峰时段价格翻倍。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="36" y="432" width="600" height="18" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

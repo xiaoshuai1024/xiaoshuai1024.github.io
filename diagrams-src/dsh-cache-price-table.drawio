@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dsh-cache-price-table" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="hdrIn" value="输入档位（v4-flash · 每百万 token）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="232" width="420" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="hdrPrice" value="价格" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="620" y="232" width="300" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="rowHit" value="*缓存命中&lt;br&gt;空闲 0.05 元 · 高峰 0.10 元" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="296" width="420" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="rowMiss" value="未命中&lt;br&gt;空闲 1.5 元 · 高峰 3.0 元" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="620" y="296" width="300" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="note30x" value="价差恰 30 倍 · 来源 DeepSeek 官方 API 价格页" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="436" width="560" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

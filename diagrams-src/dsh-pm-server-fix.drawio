@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="fix" id="d2">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zl" value="修复前" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=16;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="420" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="zr" value="修复后" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=16;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="140" width="430" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" value="URL 不可见" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="210" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="HTTP 200 就当成功" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="306" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="先起服务再说" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="402" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" value="当前 URL 与运行模式对模型可见、shell 可查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="745" y="210" width="340" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="独立 Vite 监听前拒绝启动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="745" y="306" width="340" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="验收依据换外部状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="745" y="402" width="340" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="mid" value="三道闸" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="zl" target="zr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

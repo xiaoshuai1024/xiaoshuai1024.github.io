@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层骨架对照" id="t4layers1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="top" value="协作机制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="topT" value="团队版&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;页面圈点评论提需求&lt;br&gt;能力地图防重复&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="220" y="50" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="topS" value="我的 solo 版&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;待办收件箱 + 分析报告&lt;br&gt;台账看板当能力地图&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="540" y="50" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="mid" value="工程护栏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="midT" value="团队版&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;AGENTS.md / 容器规则 / 记忆&lt;br&gt;Skills 预装 + 腐化双技能分离&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="220" y="210" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="midS" value="我的 solo 版&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;三级指令文件分层&lt;br&gt;20 个 skill + 独立 lint 验收&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="540" y="210" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="base" value="基础设施" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="baseT" value="团队版&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;SDK submodule + 标准设施&lt;br&gt;新项目直接继承&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="220" y="370" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="baseS" value="我的 solo 版&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Makefile 一条命令一个动作&lt;br&gt;JSON 台账 + 自动看板&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="540" y="370" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="lt" value="团队版" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#1e293b;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="20" width="60" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="ls" value="solo 版" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontColor=#1e293b;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="20" width="60" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="vision 疑点漏斗" id="ac3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="vision 只当实习生：407 个疑点的过滤漏斗" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="36" width="480" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" value="380 张截图&#10;启发式筛选（大小异常先行）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="18 张代表页&#10;vision 深审，报 407 个疑点" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="110" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="代码审计交叉验证&#10;design token + DOM 计算样式扫描" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="110" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="4 个真问题&#10;（硬编码颜色，立项修）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="110" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="f1" target="f2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="f2" target="f3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="f3" target="f4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="hallu" value="幻觉样本：红角标认成客服按钮 / 浅渐变认成纯白 / 凭空报紫蓝主色——vision 把它没理解的当成有问题的" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="760" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="rule" value="纪律：vision 只提疑问不下结论；每个疑点要么被代码证实，要么被代码否决，不许「没法验证但先信它」" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="860" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

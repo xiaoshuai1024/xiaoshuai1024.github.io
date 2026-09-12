@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="sessions" name="三会话分离">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s1" value="会话一：分析&#10;&#10;只做分析，不动代码：&#10;需求拆解、影响范围清单、&#10;回归测试计划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;verticalAlign=top;fontStyle=1;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="会话二：实现&#10;&#10;只干一件事：&#10;按确认过的方案改代码，&#10;跑通测试、留下证据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;verticalAlign=top;fontStyle=1;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="370" y="120" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="会话三：审查&#10;&#10;全新上下文的新人：&#10;只看三样材料，逐项给结论，&#10;找不到证据就说「无法确认」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontSize=12;fontColor=#ffffff;verticalAlign=top;fontStyle=1;spacingTop=8" vertex="1" parent="1">
+          <mxGeometry x="690" y="120" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="影响分析报告 + 测试计划" style="text;html=1;align=center;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="290" y="150" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="代码差异 + 测试证据（四件套）" style="text;html=1;align=center;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="610" y="150" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="master" value="主分支" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="410" y="400" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="通过才合并" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;fontSize=12;fontColor=#2563eb;" edge="1" parent="1" source="s3" target="master">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="warn" value="同一个会话连做四步 = 复读机：理解偏一度，方案、代码、自查全部沿错误前提走一遍" style="text;html=1;align=center;fontSize=12;fontColor=#64748b" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="660" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="被打回就重开实现" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;dashed=1;endArrow=block;fontSize=12;fontColor=#64748b;" edge="1" parent="1" source="s3" target="s2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

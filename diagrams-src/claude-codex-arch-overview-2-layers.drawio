@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="分层架构对比" id="layers1">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="860" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ccBox" value="Claude Code：单进程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="90" y="60" width="420" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxBox" value="Codex：多进程多 crate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="640" y="60" width="460" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccUi" value="终端 UI（Ink / React 渲染）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="110" width="360" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccLoop" value="主循环 VE（自递归 generator）&#10;入口 L416894" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="196" width="360" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccTools" value="工具层（Read / Edit / Bash / Task…）&#10;+ hooks 管线（PreToolUse 等 9 种事件）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="290" width="360" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccCtx" value="上下文管理（microcompact / auto-compact）&#10;内存里的 messages 数组" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="382" width="360" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccApi" value="Anthropic API client（流式 SSE）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="474" width="360" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccFs" value="本地文件 / .mcp.json / settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="550" width="360" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="ccUi" target="ccLoop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="ccLoop" target="ccTools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="ccTools" target="ccCtx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="ccLoop" target="ccApi">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="ccTools" target="ccFs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxTui" value="tui（终端界面进程）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="110" width="400" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxApp" value="app-server（JSON-RPC 宿主进程，IDE / 云端也走它）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="196" width="400" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxThread" value="ThreadManager → Session&#10;thread_manager.rs / session.rs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="282" width="400" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxTurn" value="run_turn（step loop + FuturesOrdered）&#10;tasks/regular.rs 驱动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="378" width="400" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxTools" value="ToolOrchestrator → ToolRouter → handlers&#10;审批 approvals + 沙箱 sandboxing（独立 crate）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="474" width="400" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxRoll" value="rollout（JSONL 落盘 + SQLite 索引）&#10;rmcp-client（MCP）/ skills（SKILL.md）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="556" width="400" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe6" value="JSON-RPC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="cxTui" target="cxApp">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="cxApp" target="cxThread">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="cxThread" target="cxTurn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="cxTurn" target="cxTools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxe10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="cxTurn" target="cxRoll">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend" value="蓝底 = 各自的调度核心。CC 的核心是一个函数；Codex 的核心横跨三层（线程管理、turn 执行、工具编排），每层都是独立 crate。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="120" y="660" width="920" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

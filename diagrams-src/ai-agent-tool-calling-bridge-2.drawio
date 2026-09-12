@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="一次工具调用时序" id="bridge-seq">
+    <mxGraphModel dx="1180" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="P_U" value="运营前端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_U" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="84" as="sourcePoint"/>
+            <mxPoint x="100" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_C" value="ChatService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_C" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="84" as="sourcePoint"/>
+            <mxPoint x="260" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_M" value="LLM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_M" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="84" as="sourcePoint"/>
+            <mxPoint x="430" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_FTC" value="FunctionToolCallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="40" width="160" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_FTC" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="84" as="sourcePoint"/>
+            <mxPoint x="620" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_H" value="OrderQueryTool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="40" width="130" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_H" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="825" y="84" as="sourcePoint"/>
+            <mxPoint x="825" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_LG" value="审计日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_LG" style="endArrow=none;dashed=1;html=1;strokeColor=#5eead4;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="84" as="sourcePoint"/>
+            <mxPoint x="1010" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="M1" value="今天订单怎么样(tenantId, userId)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="120" as="sourcePoint"/>
+            <mxPoint x="260" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M2" value="prompt + toolCallbacks + toolContext" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="168" as="sourcePoint"/>
+            <mxPoint x="430" y="168" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M3" value="决定调 query_orders(args)" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="216" as="sourcePoint"/>
+            <mxPoint x="620" y="216" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M4" value="self: 从 toolContext 构造 ToolContext" style="endArrow=block;html=1;strokeColor=#94a3b8;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#475569;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="260" as="sourcePoint"/>
+            <mxPoint x="660" y="260" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="660" y="260"/>
+              <mxPoint x="660" y="285"/>
+              <mxPoint x="620" y="285"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M5" value="execute(args, toolCtx)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="320" as="sourcePoint"/>
+            <mxPoint x="825" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M6" value="落审计(开始)" style="endArrow=block;html=1;strokeColor=#14b8a6;strokeWidth=1.5;fontSize=10;fontColor=#134e4a;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="825" y="365" as="sourcePoint"/>
+            <mxPoint x="1010" y="365" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M7" value="ToolResult.success(订单数据)" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="825" y="410" as="sourcePoint"/>
+            <mxPoint x="620" y="410" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M8" value="落审计(结果 / 耗时)" style="endArrow=block;html=1;strokeColor=#14b8a6;strokeWidth=1.5;fontSize=10;fontColor=#134e4a;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="455" as="sourcePoint"/>
+            <mxPoint x="1010" y="455" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M9" value="结果回喂续生成" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="500" as="sourcePoint"/>
+            <mxPoint x="430" y="500" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M10" value="Flux 增量文本" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="545" as="sourcePoint"/>
+            <mxPoint x="260" y="545" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M11" value="SSE delta(打字机效果)" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="590" as="sourcePoint"/>
+            <mxPoint x="100" y="590" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="NOTE" value="图例：实线 = 调用 / 同步返回；虚线箭头 = 异步返回值；青绿色 = 审计落库。租户上下文通过 toolContext 从 ChatService 一路透传到业务工具。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontSize=10;fontColor=#475569;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="635" width="1030" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

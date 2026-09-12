@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三信号" id="sg1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="换模三信号：缺一不换，不看发布会" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="30" width="660" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="信号一&#10;任务集稳定胜出&#10;&#10;最近十个真实需求重放&#10;一次通过率占优&#10;（不是跑分胜出）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="300" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="信号二&#10;成本压得平&#10;&#10;同样的活总开销不涨&#10;单价 × 量 × 轮次&#10;一起看" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="430" y="90" width="300" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="信号三&#10;接入成熟&#10;&#10;API 开放、客户端接好&#10;框架与工具链就位&#10;（GPT-6 当前在有限预览）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="90" width="300" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="go" value="三个信号全亮 → 转正进主力队列" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#1e293b;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="280" y="320" width="600" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="wait" value="缺任何一个 → 留在试用期，两周后复评" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontColor=#1e293b;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="600" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#16a34a;" edge="1" parent="1" source="s1" target="go"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#16a34a;" edge="1" parent="1" source="s2" target="go"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#16a34a;" edge="1" parent="1" source="s3" target="go"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="note" value="基准逼近满分后区分度归零，任务集重放是唯一可信判据（自测方法见跑分分层一篇）" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="480" width="660" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

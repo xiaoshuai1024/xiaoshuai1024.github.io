@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="numGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="512" height="512" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- 科技网格点 -->
+  <g fill="#dbeafe" opacity="0.18">
+    <circle cx="56" cy="56" r="5"/>
+    <circle cx="112" cy="56" r="5"/>
+    <circle cx="56" cy="112" r="5"/>
+    <circle cx="456" cy="56" r="5"/>
+    <circle cx="400" cy="56" r="5"/>
+    <circle cx="456" cy="112" r="5"/>
+    <circle cx="56" cy="456" r="5"/>
+    <circle cx="112" cy="456" r="5"/>
+    <circle cx="56" cy="400" r="5"/>
+    <circle cx="456" cy="456" r="5"/>
+    <circle cx="400" cy="456" r="5"/>
+    <circle cx="456" cy="400" r="5"/>
+  </g>
+
+  <!-- 终端提示符横线 -->
+  <rect x="96" y="116" width="80" height="12" rx="6" fill="#dbeafe" opacity="0.65"/>
+  <rect x="96" y="116" width="36" height="12" rx="6" fill="#ffffff"/>
+
+  <!-- 1024 文字: 系统等宽字体, 加粗, 居中 -->
+  <text x="256" y="372" text-anchor="middle"
+        font-family="'SF Mono', 'Menlo', 'Consolas', 'Courier New', monospace"
+        font-size="220" font-weight="800" letter-spacing="-8"
+        fill="url(#numGrad)">1024</text>
+</svg>

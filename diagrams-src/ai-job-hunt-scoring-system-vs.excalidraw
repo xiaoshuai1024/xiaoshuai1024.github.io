@@ -1,0 +1,294 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "blog-writing",
+  "elements": [
+    {
+      "id": "title", "type": "text", "x": 300, "y": 12, "width": 320, "height": 28,
+      "text": "古法求职 vs 打分求职", "fontSize": 20, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "top", "containerId": null,
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "古法求职 vs 打分求职"
+    },
+    {
+      "id": "hl", "type": "text", "x": 130, "y": 60, "width": 120, "height": 24,
+      "text": "古法求职", "fontSize": 16, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "top", "containerId": null,
+      "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "古法求职"
+    },
+    {
+      "id": "hr", "type": "text", "x": 640, "y": 60, "width": 120, "height": 24,
+      "text": "打分求职", "fontSize": 16, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "top", "containerId": null,
+      "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "打分求职"
+    },
+    {
+      "id": "l1", "type": "rectangle", "x": 60, "y": 100, "width": 240, "height": 64,
+      "strokeColor": "#e03131", "backgroundColor": "#ffc9c9", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "lt1", "type": "text"}, {"id": "la1", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "lt1", "type": "text", "x": 180, "y": 132, "width": 220, "height": 40,
+      "text": "看到岗位就投\n一套简历投遍天下", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "l1",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "看到岗位就投\n一套简历投遍天下"
+    },
+    {
+      "id": "l2", "type": "rectangle", "x": 60, "y": 196, "width": 240, "height": 64,
+      "strokeColor": "#e03131", "backgroundColor": "#ffc9c9", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "lt2", "type": "text"}, {"id": "la1", "type": "arrow"}, {"id": "la2", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "lt2", "type": "text", "x": 180, "y": 228, "width": 220, "height": 40,
+      "text": "学什么全看热点\n今天 RAG 明天 Agent", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "l2",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "学什么全看热点\n今天 RAG 明天 Agent"
+    },
+    {
+      "id": "l3", "type": "rectangle", "x": 60, "y": 292, "width": 240, "height": 64,
+      "strokeColor": "#e03131", "backgroundColor": "#ffc9c9", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "lt3", "type": "text"}, {"id": "la2", "type": "arrow"}, {"id": "la3", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "lt3", "type": "text", "x": 180, "y": 324, "width": 220, "height": 40,
+      "text": "收藏夹吃灰\n两周后忘干净", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "l3",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "收藏夹吃灰\n两周后忘干净"
+    },
+    {
+      "id": "l4", "type": "rectangle", "x": 60, "y": 388, "width": 240, "height": 64,
+      "strokeColor": "#e03131", "backgroundColor": "#ffc9c9", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "lt4", "type": "text"}, {"id": "la3", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "lt4", "type": "text", "x": 180, "y": 420, "width": 220, "height": 40,
+      "text": "面试裸奔\n全靠现场发挥", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "l4",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "面试裸奔\n全靠现场发挥"
+    },
+    {
+      "id": "r1", "type": "rectangle", "x": 560, "y": 100, "width": 280, "height": 64,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "rt1", "type": "text"}, {"id": "ra1", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "rt1", "type": "text", "x": 700, "y": 132, "width": 260, "height": 40,
+      "text": "/find-jobs：扫 8 个平台\n市场要什么，数据先说话", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "r1",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "/find-jobs：扫 8 个平台\n市场要什么，数据先说话"
+    },
+    {
+      "id": "r2", "type": "rectangle", "x": 560, "y": 196, "width": 280, "height": 64,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "rt2", "type": "text"}, {"id": "ra1", "type": "arrow"}, {"id": "ra2", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "rt2", "type": "text", "x": 700, "y": 228, "width": 260, "height": 40,
+      "text": "/skill-test：72 项技能打分\n0-5 分，做题不是凭感觉", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "r2",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "/skill-test：72 项技能打分\n0-5 分，做题不是凭感觉"
+    },
+    {
+      "id": "r3", "type": "rectangle", "x": 560, "y": 292, "width": 280, "height": 64,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "rt3", "type": "text"}, {"id": "ra2", "type": "arrow"}, {"id": "ra3", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "rt3", "type": "text", "x": 700, "y": 324, "width": 260, "height": 40,
+      "text": "/study：出题→测验→模拟面试\n错题归档，当天复盘", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "r3",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "/study：出题→测验→模拟面试\n错题归档，当天复盘"
+    },
+    {
+      "id": "r4", "type": "rectangle", "x": 560, "y": 388, "width": 280, "height": 64,
+      "strokeColor": "#1971c2", "backgroundColor": "#a5d8ff", "fillStyle": "solid",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": [{"id": "rt4", "type": "text"}, {"id": "ra3", "type": "arrow"}],
+      "updated": 1, "link": null, "locked": false, "groupIds": [], "roundness": {"type": 3}
+    },
+    {
+      "id": "rt4", "type": "text", "x": 700, "y": 420, "width": 260, "height": 40,
+      "text": "/interview-prep：按 JD 排练\n公司背调，复盘话术", "fontSize": 13, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "middle", "containerId": "r4",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "/interview-prep：按 JD 排练\n公司背调，复盘话术"
+    },
+    {
+      "id": "la1", "type": "arrow", "x": 180, "y": 166, "width": 0, "height": 28,
+      "points": [[0, 0], [0, 28]],
+      "startBinding": {"elementId": "l1", "focus": 0, "gap": 2},
+      "endBinding": {"elementId": "l2", "focus": 0, "gap": 2},
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": {"type": 2}, "elbowed": false,
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "la2", "type": "arrow", "x": 180, "y": 262, "width": 0, "height": 28,
+      "points": [[0, 0], [0, 28]],
+      "startBinding": {"elementId": "l2", "focus": 0, "gap": 2},
+      "endBinding": {"elementId": "l3", "focus": 0, "gap": 2},
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": {"type": 2}, "elbowed": false,
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "la3", "type": "arrow", "x": 180, "y": 358, "width": 0, "height": 28,
+      "points": [[0, 0], [0, 28]],
+      "startBinding": {"elementId": "l3", "focus": 0, "gap": 2},
+      "endBinding": {"elementId": "l4", "focus": 0, "gap": 2},
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": {"type": 2}, "elbowed": false,
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "ra1", "type": "arrow", "x": 700, "y": 166, "width": 0, "height": 28,
+      "points": [[0, 0], [0, 28]],
+      "startBinding": {"elementId": "r1", "focus": 0, "gap": 2},
+      "endBinding": {"elementId": "r2", "focus": 0, "gap": 2},
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": {"type": 2}, "elbowed": false,
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "ra2", "type": "arrow", "x": 700, "y": 262, "width": 0, "height": 28,
+      "points": [[0, 0], [0, 28]],
+      "startBinding": {"elementId": "r2", "focus": 0, "gap": 2},
+      "endBinding": {"elementId": "r3", "focus": 0, "gap": 2},
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": {"type": 2}, "elbowed": false,
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "ra3", "type": "arrow", "x": 700, "y": 358, "width": 0, "height": 28,
+      "points": [[0, 0], [0, 28]],
+      "startBinding": {"elementId": "r3", "focus": 0, "gap": 2},
+      "endBinding": {"elementId": "r4", "focus": 0, "gap": 2},
+      "startArrowhead": null, "endArrowhead": "arrow",
+      "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": {"type": 2}, "elbowed": false,
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "bl", "type": "text", "x": 90, "y": 480, "width": 240, "height": 24,
+      "text": "结果：投 100 份回 3 份，听天由命", "fontSize": 14, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "top", "containerId": null,
+      "strokeColor": "#e03131", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "结果：投 100 份回 3 份，听天由命"
+    },
+    {
+      "id": "br", "type": "text", "x": 620, "y": 480, "width": 200, "height": 24,
+      "text": "结果：分数线说了算", "fontSize": 14, "fontFamily": 1,
+      "textAlign": "center", "verticalAlign": "top", "containerId": null,
+      "strokeColor": "#1971c2", "backgroundColor": "transparent", "fillStyle": "hachure",
+      "strokeWidth": 1, "strokeStyle": "solid", "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": null, "version": 1, "versionNonce": null, "isDeleted": false,
+      "boundElements": null, "updated": 1, "link": null, "locked": false,
+      "groupIds": [], "roundness": null, "lineHeight": 1.25, "autoResize": true,
+      "originalText": "结果：分数线说了算"
+    }
+  ],
+  "appState": {"viewBackgroundColor": "#ffffff", "gridSize": null},
+  "files": {}
+}

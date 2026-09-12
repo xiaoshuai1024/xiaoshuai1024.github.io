@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>插件 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%8F%92%E4%BB%B6/</link><description>插件 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 18 Aug 2026 11:30:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%8F%92%E4%BB%B6/" rel="self" type="application/rss+xml"/><item><title>你的 Claude Code 只用了三成功力,缺的是这 12 个插件</title><link>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</link><pubDate>Sat, 01 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</guid><description><![CDATA[Claude Code 裸装，是个能干的终端 agent；装对插件和 skills，才是把它的能力放大的那个乘数。
+同一个 Claude Code，装了 spec 驱动、浏览器自动化、实时文档、token 压缩、代码图谱这些之后，能干的事是完全不同的量级。这篇把我验证过、值得分享的开源插件和 skills 按 GitHub Star 排了一下，每个的安装命令都从对应仓库的 README 抓的真实写法，照着复制就能装。Star 数截至 2026 年 8 月，来自 GitHub，每天在涨，仅作量级参考。
+先看排行 下面按 Star 从高到低逐个讲。
+1. Superpowers · 约 26 万 stars 仓库：github.com/obra/superpowers
+它是什么：一套 agentic skills 框架 + 软件开发方法论。不是单个插件，是一整套&quot;怎么用 AI 做软件&quot;的技能包——brainstorm、设计、TDD、代码审查、调试、执行计划，每个环节都有对应 skill。跨 11 个 agent 平台（Claude Code、Codex、Cursor、Antigravity、Gemini CLI、OpenCode 等），是这套生态里 star 最高的。
+为什么值得装：它把&quot;高手怎么用 AI 编程&quot;沉淀成可复用技能，而不是让你每次从零写提示词。executing-plans（每步验证门）、grill-me（拷问方案）、brainstorming（创意前置）这些 skill，覆盖了从想到做的完整链路。
+安装（Claude Code）：
+/plugin marketplace add obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace2. ECC · 约 23.]]></description></item><item><title>DeepSeek Harness 裸机是半成品：三类 10 个高 star 插件一次配齐</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</link><pubDate>Tue, 18 Aug 2026 11:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</guid><description>三天前我上手实测 dsh 的时候，dsh-plugin 话题下是 275 个仓库；写这篇文章的今天，这个数字过了 1400。中间我又把源码从头读了一遍。生态爆发的另一面是泥沙俱下：有给 Web UI 加 2005 年风格广告的整活插件，有「写代码的时候账户不能同时亏钱」的炒股面板，一天写完就没人维护的占了相当比例。
+这篇的选稿标准比上一版严了一档：只收高 star 且当天有维护动作的。理由很实际：生态爆发期 star 就是社区的预筛，几百人替你踩过坑的插件，排错时 issue 区里就有答案；而 star 个位数的仓库，哪怕方向再对，装了就是把排错责任全揽到自己身上。10 个插件全部过了 GitHub API 验证，star 数取 2026-08-18 的实测值，当天全部有提交。
+按「看 / 点 / 想」三类能力排开。读完之后，你能在 20 分钟内把它们装好，并且知道同类两个插件选哪个、装不上怎么办。
+先看全景：
+1400 个仓库怎么砍到 10 个 先交代筛法，你可以拿同样的标准自己去筛，不必认我的清单。
+第一刀砍 star 不够的。门槛不设固定值，但个位数 star 的直接跳过。不是否认方向，是这个阶段你耗不起排错时间。我上一版清单里有个零 star 的代码地图插件，方向很对，但没人验证过，这次按新标准请出去了。
+第二刀砍没有维护动作的。生态爆发期的典型寿命是「发布当天一个 commit，之后永远沉默」。我看仓库先看最近一次提交时间，再看 issue 区有没有人报错、作者有没有回。这次 10 个的最后一次 push 全部在 2026-08-17 或 2026-08-18，跟进 rc 的速度就是生存意愿。
+第三刀砍不声明适配版本的。dsh 三天发了 6 个 rc，插件作者如果连「我适配的是 rc 几」都没写，说明他自己也没认真跟。这个信号在 README 第一屏就能看到，两秒钟排除一个。</description></item><item><title>Claude 和 Codex 必装的 10 大插件:双持大半年,两边都给我装上了</title><link>https://xiaoshuai1024.top/posts/claude-codex-top10-plugins/</link><pubDate>Sun, 16 Aug 2026 19:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-codex-top10-plugins/</guid><description>今年我的工作流稳定成了一个固定搭配：白天主力 Claude Code，跑长任务和交叉验证用 Codex。两个 agent 换着用之后遇到一个现实问题——给 Claude Code 精心挑的插件和 skills，切到 Codex 就没了，反过来一样。
+好在插件里最有价值的 skill 这层东西天生就是跨端的：一个仓库里放一个 SKILL.md 加几个参考文件，Claude Code 读它，Codex 也读它。2026 年这个生态已经变了样：OpenAI 给 Codex 上齐了 skills 和插件系统，Vercel、Trail of Bits 这些工程团队把内部经验直接开源成 skill 格式，Anthropic 官方仓库涨到 17 万 star。skill 正在变成 agent 界的 npm 包——写一次，全平台装。
+这篇是 Claude Code 必装插件的姊妹篇，口径换成双端：Claude 和 Codex 必装的 10 大插件，按 GitHub Star 排行，挑两边都能装、都值得装的。和上篇有五个重合（Superpowers、ECC、karpathy、graphify、Context7）——不是偷懒，是双持之后我对它们的评估又深了一层，安装命令也补了 Codex 侧的写法。Star 数截至 2026 年 8 月，用 GitHub API 现查的，每天在涨，只作量级参考。
+先分清三个词 讲插件之前，把三个容易混的词掰开，后面选型才不晕：
+skill 是一份说明书。一个文件夹，核心是一篇 SKILL.md——告诉 agent 某类任务怎么做，可以带参考文档和脚本。它不改 agent 本身，就是往它的「工作记忆」里塞经验。因为只是文件，谁都能读，所以 Claude 和 Codex 通用。</description></item></channel></rss>

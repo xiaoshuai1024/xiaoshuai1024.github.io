@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="每轮全量重发" id="flow1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="you" value="你（终端）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="70" y="230" width="130" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="pack" value="Codex 打包器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="140" width="330" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="i1" value="系统提示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="348" y="214" width="140" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="i2" value="AGENTS.md（每轮计费）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="504" y="214" width="140" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="i3" value="前面所有轮次对话" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="348" y="262" width="140" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="i4" value="工具输出（读文件结果等）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="504" y="262" width="140" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="模型（无状态）&#10;对你的全部记忆 = 这一个请求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="790" y="212" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="第 N 轮" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;" edge="1" parent="1" source="you" target="pack">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="整包重发" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#2563eb;fontStyle=1;" edge="1" parent="1" source="pack" target="model">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="输入只涨不降：第 1 轮 20,611 → 第 54 轮 226,262（同一任务）&#10;该会话总输入 952 万 token，总输出 6.6 万，输入:输出 = 144:1" style="text;html=1;align=left;vertical-align=middle;fontColor=#475569;fontSize=12;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="330" y="380" width="480" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop" value="× 每一轮都重来一遍" style="text;html=1;align=left;vertical-align=middle;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="200" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,9 @@
+<mxfile host="app.diagrams.net"><diagram id="ctx" name="ctx"><mxGraphModel dx="800" dy="600" grid="0" page="1" pageWidth="900" pageHeight="380"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="h" value="L2 的坑：模型缺的不是背景，是边界" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="250" y="16" width="400" height="28" as="geometry"/></mxCell>
+<mxCell id="a" value="喂三千字业务背景&#10;项目介绍 / 架构史 / 组织架构&#10;→ 改代码还是我行我素" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="90" y="90" width="300" height="100" as="geometry"/></mxCell>
+<mxCell id="b" value="喂三百字禁令清单&#10;勿升级 Hugo / 禁 mermaid / 双仓架构别动&#10;→ 行为立刻改变" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1" vertex="1" parent="1"><mxGeometry x="510" y="90" width="300" height="100" as="geometry"/></mxCell>
+<mxCell id="c" value="AGENTS.md（本仓实例）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="330" y="240" width="240" height="44" as="geometry"/></mxCell>
+<mxCell id="d" value="agent 进仓库第一眼读它：硬约束 6 个字「勿升级到更高版本」省掉一轮来回纠正" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;" vertex="1" parent="1"><mxGeometry x="200" y="300" width="500" height="26" as="geometry"/></mxCell>
+<mxCell id="ea" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="a" target="c"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="eb" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="b" target="c"><mxGeometry relative="1" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

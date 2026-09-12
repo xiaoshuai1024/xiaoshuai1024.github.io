@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="五步迁移" id="cmr3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="从截图到直读：五步，每步都能单独停住" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="1 盘点数据源&#10;按难度排序：导出文件&lt;接口&lt;登录态采集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="190" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="2 最小数据源开跑&#10;一个 json 就够，跑两周找体感" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="110" width="190" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="3 高频查询固化成命令&#10;从直读升级成管线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="110" width="190" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="4 接外部源&#10;有官方 MCP 接官方，没有就自建只读采集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="110" width="190" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="5 边界写进 AGENTS.md&#10;可读什么、禁做什么、配额自觉" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="110" width="190" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="我的对应物：state.json（第 2 步）→ make analytics-ts（第 3 步）→ 四平台自建采集入库（第 4 步）→ AGENTS.md 写死只读边界（第 5 步）" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="900" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

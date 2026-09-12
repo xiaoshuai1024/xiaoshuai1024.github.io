@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="分工对比" id="division">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="分工:两套管不同粒度" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="420" y="12" width="320" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="op-head" value="OpenSpec 变更规格层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="op-1" value="粒度:一次变更" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="op-2" value="产物:changes/名字/ 四件套(proposal/spec/design/tasks)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="op-3" value="驱动:六个 skill 流水线(explore→propose→apply→archive)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="op-4" value="规格增量:只声明本次行为,归档合并进主规格" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="310" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-head" value="Superpowers 项目计划层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="70" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-1" value="粒度:一个项目 / 一个落地目标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="130" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-2" value="产物:plans/日期-名字.md + 对应 design spec" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="190" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-3" value="驱动:subagent 按 checkbox 任务逐条执行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="250" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-4" value="计划全局:一次覆盖整个目标,勾完=落地" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="310" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sum" value="两套都在让 AI 交付有章法,管的是不同粒度" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="560" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

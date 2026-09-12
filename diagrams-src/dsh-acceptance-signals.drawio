@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="acceptance-signals" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ac_lhead" value="环境碰巧存在的信号" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="96" width="240" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_l1" value="HTTP 200" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="156" width="220" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_l2" value="端口上有服务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="135" y="232" width="190" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_l3" value="构建命令成功" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="125" y="308" width="200" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_rhead" value="指向本次目标的信号" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="92" width="260" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_r1" value="当前 URL 可查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="720" y="152" width="210" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_r2" value="运行模式可查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="745" y="234" width="170" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_r3" value="用户可见页面内容比对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="700" y="316" width="250" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac_div" style="endArrow=none;dashed=1;strokeColor=#64748b;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="100" as="sourcePoint"/>
+            <mxPoint x="520" y="380" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ac_note" value="验收即查询：证据要与目标绑定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="450" width="430" height="52" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

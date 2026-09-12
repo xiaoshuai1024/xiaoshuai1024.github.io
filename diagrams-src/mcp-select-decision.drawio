@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="sel" name="选型决策">
+    <mxGraphModel dx="800" dy="500" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="0" page="0" pageScale="1" pageWidth="1000" pageHeight="490">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="装哪个 MCP 服务：先看 agent 缺哪个能力" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="960" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="root" value="agent 现在缺什么能力？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="60" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" value="文档老变、API 靠猜&#10;Context7" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="要碰浏览器调页面、跑 E2E&#10;Chrome DevTools MCP 或 Playwright MCP 二选一" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="代码库大，agent 看不全&#10;Serena" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="180" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="设计稿转代码&#10;Figma Context MCP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" value="抓网页、联网搜资料&#10;Firecrawl 或 Exa 二选一" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" value="查库、管仓库、动本机文件&#10;数据库 / GitHub / Desktop Commander" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="280" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rule" value="同一类只留一个；带凭证的服务先想清楚给多大的权限" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="920" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="root" target="l1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="root" target="l2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="root" target="l3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="root" target="l4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="root" target="l5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="root" target="l6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

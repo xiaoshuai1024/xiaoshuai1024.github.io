@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net" modified="2026-07-15T00:00:00.000Z" agent="drawio" version="24.0.0">
+  <diagram id="data-driven" name="数据驱动的能力趋势">
+    <mxGraphModel dx="960" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- 中心:JSON 数据源 -->
+        <mxCell id="center" value="能力评估数据.json" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="200" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- 输入 -->
+        <mxCell id="input1" value="/study 追加快照" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="input2" value="/skill-test 追加快照" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- 输出 -->
+        <mxCell id="output1" value="个人能力评分表.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="output2" value="能力评估报告.html" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="output3" value="能力评估趋势.csv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- 脚本 -->
+        <mxCell id="script" value="gen-skill-report.mjs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;fontColor=#1e293b;fontSize=12;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="380" y="360" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- 箭头 -->
+        <mxCell id="a1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#64748b;strokeWidth=2" edge="1" source="input1" target="center" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#64748b;strokeWidth=2" edge="1" source="input2" target="center" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="a3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;strokeWidth=2" edge="1" source="center" target="output1" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;strokeWidth=2" edge="1" source="center" target="output2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="a5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;strokeWidth=2" edge="1" source="center" target="output3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="a6" value="自动生成" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#f59e0b;strokeWidth=2;dashed=1;fontColor=#f59e0b;fontSize=11" edge="1" source="script" target="center" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

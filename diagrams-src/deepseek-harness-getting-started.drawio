@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="安装启动流程" id="getting-started">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="node" value="Node.js&lt;br&gt;（实测需要 ≥ 22.14，&lt;br&gt;v22.13 启动报 zstd 错）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="190" height="72" as="geometry" />
+        </mxCell>
+
+        <mxCell id="npx" value="npx @deepseek-ai/dsh web&lt;br&gt;（一行命令，推荐）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="330" y="40" width="200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="src" value="git clone + pnpm install&lt;br&gt;+ pnpm run build&lt;br&gt;（源码跑，二次开发用）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="330" y="150" width="200" height="72" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="node" target="npx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="node" target="src">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="server" value="后台 node 服务&lt;br&gt;http://127.0.0.1:3080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="90" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="npx" target="server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src" target="server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui" value="浏览器开 Web UI&lt;br&gt;欢迎弹窗 → 配 API key →&lt;br&gt;选 workspace → 发任务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="920" y="40" width="230" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="server" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="headless" value="dsh --profile headless &quot;任务&quot;&lt;br&gt;（命令行直跑，不依赖浏览器）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="190" width="230" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="也可直接走 headless" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="server" target="headless">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="首次启动自动初始化 web / headless 两个 profile&lt;br&gt;数据落在 $DSH_HOME（默认 ~/.dsh）" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="500" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

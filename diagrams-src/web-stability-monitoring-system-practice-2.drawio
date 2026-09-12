@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="metrics-system" id="metrics-system">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="A" value="核心监控指标体系&#xa;(全链路 · 与业务价值强相关)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="40" width="340" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G1" value="前端指标" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="250" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="B" value="用户体验指标&#xa;FCP · CLS · TTFB · 首屏加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="55" y="200" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="C" value="异常指标&#xa;页面报错率 · 资源加载失败率" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="55" y="300" width="220" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G2" value="后端指标" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="310" y="160" width="250" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="D" value="接口指标&#xa;响应时间 · 成功率 · 报错率 · QPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="325" y="200" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="E" value="服务指标&#xa;JVM内存 · CPU使用率 · 线程数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="325" y="300" width="220" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G3" value="网络指标" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="580" y="160" width="250" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="F" value="CDN指标&#xa;资源命中率 · 加载延迟 · 节点可用性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="595" y="200" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="G" value="网络指标&#xa;接口请求延迟 · 丢包率" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="595" y="300" width="220" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="G4" value="业务指标" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=12;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="850" y="160" width="250" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="H" value="转化指标&#xa;跳转率 · 转化率 · 客诉率" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="865" y="200" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="I" value="可用性指标&#xa;应用在线率 · 实例可用率" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="865" y="300" width="220" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="TIP" value="指标取舍原则：优先选择能反映业务健康度、可直接指导优化的核心指标，避免监控冗余" style="text;html=1;align=center;fontSize=11;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="460" width="1060" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="eA1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="G1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="G2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=0.6;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="G3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eA4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#14b8a6;strokeWidth=1.5;endArrow=block;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="A" target="G4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

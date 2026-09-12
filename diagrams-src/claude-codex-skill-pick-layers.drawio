@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="按场景选型分层" id="layers1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="580" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="索引层：先去哪找" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1c" value="ComposioHQ/awesome-claude-skills&#10;翻目录选货，本身不装" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="30" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="方法论层：选一套" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="170" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2c" value="Superpowers / ECC / karpathy-skills&#10;带行为约束，只开一套&#10;karpathy 当起手式 + 主方法论二选一" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="155" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="能力层：缺啥补啥" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3c" value="graphify（项目大看不全）· Context7（文档老变）&#10;mattpocock（grill-me / handoff 交接）&#10;openai/skills（yeet / gh-fix-ci git 三件套）&#10;anthropics/skills（照着写自己的）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="290" width="300" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" value="垂直层：按行当加" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="460" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4c" value="K-Dense-AI（科研）· 其他垂直库按场景挑&#10;一年碰两次的场景，用的时候单独捞" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="450" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="翻目录" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="t1" target="t2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="挑一套方法论" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="按缺口补能力" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="t3" target="t4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="从上往下走一遍，装完的每个插件都答得上来：它替我省了哪一步" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="660" y="240" width="280" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
