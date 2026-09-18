@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="d1" id="d1">
+    <mxGraphModel dx="1200" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="REQ" value="租户请求&#xa;tenantId=1024" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="SVC" value="ChatService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="FAC" value="TenantChatModelFactory&#xa;getOrCreate(tenantId)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="400" y="60" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="DEC" value="缓存命中?&#xa;computeIfAbsent" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="44" width="150" height="82" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_BUILD" value="未命中 · createForTenant 四步构建" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="900" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="DB" value="tenant_ai_config&#xa;getRawConfig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="56" y="226" width="190" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="AES" value="AesEncryptor&#xa;解密 api_key" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="266" y="226" width="190" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="DEF" value="DEFAULTS&#xa;供应商兜底" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="476" y="226" width="190" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="NEW" value="OpenAiChatModel.builder&#xa;新建实例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="686" y="226" width="240" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="CACHE" value="ConcurrentHashMap&#xa;写入缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="356" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="HIT" value="直接返回缓存的&#xa;ChatModel 实例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="860" y="60" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="LLM" value="OpenAiChatModel&#xa;DeepSeek / GLM / Qwen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="860" y="356" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="GRP_EVICT" value="配置变更旁路" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#5eead4;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#134e4a;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="470" width="900" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="EVICT" value="evict tenantId&#xa;清掉缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="510" width="180" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="REQ" target="SVC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E2" value="getOrCreate" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="SVC" target="FAC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="FAC" target="DEC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E4" value="命中" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="DEC" target="HIT">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E5" value="未命中" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="DEC" target="DB">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="DB" target="AES">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E7" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="AES" target="DEF">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E8" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="DEF" target="NEW">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E9" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="NEW" target="CACHE">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E10" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="CACHE" target="HIT">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E11" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#475569;endArrow=block;" edge="1" parent="1" source="HIT" target="LLM">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E12" value="配置变更" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#14b8a6;dashed=1;endArrow=block;fontSize=10;fontColor=#134e4a;" edge="1" parent="1" source="SVC" target="EVICT">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="E13" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#14b8a6;dashed=1;endArrow=block;" edge="1" parent="1" source="EVICT" target="DEC">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dsh-plugin-guardrails" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="layerPlat" value="&lt;b&gt;平台层&lt;/b&gt;&lt;br&gt;沙箱接缝 + fail-closed（持续收紧）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="70" y="150" width="310" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="layerEco" value="&lt;b&gt;生态层&lt;/b&gt;&lt;br&gt;#2269 STANDARD.md 提案（进行中）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="440" y="280" width="310" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="layerMe" value="&lt;b&gt;个人层&lt;/b&gt;&lt;br&gt;先读源码 · 敏感 profile 少装 · 跟 rc 升级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="810" y="410" width="330" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="noteSkin" value="护栏最贴身的一层是你自己" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="560" width="330" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="geOne" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="layerPlat" target="layerEco">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="geTwo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="layerEco" target="layerMe">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

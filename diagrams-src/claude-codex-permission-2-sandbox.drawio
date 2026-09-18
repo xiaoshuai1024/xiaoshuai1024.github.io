@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Codex三层门控" id="perm2">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="l1" value="第一层：审批枚举&#10;AskForApproval（protocol.rs:915）定义强度，ReviewDecision 定义结果&#10;approvals.rs 四入口：request_approval :484 / reviewer / guardian :580 / user :656" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="840" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="第二层：guardian 审批代理（core/src/guardian/）&#10;内置 policy.md 维护策略，review.rs 做第一道过滤&#10;人只处理 guardian 拿不准的请求——产品的代理，不是用户的代理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="186" width="840" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="第三层：沙箱（独立 crate sandboxing/）&#10;Linux: landlock · macOS: seatbelt（.sbpl 策略文件）· Windows: windows.rs&#10;统一由 SandboxManager 管理；execpolicy crate 解析命令策略&#10;shell 运行时联动：approval_action / sandbox_permissions / escalate_on_failure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="312" width="840" height="88" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow" value="执行策略：先沙箱里跑 → 失败且策略允许 → 升级权限重试&#10;默认路径是安全的，人的注意力留给真正需要的场景" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="450" width="840" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="l1" target="l2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="l2" target="l3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="l3" target="flow"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="cap" value="环境级防御 vs 行为级审批：沙箱防「做错事」，审批防「做你不知道的事」。&#10;模型再怎么幻觉，也越不过 landlock / seatbelt 的文件系统边界。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="120" y="540" width="840" height="46" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

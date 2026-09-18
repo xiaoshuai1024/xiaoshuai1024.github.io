@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="instinct 数据模型" id="ecc3">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="file" value="prefer-functional-style.yaml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="420" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="fm" value="YAML front matter（机器读）&#10;---&#10;id: prefer-functional-style&#10;trigger: &quot;when writing new functions&quot;&#10;confidence: 0.7&#10;domain: &quot;code-style&quot;&#10;source: &quot;session-observation&quot;&#10;scope: project&#10;project_id: &quot;a1b2c3d4e5f6&quot;&#10;---" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="140" y="100" width="380" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="body" value="Markdown 正文（人读 + 注入时当原文）&#10;# Prefer Functional Style&#10;## Action&#10;Use functional patterns over classes when appropriate.&#10;## Evidence&#10;- Observed 5 instances of functional pattern preference&#10;- User corrected class-based approach to functional on 2025-01-15" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="140" y="320" width="380" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="原子性：一条本能只管一件事&#10;一个 trigger 配一个 action，方便后面聚类组合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="trigger + action 分离&#10;和 skill 的触发结构同构，进化时几乎无缝" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="200" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="confidence 0.3~0.9：外部维护的信念分数&#10;模型对历史无感知，只能靠外部账本计数：&#10;见过 8 次 + 每次都被纠正 = 0.9；只见过 1 次 = 0.3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="300" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="Evidence：强制证据链&#10;哪次会话、观察到什么，可溯源可否决" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="420" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="scope：project 或 global&#10;提升要过 0.8 门槛 + 2 个项目验证（防串味）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="520" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="h1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="n1" target="file">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="n2" target="fm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="n3" target="fm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="h4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="n4" target="body">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="h5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="n5" target="fm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="操作系统映射" id="os-map">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1120" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="left" value="我补的工程能力" style="text;html=1;align=center;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="80" y="30" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="right" value="操作系统的对应" style="text;html=1;align=center;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="720" y="30" width="260" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m1" value="上下文管理&#10;（大结果外置 / 摘要 / 压缩）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="m1r" value="内存管理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="90" width="200" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m2" value="技能库 + RAG 知识库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="m2r" value="文件系统" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="180" width="200" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m3" value="命令 + 流程契约" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="270" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="m3r" value="进程调度 + 系统调用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="270" width="200" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m4" value="夜间巡检 daemon" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="m4r" value="守护进程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="360" width="200" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m5" value="信任分级 + 门禁" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="m5r" value="权限系统" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="450" width="200" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m6" value="事故即规范" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="m6r" value="内核补丁" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="540" width="200" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cpu" value="大模型（裸 CPU）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=14;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="270" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cpunote" value="不变。&#10;变的是外围。" style="text;html=1;align=center;fontColor=#0f766e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="335" width="200" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="m1" target="m1r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="m2" target="m2r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="m3" target="m3r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="m4" target="m4r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="m5" target="m5r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="m6" target="m6r">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

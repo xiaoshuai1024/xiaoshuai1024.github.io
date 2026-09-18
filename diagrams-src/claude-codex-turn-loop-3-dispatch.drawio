@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="工具分发对比" id="disp1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="Claude Code：轮内分块" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="Codex：流式推进 + 读写锁" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="本轮全部 tool_use 收齐&#10;（等整轮流结束）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="按 isConcurrencySafe() 分块&#10;内置只读工具 / MCP readOnlyHint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="166" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="安全块 → 并行池（上限 dN5 = 10）&#10;不安全块 → 串行队列" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="252" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="结果按块回填 → 进下一轮 generator 递归&#10;轮与轮之间严格串行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="338" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ae1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="b1" value="SSE 流到达 function call&#10;立即包成 future" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="ToolOrchestrator → ToolRouter&#10;路由到对应 handler（orchestrator.rs / router.rs）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="166" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="supports_parallel 工具并行&#10;不支持并行的持 RwLock 写锁串行通过（parallel.rs:113）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="252" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="FuturesOrdered 按提交顺序回填&#10;读密集任务墙钟时间更短" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="338" width="380" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="be1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="b1" target="b2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="be2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="b2" target="b3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="be3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="b3" target="b4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="note" value="粒度错位：CC 的并发以「轮」为单位（轮内并行、轮间串行）；Codex 以「流」为单位（边到边跑、读写锁保秩序）。&#10;读-改-写交替的任务两边都退化为串行，体感接近。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="140" y="440" width="880" height="56" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

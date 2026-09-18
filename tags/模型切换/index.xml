@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>模型切换 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%A8%A1%E5%9E%8B%E5%88%87%E6%8D%A2/</link><description>模型切换 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Sep 2026 22:10:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%A8%A1%E5%9E%8B%E5%88%87%E6%8D%A2/" rel="self" type="application/rss+xml"/><item><title>DeepSeek 替你换了模型：V4 Pro 全量切到 V4.1 Flash，三步确认加新价速查</title><link>https://xiaoshuai1024.top/posts/v41-flash-forced-routing-switch/</link><pubDate>Fri, 11 Sep 2026 22:10:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/v41-flash-forced-routing-switch/</guid><description>2026-09-09 之前，你的请求发往 V4 Pro；2026-09-09 之后，同样的请求从 V4.1 Flash 出去，按 Flash 的价格计费。
+中间不需要你做任何事。一行代码没改，一个配置没动，DeepSeek 官方公告把 V4 Pro 的请求全量路由到 V4.1 Flash，账单按新价走。
+这不是一次普通的降价。这篇讲清三件事：强制路由到底发生了什么、新的价格表怎么算钱、怎么花三步确认并接管你自己的配置。
+一次不带迁移的换代 先拆公告。这次的动作是两层叠在一起：
+路由层：V4 Pro 这个模型名还在，但名字背后的实例没了。你发请求填 V4 Pro，DeepSeek 在网关层把它转给 V4.1 Flash 处理，对你透明。
+计费层：转过去的请求不再按 V4 Pro 的价收，按 Flash 新价收。你没同意，也没处不同意，账单口径已经变了。
+再看官方敢这么做的底气。LiveBench 上，V4.1 Flash 拿了 81.1 分，压过 GPT-5.6 的 81.0；专项看编程，前端编程竞技场 1586 分，全球第 7、开源第 3。这些是第三方榜单的实数，不是官方宣传口径。
+第三方对能力的测算还给了个参照：V4.1 Flash 大约达到 GPT-6 Astra 的 98%，单任务成本约为其十五分之一（3 美分对 46 美分）。官方的判断很清楚：能力强过它的贵 15 倍，和它同价的没它强，V4 Pro 没有独立存在的必要。与其留一个中间档，不如全量并到一个型号上。
+所以这次换代没有迁移成本、没有兼容期，旧模型直接消失，请求原样落到新模型上。听起来全是好事，但有一层你得想明白：你签的契约变了。 你调用的模型名还是那个名字，名字背后的东西已经换了，价格口径也换了。这次官方提前发了公告，下次再换，不一定有这个待遇。
+新价格表：五十倍差价从哪来 发布当天，Flash 系列全线调价，新价目是三档：
+计费项 空闲时段 高峰时段 缓存命中输入 0.</description></item></channel></rss>

@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="恢复能力对比" id="recov1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ta" value="Claude Code：内存递归" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="tb" value="Codex：持久化图" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="运行中：subagent = 进程内 generator 递归" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="进程退出：全部蒸发" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="380" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="恢复 = 重放主会话 JSONL&#10;subagent 只剩最终 tool_result，推导过程丢失" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="anote" value="单进程内存模型里「恢复 subagent」这个需求不存在&#10;——恢复主会话就够了" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="130" y="360" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="运行中：每个 agent 是 thread，spawn 边实时写入&#10;AgentGraphStore" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="rollout：JSONL 落盘 + SQLite 索引&#10;每个 thread 的 turn 断点都有记录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="重启后：按 subtree 查询恢复整棵 agent 树&#10;结构和断点都在，长任务敢过夜" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="280" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="ae1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="be1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="b1" target="b2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="be2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="b2" target="b3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="fnote" value="需求是架构造出来的：多 thread 平台模型里 agent 树是真实调度资源，不持久化等于每次重启丢生产资料。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="160" y="440" width="840" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

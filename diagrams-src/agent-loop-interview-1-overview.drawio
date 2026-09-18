@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Agent 壳四件套总览" id="ali1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="shellbox" value="Agent 壳 = 循环调度器（四件套）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="580" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="① 流式请求&#10;把全部历史发给模型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="② 工具分发&#10;tool_use 交给执行器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="170" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="③ 结果回填&#10;tool_result 进历史" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="170" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="exit" value="出口：本轮没有 tool_use → Stop hook → return（一次普通函数返回）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="40" width="440" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="大模型（无状态）&#10;&#10;不记得上一轮&#10;每次凭请求行李工作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="160" width="190" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" value="模型给了工具调用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" value="执行完递回" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eloop" value="④ 带新历史进下一轮——只要模型还给 tool_use" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#1e293b;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="s3" target="s1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="320"/>
+              <mxPoint x="145" y="320"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="etomodel" value="每轮重发全部历史" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" edge="1" parent="1" source="s3" target="model">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="efrommodel" value="返回 tool_use 或文本" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#1e293b;exitX=0;exitY=0.8;entryX=1;entryY=0.5;" edge="1" parent="1" source="model" target="s1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="248"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foot" value="壳管流程，模型管智能。拿走模型，循环只剩空转" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="400" width="500" height="36" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

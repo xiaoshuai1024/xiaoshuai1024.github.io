@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ECC 宣传vs实际" id="ecc-claims">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="ECC 的宣传口径 vs 实际体验" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="14" width="400" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="claimH" value="宣传" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="60" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="realH" value="实际" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="60" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="一条命令装好" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="120" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" value="两条安装路径叠加，重复 hooks，rules 还得手动复制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="120" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="12 种语言全覆盖" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="194" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="284 个 skill 的元数据吃 2-4 万 token，200k 窗口被压到 70k" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="194" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="装上就变强" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="268" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="技能触发是概率性的，50%-80% 时间才生效，v2 才换 hooks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="268" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="24 万星背书" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="342" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" value="8 个月 24 万星，Discussions 冷清、Issues 热闹：围观多，真用少" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="342" width="340" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="四个落差同一条根：默认配置太贪。作者自己的解法也是「挑适合自己的、删掉用不上的」——等于承认正确用法是拆着用。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="440" width="820" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="c1" target="r1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="c2" target="r2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="c3" target="r3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=block;" edge="1" parent="1" source="c4" target="r4"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="stderr-two-lines" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="se_src" value="共享 landlock-run: 前缀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="70" width="300" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="se_u1" value="landlock-run: partial enforcement&#10;(older ABI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="222" width="280" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="se_u2" value="✓ 照常执行子进程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="255" y="352" width="225" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="se_d1" value="landlock-run: 失败诊断 + exit 125" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="500" width="275" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="se_d2" value="✗ 子进程从未执行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="270" y="622" width="235" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="se_warn" value="宽泛子串匹配 ⇒&#10;合法 exit 1 也被误判" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="440" width="250" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_se0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="se_src" target="se_u1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_se1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="se_src" target="se_d1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_se2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="se_u1" target="se_u2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_se3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="se_d1" target="se_d2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sew" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="se_warn" target="se_d1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

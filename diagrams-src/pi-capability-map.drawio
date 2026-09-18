@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="能力全景" id="cap1">
+    <mxGraphModel dx="1100" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Pi 能力全景：小内核外围，能力密度反而更高" style="text;html=1;fontSize=14;fontColor=#1e293b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="30" width="520" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="core" value="同一个内核&#10;（会话 + 扩展不变）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="380" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="四种运行模式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="110" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1t" value="交互 TUI&#10;pi -p 单次执行&#10;--mode json 事件流&#10;JSON RPC / SDK 嵌入" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=26;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="220" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="模型接入 15+ 家" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="90" width="250" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2t" value="Anthropic / OpenAI / GLM / Kimi&#10;MiniMax / Ollama / OpenRouter…&#10;API key 或 OAuth 订阅&#10;会话中途一键切换模型" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=26;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="510" y="120" width="230" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="会话是树，不是线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="120" width="230" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3t" value="所有分支存单个文件&#10;/tree 跳回任意节点&#10;运行中转向（回车插入）&#10;/export /share 一键分享" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=26;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="930" y="150" width="215" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="Skills：按需加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="600" width="250" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4t" value="能力包（指令 + 工具）&#10;模型判断需要才读进来&#10;装二十个不膨胀提示词&#10;不动 prompt cache" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=26;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="100" y="630" width="230" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="上下文工程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="620" width="250" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5t" value="AGENTS.md 分级加载&#10;SYSTEM.md 按项目改内核&#10;compaction 策略可替换&#10;（主题式 / 代码感知 / 换模型）" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=26;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="230" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6" value="Packages 分发" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="600" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6t" value="扩展 + Skills + 模板 + 主题&#10;pi install npm: / git:&#10;npm 当注册表，git 当源&#10;可做企业私有包集合" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=26;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="910" y="630" width="225" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="edc1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="b1" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edc2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="b2" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edc3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="b3" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edc4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="b4" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edc5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="b5" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edc6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="b6" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

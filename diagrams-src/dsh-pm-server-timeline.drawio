@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="timeline" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ax" style="endArrow=none;strokeColor=#64748b;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="300" as="sourcePoint" />
+            <mxPoint x="1120" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d1p" value="" style="ellipse;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="95" y="295" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="d2p" value="" style="ellipse;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="265" y="295" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="d3p" value="" style="ellipse;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="425" y="295" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="d4p" value="" style="ellipse;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="645" y="295" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="d5p" value="" style="ellipse;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="845" y="295" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="d6p" value="" style="ellipse;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="295" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" value="seq 6&lt;br&gt;初始请求头" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="224" width="120" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="seq 30939&lt;br&gt;把验收交还用户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="195" y="320" width="150" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" value="seq 31865&lt;br&gt;启动裸 Vite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="224" width="140" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" value="seq 34309&lt;br&gt;启动替代 dsh web 服务器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="555" y="320" width="185" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" value="seq 34441&lt;br&gt;探测启动 manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="765" y="224" width="165" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" value="seq 34681&lt;br&gt;才探测 3081 真主机" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="940" y="320" width="175" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t1" target="d1p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t2" target="d2p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t3" target="d3p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t4" target="d4p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t5" target="d5p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t6" target="d6p">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="全程证据来自持久化事件日志，seq 可回放定位" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="452" width="380" height="44" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

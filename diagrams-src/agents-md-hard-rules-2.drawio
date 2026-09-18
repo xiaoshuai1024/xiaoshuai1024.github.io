@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="d2" name="page1">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="g1" value="① make pub-probe&#10;登录态体检" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;fontColor=#ffffff;strokeColor=none;fontSize=14;" vertex="1" parent="1"><mxGeometry x="40" y="140" width="150" height="80" as="geometry"/></mxCell>
+        <mxCell id="g2" value="② pub_guard 预检&#10;在途/风控冷却/双卡冲突&#10;命中即阻断，禁 --force 硬闯" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="230" y="140" width="180" height="80" as="geometry"/></mxCell>
+        <mxCell id="g3" value="③ 发布&#10;四平台全发 · 晚 20:00 档&#10;封面在片 + AI/原创双声明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="450" y="140" width="180" height="80" as="geometry"/></mxCell>
+        <mxCell id="g4" value="④ make pub-audit&#10;逐平台实查&#10;（上传器日志不可信）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="670" y="140" width="160" height="80" as="geometry"/></mxCell>
+        <mxCell id="g5" value="⑤ add-followups 登记&#10;+1h 置顶评论 → 任务队列" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="860" y="140" width="130" height="80" as="geometry"/></mxCell>
+        <mxCell id="ge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=blockThin;" edge="1" parent="1" source="g1" target="g2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=blockThin;" edge="1" parent="1" source="g2" target="g3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=blockThin;" edge="1" parent="1" source="g3" target="g4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;dashed=1;endArrow=blockThin;" edge="1" parent="1" source="g4" target="g5"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

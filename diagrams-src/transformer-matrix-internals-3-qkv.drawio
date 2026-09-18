@@ -1,0 +1,27 @@
+<mxfile host="app.diagrams.net"><diagram id="qkv" name="p3"><mxGraphModel dx="800" dy="600" grid="0" page="1" pageWidth="1100" pageHeight="420"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="h" value="QKV 矩阵流：一句话的四步注意力" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="380" y="16" width="340" height="28" as="geometry"/></mxCell>
+<mxCell id="x" value="X&#10;n × d" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1"><mxGeometry x="50" y="150" width="90" height="60" as="geometry"/></mxCell>
+<mxCell id="wq" value="× W_Q" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=14;" vertex="1" parent="1"><mxGeometry x="180" y="60" width="90" height="40" as="geometry"/></mxCell>
+<mxCell id="wk" value="× W_K" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=14;" vertex="1" parent="1"><mxGeometry x="180" y="160" width="90" height="40" as="geometry"/></mxCell>
+<mxCell id="wv" value="× W_V" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=14;" vertex="1" parent="1"><mxGeometry x="180" y="260" width="90" height="40" as="geometry"/></mxCell>
+<mxCell id="q" value="Q（想找什么）&#10;n × d_k" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="310" y="55" width="130" height="50" as="geometry"/></mxCell>
+<mxCell id="k" value="K（能提供什么）&#10;n × d_k" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="310" y="155" width="130" height="50" as="geometry"/></mxCell>
+<mxCell id="v" value="V（实际内容）&#10;n × d_k" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="310" y="255" width="130" height="50" as="geometry"/></mxCell>
+<mxCell id="s1" value="① Q · Kᵀ&#10;相关度打分 n×n" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="500" y="90" width="140" height="55" as="geometry"/></mxCell>
+<mxCell id="s2" value="② ÷ √d_k&#10;防 softmax 变 one-hot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="680" y="90" width="150" height="55" as="geometry"/></mxCell>
+<mxCell id="s3" value="③ softmax 按行归一&#10;→ 注意力权重" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="860" y="90" width="150" height="55" as="geometry"/></mxCell>
+<mxCell id="s4" value="④ 权重 · V&#10;混合出输出 n × d_k" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="680" y="230" width="160" height="55" as="geometry"/></mxCell>
+<mxCell id="ex" value="例：「它」对「小猫」权重高 → 输出混入「小猫」的内容，指代就这么消解了" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;" vertex="1" parent="1"><mxGeometry x="260" y="360" width="560" height="26" as="geometry"/></mxCell>
+<mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="x" target="wq"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="x" target="wk"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="x" target="wv"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="wq" target="q"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="wk" target="k"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="wv" target="v"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="q" target="s1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="k" target="s1"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="v" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

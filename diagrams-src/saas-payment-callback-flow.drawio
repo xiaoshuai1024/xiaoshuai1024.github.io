@@ -1,0 +1,159 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="服务商模式支付时序" id="pay-seq">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="880" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Column labels -->
+        <mxCell id="lbl-user" value="用户" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-app" value="小程序" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-backend" value="后端" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-wx" value="微信支付" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Divider lines -->
+        <mxCell id="d1" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="30" as="sourcePoint" />
+            <mxPoint x="100" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d2" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="30" as="sourcePoint" />
+            <mxPoint x="260" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d3" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="30" as="sourcePoint" />
+            <mxPoint x="440" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="30" as="sourcePoint" />
+            <mxPoint x="640" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 1: User selects product -->
+        <mxCell id="s1" value="选择商品&#10;下单" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="90" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="110" as="sourcePoint" />
+            <mxPoint x="170" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s1-label" value="下单请求" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="95" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Step 2: App to Backend -->
+        <mxCell id="s2a" value="统一下单 API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="175" y="155" width="80" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s2a-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="255" y="172" as="sourcePoint" />
+            <mxPoint x="350" y="172" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 2b: Backend to WeChat -->
+        <mxCell id="s2b" value="POST /v3/pay/transactions/jsapi&#10;sub_mch_id = tenant.subMchId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="355" y="225" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="s2b-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435" y="247" as="sourcePoint" />
+            <mxPoint x="560" y="247" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 3: WeChat returns prepay_id -->
+        <mxCell id="s3" value="返回 prepay_id&#10;+ 支付参数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="555" y="295" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="555" y="315" as="sourcePoint" />
+            <mxPoint x="435" y="315" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s3b" value="返回支付参数&#10;给小程序" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="355" y="370" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s3b-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="355" y="390" as="sourcePoint" />
+            <mxPoint x="255" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 4: App shows payment -->
+        <mxCell id="s4" value="拉起支付弹窗" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="175" y="440" width="80" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="s4-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="457" as="sourcePoint" />
+            <mxPoint x="30" y="457" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s4-label" value="支付确认" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="443" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Step 5: User pays -->
+        <mxCell id="s5" value="输入密码&#10;确认支付" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="510" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s5-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="530" as="sourcePoint" />
+            <mxPoint x="560" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s5-label" value="调起微信支付" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="515" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Step 6: Callback section -->
+        <mxCell id="s6-title" value="异步回调(关键环节)" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="580" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s6-arrow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="620" as="sourcePoint" />
+            <mxPoint x="440" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s6-label" value="支付结果通知" style="text;html=1;align=center;fontColor=#64748b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="470" y="605" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Callback detail box -->
+        <mxCell id="s6-detail" value="回调处理流程:&#10;① 解析 out_trade_no 反解租户&#10;② 选择该租户的商户证书+密钥验签&#10;③ 更新订单状态&#10;④ 触发分账(profit_sharing)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="630" width="180" height="95" as="geometry" />
+        </mxCell>
+
+        <!-- Annotation -->
+        <mxCell id="note" value="关键约束:回调 URL 只能配一个&#10;必须靠订单号前缀路由租户&#10;不信任任何 URL 参数!" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#dc2626;fontColor=#dc2626;fontSize=11;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="740" width="180" height="55" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dsh 插件四类全景" id="dsh4types">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="10 个高 star 插件，按四类能力配" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="330" y="14" width="440" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="看：给模型一双眼睛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="52" y="62" width="510" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-modlens" value="modlens · 2.8k&#10;贴图问答，读图里的文字和版面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="72" y="100" width="238" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-vtoolkit" value="dsh-vision-toolkit · 638&#10;视觉工具箱，多图问答和 UI 还原" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="106" width="224" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1note" value="DeepSeek 默认纯文本，报错截图和设计稿全靠这两个" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="74" y="160" width="440" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="点：让界面和回答都好用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="614" y="54" width="520" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-webui" value="dsh-web-ui · 4.2k&#10;看板 + Git 图谱 + 皮肤全家桶" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="634" y="92" width="238" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-tui" value="dsh-TUI · 1.8k&#10;Claude Code 风格的全屏终端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="884" y="98" width="230" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-sidebar" value="DSH-better-sidebar · 2k&#10;侧边栏装下终端、Git 和子代理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="634" y="146" width="238" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-market" value="dsh-market · 863&#10;插件市场进 dsh，搜装一步完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="884" y="152" width="230" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-genui" value="dsh-genui · 192&#10;回答里渲染能点的组件卡片" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="634" y="200" width="238" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="想：路由、预设和记忆" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="52" y="252" width="510" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-routing" value="dsh-routing-suite · 5.4k&#10;按任务自动切思考模式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="72" y="290" width="238" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-anchored" value="dsh-anchored-standard · 3.4k&#10;会话预设标准，起步轻按需放开" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="296" width="224" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-memory" value="dsh-memory-evolve · 158&#10;跨会话长期记忆，越用越准" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="72" y="340" width="238" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3note" value="API 账单敏感的先装 routing-suite" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="74" y="392" width="420" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="star 数取 2026-08-18 GitHub API 实测" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="450" width="420" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

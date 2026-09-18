@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="安装路线" id="roadmap1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="w1" value="第 1 周" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="AGENTS.md 骨架&#10;+ 最小门禁（禁 skip、禁占位）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="220" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="w2" value="第 2-3 周" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="按风险点装 skill&#10;plan-first 起步用 spec" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="352" y="106" width="210" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="w3" value="第 4 周起" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="60" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="会话拆分 · 缓存纪律&#10;权限分离 · worktree 并行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="628" y="100" width="216" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="w4" value="常驻" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="920" y="60" width="160" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="事故回写手册&#10;门禁配哨兵 · 夜间自治逐步开" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="902" y="104" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="b2" target="b3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="b3" target="b4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="判断线：拦住的损失大、安装成本低 → 先装" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="260" width="560" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

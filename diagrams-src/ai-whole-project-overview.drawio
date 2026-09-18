@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="一次写完vs分段验收" id="apo1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="同一个项目，两种干法：账单和风险的形状完全不同" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="lhs" value="一次写完" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="一句话需求扔过去" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="一个会话聊到底&#10;每轮全量重发历史" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="190" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="末轮 22.6 万 token&#10;没人验收得动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="280" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="账单：952 万 token（144:1）&#10;风险：决策债 + 没法验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="370" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="l3" target="l4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rhs" value="分段验收" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="先出计划，确认再动手" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="切成十段，每段新会话&#10;首轮输入都从 2 万起步" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="每段带验收：测试/lint/构建&#10;绿灯了再放下一段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="280" width="180" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="账单：十条短跑道&#10;风险：每段面积小到看得完" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="370" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="r1" target="r2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="r2" target="r3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="r3" target="r4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="两条路径做的活一样多，差别在：上下文怎么滚、决定谁来做、验收在哪个颗粒度" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="330" y="460" width="620" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

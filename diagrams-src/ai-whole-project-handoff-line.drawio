@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="放手判断线" id="apo2">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="放手不是勇气问题，是验收能不能自动化的问题" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="没有测试，靠眼睛看&#10;→ 家规三条全开，别放手" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="有测试，盖住核心路径&#10;→ 整段整段写，人审接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="110" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="测试全 + 构建门禁 + 回滚&#10;→ 挂任务队列排队跑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="110" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="上面都有，还跑过一段无事故&#10;→ 定时自治，只看报表" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="110" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="lv" value="升级判据：这一级的验收已经稳定无聊了，才升下一级；出过事故就回退一级" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="230" width="700" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="case" value="我现在的位置：第四档。视频管线夜间排队跑，封面缺失自动阻断发布，发布结果用只读工具逐平台回查——早上看的是报表，不是过程日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="700" height="52" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

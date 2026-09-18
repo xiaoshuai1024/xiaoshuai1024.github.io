@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="920" height="560" fill="#ffffff"/>
+  <text x="460" y="38" text-anchor="middle" font-size="18" fill="#1e293b" font-weight="600">12 个开源插件 · 一个月实测去留</text>
+
+  <!-- keep column -->
+  <text x="240" y="78" text-anchor="middle" font-size="14" fill="#2563eb" font-weight="600">留下 · 6 个</text>
+  <rect x="60" y="92" width="360" height="54" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="80" y="115" font-size="13" fill="#1e293b" font-weight="600">Superpowers</text>
+  <text x="80" y="135" font-size="11.5" fill="#475569">方法论全家桶，挂在开发流程固定环节</text>
+
+  <rect x="60" y="154" width="360" height="54" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="80" y="177" font-size="13" fill="#1e293b" font-weight="600">ECC（minimal profile）</text>
+  <text x="80" y="197" font-size="11.5" fill="#475569">memory + research-first，长任务稳</text>
+
+  <rect x="60" y="216" width="360" height="54" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="80" y="239" font-size="13" fill="#1e293b" font-weight="600">OpenSpec</text>
+  <text x="80" y="259" font-size="11.5" fill="#475569">spec 驱动，触发频次最高</text>
+
+  <rect x="60" y="278" width="360" height="54" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="80" y="301" font-size="13" fill="#1e293b" font-weight="600">Context7</text>
+  <text x="80" y="321" font-size="11.5" fill="#475569">实时文档，治「编造 API」幻觉</text>
+
+  <rect x="60" y="340" width="360" height="54" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="80" y="363" font-size="13" fill="#1e293b" font-weight="600">caveman</text>
+  <text x="80" y="383" font-size="11.5" fill="#475569">token 压缩约 65%，长会话按需点名</text>
+
+  <rect x="60" y="402" width="360" height="54" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="80" y="425" font-size="13" fill="#1e293b" font-weight="600">pua</text>
+  <text x="80" y="445" font-size="11.5" fill="#475569">卡壳换脑，触发场景明确</text>
+
+  <!-- kill column -->
+  <text x="680" y="78" text-anchor="middle" font-size="14" fill="#64748b" font-weight="600">删除 · 6 个</text>
+  <rect x="500" y="92" width="360" height="54" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="115" font-size="13" fill="#1e293b">karpathy-skills</text>
+  <text x="520" y="135" font-size="11.5" fill="#64748b">一个文件的信息量，读完即毕业</text>
+
+  <rect x="500" y="154" width="360" height="54" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="177" font-size="13" fill="#1e293b">mattpocock/skills + anthropics/skills</text>
+  <text x="520" y="197" font-size="11.5" fill="#64748b">与 Superpowers 重叠，重复即干扰</text>
+
+  <rect x="500" y="216" width="360" height="54" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="239" font-size="13" fill="#1e293b">graphify</text>
+  <text x="520" y="259" font-size="11.5" fill="#64748b">代码图谱，日常项目用不上</text>
+
+  <rect x="500" y="278" width="360" height="54" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="301" font-size="13" fill="#1e293b">claude-hud</text>
+  <text x="520" y="321" font-size="11.5" fill="#64748b">状态仪表盘，新鲜感过了就该卸</text>
+
+  <rect x="500" y="340" width="360" height="54" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="363" font-size="13" fill="#1e293b">compound-engineering-plugin</text>
+  <text x="520" y="383" font-size="11.5" fill="#64748b">预设团队多 agent 形态，单人用不上</text>
+
+  <rect x="500" y="402" width="360" height="54" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="425" font-size="13" fill="#1e293b">—</text>
+  <text x="520" y="445" font-size="11.5" fill="#64748b"></text>
+
+  <text x="460" y="505" text-anchor="middle" font-size="13" fill="#2563eb" font-weight="600">淘汰标准：这一个月里，有没有被真实触发过</text>
+  <text x="460" y="530" text-anchor="middle" font-size="12" fill="#64748b">装的那一刻不产生生产力，被触发的那一刻才产生</text>
+</svg>

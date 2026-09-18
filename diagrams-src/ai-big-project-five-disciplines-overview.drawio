@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="overview" name="五瞬间五纪律总览">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="top" value="静默翻车：代码能运行，编译能通过，测试挑不出毛病，系统已经和业务对不上号" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;fontColor=#1e293b;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="840" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lh" value="翻车瞬间" style="text;html=1;align=center;fontSize=14;fontColor=#1e293b;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rh" value="管教纪律" style="text;html=1;align=center;fontSize=14;fontColor=#1e293b;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="120" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="① 不知道这段代码为什么存在&#10;（顺手删掉「没被引用」的判断）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="② 局部全对，整体跑偏&#10;（三个老模块月底才对不上账）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="80" y="230" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="③ 动了没标记的大动脉&#10;（公共权限/租户过滤，牵一发动全身）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="④ 编译通过当成了业务完成&#10;（「测试通过」四个字不是证据）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="80" y="370" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="⑤ 一个会话从头错到尾&#10;（自查用的还是当初的错误前提）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="80" y="440" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="纪律一：隐性规则写进 AGENTS.md&#10;不只写怎么调用，写为什么不能动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="纪律二：改码前先做影响分析&#10;直接影响/间接影响分层，只分析不动码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="纪律三：高风险区标记 + 四问&#10;为什么改/谁在调用/替代方案/回归什么" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="560" y="300" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" value="纪律四：三层测试 + 留证四件套&#10;输入/期望/实际/失败日志" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="560" y="370" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="d5" value="纪律五：分析/实现/审查三会话分离&#10;审查会话用全新上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="560" y="440" width="320" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="m1" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="m2" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="m3" target="d3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="m4" target="d4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="m5" target="d5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bottom" value="共同目标：错误拦在主分支之前" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="545" width="360" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="eb" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;dashed=1;" edge="1" parent="1" source="d5" target="bottom">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

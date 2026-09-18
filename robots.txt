@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow noisy/duplicate pages
+Disallow: /page/
+Disallow: /tags/page/
+Disallow: /categories/page/
+
+# If you later enable site search, consider disallowing it:
+# Disallow: /search/
+
+Sitemap: https://xiaoshuai1024.github.io/sitemap.xml

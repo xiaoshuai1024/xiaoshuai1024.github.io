@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="首包解剖" id="ca1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="首包上下文解剖：每轮请求都要重发一遍的部分（按 token 量示意）" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="24" width="720" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccFrame" value="Claude Code（Fable 5.1，抓包口径）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="420" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccPrompt" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="90" y="150" width="120" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccPromptL" value="系统提示词&#10;10.4KB ≈ 2.6k token，6 章" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="222" y="136" width="240" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccTools" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="90" y="230" width="120" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccToolsL" value="37 个工具的说明书&#10;≈154KB ≈ 3.9 万 token，描述占六成&#10;最大单件 Artifact：2.4 万字符" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="222" y="312" width="250" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccSend" value="每一轮 agent 交互，这一整包原样重发" style="text;html=1;fontSize=12;fontColor=#334155;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="404" width="360" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="piFrame" value="Pi（极简壳）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="300" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="piAll" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="650" y="150" width="120" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="piAllL" value="系统提示词 + 4 个工具&#10;read / write / edit / bash" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="650" y="192" width="240" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="ratio" value="首包体量&#10;差 10 倍以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="230" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="ccTools" target="ratio">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="ratio" target="piAll">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout" value="对照读法：Artifact 一件工具的说明书（2.4 万字符）≈ 整份系统提示词的 4.7 倍。税的大头在说明书，不在开头那段「安全条款」。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#334155;fontSize=12;align=left;spacingLeft=10;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="496" width="860" height="56" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

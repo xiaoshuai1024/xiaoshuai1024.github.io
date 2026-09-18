@@ -1,0 +1,175 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="d3" id="d3">
+    <mxGraphModel dx="1300" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1260" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="一次配置变更的完整时序：写库加密 → evict 失效 → 下次请求按新配置重建" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="1200" height="830" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="H_ADMIN" value="运营后台&#xa;Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H_CTRL" value="ConfigController&#xa;Ctrl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="70" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H_SVC" value="TenantAiConfig&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="390" y="70" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H_AES" value="AesEncryptor&#xa;AES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="70" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H_DB" value="tenant_ai_config&#xa;DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="720" y="70" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H_FAC" value="TenantChatModel&#xa;Factory" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="70" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="H_CACHE" value="ConcurrentHashMap&#xa;Cache" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#14b8a6;fontColor=#134e4a;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="70" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="L_ADMIN" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="130" as="sourcePoint"/>
+            <mxPoint x="125" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L_CTRL" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="130" as="sourcePoint"/>
+            <mxPoint x="290" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L_SVC" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="130" as="sourcePoint"/>
+            <mxPoint x="460" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L_AES" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="625" y="130" as="sourcePoint"/>
+            <mxPoint x="625" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L_DB" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="795" y="130" as="sourcePoint"/>
+            <mxPoint x="795" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L_FAC" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="130" as="sourcePoint"/>
+            <mxPoint x="970" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L_CACHE" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1145" y="130" as="sourcePoint"/>
+            <mxPoint x="1145" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="M1" value="1. PUT /config {provider:glm, apiKey:新Key}" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="180" as="sourcePoint"/>
+            <mxPoint x="290" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M2" value="2. saveConfig(dto)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="220" as="sourcePoint"/>
+            <mxPoint x="460" y="220" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M3" value="3. encrypt(新Key)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="260" as="sourcePoint"/>
+            <mxPoint x="625" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M4" value="4. 密文" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="625" y="300" as="sourcePoint"/>
+            <mxPoint x="460" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M5" value="5. upsert(tenant_id=1024)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="340" as="sourcePoint"/>
+            <mxPoint x="795" y="340" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="NOTE1" value="写库后主动 evict，旧实例被丢弃，配置秒级生效、不重启" style="text;html=1;strokeColor=#5eead4;fillColor=#f0fdfa;fontColor=#134e4a;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="386" width="320" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M6" value="6. evict(1024)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="440" as="sourcePoint"/>
+            <mxPoint x="970" y="440" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M7" value="7. remove(1024)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="480" as="sourcePoint"/>
+            <mxPoint x="1145" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="SEP" value="" style="endArrow=none;html=1;strokeColor=#cbd5e1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="516" as="sourcePoint"/>
+            <mxPoint x="1220" y="516" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NOTE2" value="（稍后）某租户发起对话 → 缓存已空，走 createForTenant 用新配置重建" style="text;html=1;strokeColor=#2563eb;fillColor=#dbeafe;fontColor=#1e293b;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="530" width="420" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="M8" value="8. 某租户发起对话" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="590" as="sourcePoint"/>
+            <mxPoint x="290" y="590" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M9" value="9. getOrCreate(1024)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="630" as="sourcePoint"/>
+            <mxPoint x="970" y="630" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M10" value="10. computeIfAbsent 未命中" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="670" as="sourcePoint"/>
+            <mxPoint x="1145" y="670" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M11" value="11. getRawConfig(1024)" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="710" as="sourcePoint"/>
+            <mxPoint x="460" y="710" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M12" value="12. decrypt(密文) → 新明文Key" style="endArrow=block;html=1;strokeColor=#475569;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="750" as="sourcePoint"/>
+            <mxPoint x="625" y="750" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M13" value="13. 用 glm 默认值 + 新Key 构建新实例 → 写入缓存 → 返回新 ChatModel(glm)" style="endArrow=open;dashed=1;html=1;strokeColor=#14b8a6;fontSize=10;fontColor=#134e4a;fontStyle=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="790" as="sourcePoint"/>
+            <mxPoint x="125" y="790" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

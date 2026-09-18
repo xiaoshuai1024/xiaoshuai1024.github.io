@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="6环节管线总览" id="ov1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="一条命令走完全程" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="20" y="30" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;选题&lt;/b&gt;&lt;br&gt;douyin-topic&lt;br&gt;三源数据筛候选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="170" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;文案&lt;/b&gt;&lt;br&gt;blog-writing&lt;br&gt;narrate 断句" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="212" y="182" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;配音&lt;/b&gt;&lt;br&gt;IndexTTS-2&lt;br&gt;克隆声五步链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="384" y="170" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;画面&lt;/b&gt;&lt;br&gt;remotion / courseware&lt;br&gt;graph 三模式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="556" y="188" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="&lt;b&gt;合成&lt;/b&gt;&lt;br&gt;FFmpeg 音字同步&lt;br&gt;封面自动生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="170" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s6" value="&lt;b&gt;发布&lt;/b&gt;&lt;br&gt;pub 五平台&lt;br&gt;公众号草稿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="930" y="184" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="o1" value="输出: 选题清单 json" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="20" y="268" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="o2" value="输出: 意群 + 时间戳" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="212" y="280" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="o3" value="输出: mp3 + 边界" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="384" y="268" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="o4" value="输出: 渲染帧序列" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="556" y="286" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="o5" value="输出: mp4 + 封面 + 元数据" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="740" y="268" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="o6" value="输出: 发布记录" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="930" y="282" width="150" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="s5" target="s6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="n" value="人只做两件事：做判断、审结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="360" width="220" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

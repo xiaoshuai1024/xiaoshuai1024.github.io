@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="assembly" name="四层组装流水线">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="in" value="任务进来&#10;（多步骤 + 要用外部工具才值得上流水线）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="brain" value="大脑层&#10;复述目标 → 列步骤&#10;→ 标注每步用什么工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="270" y="200" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="skill" value="手册层&#10;查技能清单&#10;高频任务直接读档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="270" y="60" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="energy" value="能源层&#10;按难度选档位&#10;小模型/大模型分流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tools" value="手脚层&#10;MCP 插座够到外部世界&#10;取数、执行、带回结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="730" y="200" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="out" value="成品交付" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontSize=13;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="790" y="60" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="in" target="brain">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="brain" target="energy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="energy" target="tools">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="查手册选技能" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;dashed=1;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="brain" target="skill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="结果" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="tools" target="out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="回流：有效用法固化进手册，失败案例记档" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;dashed=1;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="out" target="skill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step" value="最小可用组合：先装大脑 + 能源跑通多步任务，再插手脚，手册最后只固化跑过三次的高频任务" style="text;html=1;align=center;fontSize=12;fontColor=#2563eb;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="420" width="700" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

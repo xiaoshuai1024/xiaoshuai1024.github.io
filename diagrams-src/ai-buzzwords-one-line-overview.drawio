@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI 黑话主线" id="buzz-line">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="860" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="HARNESS" value="Harness&#10;让 AI 进得了大项目" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MCP" value="MCP&#10;接上外部世界的手" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="130" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SKILL" value="Skill&#10;把工作流封装成技能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="220" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AGENT" value="Agent&#10;会自己干活的下属" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="310" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PROMPT" value="提示词&#10;把需求说清楚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LLM" value="大模型&#10;AI 的智商底座" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="490" width="300" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="E1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="LLM" target="PROMPT"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="E2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="PROMPT" target="AGENT"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="AGENT" target="SKILL"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="E4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="SKILL" target="MCP"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;" edge="1" parent="1" source="MCP" target="HARNESS"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="L1" value="聪明" style="text;html=1;align=center;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="610" y="510" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L2" value="听懂" style="text;html=1;align=center;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="610" y="420" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L3" value="动手" style="text;html=1;align=center;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="610" y="330" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L4" value="流程" style="text;html=1;align=center;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="610" y="240" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L5" value="工具" style="text;html=1;align=center;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="610" y="150" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L6" value="环境" style="text;html=1;align=center;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="610" y="60" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="BOTTOM" value="AI 从只会回答，到越来越能自己干活" style="text;html=1;align=center;fontSize=14;fontColor=#1e293b;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="590" width="300" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
