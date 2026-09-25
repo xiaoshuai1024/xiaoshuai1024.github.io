@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="选壳算账" id="dc1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="harness 税怎么算：三个变量代入，再决定壳的厚度" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="24" width="620" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="v1" value="模型强度&#10;强模型：说明书是税&#10;小模型：厚壳替它管上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2" value="任务时长&#10;短任务：首包税占大头&#10;长任务：被轮数稀释" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="206" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="v3" value="缓存命中&#10;前缀稳定：重复部分打到一折以下&#10;前缀乱改：税率打满" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="322" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="formula" value="实付税额 ≈ 首包 token 量 × 轮数 ×（1 − 缓存折扣）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="186" width="380" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="v1" target="formula">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="v2" target="formula">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="强模型 + 短平快任务 → 瘦壳最划算：成功率只让 1 个点，钱省一半" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="322" width="420" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="小模型或长流程任务 → 厚壳的工程能力值回票价，别硬套极简壳" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="402" width="420" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="选壳看两样：首包构成（说明书占比）+ 缓存纪律（前缀稳不稳）——功能列表和「官方一对」都不构成默认理由" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#334155;fontSize=12;align=left;spacingLeft=10;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="490" width="740" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

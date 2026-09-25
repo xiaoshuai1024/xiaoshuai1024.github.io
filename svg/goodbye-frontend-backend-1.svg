@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="380" fill="#ffffff"/>
+  <text x="360" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#1e293b">价值从单点，挪到了通路</text>
+
+  <!-- 左卡：单点技能 -->
+  <rect x="28" y="64" width="250" height="288" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="153" y="94" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">单点技能</text>
+  <rect x="56" y="112" width="194" height="40" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="153" y="137" text-anchor="middle" font-size="13" fill="#334155">前端 · 画界面</text>
+  <rect x="56" y="162" width="194" height="40" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="153" y="187" text-anchor="middle" font-size="13" fill="#334155">后端 · 写接口</text>
+  <line x1="153" y1="222" x2="153" y2="252" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrg)"/>
+  <text x="153" y="278" text-anchor="middle" font-size="12" fill="#64748b">AI 直接生成</text>
+  <text x="153" y="298" text-anchor="middle" font-size="12" fill="#64748b">成本压到接近零</text>
+  <text x="153" y="328" text-anchor="middle" font-size="13" font-weight="700" fill="#64748b">单点贬值</text>
+
+  <!-- 中间大箭头 -->
+  <line x1="296" y1="208" x2="356" y2="208" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="326" y="196" text-anchor="middle" font-size="12" fill="#2563eb" font-weight="600">价值转移</text>
+
+  <!-- 右卡：通路能力 -->
+  <rect x="372" y="64" width="320" height="288" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="532" y="94" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb">通路能力</text>
+  <g font-size="12" fill="#1e293b">
+    <rect x="392" y="120" width="78" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="431" y="141" text-anchor="middle">界面</text>
+    <rect x="392" y="162" width="78" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="431" y="183" text-anchor="middle">接口</text>
+    <rect x="392" y="204" width="78" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="431" y="225" text-anchor="middle">业务逻辑</text>
+    <rect x="392" y="246" width="78" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="431" y="267" text-anchor="middle">数据库</text>
+    <rect x="392" y="288" width="78" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="431" y="309" text-anchor="middle">部署</text>
+    <!-- 串联竖线 -->
+    <line x1="488" y1="136" x2="488" y2="304" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="488" cy="136" r="3" fill="#2563eb"/>
+    <circle cx="488" cy="304" r="3" fill="#2563eb"/>
+  </g>
+  <text x="600" y="150" font-size="13" fill="#1e293b">一个人</text>
+  <text x="600" y="172" font-size="13" fill="#1e293b">把整条通路</text>
+  <text x="600" y="194" font-size="13" fill="#1e293b">串起来</text>
+  <text x="600" y="240" font-size="12" font-weight="700" fill="#2563eb">端走大部分</text>
+  <text x="600" y="258" font-size="12" font-weight="700" fill="#2563eb">价值</text>
+</svg>

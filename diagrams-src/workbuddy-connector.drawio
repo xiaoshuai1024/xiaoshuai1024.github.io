@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="connector" name="connector">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" value="你在微信/飞书/钉钉里&#10;说一句「把这份纪要整理成周报」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;strokeWidth=2;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="290" y="30" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="engine" value="WorkBuddy 执行引擎&#10;(自带工具箱 + 常驻守护进程)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="290" y="160" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp" value="MCP 协议(模型上下文协议)&#10;AI 和应用之间的国标插头" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="290" y="290" width="320" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wecom" value="企微 AI 机器人 SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="410" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lark" value="飞书开放平台 SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="335" y="410" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ding" value="钉钉开放平台 SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="610" y="410" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="以「正式应用」身份注册进你的工作群:收消息、回消息、拿文件,走官方协议&#10;—— 不是模拟一个人在打字" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="510" width="700" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" edge="1" parent="1" source="user" target="engine"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;" edge="1" parent="1" source="engine" target="mcp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mcp" target="wecom"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mcp" target="lark"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mcp" target="ding"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ew" value="只有这条腾讯能做深:WechatShare.appex + 微信数据直通管道" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="480" width="290" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

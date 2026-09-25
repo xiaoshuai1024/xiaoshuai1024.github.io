@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="overview" name="Page-1">
+    <mxGraphModel dx="900" dy="640" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="AI 时代编程语言崩溃排行榜" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="24" width="780" height="28" as="geometry" /></mxCell>
+        <mxCell id="t2" value="排名标准：单位会话内崩溃语录敲击次数（含「求你了」加权）" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="54" width="780" height="20" as="geometry" /></mxCell>
+        <mxCell id="g1" value="" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="50" y="90" width="780" height="112" as="geometry" /></mxCell>
+        <mxCell id="g1l" value="第一梯队 AI 的舒适区" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="66" y="98" width="300" height="18" as="geometry" /></mxCell>
+        <mxCell id="r8" value="第 8 名 Python" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="124" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r8b" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="124" width="66" height="22" as="geometry" /></mxCell>
+        <mxCell id="r8v" value="崩溃指数 1.2" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="396" y="124" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="r7" value="第 7 名 HTML/CSS" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="158" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r7b" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="158" width="99" height="22" as="geometry" /></mxCell>
+        <mxCell id="r7v" value="崩溃指数 1.8" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="429" y="158" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="g2" value="" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="50" y="218" width="780" height="148" as="geometry" /></mxCell>
+        <mxCell id="g2l" value="第二梯队 盯梢区（先失去耐心，再失去中文）" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="66" y="226" width="360" height="18" as="geometry" /></mxCell>
+        <mxCell id="r6" value="第 6 名 TypeScript/JavaScript" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="252" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r6b" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="252" width="187" height="22" as="geometry" /></mxCell>
+        <mxCell id="r6v" value="崩溃指数 3.4" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="517" y="252" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="r5" value="第 5 名 Go" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="286" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r5b" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="286" width="143" height="22" as="geometry" /></mxCell>
+        <mxCell id="r5v" value="崩溃指数 2.6" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="473" y="286" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="r4" value="第 4 名 Java" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="320" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r4b" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="320" width="215" height="22" as="geometry" /></mxCell>
+        <mxCell id="r4v" value="崩溃指数 3.9" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="545" y="320" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="g3" value="" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="50" y="382" width="780" height="112" as="geometry" /></mxCell>
+        <mxCell id="g3l" value="第三梯队 互相折磨区（「继续」通货膨胀重灾区）" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="66" y="390" width="380" height="18" as="geometry" /></mxCell>
+        <mxCell id="r3" value="第 3 名 C++" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="416" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r3b" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="416" width="396" height="22" as="geometry" /></mxCell>
+        <mxCell id="r3v" value="崩溃指数 7.2" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="726" y="416" width="120" height="22" as="geometry" /></mxCell>
+        <mxCell id="r2" value="第 2 名 Rust" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="450" width="240" height="22" as="geometry" /></mxCell>
+        <mxCell id="r2b" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="320" y="450" width="374" height="22" as="geometry" /></mxCell>
+        <mxCell id="r2v" value="崩溃指数 6.8" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="704" y="450" width="120" height="22" as="geometry" /></mxCell>
+        <mxCell id="top" value="榜外第一名：中文 —— 不参与排名，直接夺冠" style="rounded=0;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="510" width="780" height="44" as="geometry" /></mxCell>
+        <mxCell id="note" value="崩溃指数＝本榜自造指标，样本为作者本人 2026-07 至 2026-09 约 140 次会话" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="50" y="566" width="780" height="18" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

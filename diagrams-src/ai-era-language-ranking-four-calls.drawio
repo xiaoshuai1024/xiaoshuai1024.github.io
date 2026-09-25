@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="four-calls" name="Page-1">
+    <mxGraphModel dx="900" dy="460" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="中文：2026 年执行次数最多的指令集" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="24" width="780" height="26" as="geometry" /></mxCell>
+        <mxCell id="t2" value="四句主打语的功能定位与触发场景" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="52" width="780" height="18" as="geometry" /></mxCell>
+        <mxCell id="c1" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;" vertex="1" parent="1"><mxGeometry x="50" y="88" width="380" height="152" as="geometry" /></mxCell>
+        <mxCell id="c1a" value="「继续」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="104" width="340" height="26" as="geometry" /></mxCell>
+        <mxCell id="c1b" value="史上最短 debug 命令" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="138" width="340" height="20" as="geometry" /></mxCell>
+        <mxCell id="c1c" value="触发：AI 写到一半停下，理由不告诉你" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="172" width="340" height="40" as="geometry" /></mxCell>
+        <mxCell id="c2" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;" vertex="1" parent="1"><mxGeometry x="456" y="94" width="380" height="152" as="geometry" /></mxCell>
+        <mxCell id="c2a" value="「用中文回答我」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="476" y="110" width="340" height="26" as="geometry" /></mxCell>
+        <mxCell id="c2b" value="表面是语言偏好，内核是主权宣示" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="476" y="144" width="340" height="20" as="geometry" /></mxCell>
+        <mxCell id="c2c" value="触发：AI 被类型报错逼急，整段切换英文输出" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="476" y="178" width="340" height="40" as="geometry" /></mxCell>
+        <mxCell id="c3" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;" vertex="1" parent="1"><mxGeometry x="56" y="262" width="380" height="152" as="geometry" /></mxCell>
+        <mxCell id="c3a" value="「好的」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="76" y="278" width="340" height="26" as="geometry" /></mxCell>
+        <mxCell id="c3b" value="敷衍放行，AI 最听话的时刻" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="76" y="312" width="340" height="20" as="geometry" /></mxCell>
+        <mxCell id="c3c" value="触发：AI 问「是否需要我……」，而你根本没看它问了什么" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="76" y="346" width="340" height="40" as="geometry" /></mxCell>
+        <mxCell id="c4" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;" vertex="1" parent="1"><mxGeometry x="452" y="268" width="380" height="152" as="geometry" /></mxCell>
+        <mxCell id="c4a" value="「一次完成，中途不要停止」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="472" y="284" width="340" height="26" as="geometry" /></mxCell>
+        <mxCell id="c4b" value="防中断协议，首发阵容在 Java 区" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="472" y="318" width="340" height="20" as="geometry" /></mxCell>
+        <mxCell id="c4c" value="触发：被 AI 第五次请示之后，写进每个新会话的开头" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="472" y="352" width="340" height="40" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

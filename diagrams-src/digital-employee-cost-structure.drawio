@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="成本结构总览" id="cost01">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="数字员工的两类发薪方式" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="280" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="local" value="本地岗位（跑在自己家里）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="380" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="tts" value="配音 · IndexTTS-2 克隆（8GB 显卡）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="local">
+          <mxGeometry x="30" y="50" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="asr" value="转写 · whisper 本地" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="local">
+          <mxGeometry x="30" y="110" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="render" value="渲染 · 本地机器直接出片" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="local">
+          <mxGeometry x="30" y="170" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="elec" value="计费方式：电费（月成本不到一杯奶茶）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="400" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="cloud" value="云端岗位（按 token 走表）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="620" y="90" width="380" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="codex" value="写作 / 编码 · Codex 客户端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="cloud">
+          <mxGeometry x="30" y="50" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="模型通道 · DeepSeek v4-flash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="cloud">
+          <mxGeometry x="30" y="110" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="twoprice" value="输入两档价：命中 0.05 / 未命中 1.5 元每百万" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="cloud">
+          <mxGeometry x="30" y="170" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="bill" value="计费方式：token（单会话可到 952 万）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="400" width="320" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="local" target="elec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="cloud" target="bill">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="管饭第一步：能搬回家的搬回家，剩下的战场只剩 token" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="460" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

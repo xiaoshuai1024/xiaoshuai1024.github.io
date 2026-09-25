@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="ov" name="overview">
+    <mxGraphModel dx="1000" dy="500" grid="0" gridSize="10" page="1" pageWidth="1000" pageHeight="430" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="星数接近，形态相反（GitHub API 2026-09-20 核对）" style="text;html=1;fontSize=18;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="600" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="boxL" value="" style="rounded=1;arcSize=6;fillColor=#EFF6FF;strokeColor=#2563eb;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="400" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="lh" value="ECC · affaan-m/ECC" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="85" width="350" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="263,263 星，2026-01-18 创建，八个月" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="125" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="语言：JavaScript，版本 v2.2.2（2026-09-15）" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="153" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="本体：2530 个 Markdown + 611 个脚本" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="181" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="清单：292 个 skill · 68 个 agent · 94 条命令" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="209" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="运行：向宿主生命周期挂 55 个钩子脚本" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="237" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6" value="定位：给现成框架调校的配置层" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="277" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l7" value="没有自己的引擎" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="85" y="305" width="350" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="boxR" value="" style="rounded=1;arcSize=6;fillColor=#FFFFFF;strokeColor=#2563eb;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="540" y="70" width="400" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="rh" value="DSH · deepseek-ai/deepseek-harness" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="85" width="360" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="230,811 星，2026-08-13 创建，五周冲到" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="125" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="语言：TypeScript，Cordis 内核 + 论文背书" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="153" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="四端：cli · web · desktop · desktop-host" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="181" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="主张：Everything is a Plugin，循环无特权" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="209" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5" value="生态：官方插件市场 + dsh-plugin 话题" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="237" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6" value="定位：自己就是框架的完整内核" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="277" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7" value="开发者预览期，声明将有破坏性变更" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="565" y="305" width="360" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="vs" value="星数度量热度，不度量架构形态" style="text;html=1;fontSize=13;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="345" width="400" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,32 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="verdicts" name="三档结论">
+    <mxGraphModel dx="1100" dy="500" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1060" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c0" value="&lt;b&gt;候选漏洞&lt;/b&gt;&lt;br/&gt;猎捕阶段产出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="176" width="150" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="&lt;b&gt;独立证伪&lt;/b&gt;&lt;br/&gt;全新助手，干净上下文&lt;br/&gt;任务只有一个：推翻它" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="166" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="v1" value="&lt;b&gt;确认&lt;/b&gt;&lt;br/&gt;完整源码追踪链&lt;br/&gt;＋有界观测结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2" value="&lt;b&gt;待验证&lt;/b&gt;&lt;br/&gt;写清卡在哪个具体事实上&lt;br/&gt;没有严重级，不许标高危" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="172" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="v3" value="&lt;b&gt;驳回&lt;/b&gt;&lt;br/&gt;已被推翻，留档存照&lt;br/&gt;防止下次再跑同一思路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="304" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;" edge="1" parent="1" source="c0" target="c1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea" value="源码链闭合" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" edge="1" parent="1" source="c1" target="v1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="eb" value="证据不足" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" edge="1" parent="1" source="c1" target="v2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ec" value="推翻成立" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" edge="1" parent="1" source="c1" target="v3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n1" value="严重级 = 可能性 × 影响；纵深防御缺口只记加固建议，不算洞" style="text;html=1;align=center;verticalAlign=middle;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="408" width="600" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

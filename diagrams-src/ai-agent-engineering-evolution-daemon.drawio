@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="夜间巡检 daemon" id="daemon">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1120" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="start" value="每天 00:00&#10;拉 dev 最新代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="startnote" value="stash 保护开发者工作区&#10;测完无损还原" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="145" width="190" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="test" value="8 步全量测试&#10;fail-fast" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="80" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="testnote" value="后端单测 / 集成测 / 运营单测&#10;运营 E2E / H5 E2E / 小程序编译" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="145" width="190" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="branch" value="失败分流" style="shape=rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="605" y="80" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="env" value="环境问题&#10;（服务起不来 / DB 不可达）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="30" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="envnote" value="不硬修&#10;飞书告警叫人" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="90" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="fix" value="代码问题&#10;Agent 诊断 + 修复" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="220" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="fixnote" value="完整套件回归&#10;过了才提 MR" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="280" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mr" value="只提 MR，不合并" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="380" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="mrnote" value="合入主干必须人点头&#10;信任分级" style="text;html=1;align=center;fontColor=#0f766e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="440" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="stuck" value="修不动&#10;输出分析报告" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="520" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="stucknote" value="坦诚比硬撑值钱&#10;不强行改" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="580" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="start" target="test">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;" edge="1" parent="1" source="test" target="branch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="环境" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;fontFamily=Helvetica;" parent="1" source="branch" target="env">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="代码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;fontFamily=Helvetica;" parent="1" source="branch" target="fix">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;endArrow=classic;" edge="1" parent="1" source="fix" target="mr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="根因定不下来" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;fontFamily=Helvetica;" parent="1" source="branch" target="stuck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="全过 → 飞书「全过」" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;endArrow=classic;dashed=1;fontFamily=Helvetica;" parent="1" source="test" target="mr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

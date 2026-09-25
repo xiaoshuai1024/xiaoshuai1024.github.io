@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="多租户AI助手一次对话时序" id="ai-seq">
+    <mxGraphModel dx="1280" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1280" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="P_U" value="运营前端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_U" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="84" as="sourcePoint"/>
+            <mxPoint x="90" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_C" value="聊天接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_C" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="84" as="sourcePoint"/>
+            <mxPoint x="260" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_S" value="编排服务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_S" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="84" as="sourcePoint"/>
+            <mxPoint x="440" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_F" value="模型工厂" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_F" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="84" as="sourcePoint"/>
+            <mxPoint x="620" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_M" value="大模型(租户)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="40" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_M" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="84" as="sourcePoint"/>
+            <mxPoint x="810" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="P_T" value="业务工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="40" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="PL_T" style="endArrow=none;dashed=1;html=1;strokeColor=#cbd5e1;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="84" as="sourcePoint"/>
+            <mxPoint x="1000" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="M1" value="POST /chat(content, stream)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="120" as="sourcePoint"/>
+            <mxPoint x="260" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M2" value="orchestrate(tenantId, userId, ...)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="168" as="sourcePoint"/>
+            <mxPoint x="440" y="168" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M3" value="getOrCreate(tenantId)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="216" as="sourcePoint"/>
+            <mxPoint x="620" y="216" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M4" value="ChatModel(命中缓存 or 新建)" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="264" as="sourcePoint"/>
+            <mxPoint x="440" y="264" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M5" value="stream(prompt + toolCallbacks)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="312" as="sourcePoint"/>
+            <mxPoint x="810" y="312" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M6" value="query_orders(自动)" style="endArrow=block;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="360" as="sourcePoint"/>
+            <mxPoint x="1000" y="360" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M7" value="订单数据" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="408" as="sourcePoint"/>
+            <mxPoint x="810" y="408" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M8" value="Flux&lt;增量文本&gt;" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="456" as="sourcePoint"/>
+            <mxPoint x="440" y="456" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M9" value="Flux&lt;String&gt;" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="504" as="sourcePoint"/>
+            <mxPoint x="260" y="504" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M10" value="SSE delta(打字机效果)" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="552" as="sourcePoint"/>
+            <mxPoint x="90" y="552" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M11" value="SSE done(conversationId)" style="endArrow=open;dashed=1;html=1;strokeColor=#475569;strokeWidth=1.5;fontSize=10;fontColor=#1e293b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="600" as="sourcePoint"/>
+            <mxPoint x="90" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="NOTE" value="图例：实线箭头 = 调用 / 同步请求；虚线箭头 = 异步返回值（含 Flux 流式与 SSE 推送）。模型工厂按 tenantId 缓存 ChatModel，业务工具通过编排服务注入的租户上下文做数据隔离。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;fontSize=10;fontColor=#475569;align=left;spacingLeft=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="30" y="635" width="1030" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

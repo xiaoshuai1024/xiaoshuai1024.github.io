@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="渲染模式决策树" id="md1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="q" value="内容里有什么？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="40" width="170" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="&lt;b&gt;remotion&lt;/b&gt;&lt;br&gt;榜单 / 性能对比 / 速报" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="230" width="160" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="&lt;b&gt;courseware&lt;/b&gt;&lt;br&gt;教程步骤 / 操作流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="230" width="160" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="&lt;b&gt;graph&lt;/b&gt;&lt;br&gt;概念关系 / 体系架构" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="230" width="160" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="q2" value="要演示真实界面？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="360" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4" value="&lt;b&gt;screencast&lt;/b&gt;&lt;br&gt;真实截图 + 箭头标注&lt;br&gt;步骤条三态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="370" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="有真实数据" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="q" target="r1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="步骤清晰" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="q" target="r2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="概念体系" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="q" target="r3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="r2" target="q2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="q2" target="r4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="no" value="否 → 保持 courseware" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="575" y="392" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="q2" target="no">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

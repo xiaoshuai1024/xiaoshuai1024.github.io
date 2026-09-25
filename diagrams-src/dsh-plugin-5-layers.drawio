@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="插件系统五层" id="layers">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="contract" value="插件契约：name / inject / Config / apply&#10;导出 apply 的 TS 模块 + cordis.yml 一行 entry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="340" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="层 1 生命周期（Cordis 内核）&#10;fiber 状态机：pending → active → disposed&#10;Entry 五步：import / unwrap / inject / apply / rollback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="层 2 装配（profile / bundle）&#10;cordis.yml 入口 + dsh.profile.bundles 层序&#10;dsh plugin = pnpm 转发 + 层清单对账" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="层 3 发现（skill registry）&#10;provider 注册表 + 六层 rank&#10;层内 rank 决胜，层间最近层覆盖" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="层 4 约束（hooks 协议）&#10;外部进程参与决策：exit 2 = 拦截&#10;merge：deny &gt; ask &gt; allow 最严格胜出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="550" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="层 5 类型（typert）&#10;@typert service 注解 → AST 分析生成 manifest&#10;./typert 导出，loader 挂载时注册" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="680" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="model" value="模型看到的技能&#10;&lt;skill_content&gt; 渲染，懒加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="430" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ext" value="外部进程参与的决策&#10;hook 进程读快照、写决策，不拿执行权" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="560" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="peer" value="其他进程的调用&#10;host 面 / remote-client 面各自生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="690" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="写插件的人只需要懂层 1&#10;装插件的人需要懂层 2&#10;层 3/4/5 是插件暴露给外部世界的三个面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="contract" target="l1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l3" target="l4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="l4" target="l5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="发现" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="l3" target="model">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="决策" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="l4" target="ext">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="调用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="l5" target="peer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

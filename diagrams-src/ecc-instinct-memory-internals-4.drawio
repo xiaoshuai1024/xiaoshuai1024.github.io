@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="注入排序机制" id="ecc4">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="pool" value="本能库（全部库存）" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="50" width="240" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="g9i" value="全局本能&#10;conventional commits&#10;confidence 0.9" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="pj" value="当前项目的本能&#10;React 组件用 hooks 写法&#10;confidence 0.7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="210" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="st" value="技术栈匹配的本能&#10;检测到 dbt_project.yml&#10;confidence 0.75" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="formula" value="排序公式&#10;最终分 = confidence + 场景相关性加成&#10;&#10;项目内本能 +0.25&#10;栈匹配本能 +0.2&#10;（加成钉死，不给调成旋钮）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="430" y="130" width="280" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="calc" value="0.7 + 0.25 = 0.95&#10;压过不相干的全局 0.9&#10;&#10;设计意图：被验证最充分的记忆&#10;不一定是此刻最用得上的记忆" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="320" width="280" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="budget" value="注入预算（session-start.js 硬顶）&#10;&#10;最多 6 条本能&#10;本能区总预算 8000 字符&#10;置信度低于地板线的不注入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="110" width="280" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctx" value="SessionStart 上下文&#10;开场注入 6 条 + 明示提示&#10;（可用 /instinct-status 管理）&#10;剩余空间留给任务与代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="300" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="k1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="g9i" target="formula">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="pj" target="formula">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="st" target="formula">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="formula" target="budget">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="budget" target="ctx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k6" value="为什么抠：上下文是工作记忆，每个 token 都在和任务描述、代码、工具输出抢位置" style="text;html=1;fontSize=12;fontColor=#64748b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="180" y="490" width="740" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="k7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="calc" target="budget">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

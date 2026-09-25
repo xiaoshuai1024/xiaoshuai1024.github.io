@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dsh-windows-platform-chain" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="laneLinux" value="Linux" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="150" width="550" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="chainBwrap" value="bwrap → Landlock(内核级)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="204" width="440" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="laneMac" value="macOS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="322" width="550" height="106" as="geometry"/>
+        </mxCell>
+        <mxCell id="chainSeatbelt" value="Seatbelt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="364" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="laneWin" value="Windows" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="486" width="550" height="136" as="geometry"/>
+        </mxCell>
+        <mxCell id="chainAcl" value="ACL 受限令牌 runner · rc.8 加持久 PowerShell PTY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="540" width="460" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="entryConfine" value="confine(argv, policy)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="200" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="convArgv" value="包装后 argv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="950" y="340" width="180" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="ceToLinux" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="entryConfine" target="chainBwrap">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ceToMac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="entryConfine" target="chainSeatbelt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ceToWin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="entryConfine" target="chainAcl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cvFromLinux" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" edge="1" parent="1" source="chainBwrap" target="convArgv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cvFromMac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="chainSeatbelt" target="convArgv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cvFromWin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" edge="1" parent="1" source="chainAcl" target="convArgv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

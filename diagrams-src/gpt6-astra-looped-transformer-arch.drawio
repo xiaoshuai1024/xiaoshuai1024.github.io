@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="循环vs常规架构对比" id="gpta1">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1080" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="循环方案（Nanbeige4.2-3B）" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="400" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="emb1" value="token 化 → 嵌入向量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="84" width="240" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="stack1" value="22 个 Transformer 块&#10;块 1 → 块 2 → … → 块 22&#10;（每块一套权重，只存这一份）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="164" width="280" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="loopnote" value="第一遍走完&#10;隐藏状态送回栈开头&#10;同一套权重再来一遍" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=12;fontStyle=1;dashed=1;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="out1" value="输出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="316" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="展开 = 44 次块应用&#10;第 23 次用块 1 的权重&#10;第 24 次用块 2 的权重，依此类推" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="440" width="380" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="常规方案（把模型做深）" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="400" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="emb2" value="token 化 → 嵌入向量" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="84" width="240" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="stack2" value="44 个独立 Transformer 块&#10;每块各有一套权重" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="660" y="164" width="280" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="out2" value="输出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="790" y="316" width="120" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="同样 44 次块应用&#10;但要存两份块权重&#10;参数量和内存直接翻倍" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="620" y="440" width="380" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="cost" value="成本账：省参数和内存 ✔ ；计算不省 ✘（前向反向照样走 44 次）；KV 缓存不省 ✘（两轮键值各不相同，各存各的）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="550" width="940" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="emb1" target="stack1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" value="第二遍（权重不变）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#2563eb;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="loopnote" target="stack1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e13" value="两遍走完" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="stack1" target="out1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="emb2" target="stack2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="stack2" target="out2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

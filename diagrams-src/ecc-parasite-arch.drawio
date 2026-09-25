@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="pa" name="parasite">
+    <mxGraphModel dx="900" dy="600" grid="0" gridSize="10" page="1" pageWidth="900" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="host" value="宿主框架（Claude Code / Cursor / OpenCode …）" style="rounded=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563eb;strokeWidth=2;fontSize=15;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="500" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="SessionStart" style="rounded=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="150" y="110" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="PreToolUse" style="rounded=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="290" y="110" width="110" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="PostToolUse" style="rounded=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="420" y="110" width="110" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="PreCompact" style="rounded=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="110" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="Stop / SessionEnd" style="rounded=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="680" y="110" width="140" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="hooks" value="ECC 钩子层：55 个脚本（hooks.json 注册，每个动作前后插一杠子）" style="rounded=1;arcSize=6;fillColor=#2563eb;strokeColor=#2563eb;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="120" y="190" width="660" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="cfg" value="ECC 配置层（本体：2530 个 Markdown + 611 个脚本）" style="rounded=1;arcSize=6;fillColor=#FFFFFF;strokeColor=#2563eb;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#1e293b;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="660" height="210" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="292 个 skill" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="150" y="345" width="130" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="68 个 agent" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="300" y="345" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="94 条命令兼容壳" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="440" y="345" width="150" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="instinct 直觉：观察积累，会话注入" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="150" y="400" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="memory vault：低信任记忆库" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="390" y="400" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c6" value="GateGuard：编辑前的事实门禁" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="150" y="450" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="AgentShield：扫描 harness 配置" style="rounded=1;arcSize=20;fillColor=#EFF6FF;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="390" y="450" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="host" target="hooks">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="hooks" target="cfg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="引擎代码：0 行。所有能力长在宿主的生命周期上。" style="text;html=1;fontSize=13;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="520" width="500" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

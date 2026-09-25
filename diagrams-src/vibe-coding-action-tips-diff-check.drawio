@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="diff 三查" id="vcat2">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="diff 三查：新增代码最后看，先看它删了什么" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="30" width="520" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="diffbox" value=" " style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="56" y="80" width="380" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="- lockOrder.guard(a, b)      ← 删除区（红色）&#10;- RetryPolicy.withCap(3)&#10;- TimeoutFallback.toDb()&#10;- ContextPropagator.isolate()&#10;… 共 270 行&#10;&#10;+ new PaymentFlow.v2()        ← 新增区（绿色）&#10;+ payment.submit()" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;verticalAlign=top;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="72" y="96" width="348" height="288" as="geometry"/>
+        </mxCell>
+        <mxCell id="chk1" value="查一：删除了多少行&#10;270 行防御代码消失，编译不报错&#10;只有这个数字知道出事了" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="84" width="280" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="chk2" value="查二：动了没让动的文件没&#10;任务只说改支付模块&#10;diff 里出现 deploy.sh 就是越权" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="196" width="280" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="chk3" value="查三：有没有顺手改别处&#10;「既然改这里那边也对齐一下」&#10;两处对齐都没经过你" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="504" y="308" width="280" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;fontSize=12;" edge="1" parent="1" source="chk1" target="diffbox">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;fontSize=12;" edge="1" parent="1" source="chk2" target="diffbox">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;fontSize=12;" edge="1" parent="1" source="chk3" target="diffbox">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="last" value="新增代码写得好不好，是三查都过了之后的事" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="500" y="414" width="400" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

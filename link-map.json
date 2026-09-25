@@ -1,0 +1,3570 @@
+{
+  "_comment": "博客文章 -> 各平台发布链接映射表。wechat-publish 后自动回填草稿 ID;发布后请手动补充 published_url(微信永久链接)。",
+  "_schema": {
+    "slug": {
+      "weixin": {
+        "draft_appmsgid": "草稿ID(自动)",
+        "published_url": "发布后永久链接(手动)"
+      },
+      "juejin": {
+        "draft_id": "草稿/文章ID(自动)",
+        "published_url": "发布后URL(同ID,可自动)"
+      }
+    }
+  },
+  "after-million-loc-my-skills": {
+    "weixin": {
+      "draft_appmsgid": "100000362",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247484500"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660804014958723114"
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7669470044094500136",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）",
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true,
+          "id": "7669470044094500136"
+        }
+      },
+      "source": "state-history-backfill(openspec link-map-publish-closure)",
+      "note": "抖音侧唯一资产,未跨平台发布(2026-08-28 台账注记,封面已经 douyin_fix_cover 编辑页替换验证);四平台闭环定规(2026-08-27)前的存量单发,非遗漏",
+      "updated_at": "2026-08-30 11:30:00"
+    }
+  },
+  "ai-agent-tool-calling-bridge": {
+    "weixin": {
+      "draft_appmsgid": "100000369",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660755249066000426"
+    }
+  },
+  "ai-dev-agent-hand-testing": {
+    "weixin": {
+      "draft_appmsgid": "100000377",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247484391"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7659978807449534507"
+    }
+  },
+  "ai-dev-claude-skills-system": {
+    "weixin": {
+      "draft_appmsgid": "100000796",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7662764451164323855"
+    }
+  },
+  "ai-dev-cognition-shift": {
+    "weixin": {
+      "draft_appmsgid": "100000391",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771080018296895"
+    }
+  },
+  "ai-dev-command-system": {
+    "weixin": {
+      "draft_appmsgid": "100000398",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247483935"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660755249065984042"
+    }
+  },
+  "ai-dev-compile-not-correct": {
+    "weixin": {
+      "draft_appmsgid": "100000405",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449583659"
+    }
+  },
+  "ai-dev-contract-gates": {
+    "weixin": {
+      "draft_appmsgid": "100000410",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771080018280511"
+    }
+  },
+  "ai-dev-coverage-honesty": {
+    "weixin": {
+      "draft_appmsgid": "100000415",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449600043"
+    }
+  },
+  "ai-dev-deploy-ops-loop": {
+    "weixin": {
+      "draft_appmsgid": "100000949",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659964846329446419"
+    }
+  },
+  "ai-dev-everywhere-scriptable": {
+    "weixin": {
+      "draft_appmsgid": "100000430",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660030380248268842"
+    }
+  },
+  "ai-dev-flyway-governance": {
+    "weixin": {
+      "draft_appmsgid": "100000930",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659964846329462803"
+    }
+  },
+  "ai-dev-fullstack-arch-ai-assurance": {
+    "weixin": {
+      "draft_appmsgid": "100000441",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449616427"
+    }
+  },
+  "ai-dev-incident-as-rule": {
+    "weixin": {
+      "draft_appmsgid": "100000446",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449632811"
+    }
+  },
+  "ai-dev-no-ci-agent-review": {
+    "weixin": {
+      "draft_appmsgid": "100000451",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659963731099303979"
+    }
+  },
+  "ai-dev-productivity-ledger": {
+    "weixin": {
+      "draft_appmsgid": "100000458",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659964846329479187"
+    }
+  },
+  "ai-dev-specs-codified": {
+    "weixin": {
+      "draft_appmsgid": "100000464",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659964846329495571"
+    }
+  },
+  "ai-dev-stats-dashboard": {
+    "weixin": {
+      "draft_appmsgid": "100000471",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449649195"
+    }
+  },
+  "ai-dev-test-discipline": {
+    "weixin": {
+      "draft_appmsgid": "100000476",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389192028214"
+    }
+  },
+  "ai-dev-transformation": {
+    "weixin": {
+      "draft_appmsgid": "100000481",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660804014958772266"
+    }
+  },
+  "ai-dev-visual-acceptance": {
+    "weixin": {
+      "draft_appmsgid": "100000488",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247484393"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660804014958755882"
+    }
+  },
+  "ai-dev-wechat-profit-sharing": {
+    "weixin": {
+      "draft_appmsgid": "100000495",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659964846329511955"
+    }
+  },
+  "ai-era-learning-loop": {
+    "weixin": {
+      "draft_appmsgid": "100000804",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7662908000298811444"
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7668546875955465498",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "ci-cd-without-ci-cd": {
+    "weixin": {
+      "draft_appmsgid": "100000789",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7662692153698074659"
+    }
+  },
+  "ai-dev-what-matters": {
+    "weixin": {
+      "draft_appmsgid": "100000502",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449665579"
+    }
+  },
+  "ai-dev-workflow": {
+    "weixin": {
+      "draft_appmsgid": "100000508",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660804014958706730"
+    }
+  },
+  "ai-era-intelligent-monitoring-self-healing": {
+    "weixin": {
+      "draft_appmsgid": "100000517",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660030380248317994"
+    }
+  },
+  "ai-programming": {
+    "weixin": {
+      "draft_appmsgid": "100000523",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660755249066016810"
+    }
+  },
+  "architecture-archunit-guardrails": {
+    "weixin": {
+      "draft_appmsgid": "100000531",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660804014958919722"
+    }
+  },
+  "architecture-drive-business-growth": {
+    "weixin": {
+      "draft_appmsgid": "100000538",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659978807449731115"
+    }
+  },
+  "build-multi-tenant-ai-assistant": {
+    "weixin": {
+      "draft_appmsgid": "100000546",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389192126518"
+    }
+  },
+  "component-library-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100000554",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660776101882789942"
+    }
+  },
+  "ddd-domain-model-in-lowcode-backend": {
+    "weixin": {
+      "draft_appmsgid": "100000559",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660030380248367146"
+    }
+  },
+  "dev-to-product-manager": {
+    "weixin": {
+      "draft_appmsgid": "100000569",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659963731099369515"
+    }
+  },
+  "enterprise-frontend-architecture-vue-node-java": {
+    "weixin": {
+      "draft_appmsgid": "100000579",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659964846329593875"
+    }
+  },
+  "enterprise-lowcode-fullstack-guide": {
+    "weixin": {
+      "draft_appmsgid": "100000585",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659956009936453673"
+    }
+  },
+  "fe-to-architecturer": {
+    "weixin": {
+      "draft_appmsgid": "100000592",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660031863385227327"
+    }
+  },
+  "flyway-migration-governance": {
+    "weixin": {
+      "draft_appmsgid": "100000597",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7659956009936470057"
+    }
+  },
+  "frontend-architect-team-infrastructure": {
+    "weixin": {
+      "draft_appmsgid": "100000604",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771080018247743"
+    }
+  },
+  "high-concurrency-fullstack-solution-ssr-cdn": {
+    "weixin": {
+      "draft_appmsgid": "100000609",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389191995446"
+    }
+  },
+  "high-concurrency-lowcode-platform-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100000616",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660031863385260095"
+    }
+  },
+  "jd-multi-level-cache-incident": {
+    "weixin": {
+      "draft_appmsgid": "100000622",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247484394"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7659978807449796651"
+    }
+  },
+  "load-testing-25k-users": {
+    "weixin": {
+      "draft_appmsgid": "100000627",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389192044598"
+    }
+  },
+  "luban-lowcode-rendering-engine": {
+    "weixin": {
+      "draft_appmsgid": "100000633",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389191979062"
+    }
+  },
+  "mcp-figma-dual-server-practice": {
+    "weixin": {
+      "draft_appmsgid": "100000640",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389192093750"
+    }
+  },
+  "micro-front-end": {
+    "weixin": {
+      "draft_appmsgid": "100000647",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389192077366"
+    }
+  },
+  "multi-tenant-ai-config-dynamic-chatmodel": {
+    "weixin": {
+      "draft_appmsgid": "100000654",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660776101882806326"
+    }
+  },
+  "multi-tenant-data-isolation": {
+    "weixin": {
+      "draft_appmsgid": "100000660",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771389192011830"
+    }
+  },
+  "nightly-auto-test-fix": {
+    "weixin": {
+      "draft_appmsgid": "100000922",
+      "publish_status": "archived_no_publish"
+    }
+  },
+  "nuxt-performance-optimize": {
+    "weixin": {
+      "draft_appmsgid": "100000673",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660804014958870570"
+    }
+  },
+  "observability-requestid-metrics": {
+    "weixin": {
+      "draft_appmsgid": "100000678",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660031863385309247"
+    }
+  },
+  "personal-knowledge-base-with-ai": {
+    "weixin": {
+      "draft_appmsgid": "100000684",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247483940"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660771389192110134"
+    }
+  },
+  "pua-skill-not-a-joke": {
+    "weixin": {
+      "draft_appmsgid": "100000690",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660030380292472873"
+    }
+  },
+  "rag-knowledge-base-spring-ai": {
+    "weixin": {
+      "draft_appmsgid": "100000697",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247484397"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660755249066049578"
+    }
+  },
+  "rbac-permission-filter-chain": {
+    "weixin": {
+      "draft_appmsgid": "100000703",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660804014958854186"
+    }
+  },
+  "uniapp-saas-miniapp-delegate-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100000712",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247484455"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660771389191946294"
+    }
+  },
+  "vue2-to-vue3-codemod-tool": {
+    "weixin": {
+      "draft_appmsgid": "100000719",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7660771080018231359"
+    }
+  },
+  "web-stability-monitoring-system-practice": {
+    "weixin": {
+      "draft_appmsgid": "100000726",
+      "publish_status": "archived_no_publish",
+      "stats_msgids": [
+        "2247483886"
+      ]
+    },
+    "juejin": {
+      "draft_id": "7660771080018214975"
+    }
+  },
+  "saas-payment-merchant-architecture": {
+    "weixin": {
+      "draft_appmsgid": "100001147",
+      "publish_status": "archived_no_publish"
+    }
+  },
+  "ai-dev-claude-code-power-user": {
+    "weixin": {
+      "draft_appmsgid": "100001128",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7668024062947311631"
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7668261975364799770",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "ai-dev-e2e-underrated": {
+    "weixin": {
+      "draft_appmsgid": "100001080",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7667938518906568719"
+    }
+  },
+  "ai-agent-task-orchestration": {
+    "weixin": {
+      "draft_appmsgid": "100001067",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7668024062947278863"
+    }
+  },
+  "ai-dev-multi-ide-config-ssot": {
+    "weixin": {
+      "draft_appmsgid": "100001087",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7668113813385723956"
+    }
+  },
+  "data-backup-321-drill": {
+    "weixin": {
+      "draft_appmsgid": "100001094",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7668113813385740340"
+    }
+  },
+  "e2e-multi-role-closed-loop": {
+    "weixin": {
+      "draft_appmsgid": "100001102",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7667938518906585103"
+    }
+  },
+  "engineering-priority-from-scratch": {
+    "weixin": {
+      "draft_appmsgid": "100001109",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7668157863301316643"
+    }
+  },
+  "fourth-industrial-revolution-arrived": {
+    "weixin": {
+      "draft_appmsgid": "100001116",
+      "publish_status": "archived_no_publish"
+    },
+    "juejin": {
+      "draft_id": "7668157863301349411"
+    }
+  },
+  "claude-code-must-have-plugins": {
+    "weixin": {
+      "draft_appmsgid": "100001182",
+      "publish_status": "reconciled_expired",
+      "schedule_note": "no_quota_in_7_days",
+      "scheduled_at": "2026-08-06T07:00:00+08:00",
+      "quota_check": "08-06 07:00 已开启群发通知(既有排期)",
+      "evidence": "home 定时发表面板 08月06日 07:00 已开启群发通知",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。",
+      "review_2026-08-29": "数据回看(08-06发,详情30天窗口内):阅读5309为单篇历史最佳,推荐来源5007占94%(推荐引擎爆款);完读19.9%<30%终止线,平均阅读87s(90秒规则临界),分享+在看+收藏21.4%,新增关注80(转化1.5%)。结论:推荐层已验证、读完层是瓶颈——后续同长度档默认走压缩变体,前600字压核心判断,首屏150字问题+钩子。",
+      "stats_msgids": [
+        "2247484809"
+      ]
+    }
+  },
+  "deepseek-v4-flash-coding": {
+    "weixin": {
+      "draft_appmsgid": "100001177",
+      "publish_status": "reconciled_expired",
+      "schedule_note": "no_quota_in_7_days",
+      "scheduled_appmsgid": "100001246",
+      "scheduled_at": "2026-08-07T06:00:00+08:00",
+      "quota_check": "08-07 有群发通知次数(1),已用",
+      "evidence": ".wechat-build/ui_run_100001177_0807.log time_send ret=0",
+      "album": "AI",
+      "2026-08-03_note": "定时面板 08-05 07:00 存在重复 DeepSeek 排期(内容库仅一篇),已取消,原副本 100001159 回草稿箱并删除。仅保留 08-07 一条。",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    }
+  },
+  "ai-dev-openspec-spec-driven": {
+    "weixin": {
+      "draft_appmsgid": "100001191",
+      "publish_status": "reconciled_expired",
+      "schedule_note": "no_quota_in_7_days",
+      "scheduled_at": "2026-08-09T06:00:00+08:00",
+      "quota_check": "08-09 已开启群发通知排期(既有,占 1 次);本次误发的免费发布已取消",
+      "evidence": "home 定时发表面板 08月09日 06:00 已开启群发通知",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    }
+  },
+  "claude-code-ccswitch-domestic-models": {
+    "weixin": {
+      "draft_appmsgid": "100001199",
+      "publish_status": "reconciled_expired",
+      "schedule_note": "no_quota_in_7_days",
+      "scheduled_appmsgid": "100001273",
+      "scheduled_at": "2026-08-08T06:00:00+08:00",
+      "quota_check": "08-08 有群发通知次数(1),已用",
+      "evidence": "2026-08-03 合集修复:旧副本 100001248 无合集→取消排期→新建 100001271(挂 AI 合集)→UI 重新定时副本 100001273(AI 合集已回读验证),schedule_ui_v2 time_send ret=0",
+      "album": "AI",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    }
+  },
+  "ai-dev-openspec-superpowers-workflow": {
+    "weixin": {
+      "draft_appmsgid": "100001282",
+      "publish_status": "published_free_no_push",
+      "published_at": "2026-08-05T22:20:00+08:00",
+      "scheduled_appmsgid": "100001290",
+      "scheduled_at": "2026-08-10T08:00:00+08:00",
+      "incident_2026-08-05": "schedule_ui_v2 定时「今天 22:25」假失败真发布:isFreePublish=true 免费发布,文章静默上主页(无推送)。发表记录:08-05 22:20 已发表(59 阅读/15 分享)、22:25 一条副本已删。用户决定保留不撤回(挂太久)。08-10 群发通知排期仍在,若保留会重复推送同一篇,待用户定夺。",
+      "quota_check": "08-05 剩余 0(幽灵占位);08-06~08-09 已被 4 篇既有排期占满;08-10 有群发通知次数(1)已被本次排期用掉",
+      "evidence": ".wechat-build/ui_run_0810.log time_send ret=0 (isFreePublish=false 群发通知),副本 100001290 已离草稿箱",
+      "album": "AI",
+      "review_2026-08-29": "数据回看(08-05发,详情30天窗口内):阅读387,完读28.7%(三篇有明细中最高但仍<30%终止线),消息打开8.2%(优秀>4%),新增关注6(转化1.5%)。工作流实操类结构保留作模板;>4000长度档完读弹性待下一篇压缩变体验证。",
+      "stats_msgids": [
+        "2247484935"
+      ]
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7670536964554247464",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "rag-recall-tuning": {
+    "weixin": {
+      "draft_appmsgid": "100001301",
+      "scheduled_appmsgid": "100001302",
+      "publish_status": "reconciled_expired",
+      "scheduled_at": "2026-08-10T07:00:00+08:00",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    }
+  },
+  "goodbye-frontend-backend": {
+    "weixin": {
+      "draft_appmsgid": "100001310",
+      "publish_status": "archived_no_publish"
+    }
+  },
+  "ai-dev-stop-discipline": {
+    "weixin": {
+      "draft_appmsgid": "100001323",
+      "publish_status": "reconciled_expired",
+      "scheduled_appmsgid": "100001329",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7672428379777322276",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "ai-buzzwords-one-line": {
+    "weixin": {
+      "draft_appmsgid": "100001339",
+      "publish_status": "reconciled_expired",
+      "scheduled_appmsgid": "100001346",
+      "scheduled_at": "2026-08-13 08:00",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    },
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-08-13 21:17",
+      "archived_at": "2026-08-24"
+    },
+    "note": "快手早期手动发布（2026-08-13，播放 2,989）；抖音/B站未发；2026-08-24 归档"
+  },
+  "openspec-vs-superpowers": {
+    "weixin": {
+      "draft_appmsgid": "100001345",
+      "publish_status": "reconciled_expired",
+      "scheduled_appmsgid": "100001350",
+      "scheduled_at": "2026-08-15 08:00",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    }
+  },
+  "deepseek-harness-first-look": {
+    "weixin": {
+      "draft_appmsgid": "100001380",
+      "publish_status": "reconciled_expired",
+      "scheduled_appmsgid": "100001380",
+      "scheduled_at": "2026-08-16 09:00:00",
+      "reconcile": "reconcile_2026-08-28: 定时日期已过多日,平台定时面板无待触发卡(定时群发卡触发后即消失);本地状态由 scheduled 改注 reconciled。实际是否触发过群发需 mp 后台「发表记录」人工回看(无 API 通道),48h 数据回看时一并补记。"
+    },
+    "pub_video": {
+      "results": {
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-09-23 13:54:39",
+      "douyin_id": "7673823175246892294",
+      "cross_post_note": "2026-08-28 跨平台补发排期（抖音数据 Top2: 1.2万播）：deck 重渲（107.7s 与原版一致）+ 4Mbps 重编码。明天中午窗口（8-29 已有 pi-agent 晚 20:00，双窗口各一片合规）。",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "published_at": "2026-08-29 20:45:43",
+      "kuaishou_id": "3xu7e2n4k3hhjge",
+      "review": {
+        "2026-08-29 20:50": "视频号补发闭环：cookie 扫码续期(20:38)后挂 8-30 12:00 定时，20:46 scan 复核发现被静默降级立即发表(已发表列表在列 st=1)。定规边界更新：平台侧定时仅当天内近档(小时级)可用，15.5h 跨日档亦降级——15:50 档实证 + ep3 canary 实验取消(78h 必降)。视频保留不删(内容已缺一天，20:46 仍在晚档流量尾巴)。原 11:50 schtasks 发布失败根因=cookie 失效。附：后台 scan 发现 08-23 12:00「Subagent不开新进程」重复发布两条，待用户定夺删除。",
+        "2026-08-30 01:20": "重大修正：scan 工具 st=1 不区分待发表/已发表（待发表卡 createTime=提交时刻）。本条 8-30 12:00 定时卡一直活着（effectiveTime=1788062400 铁证），20:46「实发」系误判，未重复未丢失。表结构铁律固化 SKILL.md。"
+      },
+      "shipinhao_id": "export/UzFfBgAAxNKhGEwUXEDxk8zT4DCa3De20e0bA2LegnUDJlyAVw",
+      "bilibili_id": "BV1ZUtx6kE27",
+      "scheduled_at": "2026-09-23 20:00",
+      "bilibili_id_v4": "BV1hTh463EEk",
+      "backfill_v4_20260923": {
+        "note": "补档v4重制版(黑白科技感+柱子哥口播v3,5m27s)用户令改挂09-23 20:00晚档(原午档计划,11:04逼近2小时线放弃午档);抖音11:11挂卡(审核中在列)/快手11:13(待发布)/B站11:14 BV1hTh463EEk(state=0,编辑页视觉确认dark封面在+保存成功;archives pic空为近期稿常态,WorkBuddy对照实证非丢失信号);视频号cookie失效待用户扫码后补挂;14:00 视频号扫码成功补挂(定时态slot_scan实查+原创声明isDeclared=1)",
+        "platforms_hung": [
+          "douyin",
+          "kuaishou",
+          "bilibili",
+          "shipinhao"
+        ],
+        "pending": []
+      }
+    }
+  },
+  "codex-ccswitch-deepseek": {
+    "weixin": {
+      "draft_appmsgid": "100001508",
+      "publish_status": "failed",
+      "published_url": "https://mp.weixin.qq.com/s?__biz=MzA3MzMxMDIyOA==&mid=2247485225&idx=1&sn=cac7c05a8cfb6378651d87c00adad881&scene=21#wechat_redirect"
+    },
+    "pub_video": {
+      "published_at": "2026-08-20 15:52:46",
+      "results": {
+        "douyin": {
+          "ok": true
+        }
+      },
+      "review": {
+        "2026-08-31 对账": "08-31 对账注记：抖音作品缺失（8/20 发布记录）。同 codex-desktop-tutorial 主题族（第三方模型接入官方客户端，平台不适宜公开三度实锤、按定规停发），判定为平台拒主题历史下架，非 08-30 深夜误删事件；维持停发定规。"
+      }
+    }
+  },
+  "ai-agent-engineering-evolution": {
+    "weixin": {
+      "draft_appmsgid": "100001518",
+      "publish_status": "failed"
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7673803815706955008",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "ecc-agent-os": {
+    "weixin": {
+      "draft_appmsgid": "100001525",
+      "publish_status": "failed"
+    },
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7673725461922434323",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "deepseek-harness-source-internals": {
+    "weixin": {
+      "draft_appmsgid": "100001556"
+    }
+  },
+  "glm-5-3-coding-evaluation": {
+    "weixin": {
+      "draft_appmsgid": "100001566",
+      "publish_status": "failed"
+    }
+  },
+  "claude-code-write-your-own-skill": {
+    "weixin": {
+      "draft_appmsgid": "100002925",
+      "length_tier": "compressed_variant_2500 内（直发档）",
+      "variant": ".wechat-build/claude-code-write-your-own-skill/wechat-variant.md（LLM 压缩版，博客源稿不动）",
+      "variant_note": "2026-09-05 LLM 压缩：约 1060 字，预估中位 discipline-framework 基线 413；推送前 mp 后台四查照做",
+      "scheduled_appmsgid": "1000000129",
+      "publish_status": "published",
+      "scheduled_at": "2026-09-08 20:30:00",
+      "schedule_note": "2026-09-06 换卡重排:重推带作者(1024工程笔记)+尾部转化段新稿,取消旧定时(1000000122/123),同档重挂;载体副本 100002929/100002931 离箱;旧原稿与废卡已删复核到 0",
+      "scheduled_time": "2026-09-08 20:30",
+      "publish_evidence": "定时群发已触发(2026-09-08 20:30, 发表记录 msgid=1000000129); 草稿残留 100002925 已删(2026-09-08 草稿箱清理)"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 18:56:26",
+      "results": {
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "bili_scheduled_at": "2026-08-28 12:00",
+      "bilibili_id": "BV1ou8b69EmV",
+      "douyin_id": "7675197340432534824",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）"
+    }
+  },
+  "pi-agent-beats-claude-code": {
+    "weixin": {
+      "draft_appmsgid": "100001496"
+    },
+    "pub_video": {
+      "published_at": "2026-08-25 00:22:46",
+      "results": {
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "bili_scheduled_at": "2026-08-29 20:00",
+      "updated_at": "2026-08-23 20:11:48",
+      "douyin_id": "7675726688910593330",
+      "bilibili_id": "BV1n9hN68EKH",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）"
+    }
+  },
+  "claude-codex-top10-plugins": {
+    "weixin": {
+      "draft_appmsgid": "100001503",
+      "review_2026-08-29": "数据回看(08-17发,详情30天窗口内):阅读546(推荐474占87%),完读15.6%<30%终止线,会话打开7.1%(优秀>4%),搜一搜37,新增关注1(0.2%低于自身中位1.5%)。动作:补可收藏资产(插件对照表/速查卡)+文末往期关联2-3篇;姊妹视频抖音完播21.9%全场最高但播放仅81(冷启动失败),同结构内容值得换封面/标题形态重发。",
+      "stats_msgids": [
+        "2247485222"
+      ],
+      "review_48h": "2026-09-07 48h 回看:阅读 2403(推荐占 94.7%,消息打开 34.4% 优秀)但完读 12.2% 低于 30% 终止线、平均阅读 79s、关注 16 人(0.7%)——与 mcp-server-star-ranking 同病:推荐爆量完读塌,优先修首屏与节奏、补速查/对比表类可收藏资产"
+    },
+    "pub_video": {
+      "published_at": "2026-08-25 00:05:43",
+      "results": {
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "bili_scheduled_at": "2026-08-28 20:00",
+      "updated_at": "2026-08-23 20:11:48",
+      "douyin_id": "7675353967836122403",
+      "bilibili_id": "BV1LFhK6xEBw"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0913_204757.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=False",
+      "audit": "found",
+      "audit_note": "列表页实查到「Claude 和 C…」在位",
+      "synced_at": "2026-09-13T20:48:03+08:00",
+      "audit_at": "2026-09-13T20:46:01+08:00"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0913_214657.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "synced_at": "2026-09-13T21:47:04+08:00",
+      "audit": "found",
+      "audit_note": "列表页实查到「Claude 和 C…」在位",
+      "audit_at": "2026-09-13T20:45:55+08:00"
+    }
+  },
+  "claude-codex-arch-overview": {
+    "weixin": {
+      "draft_appmsgid": "100001632"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 15:24:39",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        }
+      },
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-22 12:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "bili_scheduled_at": "2026-08-23 20:00",
+      "updated_at": "2026-08-23 16:53:38",
+      "bilibili_id": "BV1dM8462EqZ",
+      "douyin_id": "7676020267797187882",
+      "kuaishou_id": "3xqjsdfd2v44vpi",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "shipinhao_id": "export/UzFfBgAAxMmnWCUBbi7sk8zT4DCauJ9A7Dg3miKVkdJZ52h70Q"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "claude-codex-turn-loop": {
+    "weixin": {
+      "draft_appmsgid": "100002310",
+      "publish_status": "published",
+      "scheduled_at": "2026-08-30T20:30:00+08:00",
+      "talkshow": "2026-08-29 用户点名脱口秀模式重写文章(标准档,写梗笔记 .wechat-build/talkshow-notes-codex-duo.md)+黄底色块封面;原卡(明天20:00 旧封面旧标题)已取消,新卡重挂明天 20:30",
+      "scheduled_appmsgid": "1000000101",
+      "scheduled_msgid_note": "2026-08-29 起 scheduled_appmsgid 记录 masssend 定时记录 id(即 cancel_time_send 的 id,来源 wx.cgiData.timesend_msg,verify_schedule.py 可核验)",
+      "cover_fix_reschedule": "2026-08-29 夜 开头封面重复图修复(prepare.py strip_leading_cover)落地:取消旧卡→删旧原稿+旧副本→重推修复版草稿→原时段重挂,四条 timesend 全量核验在排",
+      "published_url": "https://mp.weixin.qq.com/s?__biz=MzA3MzMxMDIyOA==&mid=2247485981&idx=1&sn=f09dcd77b57ea42092229e33fd4a509e&scene=21#wechat_redirect",
+      "published_at": "2026-08-30 20:30",
+      "sent_succ": 260,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 定时触发 sent_succ=260"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 15:34:26",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-23 16:53:38",
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-22 20:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "bili_scheduled_at": "2026-08-24 12:00",
+      "ks_scheduled_at": "2026-08-23 20:00",
+      "bilibili_id": "BV1i3846yE1S",
+      "douyin_id": "7676090187503471922",
+      "kuaishou_id": "3xry64qskj6ffds",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "shipinhao_id": "export/UzFfBgAAxNynUHoyFXDvk8zT4DCa_vY0VhSKUoLFqjqadMdrJA"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "claude-codex-subagent-scheduling": {
+    "weixin": {
+      "draft_appmsgid": "100002291",
+      "publish_status": "published",
+      "talkshow": "2026-08-29 同上脱口秀重写+新封面;原卡(今天17:31)已取消;schedule_ui_v2 禁止定时「今天」(isFreePublish 闸),新稿待挂 09-03 20:30——挂卡多次未成(启动暂态+流程抖动),草稿就绪可人工 30 秒挂卡或后续重试",
+      "published_at": "2026-08-29 07:05",
+      "sent_succ": 249,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 定时触发 sent_succ=249"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 15:44:12",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-23 16:53:38",
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-23 12:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "bili_scheduled_at": "2026-08-24 20:00",
+      "ks_scheduled_at": "2026-08-24 12:00",
+      "bilibili_id": "BV1zw846DEi8",
+      "douyin_id": "7676090116204432640",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "claude-codex-context-compaction": {
+    "weixin": {
+      "draft_appmsgid": "100001653",
+      "dual_send_note": "2026-08-28 20:00:00 群发(msgid 2247485327,送达248,标题完整) + 2026-08-29 00:18:03 二次群发(msgid 2247485668,送达249,标题被截断为'上下文管理源码对')——同一内容 4h18m 两次群发,订阅者收到两份;【已处置 2026-08-29 深夜】用户拍板撤回后发版:发表记录页 ···→删除→确定→管理员扫码二次验证,delete_flag 已核实 2247485668=true / 2247485327=false;删除效果=文章页失效为「发布者已删除」,订阅者聊天列表气泡无法物理移除(平台上限)。被删版删除前读数 40 阅读/4 转发(分流多于完整版 5 阅读)。复用工具:.wechat-build/sent_delete_qr.py(无头走到扫码步并导出二维码)。统计行回流后按 msgid 区分归因。"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 15:54:09",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-23 16:53:38",
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-23 20:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "bili_scheduled_at": "2026-08-25 12:00",
+      "ks_scheduled_at": "2026-08-23 20:00",
+      "bilibili_id": "BV1nP846nEgC",
+      "douyin_id": "7676092534929509667",
+      "kuaishou_id": "3xyq6uprktek6da",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "shipinhao_id": "export/UzFfBgAAxKygXEEAMxXuk8zT4DCa4A94g6w4CAkhbN_Art5q6w"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "claude-codex-permission-gating": {
+    "weixin": {
+      "draft_appmsgid": "100001660",
+      "publish_status": "published",
+      "published_at": "2026-08-26 20:30",
+      "sent_succ": 230,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 sent_succ=230"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 16:12:18",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-23 16:53:38",
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-24 12:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "bili_scheduled_at": "2026-08-26 12:00",
+      "ks_scheduled_at": "2026-08-24 12:00",
+      "bilibili_id": "BV1bp846TE6h",
+      "douyin_id": "7676101450790915362",
+      "kuaishou_id": "3xrwzba35x45k9w",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "shipinhao_id": "export/UzFfBgAAxNynUBlEIWfpk8zT4DCaOAli7r7gvfON1B7_3zi42g"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "claude-codex-skill-mcp-loading": {
+    "weixin": {
+      "draft_appmsgid": "100001667"
+    },
+    "pub_video": {
+      "published_at": "2026-08-23 16:22:16",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-23 16:53:38",
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-24 20:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "bili_scheduled_at": "2026-08-26 20:00",
+      "ks_scheduled_at": "2026-08-24 20:00",
+      "bilibili_id": "BV1eV846VEs4",
+      "douyin_id": "7676104482458979618",
+      "kuaishou_id": "3xrkc4feu7udbdq",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "shipinhao_id": "export/UzFfBgAAxMKnaDJ0KC7pk8zT4DCa_zCTf79dIZXrjYkv-vF41g"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "01-claude-codex-arch-overview": {
+    "pub_video": {
+      "published_at": "2026-08-20 01:03:05",
+      "results": {
+        "douyin": {
+          "ok": false,
+          "error": "cookie 不存在，先跑: python -m scripts.pub.login douyin"
+        }
+      }
+    }
+  },
+  "video-pipeline-6-skills": {
+    "weixin": {
+      "draft_appmsgid": "100001677",
+      "published_url": "https://mp.weixin.qq.com/s?__biz=MzA3MzMxMDIyOA==&mid=2247485326&idx=1&sn=9002fc365d0ca9daee255e13185344ef&scene=21#wechat_redirect",
+      "publish_status": "published"
+    },
+    "pub_video": {
+      "published_at": "2026-08-25 22:07:18",
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "publish_status": "published",
+      "scheduled_at": "2026-08-25 20:00",
+      "archived_at": "2026-08-21",
+      "note": "2026-08-25 22:07 v2 新版四平台直发成功（抖音/快手/视频号/B站，无定时）。视频号两处 WARN：AI 声明入口未出现、4:3 横版封面未设置（竖版封面已设）——需后台人工补。B站经 biliup 投稿 exit=0。",
+      "updated_at": "2026-08-25 22:08:08",
+      "ks_scheduled_at": "2026-08-25 20:00",
+      "douyin_id": "7677964151037103360",
+      "bilibili_id": "BV13J846gEKJ",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "shipinhao_id": "export/UzFfBgAAxMGnXF4Ra33rk8zT4DCapAfiuvmlUirx0Eo83EOVOg"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "deepseek-harness-plugins-top10": {
+    "pub_video": {
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-21 12:00",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "published_at": "2026-08-23 16:32:08",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": false,
+          "error": "RuntimeError: 快手发布被拒: 检测失败"
+        },
+        "douyin": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": false,
+          "error": "RuntimeError: cookie文件已失效，请先完成视频号登录: /Users/maxiaofei/codes/blog-src/scripts/pub/cookies/shipinhao.json"
+        }
+      },
+      "bili_scheduled_at": "2026-08-27 12:00",
+      "updated_at": "2026-09-17 18:42:25",
+      "bilibili_id": "BV1Sy8x6AE8b",
+      "douyin_id": "7675779677939617065",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "kuaishou_id": "3xjagxru39gmhnk",
+      "shipinhao_id": "export/UzFfBgAAxJSpfHMQIz3Ok8zT4DCaY7FHXkdoJEmMr2-Gf5p91w"
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。",
+    "weixin": {
+      "length_tier": "compressed_variant_2500 内（直发档）",
+      "variant": ".wechat-build/deepseek-harness-plugins-top10/wechat-variant.md（LLM 压缩版，博客源稿不动）",
+      "variant_note": "2026-09-05 LLM 压缩：约 1170 字，预估中位 tool-list 基线 2000，时效衰减修正；推送前 mp 后台四查照做",
+      "draft_appmsgid": "100002918",
+      "scheduled_appmsgid": "1000000128",
+      "publish_status": "published",
+      "scheduled_at": "2026-09-07 20:30:00",
+      "schedule_note": "2026-09-06 换卡重排:重推带作者(1024工程笔记)+尾部转化段新稿,取消旧定时(1000000122/123),同档重挂;载体副本 100002929/100002931 离箱;旧原稿与废卡已删复核到 0",
+      "scheduled_time": "2026-09-07 20:30",
+      "publish_evidence": "定时群发已触发(2026-09-07 20:30, 发表记录 msgid=1000000128); 草稿残留 100002918 已删(2026-09-08 草稿箱清理)",
+      "stats_msgids": [
+        "2247486578"
+      ],
+      "review_48h": "2026-09-10 48h 回看(统计行 09-10 才进,mp 侧延迟):送达 333,阅读 207(推荐 62.2%/消息打开 1.2% 低于大盘 1.9%),完读 15.0% 低于 30% 终止线,平均阅读 115s,互动(分享+在看+收藏)16.9%,关注 3 人(1.5%)——压缩版标题钩子弱(消息打开低)且完读掉线;动作=下一篇标题钩子前移 13 字+补可搜词,digest 前 40 字改痛点+数字,首屏与节奏优先修"
+    }
+  },
+  "deepseek-harness-plugin-system": {
+    "pub_video": {
+      "publish_status": "scheduled",
+      "scheduled_at": "2026-08-21 18:25",
+      "archived_at": "2026-08-21",
+      "note": "抖音/快手已定时（video-pipeline-6-skills 经发布管线；其余为抖音后台排期）。B站 601 频控待重试。",
+      "published_at": "2026-08-23 16:41:24",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "bili_scheduled_at": "2026-08-27 20:00",
+      "updated_at": "2026-09-21 21:10:00",
+      "bilibili_id": "BV12m8x6cEXf",
+      "kuaishou_id": "3x633avca5ceywa",
+      "note_correction": "2026-08-28 勘误：原记录 douyin_id 7674529010390420736 实为「我肝了一天源码解析」(deepseek-harness-source-code) 的抖音作品；本视频抖音作品 ID 待查（抖音快照无「133 个插件」条目，可能未发抖音或已删）。",
+      "douyin_id": "7687094036150226226",
+      "shipinhao_id": "export/UzFfBgAAxMWpRGoXPQ7Vk8zT4DCaJiUzicGgNUjRoWR3c8EwTg",
+      "backfill_20260921": {
+        "note": "补档重制版四平台完成:抖音 2026-09-19 12:10 已发布在列(pub-audit 实查);B站 2026-09-19 state=0(pub-audit 实查);快手 2026-09-21 12:04 直发上线,312播/1赞/2评(kuaishou_check_status 后台视觉实查);视频号 2026-09-21 14:26 直发,status=1(pub-audit 实查)",
+        "kuaishou_audit_trap": "pub-audit 曾报快手「定时发布在列」系同系列模糊匹配误报(把 ecc-vs-dsh 的 09-23 20:00 定时卡认成本片),与本片无关;task tq-20260921-145048-02 已据此 done 销项"
+      }
+    },
+    "note": "快手：封面全补齐（v2 修复+编辑页补图），重复投稿已清理，合集内发布（AI 研发实战）。B站：601 解除后 9 篇定时 08-23~27。遗留：抖音合集 Web 端无入口（App 手动）；B站合集需权益 Lv2；B站/快手原创与AI声明按合规口径——AI 内容不声明原创。"
+  },
+  "deepseek-harness-desktop-cli": {
+    "pub_video": {
+      "published_at": "2026-08-25 00:14:08",
+      "results": {
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "bili_scheduled_at": "2026-08-29 12:00",
+      "updated_at": "2026-08-23 20:11:48",
+      "douyin_id": "7675022422491270454",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）"
+    },
+    "weixin": {
+      "draft_appmsgid": "100002665",
+      "schedule_note": "备用待排; 列表式往期关联段剥除,公众号内链 v3",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "codex-token-bill-anatomy": {
+    "weixin": {
+      "draft_appmsgid": "100002673",
+      "publish_status": "published",
+      "scheduled_appmsgid": "1000000102",
+      "scheduled_at": "2026-09-02T20:30:00+08:00",
+      "evidence": ".wechat-build/sched-ui-evidence/sched_ui_800.log time_send 配额消耗(当日 1→0)+副本 100001880 已离草稿箱;schedule_api 直发通道 ret=-1 已废,走 schedule_ui_v2",
+      "reschedule": "2026-08-29 应用户要求:取消旧卡(换封面)→重推黄底色块封面新草稿→原时段重挂。旧原稿 698/712/800 与旧副本已删。取消会恢复配额(实证),定时副本与原稿相互独立(实证)",
+      "cover_fix": "2026-08-29 封面管线根因修复(prepare.py 只处理 /svg/ 图片,/images/ 首图不进循环→封面错取第一张 SVG 裁切;已补 /images/ 栅格图处理+封面取真首图)后:取消卡→重推正确封面草稿→原时段重挂;配额消耗+首页定时列表双核验存活",
+      "scheduled_msgid_note": "2026-08-29 起 scheduled_appmsgid 记录 masssend 定时记录 id(即 cancel_time_send 的 id,来源 wx.cgiData.timesend_msg,verify_schedule.py 可核验)",
+      "cover_fix_reschedule": "2026-08-29 夜 开头封面重复图修复(prepare.py strip_leading_cover)落地:取消旧卡→删旧原稿+旧副本→重推修复版草稿→原时段重挂,四条 timesend 全量核验在排",
+      "schedule_note": "timesend msgid=1000000114 已核验; /posts/死路径与非公众号href清零(2026-08-31总纲定规); 旧稿已删重推",
+      "published_at": "2026-09-02 20:30",
+      "sent_succ": 290,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 定时触发 sent_succ=290"
+    }
+  },
+  "dsh-source-deep-dive-ep1": {
+    "pub_video": {
+      "published_at": "2026-08-27 11:52:24",
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "douyin_id": "7678328159326178623",
+      "updated_at": "2026-09-22 14:51:17",
+      "bilibili_aid": 117164879186075,
+      "catchup_schedule": {
+        "bilibili": "2026-08-27 12:00 平台侧 dtime=1787803200，稿件 state=-40 定时中（09:53 核验）",
+        "kuaishou": "2026-08-27 12:00 平台侧定时（check_status 待发布列表 09:52 核验）",
+        "shipinhao": "2026-08-27 11:50 本地 schtasks 兜底（tencent 定时选择器待修，勿再挂 --schedule）"
+      },
+      "review": {
+        "checked_at": "2026-08-27 12:33:00",
+        "bilibili": "通过/可见（state=0，aid 117164879186075，ptime 12:00:00 整点出片）",
+        "kuaishou": "已发布（作品在列带时长 07:25，无违规标记）",
+        "shipinhao": "已发布（RfwNaa5XFlDSGd7A，st=1，11:53 本地兜底直发落 12:00 窗口；AI 声明开关上传器超时跳过，待后台手动补勾）",
+        "douyin": "08-26 21:14 已发布（1933 播放），非本次窗口"
+      },
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "bilibili_id": "BV1X7hc6BELd",
+      "shipinhao_id": "export/UzFfBgAAxMCnSCxUSHH1k8zT4DCaa33DRsRfwNaa5XFlDSGd7A",
+      "backfill_v2_20260922": {
+        "note": "补档重制v2(演讲专家框架30卡重写+ref_v5克隆声434.6s)2026-09-22 12:28-12:31 挂卡:抖音/快手/B站均定时 2026-09-22 20:00(pub_guard R8过,slot-sweep当日各<=1支);B站 BV1bdh762E2Q state=0",
+        "bilibili_bvid_v2": "BV1bdh762E2Q",
+        "kuaishou_schedule_verified": "2026-09-22 20:00(kuaishou_check_status 平台侧实查;pub-audit的missing为标题模糊匹配漏报,DOM字段序:描述→状态→定时时间)",
+        "bilibili_pic_delay": "archives pic空=延迟入库先例(0916/0918同款),封面编辑器流程完成(log封面完成弹层已关),20:10上线后复查任务 tq-20260922-124346-02",
+        "shipinhao": "✅ 定时卡已挂上(用户令尝试平台侧定时,14:51 提交):effectiveTime=1790078400 实查=今晚20:00整,objectId export/UzFfBgAAxOypPCx1cybUk8zT4DCaXMEINwUXMBnm1Rw8ZGBaTQ;isDeclared原创=1+AI标注SUCCESS(2026-09-19定规并存);扫码走 shipinhao_login_diag"
+      }
+    },
+    "douyin_featured": {
+      "selected": true,
+      "confirmed_at": "2026-09-12",
+      "source": "用户确认（抖音主页置顶第三支）",
+      "note": "账号首支抖音精选；入选要素复盘见 video-analytics findings-log 2026-09-12 节"
+    },
+    "backfill_note": "2026-09-21 补档完成:抖音/B站 14:00 准点发布(重制双层版),快手 09-20 已发,视频号旧版(08-27)在线按不重复原则跳过",
+    "withdraw_note": "2026-09-21 撤回(用户令,判重制版语音不可用多处中断):B站重制版 BV12Qhe6WEMi 本会话删除;删前重制版三件(成片+deck+口播稿)已归档 video-generation/archive/dsh-source-deep-dive-ep1/remake-20260921/;抖音(已发布/审核中/未通过三视图实查空)、快手(时间倒序首页+关键词实查无)、视频号旧版(全量20条实查无)均已不在,疑用户手动删除;原播23287(高播放线之上)留档已合规;重发需语音重做+试听验收,任务 tq-20260921-200203-02"
+  },
+  "codex-desktop-tutorial": {
+    "pub_video": {
+      "published_at": "2026-08-27 19:53:42",
+      "results": {
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "bilibili_id": "BV1Sh8961EbR",
+      "douyin_id": "7678353128395230514",
+      "kuaishou_id": "3x3nub853w4nikk",
+      "review": {
+        "2026-08-27 10:10": "违规清理+统一重挂：快手旧版/B站旧版(BV1Sh8961EbR)/视频号两次误发 全部删除；合规版重挂 快手(定时08-27 20:00已核)+B站(BV128hc68EGp state-1定时已核)+视频号(计划任务19:50直发)；抖音合规版仍被拒(不适宜公开,主题级三度实锤)按定规停发,2条未通过残留非公开待App手动清；注意:抖音/快手/B站今晚20:00另有其他会话的定时视频,勿误删"
+      },
+      "shipinhao_id": "export/UzFfBgAAxMqncHFbQjj1k8zT4DCaTLPGslpSWjoYxL940y5iDQ"
+    }
+  },
+  "transformer-matrix-internals": {
+    "pub_video": {
+      "published_at": "2026-08-27 19:58:11",
+      "results": {
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-27 10:27:00",
+      "catchup_schedule": {
+        "douyin": "2026-08-27 20:00 平台侧定时（01:33 提交 SCHEDULED）",
+        "bilibili": "2026-08-27 20:00 平台侧 dtime=1787832000（待 20:30 复查核验 state）",
+        "kuaishou": "2026-08-27 20:00 平台侧定时（10:26 check_status 待发布列表核验）",
+        "shipinhao": "2026-08-27 19:56 本地 schtasks 兜底 sph-transformer-1956，日志 D:/tmp/sph_transformer_1956.log"
+      },
+      "bilibili_id": "BV1anhc6iETj",
+      "douyin_id": "7678394850747665706",
+      "shipinhao_id": "export/UzFfBgAAxNSnGDtWbz71k8zT4DCaS2I3_iF6ZismQyjSxtllxw"
+    },
+    "weixin": {
+      "draft_appmsgid": "100002639",
+      "publish_status": "deleted_gate_fail",
+      "evidence": ".wechat-build/sched-ui-evidence/sched_ui_698.log time_send 配额消耗(当日 1→0)+副本 100001878 已离草稿箱;schedule_api 直发通道 ret=-1 已废,走 schedule_ui_v2",
+      "reschedule": "2026-08-29 应用户要求:取消旧卡(换封面)→重推黄底色块封面新草稿→原时段重挂。旧原稿 698/712/800 与旧副本已删。取消会恢复配额(实证),定时副本与原稿相互独立(实证)",
+      "cover_fix": "2026-08-29 封面管线根因修复(prepare.py 只处理 /svg/ 图片,/images/ 首图不进循环→封面错取第一张 SVG 裁切;已补 /images/ 栅格图处理+封面取真首图)后:取消卡→重推正确封面草稿→原时段重挂;配额消耗+首页定时列表双核验存活",
+      "scheduled_msgid_note": "2026-08-29 起 scheduled_appmsgid 记录 masssend 定时记录 id(即 cancel_time_send 的 id,来源 wx.cgiData.timesend_msg,verify_schedule.py 可核验)",
+      "cover_fix_reschedule": "2026-08-29 夜 开头封面重复图修复(prepare.py strip_leading_cover)落地:取消旧卡→删旧原稿+旧副本→重推修复版草稿→原时段重挂,四条 timesend 全量核验在排",
+      "schedule_note": "待09-07窗口开放后排期(今晚档已取消:今天定时被平台禁); v2转化段+文末旧文导览段剥除+公众号内链",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "codex-token-bill": {
+    "pub_video": {
+      "published_at": "2026-08-27 02:05:25",
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "review": {
+        "2026-08-31 对账": "08-31 全量对账存疑注记：douyin ok(08-27 02:05 四平台齐发)不合常理疑似 backfill 误标；抖音平台现查无此稿（127 支全量检索），快手在册（一个会话吃掉 952 万 token）。是否曾实发、是否补挂抖音待用户定夺。"
+      }
+    }
+  },
+  "dsh-source-deep-dive-ep2": {
+    "pub_video": {
+      "published_at": "2026-08-27 09:50:09",
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "kuaishou_id": "3xhpyipvd5dewgy",
+      "kuaishou_desc_fixed": "2026-08-29 修复线上简介：快手上传器 ks_uploader_main.py 打完简介后有一步 2026-08-20 加入的「Control+A→Delete→12×Backspace 清残留 chips」，实际把简介全选删光、只剩话题循环补的 4 个标签（08-27/08-27 两支中招；v2 通道无此步故 first-look 完好）。已改：移除打完后的清空（打字前的清空保留）+ 话题循环跳过简介文本已含的标签防双写。线上修复走编辑页：workId=3xhpyipvd5dewgy 描述 30→213 字符（标准简介+话题行），img 发布后编辑页回读验证含正文。"
+    }
+  },
+  "codex-five-levels": {
+    "pub_video": {
+      "published_at": "2026-08-27 19:49:53",
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "schedule": "2026-08-28 20:00",
+      "note": "四平台分批提交，link-map 曾被单平台回收覆盖后人工恢复",
+      "bilibili_id": "BV1wW4R68Erx",
+      "review": {
+        "2026-08-29 17:30": "归档前平台侧复核：抖音已发布tab在列(标题「Codex用法分5级」)；快手已发布 2026-08-28 20:00(kuaishou_check_status)；B站 BV1wW4R68Erx state=0 通过可见(member API 浏览器内 fetch)；视频号挂卡时「将于8-28 20:00发表」已实证，今日在线 scan 因 cookie 失效暂缓，续码后补复核。"
+      },
+      "douyin_id": "7678664693292076323",
+      "shipinhao_id": "export/UzFfBgAAxMynGH15N133k8zT4DCaeuuE2ZHFuPMAhvYP-kEmDQ"
+    }
+  },
+  "token-saving-skills": {
+    "pub_video": {
+      "published_at": "2026-08-27 14:37:30",
+      "results": {
+        "douyin": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "review": {
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      }
+    }
+  },
+  "dsh-source-deep-dive-ep3": {
+    "pub_video": {
+      "published_at": "2026-08-30 16:34:01",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-15 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1BMtt6UEC9"
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-31 16:13:22",
+      "bilibili_aid": 117170801479976,
+      "catchup_schedule": {
+        "slot": "2026-09-01 08:00 早档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-01 08:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-01 08:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-01 08:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170801479976，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep3 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-29 22:20": "定时机制插桩实验（用户批准）：以 ep3 为载体挂 9-1 08:00 平台侧定时，patchright 拦截发表请求。铁证：/micro/content/post/create 请求体无任何定时字段（objectType/objectDesc/media…），提交即立即发表（22:07 实发，1 分钟内在列），已删除。定案：视频号定时从未被提交进平台——UI 点选不驱动 Shadow DOM 内平台 state，输入框回读校验是展示层假象；8-28「平台静默降级」定规系错误归因（五级卡唯一成功样本实为审核延迟放出误判）。定规更新：视频号一切档位 schtasks 直发；publish.py 已拒绝 shipinhao+schedule 组合；SKILL.md 定规已改写。",
+        "2026-08-30 00:00": "定时修复穷尽实验完成（7 次发布+删除）：patchright 三通道（route/init_script/CDP）全禁用；原生 playwright+stealth route 成功拦截（真实 URL 为 cgi 网关带 _pageUrl 参数）+ mitmproxy HTTP 层注入 effectiveTime（秒）均到达服务器，平台仍立即发表——定时受理不在 body 字段层（疑似 clipTicket 创建期另一接口登记）。bundle 逆向证实构造代码含 effectiveTime 条件写入但平台不认。定规终版固化 skills/video-generation/SKILL.md（commit fceee88）。schtasks 直发唯一通道；ep3 兜底 sph-ep3-0750 保留。",
+        "2026-08-30 01:20": "深夜 7 支实验重审定：22:07/22:37/22:52（无注入）确为立即发（删除正确）；23:24/23:30/23:49（原生 route/mitm 注入 effectiveTime）极可能挂上 9-1 08:00 定时卡被误删——scan 误判所致。ep5 干净重验挂上 9-1 08:00（UI 流程成功样本），sph-ep5-1950 兜底已删。ep3 自身兜底 sph-ep3-0750 保留（9-1 07:50 直发）。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。"
+      },
+      "bilibili_id": "BV1SE4f6EE87",
+      "shipinhao_id": "export/UzFfBgAAxK-iWAVrUAv2k8zT4DCafGctH6jBelGYzzMNN1_ipg",
+      "douyin_id": "7679793395694374195",
+      "kuaishou_id": "3x2had8m9wbizhi"
+    }
+  },
+  "dsh-source-deep-dive-ep4": {
+    "pub_video": {
+      "published_at": "2026-08-30 04:48:14",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-02 12:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1nMt864ETk"
+        },
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 20:29:03",
+      "bilibili_aid": 117170835103082,
+      "catchup_schedule": {
+        "slot": "2026-09-02 12:00 中档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-02 12:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-02 12:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-02 12:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170835103082，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep4 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 01:20": "用户手动定时发表成功（9-2 12:00）并全量抓包（387 条 POST，sph_manual_capture.json）——人工样本证实发表体顶层 effectiveTime（秒）。sph-ep4-1150 兜底已删防双发。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。"
+      },
+      "bilibili_id": "BV1TH4f67EiU",
+      "douyin_id": "7678906994572463398"
+    }
+  },
+  "dsh-source-deep-dive-ep5": {
+    "pub_video": {
+      "published_at": "2026-08-30 04:52:14",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-03 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1Dtt86CEUr"
+        },
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 20:52:41",
+      "bilibili_aid": 117170852077537,
+      "catchup_schedule": {
+        "slot": "2026-09-03 20:00 晚档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-03 20:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-03 20:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-03 20:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170852077537，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep5 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 01:20": "UI 流程挂卡成功样本：schedule 9-1 08:00 挂上（effectiveTime=1788220800），mitm addon 未注入（MARK 未命中）排除干扰。sph-ep5-1950 已删防双发。",
+        "2026-08-30 02:52": "错档修正完成：09-01 08:00 误档卡已删（重挂成功 eff=1788436800）。短标题「DSH沙箱删库防线拆解」生效（short_title_shipinhao 字段）。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。"
+      },
+      "bilibili_id": "BV1tJ4f62Ewv",
+      "douyin_id": "7678908608016420139",
+      "shipinhao_id": "export/UzFfBgAAxKiiHGdFKAH2k8zT4DCa-Aj9Rm-kvciM5Hvhw5MeUw"
+    }
+  },
+  "dsh-source-deep-dive-ep6": {
+    "pub_video": {
+      "published_at": "2026-08-30 04:54:37",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-04 08:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1RZtt65Ezg"
+        },
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 22:32:07",
+      "bilibili_aid": 117170885363824,
+      "catchup_schedule": {
+        "slot": "2026-09-04 08:00 早档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-04 08:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-04 08:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-04 08:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170885363824，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep6 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。"
+      },
+      "bilibili_id": "BV1zv4f6qE68",
+      "douyin_id": "7678910213759503652",
+      "shipinhao_id": "export/UzFfBgAAxNyhQA9bDgn2k8zT4DCaYYh5MivrOrcdq4JxcSvjvA"
+    }
+  },
+  "dsh-source-deep-dive-ep7": {
+    "pub_video": {
+      "published_at": "2026-08-30 05:01:37",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-05 12:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV134t865EYq"
+        },
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "bilibili_aid": 117170902206701,
+      "catchup_schedule": {
+        "slot": "2026-09-05 12:00 中档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-05 12:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-05 12:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-05 12:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170902206701，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep7 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "bilibili_id": "BV1o64f6PEZ4",
+      "douyin_id": "7678911918580567339",
+      "shipinhao_id": "export/UzFfBgAAxN-hEBd8BQ_2k8zT4DCa_9K6u6WBzmNVfOFvbLNRAA"
+    }
+  },
+  "dsh-source-deep-dive-ep8": {
+    "pub_video": {
+      "published_at": "2026-08-30 05:05:05",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-06 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1Yst861E2z"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-05 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-05 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-05 20:00 schtasks 本地兜底直发（task: sph-w1-dsh-source-deep-dive-ep8-0905，发布前24h内须扫码续cookie）"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "bilibili_aid": 117170935765599,
+      "catchup_schedule": {
+        "slot": "2026-09-06 20:00 晚档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-06 20:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-06 20:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-06 20:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170935765599，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep8 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "bilibili_id": "BV1Ah4f63E6g",
+      "douyin_id": "7678913672906804489"
+    }
+  },
+  "dsh-source-deep-dive-ep9": {
+    "pub_video": {
+      "published_at": "2026-08-30 05:10:39",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-07 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1Gst861E9P"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-06 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-06 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-06 20:00 schtasks 本地兜底直发（task: sph-w1-dsh-source-deep-dive-ep9-0906，发布前24h内须扫码续cookie）"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "bilibili_aid": 117170952544235,
+      "catchup_schedule": {
+        "slot": "2026-09-07 08:00 早档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-07 08:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-07 08:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-07 08:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170952544235，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep9 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "bilibili_id": "BV1Pb4f6kEMM",
+      "douyin_id": "7678915233531907364"
+    }
+  },
+  "dsh-source-deep-dive-ep10": {
+    "pub_video": {
+      "published_at": "2026-08-30 05:15:45",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-08 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1h1tb6GEoN"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-07 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-07 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-07 20:00 schtasks 本地兜底直发（task: sph-w1-dsh-source-deep-dive-ep1-0907，发布前24h内须扫码续cookie）"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "bilibili_aid": 117170986228372,
+      "catchup_schedule": {
+        "slot": "2026-09-08 12:00 中档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-08 12:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-08 12:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-08 12:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117170986228372，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep10 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "bilibili_id": "BV1ka4f66E9t",
+      "douyin_id": "7678917064655998262"
+    }
+  },
+  "dsh-source-deep-dive-ep11": {
+    "pub_video": {
+      "published_at": "2026-08-30 05:22:10",
+      "results": {
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-09 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1aCtb6CEok"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-08 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-08 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-08 20:00 schtasks 本地兜底直发（task: sph-w1-dsh-source-deep-dive-ep1-0908，发布前24h内须扫码续cookie）"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "bilibili_aid": 117171019646827,
+      "catchup_schedule": {
+        "slot": "2026-09-09 20:00 晚档（DSH 早中晚流量对比实验）",
+        "douyin": "2026-09-09 20:00 平台侧定时（douyin_check_status 定时标记在列，08-28 11:45 核验）",
+        "kuaishou": "2026-09-09 20:00 平台侧定时 v2（作品总数 34→43 恰 +9、ep11 卡带定时发布: 2026-09-09 20:00 字样，08-28 11:52 核验）",
+        "bilibili": "2026-09-09 20:00 平台侧 dtime（稿件列表 state=-40 定时中 aid=117171019646827，08-28 12:00 核验）",
+        "shipinhao": "schtasks sph-ep11 到点直发（2026-08-28 实测定规：视频号平台侧定时仅支持 ~24h 内近档，跨日档提交被静默降级立即发表——本系列 9-1~9-9 全为跨日档，维持 ep1 验证过的本地直发方案）；硬前提：每档前 24h 内扫码续 shipinhao cookie（实测 ~24h 失效），失败看 D:/tmp/sph_ep*.log"
+      },
+      "review": {
+        "checked_at": "2026-08-28 12:05:00",
+        "note": "定时挂载核验完成。视频号通道说明：2026-08-28 五次实测确认跨日定时平台侧静默降级，schtasks 直发为定规通道；出片终态复查在各发布日（bat 自动扫抖音/快手，B站/抖音/视频号人工或下会话复核）",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "bilibili_id": "BV1C5tw6UEFj",
+      "douyin_id": "7678918737654779171"
+    }
+  },
+  "deepseek-harness-source-code": {
+    "pub_video": {
+      "published_at": "2026-09-18 12:00:00",
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true,
+          "scheduled": "2026-09-19 12:00",
+          "bvid": "BV12Be26aEzC"
+        }
+      },
+      "douyin_id": "7686329482046754094",
+      "cross_post_note": "2026-08-28 跨平台补发（抖音数据 Top1: 2.7万播/554藏）：源 mp4 已归档丢失，从 deck.json+narrations 重渲（296s 与原版一致）+ 4Mbps 重编码（视频号「常见码流」启发式连拒 3 次后过）。中午窗口插入。",
+      "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+      "kuaishou_id": "3xfi6k3kwsvnv7i",
+      "cover_fixed_at": "2026-08-29 快手双作品均补挂 v4 竖封面（当日两次修复）。⚠️ 该视频在快手存在两支作品：① 08-16 15:33 原发（编辑页 workId=3xi4vn6msi566m6，991 播，简介为 08-16 旧口径含无出处「45 万行」，当时挂 v3 深底封面信息流近似黑图）；② 08-28 12:28 跨平台补发重传（本 kuaishou_id，13→14 播，简介仅剩话题标签「#deepseek #harness #源码解析 #AI编程」——08-28 上传器 desc 正文静默丢失，且从未设过自定封面、封面区是白帧推荐图=端上「无封面」观感根因，即用户二次报告的那支）。修复记录：① 走 编辑封面→清空上传→拖放区 file_chooser 传 cover_v.png；② 走 点当前封面图→上传封面 tab（该态有静态 file input）→确认（此弹窗按钮是「确认」非「完成」）→发布；两支均 img src 前后变化验证在列。待用户定夺：按「同一内容只发布一遍」建议删 08-28 重传版（届时 kuaishou_id 改指 3xi4vn6msi566m6），保留 08-16 原发（播放/简介完整度均占优）。注意：08-27 20:00 另有一支 03:00 纯标签简介作品为 dsh-source-deep-dive-ep2（省钱纪律 180.8s），非本片重复，勿混。",
+      "shipinhao_id": "export/UzFfBgAAxM-nSEYRAQH0k8zT4DCaTLvde76_An_OT_068chCCQ",
+      "kuaishou_duplicate_deleted": "2026-08-29 删除 08-28 12:28 重传版（原 kuaishou_id 3xf45mdhbtjts5e，13→14 播、简介仅剩标签、封面从未设置）：delete_video 按「2026-08-28 12:28」唯一命中真删，只读复核到 0。保留 08-16 原发（workId=3xi4vn6msi566m6，991 播、简介完整旧口径、v4 竖封面在挂）。根因：08-28 补发误判快手缺失而重传+ 上传器 desc 清空 bug（见 ep2 条目）。",
+      "updated_at": "2026-09-18 21:10:00",
+      "backfill_20260918": {
+        "published_at": "2026-09-18 12:00",
+        "douyin_id": "7686329482046754094",
+        "kuaishou_id": "3xfi6k3kwsvnv7i",
+        "douyin": "已上线(2636播@0918 20:00实查), 封面v5(横4:3+竖3:4)09-18 19:44 编辑页双槽替换, img src前后双验证+视觉复核",
+        "kuaishou": "已上线(300播@19:47实查), 封面v5竖版09-18 19:47 编辑封面替换(原始比例), img src前后变化; 08-16老作品(3xi4vn6msi566m6,992播)未动",
+        "bilibili": "✅ 已重投 BV12Be26aEzC 定时 2026-09-19 12:00(20:43 投稿器 web 链路,声明AI生成+标签+简介+封面全填);封面编辑页视觉确认在稿(20:52 截图),archives pic 字段延迟入库(0916 同款现象),已挂 09-19 晨间复查任务;原 0917 定时卡被当日会话误删(archives无此稿,草稿箱空,.tmp/bili-del-*.png 为当日删除痕迹)",
+        "shipinhao": "✅ 已上线 2026-09-18 20:55(扫码重登后直发, cookie已刷新); post_list实查新帖createTime对上、status=1与历史已上线帖一致; 标注含AI生成内容(上传器已选); 短标题15字已填",
+        "cover": "封面v5配方: 三行96px标题(我肝了一天/六十多个包/核心只有五个hl)+hero-word红板「2085 个文件」+4贴纸+4要点, metadata封面字段已改, make video-cover-check 双版全PASS",
+        "note_audit_trap": "publish_audit B站检查的模糊匹配(≥12字公共片段)会把同系列片(桌面端/133插件/省钱纪律)误认成本片, 本次误报 reviewing state=0; 同系列审计需收窄匹配",
+        "bilibili_bvid": "BV12Be26aEzC",
+        "pin_comment": "✅ 抖音置顶评论文案已发(2026-09-18 21:2x, 无链接版全文, 作者标签, 评论区首位, 仅此一条);web端(主站菜单/创作者中心)均无置顶入口=抖音已收进App, 置顶待用户App长按操作(30秒);快手无置顶工具且本批未发评; B站评等明天12:00上线后挂"
+      },
+      "original_20260830_record": {
+        "published_at": "2026-08-30 11:53:15",
+        "results": {
+          "bilibili": {
+            "ok": true,
+            "scheduled": "web驱动定时 2026-09-19 12:00（openspec bilibili-webui-upload-driver）",
+            "bvid": "BV12Be26aEzC"
+          },
+          "douyin": {
+            "ok": true
+          },
+          "kuaishou": {
+            "ok": true
+          },
+          "shipinhao": {
+            "ok": true
+          }
+        },
+        "douyin_id": "7674529010390420736",
+        "kuaishou_id": "3xi4vn6msi566m6",
+        "shipinhao_id": "export/UzFfBgAAxM-nSEYRAQH0k8zT4DCaTLvde76_An_OT_068chCCQ",
+        "note": "2026-09-15 误删事故中被删的原发记录快照"
+      },
+      "bilibili_id": "BV12Be26aEzC"
+    }
+  },
+  "codex-five-levels-usage": {
+    "weixin": {
+      "draft_appmsgid": "100002645",
+      "publish_status": "published",
+      "scheduled_appmsgid": "1000000100",
+      "scheduled_at": "2026-09-01T20:30:00+08:00",
+      "evidence": ".wechat-build/sched-ui-evidence/sched_ui_712.log time_send 配额消耗(当日 1→0)+副本 100001879 已离草稿箱;schedule_api 直发通道 ret=-1 已废,走 schedule_ui_v2",
+      "reschedule": "2026-08-29 应用户要求:取消旧卡(换封面)→重推黄底色块封面新草稿→原时段重挂。旧原稿 698/712/800 与旧副本已删。取消会恢复配额(实证),定时副本与原稿相互独立(实证)",
+      "cover_fix": "2026-08-29 封面管线根因修复(prepare.py 只处理 /svg/ 图片,/images/ 首图不进循环→封面错取第一张 SVG 裁切;已补 /images/ 栅格图处理+封面取真首图)后:取消卡→重推正确封面草稿→原时段重挂;配额消耗+首页定时列表双核验存活",
+      "scheduled_msgid_note": "2026-08-29 起 scheduled_appmsgid 记录 masssend 定时记录 id(即 cancel_time_send 的 id,来源 wx.cgiData.timesend_msg,verify_schedule.py 可核验)",
+      "cover_fix_reschedule": "2026-08-29 夜 开头封面重复图修复(prepare.py strip_leading_cover)落地:取消旧卡→删旧原稿+旧副本→重推修复版草稿→原时段重挂,四条 timesend 全量核验在排",
+      "schedule_note": "timesend msgid=1000000113 已核验; v2转化段+文末旧文导览段剥除(2026-08-31定规:尾部只放转化,内链留正文)",
+      "published_at": "2026-09-01 20:30",
+      "sent_succ": 277,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 定时触发 sent_succ=277"
+    }
+  },
+  "codex-desktop-zero-basic-tutorial": {
+    "weixin": {
+      "draft_appmsgid": "100002356",
+      "publish_status": "deleted_compliance_fail",
+      "blocked_note": "2026-08-28 定时挂卡被平台拦:该文触发「原创校验+历史违规记录答题」门禁(仅此文触发,同批其他三篇正常),需人工 mp 后台完成题目后再挂 20:30 定时;编辑副本 100001884 不在草稿箱,人工时顺带核对其去向",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06)。合规 HIGH 7 处未清+配图缺 2+平台 blocked_quiz,源稿待修后重评。"
+    }
+  },
+  "deepseek-harness-cache-discipline": {
+    "weixin": {
+      "draft_appmsgid": "100002503",
+      "scheduled_appmsgid": "100002504",
+      "publish_status": "published",
+      "scheduled_at": "2026-09-04T20:30:00+08:00",
+      "schedule_note": "timesend msgid=1000000107 已核验; 转化段v2(公众号内链禁博客链接)+作者补齐; 旧稿因作者空/转化段缺失已删重推",
+      "album": "AI",
+      "published_at": "2026-09-04 20:30",
+      "sent_succ": 315,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 定时触发 sent_succ=315"
+    }
+  },
+  "deepseek-harness-session-as-git": {
+    "weixin": {
+      "draft_appmsgid": "100002512",
+      "scheduled_appmsgid": "100002513",
+      "publish_status": "deleted_gate_fail",
+      "schedule_note": "2026-09-05 media-review 2000线不过(中位~~240)用户令撤卡优化: cancel_time_send ret=0, 首页timesend_msg核验定时0条; 优化过线后须重推草稿重排; 家族封顶~400不可达线,持牌待D+7对比选题或低预期拍板",
+      "album": "AI",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-plugin-mount": {
+    "weixin": {
+      "draft_appmsgid": "100002521",
+      "scheduled_appmsgid": "100002522",
+      "publish_status": "deleted_gate_fail",
+      "schedule_note": "2026-09-05 media-review 2000线不过(中位~~250)用户令撤卡优化: cancel_time_send ret=0, 首页timesend_msg核验定时0条; 优化过线后须重推草稿重排; 家族封顶~400不可达线,持牌待D+7对比选题或低预期拍板",
+      "album": "AI",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-sandbox-fail-closed": {
+    "weixin": {
+      "draft_appmsgid": "100002539",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-capability-seams": {
+    "weixin": {
+      "draft_appmsgid": "100002546",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-pm-wrong-server": {
+    "weixin": {
+      "draft_appmsgid": "100002553",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-pm-snapshot-blessed-bug": {
+    "weixin": {
+      "draft_appmsgid": "100002574",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-no-session-delete": {
+    "weixin": {
+      "draft_appmsgid": "100002560",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-pm-green-tests-red-release": {
+    "weixin": {
+      "draft_appmsgid": "100002581",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "deepseek-harness-pm-exit-code": {
+    "weixin": {
+      "draft_appmsgid": "100002567",
+      "publish_status": "deleted_gate_fail",
+      "draft_deleted_at": "2026-09-06",
+      "draft_note": "草稿卡已删(2026-09-06 用户令:不达标清理)。niche-source-digest 族封顶~400 距 2000 线 5-8 倍,重发须先换搜索型形态过线;codex-desktop 另有合规 HIGH 7 处+配图缺 2,源稿待修。"
+    }
+  },
+  "token-saving-skills-survey": {
+    "weixin": {
+      "draft_appmsgid": "100002773",
+      "schedule_note": "2026-09-05 media-review 过线(中位~3000)重推新稿 draft=100002759(封面+AI合集), 旧dup 100002592/100002686 已删复核0; 用户定周末早6点档: 当日06:00定时不可行(平台禁今天/08-05事故), 改挂9月6日06:00——schedule_ui_v2 推进到 send_time=1788645600(=09-06 06:00+08) check_ad ret=0 后登录态失效, time_send 是否落位未知; 待扫码重登后首页 timesend_msg 复核: 有 06:00 条目即成, 无则重挂(重挂会新增副本 draft 需按 id 清理)",
+      "publish_status": "published",
+      "published_at": "2026-09-05 01:37",
+      "published_url": "https://mp.weixin.qq.com/s/qllOm7IqxrFpVHEWQPQ9pw",
+      "publish_evidence": "发表记录 msgid=1000000120 sent 315/315 progress=100 (appmsgpublish 实查); 今日群发配额已用",
+      "publish_note": "2026-09-05 凌晨即时群发(用户令'今天凌晨发布'): API直推 ret:-1(已知不可靠)→UI button.mass_send→继续发表→'已发送操作申请'; 旧 06:00 定时 1000000119 先撤(cancel ret=0 防双发); 失效稿 100002759/100002761 已删复核0; 过线依据 media-review 预估中位~3000(清单型); +30d(10-05)对账 1200~6000 区间",
+      "comment_pin": {
+        "status": "done",
+        "time": "2026-09-05 02:1x",
+        "text": "收藏版｜五选一速查：说得多→Caveman(10万星)；过程留痕多→pi-boomerang；记性差→planning-with-files；想得吵→claude-token-optimizer；预算极限/猎奇→文言文.skill。我的组合拳=Caveman+planning-with-files，覆盖八成浪费。你哪个环节最费 token？",
+        "evidence": "留言管理精选(1条)实查; 文本过 compliance ✅无命中",
+        "channel_note": "mp 留言管理=misc/appmsgcomment?action=list_latest_comment SPA: 侧栏文章列表绑定目标(切「按文章发表时间排序」找新文), 写留言=ProseMirror+发送, 精选=a[title=精选]图标(无文字); 回复=行内 icon-reply"
+      },
+      "length_tier": "compressed_variant_2500 内（直发档）",
+      "variant": ".wechat-build/token-saving-skills-survey/wechat-variant.md（LLM 压缩版，博客源稿不动）",
+      "variant_note": "2026-09-05 LLM 压缩：1167 字，预估中位 tool-list 基线 2000；推送前 mp 后台四查照做"
+    }
+  },
+  "douyin-try-claude-code": {
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7670097620416646454",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "douyin-deepseek-price-hike": {
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7671950280660929832",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "douyin-deepseek-cheap": {
+    "cover_v3v4_replace": "2026-08-28 v2 双卡槽替换（竖封面3:4 + 横封面4:3 均经 img src 前后变化验证后提交；v1 只换到横版且曾传错 AI 参考图槽，App 主页展示竖封面故此前「看起来没换」）",
+    "douyin_id": "7668949150913793318",
+    "note": "2026-08-28 封面 v3/v4 重做（原封面无 hero 大字）经 douyin_fix_cover.py 编辑页替换，抖音侧唯一资产（未跨平台发布）"
+  },
+  "codex-auto-video-editing": {
+    "weixin": {
+      "draft_appmsgid": "100002693",
+      "schedule_note": "备用待排; 标题用用户版《Codex 自动剪视频：自用研究半年的 skill 免费开源》; 钩子式往期关联公众号内链(v3); /posts/死路径已清零",
+      "published_url": "https://mp.weixin.qq.com/s/SzIX38R9vfmr_Qq2IP2OfQ",
+      "publish_status": "published",
+      "note": "2026-08-31 14:06 手动群发(旧封面)→用户手动删除+手动免费发表 15:52(新封面版,不推送)。脚本直连 delete_submit ret:0 静默无效、免费发表 ret:-1 真失败——两条均以用户手动 UI 为准; 重发地址 mp.weixin.qq.com/s/SzIX38R9vfmr_Qq2IP2OfQ",
+      "stats_msgids": [
+        "2247486342"
+      ]
+    },
+    "pub_video": {
+      "published_at": "2026-08-30 01:26:55",
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-01 12:00 待发表定时卡",
+          "objectId": "（scan eff=1788235200）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-01 12:00 平台侧定时（01:20 挂）"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-01 12:00 v2 定时（01:2x 挂）"
+        }
+      },
+      "updated_at": "2026-08-30 01:23:30",
+      "review": {
+        "2026-08-30 02:55": "四平台全部挂 9-1 12:00 中午档定时。视频号短标题「Codex自动剪辑skill拆」生效（short_title_shipinhao 定规首例）。发布完成后归档。"
+      },
+      "shipinhao_id": "export/UzFfBgAAxP6hTCBYDwP2k8zT4DCaJ4Qf_ornwINe-jl79hWT1A"
+    }
+  },
+  "codex-token-bill-952w": {
+    "duplicate_cancel": "2026-08-28 用户定夺:同一内容只发布一遍。本条为 tracker 计划残留(无平台挂卡证据),已从台账取消;正式发布以 codex-token-bill(2026-08-27)为准。"
+  },
+  "dsh-money-discipline": {
+    "duplicate_cancel": "2026-08-28 用户定夺:同一内容只发布一遍。本条为 tracker 计划残留(无平台挂卡证据),已从台账取消;正式发布以 dsh-source-deep-dive-ep2(2026-08-27)为准。"
+  },
+  "ai-native-solo-translation": {
+    "pub_video": {
+      "published_at": "2026-08-30 02:58:15",
+      "results": {
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-12 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-12 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-12 20:00 schtasks 本地兜底直发（task: sph-w1-ai-native-solo-translati-0912，发布前24h内须扫码续cookie）"
+        },
+        "bilibili": {
+          "ok": false,
+          "pending": "B站延后补发（08-31 用户指示；21566 频控期不投稿）。本支计划档位 2026-09-12 20:00，补发时对齐该档或最近空档",
+          "planned_slot": "2026-09-12 20:00"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "kuaishou_id": "3xn8ve3szutmbnc",
+      "douyin_id": "7680063415540321562"
+    }
+  },
+  "ai-bill-cache-30x": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-09 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-09 20:00 schtasks 本地兜底直发（task: sph-w1-ai-bill-cache-30x-0909，发布前24h内须扫码续cookie）"
+        },
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-10 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1hUtb63EtY"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "review": {
+        "2026-08-30 03:08": "四平台 9 月档位定时排期（视频号 schtasks 兜底 sph-b15-ai-bill-cache-30x-0901）。短标题定规：AI账单30倍差价拆解。定时发布完成后归档。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=—已发跳过 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "published_at": "2026-08-30 03:40:29",
+      "douyin_id": "7680053648822422818",
+      "bilibili_id": "BV1hUtb63EtY"
+    }
+  },
+  "ai-coding-bundle-2026h2": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-10 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-10 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-10 20:00 schtasks 本地兜底直发（task: sph-w1-ai-coding-bundle-2026h2-0910，发布前24h内须扫码续cookie）"
+        },
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-11 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV13Utb63E51"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "review": {
+        "2026-08-30 03:21": "四平台 9 月档位定时排期（视频号 schtasks 兜底 sph-b15-ai-coding-bundle-2026h2-0902）。短标题定规：AI部门扩编12人拆解。定时发布完成后归档。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "published_at": "2026-08-30 03:45:09",
+      "douyin_id": "7680056760798907688",
+      "bilibili_id": "BV13Utb63E51"
+    }
+  },
+  "ai-default-tool-2026": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-11 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-11 20:00 平台侧定时（08-31 除B站跑批）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-11 20:00 schtasks 本地兜底直发（task: sph-w1-ai-default-tool-2026-0911，发布前24h内须扫码续cookie）"
+        },
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-12 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1h2tb6rEhe"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "review": {
+        "2026-08-30 03:33": "四平台 9 月档位定时排期（视频号 schtasks 兜底 sph-b15-ai-default-tool-2026-0903）。短标题定规：四个AI的老板日常。定时发布完成后归档。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "published_at": "2026-08-30 03:46:54",
+      "douyin_id": "7680060114316872995",
+      "bilibili_id": "BV1h2tb6rEhe"
+    }
+  },
+  "ai-pr-388-review": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": false,
+          "pending": "快手 9-13 20:00 超出平台定时上限(实证≤12天)，静默回退成 08-31 14:42 卡；13:59 已撤卡复核归零。快手腿待 9-1 在 12 天窗口内补挂（py -3.11 -m scripts.pub.kuaishou_publish_v2 ai-pr-388-review '2026-09-13 20:00'）"
+        },
+        "douyin": {
+          "ok": false,
+          "pending": "抖音 09-13 20:00 定时卡已不在：09-13 晨采快照零未来档期条目 + 用户后台复核零定时卡（09-11 21:13 卡在册→09-13 02:44 前消失，撤卡操作者待确认）。B站 09-14 20:00 腿不受影响；如需补挂在平台 12 天窗口内重挂"
+        },
+        "bilibili": {
+          "ok": true,
+          "scheduled": "web驱动定时 2026-09-14 20:00（openspec bilibili-webui-upload-driver）",
+          "bvid": "BV1HNt86bEB9"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-13 20:00 schtasks 本地兜底直发（task: sph-w1-ai-pr-388-review-0913，发布前24h内须扫码续cookie）"
+        }
+      },
+      "updated_at": "2026-09-05 12:47:53",
+      "review": {
+        "2026-08-30 03:55": "四平台 9 月档位定时排期（视频号 schtasks 兜底 sph-b15-ai-pr-388-review-0905）。短标题定规：AI一周180个PR复盘。定时发布完成后归档。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。",
+        "2026-08-31 除B站排期": "三平台挂卡（B站欠账 pending）：抖音=✅ 快手=✅ 视频号schtasks=✅",
+        "2026-08-31 快手超窗回退": "kuaishou_publish_v2 报『发布成功』但日期被平台改为+1h——快手定时上限≈12天，远档假成功又一例（ Douyin 13 天正常）。撤卡后本支快手待 9-1 补挂。",
+        "2026-09-05 12:55": "2026-09-05 12:55 取消排期（用户指令：各平台除 GPT 系列外全部取消）：平台侧只读复核=抖音定时队列无管线卡（唯一未来卡 09-06 20:00《死活不给删会话》已删并复核消失）、快手定时过滤器空、B站无待发布非GPT稿、视频号无待发表定时卡；本地 11 个 dy-fallback/dy-rtk schtasks 已删"
+      },
+      "douyin_id": "7680066672992046362",
+      "bilibili_id": "BV1HNt86bEB9"
+    }
+  },
+  "eng-series-ep01-nightly-daemon": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": true,
+          "note": "2026-08-30 07:03 state-history: sanitize 标题后挂定时成功(短标题 6 字待优化)"
+        },
+        "bilibili": {
+          "ok": true,
+          "scheduled": true,
+          "note": "2026-08-30 07:03 state-history: 批量挂定时"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": true,
+          "note": "2026-08-30 07:03 state-history: schtasks 兜底挂定时"
+        }
+      },
+      "source": "state-history-backfill(openspec link-map-publish-closure)",
+      "note": "四平台排期补齐见 state.json history;具体排期时刻未随 08-30 vpt 迁移保留,发布后跑 pub-audit 复核",
+      "updated_at": "2026-08-30 11:30:00"
+    }
+  },
+  "eng-series-ep03-contract": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 04:12:33",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "eng-series-ep04-e2e-loop": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 04:21:49",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "eng-series-ep06-worktree": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 04:33:45",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin+bilibili。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "eng-series-ep07-spec-driven": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 04:44:39",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin+bilibili。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "eng-series-ep08-cost": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 04:56:11",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 bilibili。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。",
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "frontend-e2e-ai-delivery": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 05:07:13",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin+bilibili。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "local-tts-one-cent": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 05:18:06",
+      "review": {
+        "2026-08-30 08:50": "2026-08-30 08:50 抖音误删修复回写：管线重挂 14 支全部日志级成功（定时发布时间已写入+发布成功判定），但 douyin_scan_works/check_status 复扫「全部/已发布/定时发布」tab 均未找到卡片——两源矛盾待核。硬验证点：9-1 08:00 ep3 档位到点是否自动发表（发了=卡在；没发=管线假成功需改挂）。另：昨日误删产物 DSH ep7-11 抖音草稿（继续编辑态）堆积未清，防重复发布需在下会话核实清理。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "spec-asset-or-garbage": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 05:29:43",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin+bilibili。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）",
+      "kuaishou_id": "3xu9i82iwts3mvg"
+    }
+  },
+  "take-back-interpretation-rights": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true
+        }
+      },
+      "updated_at": "2026-08-30 05:40:41",
+      "review": {
+        "2026-08-30 07:05": "排期缺口待补：缺 douyin+bilibili。抖音缺=desc_guard 全串比对与 desc 构造不兼容（9/9 拦，含无话题 metadata 支），专项修；B站缺=biliup 04:38 后 Unknown Error 系统性故障（uploader.rs:158），需重新登录/换通道。快手/视频号已齐（视频号 schtasks 兜底到点直发）。补齐后归档。"
+      },
+      "published_at": "2026-08-30 20:00:00",
+      "published_at_note": "2026-09-14 对账回填：发布日无据，按归档批次估记（仅用于窗口老化）"
+    }
+  },
+  "_douyin_cleanup_2026-08-30": {
+    "snapshot": "2026-08-30 09:10 抖音定时快照：一毛钱配音(9-11 20:00)1张✓；空搜索ep11(9-9 20:00)1张✓（曾3张已去重2）；数字员工eng-ep08(9-10 20:00)重复待清；ep3/ep4等部分支定时卡缺失（列表分页未翻全，全貌待完整抓取）",
+    "cause": "重复根因=dy_restore(凌晨)+dy_final(今晨)两轮重挂未去重；缺失根因=desc_guard/601部分失败+误删",
+    "tool_issue": "douyin_delete_scheduled 命中数虚高（卡片嵌套元素重复计数）、定时tab偶发不可见、scan工具翻页不全——下会话先修快照工具（完整翻页+卡片级objectId去重）再做精确增删",
+    "action": "下会话：①修分页完整快照工具 ②逐卡objectId精确去重 ③对照台账补缺失卡 ④B站7支分天补投 ⑤视频号扫码续期"
+  },
+  "rtk-token-compression-field-notes": {
+    "pub_video": {
+      "results": {
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-13 12:00 平台侧定时/兜底排期"
+        },
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-13 12:00 平台侧定时/兜底排期"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-13 12:00 平台侧定时/兜底排期"
+        },
+        "bilibili": {
+          "ok": false,
+          "pending": "21566 投稿频控，频控解除后补投（同档 9-13 12:00）"
+        }
+      },
+      "updated_at": "2026-08-30 12:56:20",
+      "review": {
+        "2026-08-30 13:01": "260s 用户拍板本次豁免不拆集；四平台 9-13 12:00 中午档排期：快手直挂✅、抖音/视频号 schtasks 兜底（dy-rtk-token-0913 / sph-rtk-token-0913，11:50 触发）✅、B站 21566 频控待补❌。定时发布完成后归档。"
+      }
+    }
+  },
+  "_collection_packaging_2026-08-30": {
+    "action": "三平台合集统一包装(openspec collection-packaging-optimize)：抖音「AI」→「AI 编程实战课」(标题20字内/简介200字内重写/封面1080×1080方图/成员7→26)；快手「AI 研发实战」→「AI 编程实战课」(成员6→38,公开展示达成,空壳旧合集「AI」已解散)；B站合集创建被权益额度挡(20082 合集个数太多,Lv2仅解锁入口不给创建配额)",
+    "assets": "封面 scripts/video/collection_cover.py 生成 data/video-pipeline/collection_cover_square.png(抖音)+wide(B站备用)；文案 data/video-pipeline/collection-packaging-copy.md(合规扫描通过)",
+    "tools": "scripts/pub/douyin_collection_edit.py(meta|members|verify)+kuaishou_collection_edit.py(rename|members|verify)+bilibili_collection_create.py(权益开后一键建)+collection_explore.py(只读探索)",
+    "findings": "抖音合集Web端可管理(manage?tab=collections 编辑合集,推翻08-23『Web无入口App手动』旧论)；抖音添加作品抽屉需搜索关键词触发且headless不渲染列表(必须headful+plus-area选择器)；抖音合集元信息变更触发平台审核(约1h内过)；快手合集公开展示门槛=有效剧集数(6集9集都不足,38集过)；快手一个作品只能在一个合集(补挂自动迁走旧合集成员)；快手合集编辑页无封面/简介字段(封面取首成员缩略图)；B站合集管理/ep页SPA不渲染,走API可绕(seasons GET正常)",
+    "followup": "抖音成员26/约33(余量为审核中或不可见作品,审核过后重跑 members 幂等补)；抖音合集内排序(sortble-container)未自动化,爆款「DeepSeek Harness源码解析45万行」应置首,App或Web拖拽手动；B站权益额度开后跑 bilibili_collection_create.py",
+    "updated_at": "2026-08-30 15:00"
+  },
+  "ai-whole-project-antipattern": {
+    "pub_video": {
+      "published_at": "2026-08-30 20:07:35",
+      "results": {
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-08-31 20:00 事故补挂定时卡（09:52 平台侧双复核在列）"
+        },
+        "kuaishou": {
+          "ok": true,
+          "note": "2026-08-30 20:15:58 实发，08-31 复核存活（1 播放）"
+        },
+        "shipinhao": {
+          "ok": true,
+          "note": "08-30 20:38 重试上报成功；登录态已失效，未平台侧复核"
+        },
+        "bilibili": {
+          "ok": false,
+          "error": "昨晚 21:05 追赶批实败(21566)；08-31 08:07 补发成功后 08:20 被排期清理删除，现无稿"
+        }
+      },
+      "updated_at": "2026-08-31T10:05:09+08:00",
+      "review": {
+        "2026-08-31 误删事故": "抖音 08-30 20:07 已发视频被当晚深夜排期清理误删（douyin_delete_scheduled 定时tab缺失时无标记扫描「全部」列表；抖音无回收站，不可恢复）。08-31 09:52 重挂 8-31 20:00 黄金档定时卡。同场清理还误删抖音全部 20:00 晚档定时卡（账单30倍/部门扩编/AI的老板/AI原生/PR复盘）。加固：delete_scheduled 强制标记、delete_verified/all_tabs --yes 门禁、save_to_linkmap 合并回写。遗留：ep4 8-31 12:00 卡与补挂 20:00 卡同日双条（每日一更破例一次），是否顺延待用户定夺。",
+        "2026-08-31 21:05 评论区运营轮": "20:00 定时卡到点未实发（pub-audit 21:00 仍 scheduled + pin 工具搜索两轮未收录双确认），置顶/承接轮中止待处置；快手 missing 为标题变体误报勿动；视频号在片；B站 reviewing 属并行会话动作"
+      },
+      "bilibili_id": "BV1c8tb6WEyR",
+      "douyin_id": "7680007916732091682",
+      "shipinhao_id": "export/UzFfBgAAxMOhUENnCQ_xk8zT4DCaIerSC_9uneZLndGZswGMLQ",
+      "kuaishou_id": "3xrivghezv2wu56"
+    }
+  },
+  "mcp-server-star-ranking": {
+    "weixin": {
+      "draft_appmsgid": "100002530",
+      "scheduled_appmsgid": "100002531",
+      "publish_status": "published",
+      "scheduled_at": "2026-09-03T20:30:00+08:00",
+      "schedule_note": "timesend msgid=1000000110 已核验; 转化段v2(公众号内链)+作者补齐; 旧稿含博客指向段按 2026-08-31 定规已删重推",
+      "album": "AI",
+      "evidence": ".tmp capture+full UI run; schedule_api 直连 ret=-1(fingerprint 重抓后仍 -1)故走 UI v2",
+      "published_at": "2026-09-03 20:30",
+      "sent_succ": 302,
+      "publish_evidence": "mp 发表记录 API 实查 2026-09-04: publish_type=101 定时触发 sent_succ=302",
+      "stats_msgids": [
+        "2247486180"
+      ],
+      "review_48h": "2026-09-07 48h 回看:阅读 591(推荐占 95%,消息打开 4.6% 优秀)但完读 7.1% 远低于 30% 终止线、平均阅读 85s、关注 6 人(1.0%)——推荐流量进得来、首屏留不住;动作=修首屏(前 150 字问题+钩子)+补可收藏资产(榜单速查表),下篇按此执行"
+    },
+    "review_note": "2026-09-05 48h回看: 阅读279/完读6.5%(终止线下,推荐测试池257后熄火)/分享率14.3%+收藏率9.0%全系列最高——内容对路但>4000字结构杀完读,后续清单文≤3000字或拆上/下,可收藏资产前置"
+  },
+  "ai-big-project-five-disciplines": {
+    "weixin": {
+      "draft_appmsgid": "100003108",
+      "publish_status": "scheduled",
+      "schedule_note": "2026-09-08 草稿箱清理后排队: UI 挂卡成功(载体副本 100002950 离箱, 原稿 100002853 留箱), timesend 核验在册",
+      "awaiting_slot": "2026-09-13 20:00(须 09-07 后挂,7 天窗)",
+      "draft_note": "2026-09-06 重推新稿(带尾部+作者+合集,机检全绿);形态升级复评贴线,待开窗补挂定时",
+      "scheduled_appmsgid": "1000000131",
+      "scheduled_time": "2026-09-14 20:30"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_104314.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "synced_at": "2026-09-21T10:43:19+08:00",
+      "note": "2026-09-21 10:29 补发未成立：同 ai-job-hunt 模式（toast=False、URL 未跳转、各状态列表全查无稿）。根因同（确认发布 SPAN 不被点击），已打补丁待重发",
+      "audit_note": "列表页实查到「AI 干大项目静默翻…」在位",
+      "publish_status": "published",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    },
+    "baijiahao": {
+      "status": "submitted_unverified",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_104519.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "[已发态] 列表页实查到「AI 干大项目静默翻…」在位",
+      "synced_at": "2026-09-21T10:45:24+08:00",
+      "audit_at": "2026-09-21T10:46:36+08:00"
+    }
+  },
+  "ai-agent-four-layers": {
+    "weixin": {
+      "draft_appmsgid": "100003101",
+      "publish_status": "scheduled",
+      "schedule_note": "2026-09-10 开窗后 UI 挂卡成功(载体为离箱副本,原稿 100002860 留箱);timesend 核验在册；四查全过(作者/原创/合集AI/设计封面 diff=0.0)",
+      "draft_note": "2026-09-06 重推新稿(带尾部+作者+合集,机检全绿);形态升级复评贴线,待开窗补挂定时",
+      "scheduled_appmsgid": "1000000136",
+      "scheduled_time": "2026-09-15 20:30"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_104741.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "audit_note": "列表页实查到「同一个模型，账单差 …」在位",
+      "synced_at": "2026-09-21T10:47:47+08:00",
+      "publish_status": "published",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_104859.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "[已发态] 列表页实查到「同一个模型，账单差 …」在位",
+      "synced_at": "2026-09-21T10:49:05+08:00",
+      "audit_at": "2026-09-21T10:50:05+08:00"
+    }
+  },
+  "gpt6-astra-coding": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-05 01:57:13",
+      "updated_at": "2026-09-06 10:03:08",
+      "douyin_id": "7681845703764643113",
+      "shipinhao_id": "export/UzFfBgAAxMihRHoGVzj-k8zT4DCa1SaVP2DcNX_HhA5Xhj5OOQ",
+      "kuaishou_id": "3x55a72bnhety8y",
+      "bilibili_id": "BV1N4ty6rE1R",
+      "note": " | 2026-09-05T22:02:36 撤卡重发：四平台旧卡已删（抖音878播/快手已不在/视频号66播/B站审核中），开头优化版重发中",
+      "withdrawn": "2026-09-07T02:43:28+08:00 用户令撤回，四平台复核 0"
+    },
+    "notes": [
+      "2026-09-07T02:43:28+08:00 撤回四平台复核0"
+    ]
+  },
+  "llm-basics-skill-progressive-disclosure": {
+    "weixin": {
+      "draft_appmsgid": "100002790",
+      "scheduled_appmsgid": "100002792",
+      "scheduled_at": "2026-09-06 20:30",
+      "sched_note": "定时群发已生效(明天黄金档;配额对比+check_ad抓包坐实,time_send stdout被截) 标题#5 MCP拖慢会话 旧稿100002783已删",
+      "publish_status": "published",
+      "publish_evidence": "定时群发已触发(2026-09-06 20:30, 发表记录 msgid=1000000121); 草稿残留 100002790 已删(2026-09-08 草稿箱清理)"
+    }
+  },
+  "gpt6-astra-impact": {
+    "pub_video": {
+      "published_at": "2026-09-05 17:57:00",
+      "results": {
+        "douyin": {
+          "ok": true,
+          "scheduled": "2026-09-06 20:00 平台侧定时（pub-audit 实查在列）"
+        },
+        "kuaishou": {
+          "ok": true,
+          "scheduled": "2026-09-06 20:00 平台侧定时（check_status 实查 [定时发布] x1）"
+        },
+        "bilibili": {
+          "ok": true,
+          "bvid": "BV1F6t266EvJ",
+          "scheduled": "2026-09-06 20:00 web驱动定时（state=0 审核中）⚠️ 封面未持久化，需编辑页补图"
+        },
+        "shipinhao": {
+          "ok": true,
+          "scheduled": "2026-09-06 19:50 schtasks 本地兜底直发（task: sph-w1-gpt6-astra-impact-0906，沿用账号成功经验；平台定时控件两次选不中 09-06 转此通道；cookie 已于 09-05 续期）"
+        }
+      },
+      "note": "首轮 pub-video 17:41 被会话超时误杀于视频号腿（douyin/kuaishou/bilibili 已成功）；kuaishou 重复卡已清保留 1 张；link-map 曾被单平台补发整条覆盖，本条为 2026-09-05 17:59 按平台实查证据手工重建",
+      "douyin_id": "7681976289107905830",
+      "bilibili_id": "BV1F6t266EvJ",
+      "withdrawn": "2026-09-07T02:43:28+08:00 用户令撤回，四平台复核 0"
+    },
+    "updated_at": "2026-09-05 18:08:00",
+    "notes": [
+      "2026-09-07T02:43:28+08:00 撤回四平台复核0"
+    ]
+  },
+  "gpt6-astra-setup-pitfalls": {
+    "weixin": {
+      "draft_appmsgid": "100002828",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000124",
+      "scheduled_time": "2026-09-09 20:00",
+      "schedule_note": "2026-09-06 挂(UI 通道,schedule_api fingerprint 失效);timesend 核验在册;载体为离箱副本,定时记录 id=1000000124"
+    },
+    "wechat": {
+      "title": "你的订阅在GPT-6开放名单里吗？先查8件事",
+      "draft_appmsgid": 100002821,
+      "scheduled_appmsgid": 100002822,
+      "scheduled_at": "2026-09-07 20:30",
+      "album": "AI",
+      "note": "旧稿100002814/旧定时副本100002815（旧标题）已删除复核归零"
+    }
+  },
+  "gpt6-astra-bill-anatomy": {
+    "weixin": {
+      "draft_appmsgid": "100002981",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000135",
+      "scheduled_time": "2026-09-10 20:00",
+      "schedule_note": "2026-09-06 挂(UI 通道,schedule_api fingerprint 失效);timesend 核验在册;载体为离箱副本,定时记录 id=1000000127",
+      "cover_fix_note": "2026-09-10 封面修复:旧稿封面误为正文架构图(prepare_for_mp 缺专用封面逻辑,commit 已在 skill 修复);克隆旧稿内容(保留转化段/往期关联)+设计封面重推 100002981;取消旧卡 1000000127 后 UI 重挂今晚档(今天配额由 0→1 释放后 dayChange 判定 isFreePublish=false,前端 bundle 实证)"
+    }
+  },
+  "gpt6-astra-tool-division": {
+    "weixin": {
+      "draft_appmsgid": "100003024",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "100003027",
+      "scheduled_time": "2026-09-11 20:00",
+      "schedule_note": "2026-09-06 挂(UI 通道,schedule_api fingerprint 失效);timesend 核验在册;载体为离箱副本,定时记录 id=1000000125",
+      "cover_fix_note": "2026-09-11 封面二次修复:旧卡 1000000133 撤(复核 0),make_cover.py 新居中封面重推草稿 100003024(封面 fileid 100003021),DSH_ALLOW_TODAY=1 放行 UI 重挂今天 20:00(新卡 msgid=1000000139/副本 100003027;实证:今天+未来时刻+有配额时前端走 time_send isFreePublish=false 正常,路由熔断未触发)"
+    }
+  },
+  "gpt6-astra-benchmark-layers": {
+    "weixin": {
+      "draft_appmsgid": "100003137",
+      "publish_status": "deprecated",
+      "schedule_note": "2026-09-17 草稿箱清理+排期盘点: 定时面板实查 9/18 卡已不在(9/15 所挂卡中途撤销,副本100003138 回箱,与原稿同内容已随清理删除); 原稿100003137 在箱为挂卡正身, 按 9/13 定规改 9/18 上午 09:30 当天挂 20:00(任务已登记 task-queue); 挂卡时顺手核对作者字段(详情接口读数为空,编辑器实查为准)。历史: 2026-09-15 封面三次修复+标题重做后重推: 旧稿100003080(封面主标题缺「分」字)/旧副本100003017 已删; make_cover 新封面(满分跑分别全信/能力提升是分层的,block款,安全区机检过)+新标题「GPT-6 跑分 98%:你的活在慢档」草稿100003137, schedule_ui_v2 挂 9/18 20:00 卡(副本100003138, 定时面板实查在册)；2026-09-17 用户令 gpt6 废弃,文章弃发:草稿100003137及重复稿138已删;9/17 实查头条「GPT-6 跑分 98%」实为 09-15 19:01 即时发布已推送(展现3081),原「定时9/18 20:30」台账与实况不符;百家 9/18 20:20 定时卡已撤回并删除(校验消失);头条已发布副本按删除防线留平台,是否删除待用户定夺",
+      "cover_fix_note": "2026-09-15 封面三次修复:make_cover.py 主标题由8字缩至7字「满分跑分别全信」消除截字,视觉复检完整"
+    },
+    "toutiao": {
+      "status": "published",
+      "publish_status": "published",
+      "schedule_note": "2026-09-15 定时挂卡:脚本行内定时词断言假阴性(硬失败处置),诊断图视觉双证=内容列表「定时发布 09-18 20:30」+定时弹窗「09月18日 20:30」;同步公众号 9/18 20:00 主档；2026-09-17 实查纠正:实为 09-15 19:01 即时发布已推送,非定时 9/18;文章已弃发,存量是否删除待用户定夺",
+      "evidence": "post_schedule_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_schedule_*.png toast=True target=2026-09-18 20:30",
+      "synced_at": "2026-09-15T19:01:59+08:00",
+      "title": "GPT-6 跑分 98%：你的活在慢档",
+      "published_at": "2026-09-15 19:01"
+    },
+    "baijiahao": {
+      "status": "draft_saved",
+      "publish_status": "withdrawn_deleted",
+      "draft_id": "1876395688202441077",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0915_190626.png auto_saved=True draft_id=1876395688202441077",
+      "synced_at": "2026-09-15T19:06:26+08:00",
+      "schedule_note": "2026-09-15 定时挂卡(手动UI驱动):脚本 SCHEDULE_CFG 百家锚点已腐(cheetah-select 非 ant-select)+登录 probe cookie 标记假阳性实录;首挂误落 9/15 20:18(弹窗默认值)已撤回重挂 9/18 20:20;分钟档无 30分 取 20分；2026-09-17 用户令 gpt6 废弃:9/18 20:20 定时卡已撤回并删除,平台校验消失"
+    }
+  },
+  "dsh-56-seams": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-06 04:14:26",
+      "updated_at": "2026-09-06 09:46:19",
+      "douyin_id": "7682241471239523630"
+    }
+  },
+  "ai-job-hunt-scoring-system": {
+    "weixin": {
+      "draft_appmsgid": "100002993",
+      "scheduled_appmsgid": "1000000134",
+      "publish_status": "scheduled",
+      "scheduled_time": "2026-09-13 20:30",
+      "cover_fix_note": "2026-09-10 封面修复:重推 100002993,取消旧卡 1000000130 后 UI 重挂 09-13"
+    },
+    "note": "2026-09-07 公众号压缩变体(3463字)存草稿100002939,UI定时09-13 20:30(副本100002940);09-08~12档位被gpt6批+write-your-own-skill占用;ai-big-project-five-disciplines/ai-agent-four-layers两篇补挂顺延至09-14/15",
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_104142.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "synced_at": "2026-09-21T10:41:48+08:00",
+      "note": "2026-09-21 10:23 补发未成立：toast=False、final_url 停留编辑器 /graphic/publish（页面未跳转）；列表/草稿/审核未通过/仅我可见全查无稿。原 audit=found 系前缀「Claude Cod」撞 09-16 旧文《12 个 Claude Code 插件装完实测》标题的误报。根因=publish_flow 直接发布确认循环 button:text-is 不认 SPAN，已打补丁重发",
+      "audit_note": "2026-09-21 补丁后重发成功：DOM 全文抓取实证列表共5条、本稿在位状态「审核中」（标题被平台截断为…这套求）；脚本 audit=found 前缀匹配虽撞旧文但本次经独立 DOM 核验为真",
+      "publish_status": "published",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_102509.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 补发。审计脚本标题匹配未中系构建标题截断（求/求职系统开源了），人工看审计诊断图 baijiahao_audit_missing_published_0921_102730.png：列表第一条即本稿，状态「审核中」",
+      "synced_at": "2026-09-21T10:25:14+08:00",
+      "publish_status": "reviewing"
+    }
+  },
+  "agent-loop-interview": {
+    "weixin": {
+      "draft_appmsgid": "100003094",
+      "schedule_note": "2026-09-10 开窗后 UI 挂卡成功;timesend 核验在册；四查全过(作者/原创/合集AI/设计封面 diff=0.0)",
+      "scheduled_appmsgid": "1000000137",
+      "scheduled_time": "2026-09-16 20:30",
+      "publish_status": "published",
+      "published_at": "2026-09-16 20:30",
+      "published_title": "Agent 面试题：90% 的人答不到点上",
+      "publish_note": "2026-09-17 发表记录实查已发出(首页近期发表+全部发表记录双证); 箱内原稿100003094 系发布残留,随草稿箱清理删除"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-08 16:58:31",
+      "updated_at": "2026-09-09 10:28:14",
+      "shipinhao_id": "export/UzFfBgAAxNyhJHx_KkHFk8zT4DCafXB7Xs76GnxEazEb5adaxA",
+      "douyin_id": "7683098877037219113"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_105108.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "audit_note": "列表页实查到「90% 的人答不到点…」在位",
+      "synced_at": "2026-09-21T10:51:14+08:00",
+      "publish_status": "published",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_105228.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 10:52:55 已发布（DOM 全文抓取实证，带 AI引言 标记）；make baijiahao-audit 两次未中系列表 SPA 渲染竞态（body 仅 189 字符未渲染），非稿件缺失",
+      "synced_at": "2026-09-21T10:52:33+08:00",
+      "publish_status": "published"
+    }
+  },
+  "passion-2026-0910-01": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-11 00:45:06",
+      "updated_at": "2026-09-11 17:02:25",
+      "bilibili_id": "BV1R9YV6JEdo",
+      "douyin_id": "7684110559482006811",
+      "shipinhao_id": "export/UzFfBgAAxOmpeGs9AFDBk8zT4DCaYPvND2ykkI-U0AiAtUGkHw",
+      "kuaishou_id": "3xfsdb2m8ys3mfs"
+    }
+  },
+  "passion-2026-0911-01": {
+    "pub_video": {
+      "results": {
+        "bilibili": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-11 21:46:37",
+      "updated_at": "2026-09-11 22:52:44",
+      "publish_status": "published",
+      "scheduled_at": "2026-09-12 20:00",
+      "note": "2026-09-11 晚四平台挂定时 9/12 20:00：抖音✅ 快手✅(publishId 3622164090，列表标题=简介首行，audit 需按 desc 关键词查) B站✅(BV1CoY26xEa3) 视频号✅(⏳待发表定时卡实查)。视频号 vendor bug：set_schedule_time_tencent 后日历面板不收起遮住发表按钮，Mac 100% 复现(4 次)，本轮可见窗口+人工点发表完成；修复建议进 skill：面板点选完成后加「点面板外收起」再 submit。合集：视频号/快手未挂上(下拉框未找到)，待手动补。09-13 对账收尾：四平台定时全部到点发表——抖音 item 7684262478884195634=「更强还更便宜：V4.1 Flash 反超 GPT-5.6」(09-13 快照 play 123)；B站 BV1CoY26xEa3 已发表 94 播；视频号 22:52 confirm 收尾✅。当晚 3 条视频号僵死 confirm(21:13/21:37/21:41)系同一发表动作重复启动残留，已 pub_guard end 清理。",
+      "bilibili_id": "BV1CoY26xEa3",
+      "douyin_id": "7684262478884195634",
+      "shipinhao_id": "export/UzFfBgAAxOGpQH4dPnXAk8zT4DCaVJ8-UIt18wvh_hqSocWT9A",
+      "kuaishou_id": "3xb5hdnhmjpxfak"
+    }
+  },
+  "claude-code-vibe-coding-cards": {
+    "weixin": {
+      "draft_appmsgid": "100003154",
+      "scheduled_appmsgid": "100003160",
+      "scheduled_at": "2026-09-17T20:30:00+08:00",
+      "publish_status": "scheduled",
+      "length_tier": "compressed_variant_2500 内（直发档 1888 字）",
+      "variant": ".wechat-build/claude-code-vibe-coding-cards/wechat-variant.md（LLM 压缩版，博客源稿不动）",
+      "schedule_note": "2026-09-11 排期实录：原定 09-12 20:30，但 09-11~16 群发配额已被当日 GPT-6 系列稿占满（quota 实查），用户拍板顺延 09-17 20:30；API time_send ret=-1（fingerprint 轮换），切 schedule_ui_v2 UI 通道建发布副本 100003053 成功，09-17 配额 1→0 + time_send_total_num 5→6 双验证；旧稿 100003036（无转化段版）已删复核；新 fingerprint=99507f0b2783eff6dba0a174042c5b9f 待回填 skill config（.skills submodule 改动另行 commit）；2026-09-17 盘点: 旧标题卡副本100003053 撤卡后已不在箱, 现行卡=新标题副本100003160(箱内在册, timesend msgid=1000000143, 今天 20:30, 群发通知已开, 定时面板视觉复核), scheduled_appmsgid 已改指 100003160（其在箱系排期副本箱内形态, 勿当重复稿清理）",
+      "pending_before_publish": "①视频号卡片未插（副本不可编辑，需取消重排才能补）②流量主广告开关 mp 后台人工核对（四查④ HUMAN）"
+    }
+  },
+  "fde-forward-deployed-engineer": {
+    "weixin": {
+      "draft_appmsgid": "100003123",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "100003264",
+      "scheduled_time": "2026-09-18 20:30",
+      "schedule_note": "2026-09-17 UI 挂卡成功(schedule_ui_v2,副本100003264离箱,面板实查在册,群发通知已开);原计划 9/19 当天挂,因 9/18 档空出(benchmark 弃发)提前一天"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "publish_status": "published",
+      "audit": "found",
+      "audit_note": "22:44 实查审核中（标题「不卷算法，年薪百万：程序员最容易够到的 AI 岗位」）；定时实测同 ECC 轨迹，预计过审即发布",
+      "scheduled_time": "2026-09-15 20:00",
+      "schedule_note": "定时验证第三数据点：终确认页仪器读数=定时词 0 次/目标日期 0 次（丢失点=弹窗→设置页转场），提交后立即发出。与 ECC 两次合计 3/3 回退，判定定时不可携带",
+      "evidence": "post_schedule_shot=scripts/pub/cookies/toutiao_post_schedule_0913_224425.png toast=提交成功",
+      "synced_at": "2026-09-13T22:46:49+08:00"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-15 11:18:19",
+      "updated_at": "2026-09-15 20:01:09",
+      "bilibili_id": "BV1Umen6hE1e",
+      "douyin_id": "7685688392700448019",
+      "kuaishou_id": "3xpt2d2fhkrgri4",
+      "shipinhao_id": "export/UzFfBgAAxN-pTBkDDXHMk8zT4DCa0nLZ8gAGlV-x0fHs9O4XBw"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_105636.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 10:56:47 已发布（DOM 全文抓取实证，带 AI引言 标记）；逾期预约 tq-20260917-200330-02 本次补齐",
+      "synced_at": "2026-09-21T10:56:40+08:00",
+      "publish_status": "published"
+    }
+  },
+  "v41-flash-forced-routing-switch": {
+    "weixin": {
+      "draft_appmsgid": "100003060",
+      "schedule_note": "2026-09-12 00:5x 用户拍板 9/12 早档:撤 benchmark-layers 9/12 20:00 卡(配额释放)后经 UI 通道(schedule_ui_v2 DSH_ALLOW_TODAY=1)挂卡成功,面板实查「今天 08:00 已开启群发通知」+check_ad can_mass_send=1;副本=100003064(原稿 100003060 留箱);schedule_api 直连 ret=-1 根因=fingerprint 轮换,新值 99507f0b2783eff6dba0a174042c5b9f(2026-09-12 抓)已可用于下次直连",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "100003064",
+      "scheduled_time": "2026-09-12 08:00"
+    }
+  },
+  "ecc-instinct-memory-internals": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-13 19:04:22",
+      "updated_at": "2026-09-15 00:18:41",
+      "bilibili_id": "BV1tuYq6qEci",
+      "douyin_id": "7684988772768812338",
+      "kuaishou_id": "3x5vv33f9hjv45m",
+      "shipinhao_id": "export/UzFfBgAAxJWpFEUlPwzDk8zT4DCabedhbncJEXdCOAmuHoormA"
+    },
+    "weixin": {
+      "draft_appmsgid": "100003276",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000156",
+      "scheduled_time": "2026-09-22 06:00",
+      "schedule_note": "2026-09-17 UI 挂卡成功(schedule_ui_v2,副本100003276离箱,面板实查在册,群发通知已开)"
+    },
+    "toutiao": {
+      "status": "published",
+      "publish_status": "published",
+      "published_at": "2026-09-13 22:08",
+      "audit": "found",
+      "audit_note": "定时实测回退为立即发布（22:08 上线，现存自然展现/点赞）；22:11 同题重复条目已删，列表余 1 条在位",
+      "scheduled_time": "2026-09-14 20:00",
+      "schedule_note": "2026-09-13 定时提交实测：schedule 未携带——两次独立提交均立即发出（22:08 已发布 / 22:11 审核中数分钟内转已发布）。UI 定时通道静默回退实锤，未证实可携带前停用 schedule 档，头条同步回退为公众号发出后手动即时同步",
+      "synced_at": "2026-09-13T22:29:09+08:00"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_111236.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 11:12:46 百家补发已发布（成功横幅+列表在位，AI引言）；预约 tq-20260917-200330-04 提前补齐；微信主档 09-22 06:00",
+      "synced_at": "2026-09-21T11:12:41+08:00",
+      "publish_status": "published"
+    }
+  },
+  "ecc-agentshield-deep-dive": {
+    "baijiahao": {
+      "status": "submitted",
+      "publish_status": "published",
+      "draft_id": "1876288538347146014",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_110958.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "synced_at": "2026-09-21T11:10:03+08:00",
+      "audit": "found",
+      "audit_note": "2026-09-21 补发已发布（成功横幅+列表在位）；09-14 旧草稿平台侧已消失（草稿tab共0）；逾期预约 tq-20260914-144346-01 本次补齐"
+    },
+    "weixin": {
+      "draft_appmsgid": "100003274",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000155",
+      "scheduled_time": "2026-09-21 06:00",
+      "schedule_note": "2026-09-17 UI 挂卡成功(schedule_ui_v2,副本100003274离箱,面板实查在册,群发通知已开)"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-14 19:06:26",
+      "updated_at": "2026-09-15 00:08:53",
+      "kuaishou_id": "3xjhw273ujjeqjy",
+      "shipinhao_id": "export/UzFfBgAAxJepRHwfUVTNk8zT4DCa-xjXSb_xfYjQVmEIKwqtow"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_110830.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "audit_note": "列表页实查到「skill 配置就是…」在位",
+      "synced_at": "2026-09-21T11:08:36+08:00",
+      "publish_status": "reviewing",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    }
+  },
+  "kv-cache-vram-formula": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-15 17:18:44",
+      "updated_at": "2026-09-15 22:06:40",
+      "bilibili_id": "BV1diep61Ejq",
+      "douyin_id": "7685743038425058611",
+      "kuaishou_id": "3x5prw4pxifzr86",
+      "shipinhao_id": "export/UzFfBgAAxP2pbCIXBRjPk8zT4DCaVV2yWdKdfNlCsUDpQZ1NrQ"
+    }
+  },
+  "deepseek-harness-desktop-internals": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "scheduled_at": "2026-09-17 20:00",
+      "published_at": null,
+      "note": "2026-09-16 同窗口双条事故与撤回：昨晚 KV Cache(kv-cache-vram-formula) 因 09-15 档挂卡失败重挂 09-16 20:00 后，23:05 又将本片挂到同一 09-16 20:00（后挂者未查队列，违反红线1同窗口双条禁令）。用户定夺撤本片保 KV。22:2X-22:35 已撤：快手删作品并复核 0；B站 UI 删稿 BV1aPep6BEng 复核不在列；视频号删 XOYnzmZlVfiP6d0g 复核 0（登录态已扫码恢复）；抖音各 tab 本就无作品无卡。22:33-22:35 四平台重挂定时 09-17 20:00（B站新 bvid=BV1AyeA6zE26，pic 延迟入库待复查；快手首跑 upload-btn 超时后单平台补挂成功），audit 四平台 scheduled 在列。",
+      "updated_at": "2026-09-16 22:40:00",
+      "douyin_id": "7685778599378537774",
+      "bilibili_id": "BV1AyeA6zE26"
+    }
+  },
+  "claude-plugins-keep-or-kill": {
+    "weixin": {
+      "draft_appmsgid": "100003278",
+      "status": "drafted",
+      "note": "草稿在箱,排期 9/22 20:00,当天挂卡预约 tq-20260916-111922-01",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000157",
+      "scheduled_time": "2026-09-23 06:00",
+      "schedule_note": "2026-09-17 UI 挂卡成功(schedule_ui_v2,副本100003278离箱,面板实查在册,群发通知已开)"
+    },
+    "toutiao": {
+      "status": "published",
+      "publish_status": "error",
+      "scheduled_time": "2026-09-22 20:00",
+      "schedule_note": "「12 个 Claud…」在内容列表在位但行内未命中定时词 ['定时']——可能已落成立即发布或被驳回（静默回退硬门禁），人工核对诊断图",
+      "evidence": "post_schedule_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_schedule_*.png toast=True target=2026-09-22 20:00",
+      "synced_at": "2026-09-16T11:15:38+08:00",
+      "audit": "found",
+      "audit_note": "[已发态] 列表页实查到「12 个 Claud…」在位",
+      "audit_at": "2026-09-16T11:19:04+08:00",
+      "published_at": "2026-09-16 11:15",
+      "note": "2026-09-16 事故:定时弹窗『预览并定时发布』静默落成立即发布,用户拍板按 A 保留;title_toutiao 变体生效"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "scheduled_at": "2026-09-22 20:00",
+      "note": "2026-09-16 实挂:列表实查『定时发布 预计 2026-09-22 20:00 发布』;终确认探测误报已核实无害;cheetah-select 改版锚点已回填",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_111603.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 补发：原 09-16 发布稿已被撤回、台账所记 09-22 20:00 平台定时稿实查不存在（待发布tab共0），本次重发已发布（成功横幅+列表在位）；旧撤回稿留在列表未动（清理须用户确认）；微信主档 09-23 06:00",
+      "synced_at": "2026-09-21T11:16:08+08:00",
+      "publish_status": "published"
+    }
+  },
+  "gpt6-astra-looped-transformer": {
+    "weixin": {
+      "draft_appmsgid": "100003232",
+      "publish_status": "deprecated",
+      "schedule_note": "2026-09-17 用户令 gpt6 废弃:草稿100003232已删,文章弃发(其头条/百家无在途)"
+    }
+  },
+  "agents-md-hard-rules": {
+    "weixin": {
+      "draft_appmsgid": "100003280",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000158",
+      "scheduled_time": "2026-09-24 06:00",
+      "schedule_note": "2026-09-17 UI 挂卡成功(schedule_ui_v2,副本100003280离箱,面板实查在册,群发通知已开);原任务 9/17 20:00 到期挂 9/23,已提前完成;视频号卡片人工补挂仍待办"
+    }
+  },
+  "ponytail-lazy-ladder": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-18 22:14:16",
+      "updated_at": "2026-09-19 22:24:31",
+      "douyin_id": "7686876685421137194",
+      "shipinhao_id": "export/UzFfBgAAxOqpTERXVkHIk8zT4DCaoO5w1F_l9fvhOAh3oJ3fUw",
+      "bilibili_id": "BV1wieh6UEfw",
+      "kuaishou_id": "3xtdgqztkk4cmfu"
+    }
+  },
+  "i-have-adhd-deep-dive": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-20 08:35:47",
+      "updated_at": "2026-09-20 10:18:04",
+      "douyin_id": "7687409251714649370",
+      "bilibili_id": "BV125ee68E8V",
+      "shipinhao_id": "export/UzFfBgAAxPipfDIDbAzKk8zT4DCaaYkz__J48fS75CDQryjmhA",
+      "kuaishou_id": "3x3w8gzcr5j56ai"
+    }
+  },
+  "harness-tax-coding-agents": {
+    "weixin": {
+      "draft_appmsgid": "100003260",
+      "scheduled_appmsgid": "1000000154",
+      "publish_status": "scheduled",
+      "scheduled_time": "2026-09-20 06:00",
+      "schedule_note": "2026-09-17 UI 挂卡成功(schedule_ui_v2,原稿100003259留箱,副本100003260离箱);三道闸过:check_ad send_time=1789821000(9/19 20:30)+面板实查第3天quota=0;封面独立定制(模型没变/账单翻倍)+合集AI+作者/原创齐"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-18 09:22:33",
+      "updated_at": "2026-09-18 20:03:09",
+      "note": "2026-09-18 用户令单平台发布：仅抖音,定时 2026-09-18 20:00(平台实查在列+AI声明✓+封面✓);其余平台未发(视频号登录态失效);公众号线另挂 9/19 20:30",
+      "douyin_scheduled": "2026-09-18T20:00:00+08:00",
+      "douyin_id": "7686788399700757806",
+      "bilibili_id": "BV1hTh463EEk"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_110304.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "audit_note": "列表页实查到「你的 Claude …」在位",
+      "synced_at": "2026-09-21T11:03:10+08:00",
+      "publish_status": "published",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_110454.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 11:04:49 已发布（DOM 全文抓取实证）；同列表 11 条全对账无重复",
+      "synced_at": "2026-09-21T11:04:59+08:00",
+      "publish_status": "published"
+    }
+  },
+  "harness-tax-demo": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-18 11:39:19",
+      "updated_at": "2026-09-18 12:10:23"
+    }
+  },
+  "traework-code-work-split": {
+    "weixin": {
+      "draft_appmsgid": "100003295",
+      "publish_status": "failed"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-20 17:43:11",
+      "updated_at": "2026-09-21 14:46:31",
+      "bilibili_id": "BV13heq6jEr3",
+      "douyin_id": "7687549799234620715",
+      "shipinhao_id": "export/UzFfBgAAxJepfHEAGAzVk8zT4DCa7h6sLx4obDE8WItclzCX2g"
+    },
+    "reschedule_note": "2026-09-21 顺延:原四平台 09-21 20:00 与 WorkBuddy 同窗口双条(违红线1),抖音/B站已改定时 09-22 20:00(平台侧复核),快手卡丢失重挂 09-22 20:00(定时tab视觉复核),视频号原卡状态待扫码核实",
+    "withdraw_note": "2026-09-21 撤回(用户令,判口播稿不合格):卡片导航词「下一页」x3泄漏进口播文本+行文不流畅;四平台定时卡全撤=抖音删1(定时tab命中带「定时发布中」标记卡)/B站定时稿删1/视频号删1(列表复核0)/快手卡平台侧已丢失(已发布+定时两tab实查均0);未公开过,无留档义务;重发需口播稿重写+重走门禁,任务 tq-20260921-200203-01"
+  },
+  "workbuddy-no1-anatomy": {
+    "weixin": {
+      "draft_appmsgid": "100003303",
+      "publish_status": "scheduled",
+      "scheduled_appmsgid": "1000000152",
+      "scheduled_time": "2026-09-19 06:00",
+      "note": "用户手动排期(2026-09-19 06:00 群发,timesend msgid=1000000152);重复的153(09-20 06:00)已取消;06:00 新档期首篇"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-20 23:26:06",
+      "updated_at": "2026-09-20 23:26:06",
+      "bilibili_id": "BV1dyeB6xErF",
+      "douyin_id": "7687638199807511827",
+      "shipinhao_id": "export/UzFfBgAAxMapVGVBVzfKk8zT4DCa4RebtSOyOeItS75Ys5t51w",
+      "kuaishou_id": "3xdgie93kbxk7zq"
+    },
+    "toutiao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/toutiao_post_submit_0921_105915.png final_url=https://mp.toutiao.com/profile_v4/graphic/publish toast=True",
+      "audit": "found",
+      "audit_note": "列表页实查到「拆完 WorkBud…」在位",
+      "synced_at": "2026-09-21T10:59:21+08:00",
+      "publish_status": "published",
+      "final_check": "2026-09-21 DOM 全文抓取：列表共11条、本稿在位"
+    },
+    "baijiahao": {
+      "status": "submitted",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_110046.png final_url=https://baijiahao.baidu.com/builder/rc/clue?aside=0&footer=true&from=news&firstPublish=undefined&word_bag_id=null toast=True",
+      "audit": "found",
+      "audit_note": "2026-09-21 补发已发布（DOM 全文抓取实证，成功横幅+列表在位）",
+      "synced_at": "2026-09-21T11:00:51+08:00",
+      "publish_status": "published"
+    }
+  },
+  "dsh-cc-codex-bill-showdown": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true,
+          "status": "scheduled",
+          "schedule": "2026-09-29 20:00"
+        },
+        "bilibili": {
+          "ok": true,
+          "status": "scheduled",
+          "schedule": "2026-09-29 20:00"
+        },
+        "kuaishou": {
+          "ok": true,
+          "status": "scheduled",
+          "schedule": "2026-09-29 20:00"
+        },
+        "shipinhao": {
+          "ok": true,
+          "status": "scheduled",
+          "schedule": "2026-09-29 20:00"
+        }
+      },
+      "published_at": "2026-09-29 20:00:00",
+      "updated_at": "2026-09-24 23:35:00",
+      "note": "2026-09-24 晚重建：本条目原为当日 13:36 会话未提交登记,当晚封面事故复盘时被误 checkout 清损,按 state.json(四平台定时 2026-09-29 20:00)+publish-log(douyin 13:35 begin/13:36 end ok;bilibili 12:52 end ok)重建;抖音侧实查=定时发布中·定时 2026-09-29 20:00(此前 12:52 的 published_at 记录为挂卡时间误记,make next reconcile 勿据此并已发布)",
+      "bilibili_id": "BV1hQac6uEFT",
+      "shipinhao_id": "export/UzFfBgAAxMOpCAYyfmLRk8zT4DCaBfyAxSyzwPHJNvNk4NypvA"
+    }
+  },
+  "ecc-vs-dsh-harness-deep-dive": {
+    "weixin": {
+      "draft_appmsgid": "100003353",
+      "scheduled_appmsgid": "100003360",
+      "publish_status": "scheduled",
+      "scheduled_time": "2026-09-26 06:00",
+      "schedule_note": "2026-09-21 挂卡成功(首次 time_send 未发出, 重试成功); timesend_msg 核验 msgid=1000000160 send_time=1790373600; AI 合集继承"
+    },
+    "baijiahao": {
+      "status": "draft_saved",
+      "publish_status": "draft",
+      "draft_id": "1876909518748142167",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_111333.png auto_saved=True draft_id=1876909518748142167",
+      "synced_at": "2026-09-21T11:13:33+08:00"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-21 21:06:58",
+      "updated_at": "2026-09-23 14:02:19",
+      "scheduled_at": "2026-09-25 20:00",
+      "bilibili_id_v2": "BV11Jh46AEL1",
+      "rehang_20260923": "09-21 挂的四平台09-23卡全部平台侧丢失(slot_scan+视觉实查);09-23 用户令重排09-25 20:00,抖音/快手/B站已挂+audit/平台实查过,视频号待扫码",
+      "schedule_shipinhao": "2026-09-25 20:00(14:00挂,slot_scan定时态在列,原创isDeclared=1)",
+      "bilibili_id": "BV11Jh46AEL1",
+      "douyin_id": "7688572701853764906",
+      "shipinhao_id": "export/UzFfBgAAxOWpFFQOVEHWk8zT4DCalZDXz1hx9ycg7IzF49ogAQ"
+    }
+  },
+  "llm-basics-one-hour": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-21 14:53:10",
+      "updated_at": "2026-09-23 19:38:47",
+      "bilibili_id": "BV1Zhhi61Epi",
+      "douyin_id": "7687876272743058715",
+      "shipinhao_id": "export/UzFfBgAAxM6pAFAgcQ3Vk8zT4DCaWddsLRR6GTCC52DSOUaLMg",
+      "bilibili_id_v4": "BV1AWh46hEkP",
+      "kuaishou_note": "2026-09-23 AI声明被拒×3(平台持续拒绝该视频),按红线4阻断跳过,待用户拍板(跳过/后台人工补标/换口径重试)",
+      "scheduled_at": "2026-09-24 20:00",
+      "schedule_shipinhao": "2026-09-24 20:00(13:55挂,slot_scan定时态在列,原创isDeclared=1)"
+    },
+    "withdraw_note": "2026-09-21 撤回(用户令,处置20:00三平台双卡事故):B站BV1Zhhi61Epi/快手/视频号 三平台已发出的《一小时讲透大模型》全部删除(B站过滑块人工验证,快手删1剩0,视频号删1复核0);抖音09-23 20:00定时卡保留未动;WorkBuddy为09-21正档四平台口径未受影响;事故实录=09-21 20:00 B站/快手/视频号 双卡齐发(llm-basics+WorkBuddy),快手发布前30分钟锁死无法改期;重挂对齐任务 tq-20260921-202824-01(B站/快手/视频号挂09-23 20:00与抖音对齐,挂卡前查重)"
+  },
+  "cloudflare-security-audit-skill": {
+    "weixin": {
+      "draft_appmsgid": "100003366",
+      "scheduled_appmsgid": "1000000161",
+      "publish_status": "scheduled",
+      "scheduled_time": "2026-09-27 06:00",
+      "schedule_note": "2026-09-21 UI 挂卡(schedule_ui_v2,副本100003369离箱,time_send isFreePublish=false 抓包+timesend_msg 1000000161 双证)；09-22~26 每日06:00 档已被既有排期占满故顺延 09-27；压缩变体 2220 字(short 档)与博客 5161 字同源不同文",
+      "wechat_form": "short"
+    },
+    "baijiahao": {
+      "status": "draft_saved",
+      "publish_status": "draft",
+      "draft_id": "1876948037085873881",
+      "evidence": "post_submit_shot=/Users/maxiaofei/codes/blog-src/scripts/pub/cookies/baijiahao_post_submit_0921_212547.png auto_saved=True draft_id=1876948037085873881",
+      "synced_at": "2026-09-21T21:25:47+08:00"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true,
+          "schedule": "2026-09-27 20:00",
+          "status": "scheduled"
+        },
+        "kuaishou": {
+          "ok": true,
+          "schedule": "2026-09-27 20:00",
+          "status": "scheduled"
+        },
+        "bilibili": {
+          "ok": true,
+          "schedule": "2026-09-27 20:00",
+          "status": "scheduled"
+        },
+        "shipinhao": {
+          "ok": true,
+          "schedule": "2026-09-27 20:00",
+          "status": "scheduled"
+        }
+      },
+      "published_at": "2026-09-27 20:00:00",
+      "updated_at": "2026-09-24 11:36:26",
+      "schedule": "2026-09-27 20:00",
+      "note": "四平台定时卡挂齐（09-24 上午操作）：抖音/B站/视频号平台侧审计在列；快手首轮4张空标题卡已删（快手清空标题坑），重挂后 DOM 证据在位（待发布·定时09-27 20:00·05:26）。pub-audit 快手 missing 为搜索键误报（快手列表以简介首行显示）",
+      "bilibili_id": "BV1RHaw6mEUi",
+      "douyin_id": "7689016911618755886",
+      "shipinhao_id": "export/UzFfBgAAxO2pCGsNGHTRk8zT4DCa8Ewg6DVonNCnbqO7DIinHw"
+    },
+    "weixin_status": "not_applicable"
+  },
+  "vibe-coding-action-tips": {
+    "weixin": {
+      "draft_appmsgid": "100003377",
+      "scheduled_appmsgid": "1000000162",
+      "publish_status": "scheduled",
+      "note": "2026-09-23 排期 09-28 06:00（压缩变体+转化段已注入,AI 合集）;timesend msgid=1000000162 核验"
+    },
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true,
+          "status": "scheduled",
+          "schedule": "2026-09-28 20:00"
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-28 20:00:00",
+      "updated_at": "2026-09-24 11:50:54",
+      "publish_status": "scheduled",
+      "schedule": {
+        "douyin": "2026-09-28 20:00",
+        "kuaishou": "2026-09-28 20:00",
+        "bilibili": "2026-09-28 20:00",
+        "shipinhao": "2026-09-28 20:00"
+      },
+      "note": "2026-09-24 封面事故复盘修正:抖音原 published_at「2026-09-24 11:50:54」为挂卡/换封时间误记(reconcile 会把定时卡错并成已发布)——平台实查=定时发布中·定时 2026-09-28 20:00,改记 slot+status=scheduled；2026-09-24 四平台挂卡 09-28 20:00；快手首传成功（待发布态标题未渲染,audit 标题匹配误报 missing,DOM 探针按简介验明）；B站 pic 字段空待审核后复查封面持久化；B站 bvid=BV1jEaw6DE2p",
+      "bilibili_id": "BV1jEaw6DE2p",
+      "douyin_id": "7689017165067996416",
+      "shipinhao_id": "export/UzFfBgAAxO6pLGUQZmvRk8zT4DCajoWyDJ33QNs_g0vupoqrEA"
+    }
+  },
+  "prompt-writing-7-tips": {
+    "weixin": {
+      "draft_appmsgid": "100003382",
+      "scheduled_appmsgid": "1000000163",
+      "publish_status": "scheduled",
+      "note": "2026-09-23 排期 09-29 06:00（压缩变体+转化段已注入,AI 合集）;timesend msgid=1000000163 核验"
+    }
+  },
+  "ai-code-quality-gates": {
+    "weixin": {
+      "draft_appmsgid": "100003389",
+      "publish_status": "draft",
+      "note": "草稿 100003389 在箱;09-30 档挂卡时日期下拉无 9月30日,已约 tq-20260923-200015-01 次日补挂"
+    }
+  },
+  "jev-decision-model": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-24 10:01:40",
+      "updated_at": "2026-09-24 11:22:41",
+      "bilibili_id": "BV1Xtaw6CEnd",
+      "douyin_id": "7688915650118470912",
+      "shipinhao_id": "export/UzFfBgAAxO2pPBEuZ3TRk8zT4DCaajUmq8SVAA2bWSnB_FfPYA"
+    }
+  },
+  "ai-memory-third-party-recall": {
+    "pub_video": {
+      "results": {
+        "douyin": {
+          "ok": true,
+          "status": "scheduled",
+          "schedule": "2026-09-26 20:00"
+        },
+        "kuaishou": {
+          "ok": true
+        },
+        "bilibili": {
+          "ok": true
+        },
+        "shipinhao": {
+          "ok": true
+        }
+      },
+      "published_at": "2026-09-26 20:00:00",
+      "updated_at": "2026-09-24 11:24:59",
+      "note": "2026-09-24 封面事故复盘修正:抖音原 published_at「2026-09-24 10:22:57」为挂卡/换封时间误记(reconcile 会把定时卡错并成已发布)——平台实查=定时发布中·定时 2026-09-26 20:00,改记 slot+status=scheduled",
+      "bilibili_id": "BV1y1aw6wEFx",
+      "douyin_id": "7689011770471533887",
+      "shipinhao_id": "export/UzFfBgAAxOWpQH88cXTRk8zT4DCaBbCwLVXvU0EgauavYoq9xg"
+    }
+  }
+}

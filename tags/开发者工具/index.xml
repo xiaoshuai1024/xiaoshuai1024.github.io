@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>开发者工具 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/</link><description>开发者工具 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 16 Sep 2026 10:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>你的 Claude Code 只用了三成功力,缺的是这 12 个插件</title><link>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</link><pubDate>Sat, 01 Aug 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-must-have-plugins/</guid><description><![CDATA[Claude Code 裸装，是个能干的终端 agent；装对插件和 skills，才是把它的能力放大的那个乘数。
+同一个 Claude Code，装了 spec 驱动、浏览器自动化、实时文档、token 压缩、代码图谱这些之后，能干的事是完全不同的量级。这篇把我验证过、值得分享的开源插件和 skills 按 GitHub Star 排了一下，每个的安装命令都从对应仓库的 README 抓的真实写法，照着复制就能装。Star 数截至 2026 年 8 月，来自 GitHub，每天在涨，仅作量级参考。
+先看排行 下面按 Star 从高到低逐个讲。
+1. Superpowers · 约 26 万 stars 仓库：github.com/obra/superpowers
+它是什么：一套 agentic skills 框架 + 软件开发方法论。不是单个插件，是一整套&quot;怎么用 AI 做软件&quot;的技能包——brainstorm、设计、TDD、代码审查、调试、执行计划，每个环节都有对应 skill。跨 11 个 agent 平台（Claude Code、Codex、Cursor、Antigravity、Gemini CLI、OpenCode 等），是这套生态里 star 最高的。
+为什么值得装：它把&quot;高手怎么用 AI 编程&quot;沉淀成可复用技能，而不是让你每次从零写提示词。executing-plans（每步验证门）、grill-me（拷问方案）、brainstorming（创意前置）这些 skill，覆盖了从想到做的完整链路。
+安装（Claude Code）：
+/plugin marketplace add obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace2. ECC · 约 23.]]></description></item><item><title>照榜单装了 12 个开源 Claude Code 插件，实测一个月我删了一半</title><link>https://xiaoshuai1024.top/posts/claude-plugins-keep-or-kill/</link><pubDate>Wed, 16 Sep 2026 10:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-plugins-keep-or-kill/</guid><description>Claude Code 的插件和 skill 榜单网上已经不少了，我之前也整理过一版。但榜单有个共同问题：只管推荐，不管售后。装的时候每个都写着「必装」，装完之后哪些真在干活、哪些在吃灰，没人告诉你。
+这次我把话说完：照榜单装了 12 个开源插件，用一个月真实任务逐个实测，删了一半，留下 6 个。留下来的每个都附 GitHub 实拍、实测体验和照抄能用的安装命令；删掉的 6 个，也讲清楚为什么删，这部分可能比推荐更值钱。
+先看结果 淘汰标准就一条：这一个月里，它有没有被我真实触发过。不是「我觉得它有用」，是有据可查的使用记录。插件和 npm 依赖一个道理：装 800 个包，入口就那几个，区别只是白白多出上下文开销和选择干扰。
+留下的 6 个 1. Superpowers · 留 仓库：github.com/obra/superpowers
+它是什么：一整套 agentic skills 框架 + 软件开发方法论。brainstorm、设计、TDD、代码审查、调试、执行计划，每个环节一个 skill，从想法到交付全链路覆盖。
+实测体验：装完后第一个月我只用到了它的 brainstorming 和 executing-plans，第二个月开始 debugging、grill-me 也被自然带起来了：它们挂在开发流程的固定环节上，写到「设计完就该 TDD」的节点就会触发。这是它能留下的关键：它的工作流和写代码的流程天然重合，不用你记着去用。
+安装（Claude Code）：
+/plugin marketplace add obra/superpowers-marketplace /plugin install superpowers@superpowers-marketplace2. ECC · 留 仓库：github.com/affaan-m/ECC
+它是什么：agent 性能优化系统，打包了 skills、instincts（直觉规则）、memory（记忆）、security（安全）、research-first development 五个维度，管的是 agent「怎么跑任务」本身。
+实测体验：它的 memory 和 research-first 两个模块在长任务上肉眼可见地稳：agent 动手前先调研、跨会话记得上下文，长任务稳不稳就看这两件事。选 minimal profile 装，full 版会把一堆你用不到的模块也塞进来，那正是我要在别人机器上删的东西。</description></item><item><title>9 万 Star 官方 MCP 合集领衔：12 个必装服务按 Star 排行</title><link>https://xiaoshuai1024.top/posts/mcp-server-star-ranking/</link><pubDate>Sun, 30 Aug 2026 23:15:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/mcp-server-star-ranking/</guid><description>skill 装到第五个的时候，我发现 Claude Code 连公司大门都刷不开。培训考试全过，门禁没办。流程会背、措辞会讲、纪律会守，一到真要碰浏览器、查数据库、读当前版本的库文档，它就坐在工位上干瞪眼，班味都熬出来了，活儿还是出不来。
+问题不在方法层，在接口层。skill 管教牛马怎么干活，MCP 服务管给牛马发工牌，两个章缺一个，新人就只能坐着。MCP（Model Context Protocol）是 Anthropic 定的开放协议，agent 按统一标准调用外部工具，一张工牌通吃全网门禁。
+上一篇我按 Star 排了 12 个开源 skill 与方法论工具，管的是培训教材。这篇补上工牌那一栏：12 个必装的 MCP 服务，还是按 GitHub Star 排行，安装命令逐个从对应仓库的 README 实抓，照着复制就能办入职。
+先看排行 12 个服务合计约 35 万 Star，Star 数截至 2026-08-30，来自 GitHub API，每天在涨，仅作量级参考。第一名是 Anthropic 官方的参考实现合集，一个仓库就有 9 万 Star，相当于全部门提前盖了章。
+下面按 Star 从高到低逐个讲，每位新同事回答三个问题：它是什么、为什么值得装、怎么办入职。末尾附上它什么时候用不上，选型时同样重要。
+1. 官方参考合集 · 约 9.0 万 stars 仓库：github.com/modelcontextprotocol/servers
+它是什么：Anthropic 官方维护的 MCP 参考实现合集。文件系统读写（filesystem）、Git 仓库操作（git）、网页抓取（fetch）、持久记忆（memory）、结构化思考（sequential-thinking）都在这一个仓库里，按需单装。
+为什么值得装：它是 MCP 协议的教材。官方怎么划分 tool 和 resource 的边界、怎么写工具描述，其他所有服务都照这个样式来，先读它再装别的，判断力完全不同。filesystem 是日常高频件，agent 从此自己翻项目文件，不用你复制粘贴路径；memory 把跨会话的记忆存成知识图谱，长线项目的背景不用每次重讲。
+安装（npm 与 pip 两条路都有）：</description></item></channel></rss>

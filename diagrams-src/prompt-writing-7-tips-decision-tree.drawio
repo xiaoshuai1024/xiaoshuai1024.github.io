@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="开口决策树" id="pwt3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="这个任务怎么开口：提示词决策树" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="26" width="420" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub" value="新任务&#10;进来" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="180" width="130" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="q1" value="三两句说得清吗？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="170" width="190" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="能 → 直接执行&#10;提示词=目标+验收（第1招）+具体上下文（第2招）&#10;一条收工" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="90" width="320" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="不能 → 走三段节奏（第3招）&#10;先读现状并列出读过的文件 → 出方案讲取舍 → 选定后实现跑测试&#10;方案拿不准？加选项（第4招）：给几个方案说明代价，我来选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="210" width="320" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="mid" value="会话中盯着两个信号" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="940" y="90" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="方向跑偏 → 第5招&#10;按 Esc：错在哪 / 要什么 / 差别" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="940" y="120" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="纠正说到第三次 → 第6招&#10;「记住」写进 CLAUDE.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="940" y="220" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="要复用给团队 → 第7招&#10;让 AI 代写，核对验收/环境/禁区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="940" y="320" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="hub" target="q1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="能" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" edge="1" parent="1" source="q1" target="r1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="不能" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" edge="1" parent="1" source="q1" target="r2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;dashed=1;" edge="1" parent="1" source="r1" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;dashed=1;" edge="1" parent="1" source="r2" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

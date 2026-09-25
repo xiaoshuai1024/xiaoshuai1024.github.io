@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="funnel" id="fn1">
+    <mxGraphModel dx="900" dy="300" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="240" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c0" value="dsh-plugin 话题&#10;1400+ 候选仓库" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="20" y="70" width="140" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="第一刀&#10;star 个位数的跳过" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="210" y="30" width="150" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="第二刀&#10;最近没有维护动作的" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="400" y="90" width="150" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="第三刀&#10;不声明适配 rc 版本的" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="590" y="30" width="150" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="第四刀&#10;痛点讲不清的" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="700" y="120" width="130" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="10 个入选&#10;最低 star 158" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="700" y="30" width="130" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="c0" target="c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="c1" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="c2" target="c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=0.5;exitY=1;entryX=0.5;entryY=0;sourcePerimeterSpacing=0" edge="1" parent="1" source="c3" target="c4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="665" y="148" />
+              <mxPoint x="665" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;exitX=1;exitY=0.5;entryX=0.5;entryY=1" edge="1" parent="1" source="c4" target="c5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

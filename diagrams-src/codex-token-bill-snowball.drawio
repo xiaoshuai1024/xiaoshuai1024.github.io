@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="输入雪球" id="snow1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="axis" value="" style="endArrow=classic;html=1;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="530" as="sourcePoint"/>
+            <mxPoint x="850" y="530" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yaxis" value="" style="endArrow=classic;html=1;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="530" as="sourcePoint"/>
+            <mxPoint x="90" y="60" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ylab" value="每轮输入 token" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="140" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="20,611" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="478" width="90" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="第 1 轮" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="148" y="536" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="51,782" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="404" width="90" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="第 4 轮" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="288" y="536" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="120,852" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="240" width="90" height="290" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="第 8 轮" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="428" y="536" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="164,729" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="140" width="90" height="390" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="第 12 轮" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="568" y="536" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="226,262" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="30" width="90" height="500" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="第 54 轮" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="708" y="536" width="80" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="同一个任务正常往下推，没换模型没改配置：&#10;54 次调用，总输入 952 万（2026-08-20 16:45:36 UTC+8 的真实会话）" style="text;html=1;align=left;fontColor=#475569;fontSize=12;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="150" y="70" width="420" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

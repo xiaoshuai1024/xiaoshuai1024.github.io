@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层时机" id="ly1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="h1" value="层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="什么时候进上下文" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="80" width="330" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" value="token 量级" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="230" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1a" value="第一层 元数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1b" value="会话启动即进，全程常驻&#10;模型每一轮都看得见" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="160" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c" value="每个 skill 几十 token&#10;30 个约千把 token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="160" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2a" value="第二层 正文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="285" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2b" value="模型点名触发才进&#10;一次会话通常只进两三份" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="285" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c" value="单份一两千 token&#10;只为触发的 skill 付费" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="285" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3a" value="第三层 附件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="410" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3b" value="正文引用到才读&#10;不预先加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="410" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c" value="单份不定，按需&#10;知识库可以很厚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="410" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="对照：30 份正文全量常驻约 6 万 token，是渐进式方案常驻开销的几十倍" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="540" width="620" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

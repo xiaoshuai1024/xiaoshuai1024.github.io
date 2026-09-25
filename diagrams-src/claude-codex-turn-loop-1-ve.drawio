@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="VE主循环" id="ve1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="n1" value="microcompact：清旧 tool_result&#10;（Kv @ L416898）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="auto-compact：超阈值先摘要&#10;（hRB，打点 tengu_auto_compact_succeeded）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="150" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="发起流式请求，收集 assistant 消息&#10;（L416932–416960）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="242" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="提取本轮全部 tool_use&#10;（filter type === tool_use @ L416995）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="334" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="没有 tool_use？&#10;是 → Stop hook 收尾，循环出口" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="320" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="执行工具（分块：安全并行 / 不安全串行）&#10;（L417012，池上限 dN5 = 10）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="430" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n7" value="yield* VE(messages + assistant + tool_result)&#10;尾递归进下一轮（L417051）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="524" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n1" target="n2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n2" target="n3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n3" target="n4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="判断" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="n4" target="n5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="n5" target="n6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n6" target="n7"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" value="带着完整历史回到顶部" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#2563eb;dashed=1;" edge="1" parent="1" source="n7" target="n1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="60" y="549"/><mxPoint x="60" y="85"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="cap" value="整个 agentic loop 是一个自递归 async generator（VE @ L416894）。&#10;出口不是状态机变迁，是「这轮没调工具」的一次普通函数返回。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="480" y="480" width="480" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

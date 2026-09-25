@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="最小结构与发现机制" id="wos1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="tree" value="项目根/.claude/skills/&#10;└── de-ai-smell/&#10;    └── SKILL.md&#10;&#10;一个文件夹 + 一个 Markdown 文件&#10;不到十行就能工作" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=16;verticalAlign=middle;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="280" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="scan" value="Claude Code 启动时扫描目录&#10;不需要注册，不需要改配置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="60" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="read" value="只读头几行&#10;name + description" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="190" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="trigger" value="对话开始时拿 description 做路由&#10;任务匹配就加载整个 skill 正文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="120" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="文件放着就行" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;" edge="1" parent="1" source="tree" target="scan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="发现的依据" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#475569;" edge="1" parent="1" source="scan" target="read">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="想不起来就永远不触发" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="read" target="trigger">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

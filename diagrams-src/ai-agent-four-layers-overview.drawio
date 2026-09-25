@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="overview4" name="四层架构总览">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="l1" value="第一层 大脑（大模型 + 规划/记忆/工具调用）&#10;决定能力上限：拆任务、控流程、记住中间状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=13;fontColor=#1e293b;verticalAlign=top;fontStyle=1;spacingTop=6" vertex="1" parent="1">
+          <mxGeometry x="70" y="60" width="820" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="第二层 能源（API 与成本工程）&#10;决定运行成本：模型路由分档、缓存前缀、容灾三件套" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=13;fontColor=#1e293b;verticalAlign=top;fontStyle=1;spacingTop=6" vertex="1" parent="1">
+          <mxGeometry x="70" y="175" width="820" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="第三层 手脚（MCP 协议）&#10;决定能力边界：统一插座，握手/格式转换/指令代理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=13;fontColor=#1e293b;verticalAlign=top;fontStyle=1;spacingTop=6" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="820" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="第四层 手册（Skill 模块化）&#10;决定稳定下限：输入规范、过程约束、异常处理三件事" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=13;fontColor=#1e293b;verticalAlign=top;fontStyle=1;spacingTop=6" vertex="1" parent="1">
+          <mxGeometry x="70" y="405" width="820" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="调用" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" value="取数/执行" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" value="复用技能" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="l3" target="l4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e41" value="结果回流：有效用法进手册，失败案例记档" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;dashed=1;endArrow=block;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="l4" target="l1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tag" value="账单能差 30 倍：差距不在模型（大脑），在另外三层的工程决策" style="text;html=1;align=center;fontSize=12;fontColor=#2563eb;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="210" y="530" width="540" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

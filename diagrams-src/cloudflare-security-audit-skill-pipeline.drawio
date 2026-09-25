@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="pipeline" name="六阶段流水线">
+    <mxGraphModel dx="1200" dy="500" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="s1" value="&lt;b&gt;1 侦察&lt;/b&gt;&lt;br/&gt;画架构与信任边界，产出&lt;br/&gt;architecture.md 和覆盖账本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="230" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;2 猎捕&lt;/b&gt;&lt;br/&gt;隔离猎手按账本分头找洞&lt;br/&gt;覆盖批评者专职挑盲区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="230" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;3 证伪&lt;/b&gt;&lt;br/&gt;每个候选交给全新助手&lt;br/&gt;上下文干净，专职推翻" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="60" width="230" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;6 报告&lt;/b&gt;&lt;br/&gt;总报告 / 漏洞明细&lt;br/&gt;/ 待验证清单" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="280" width="140" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="&lt;b&gt;5 复核&lt;/b&gt;&lt;br/&gt;再派新助手逐条对源码&lt;br/&gt;材料换过就重验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="280" width="230" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="s6" value="&lt;b&gt;4 落账&lt;/b&gt;&lt;br/&gt;确认 / 待验证 / 驳回写入 findings&lt;br/&gt;过 Schema 与机检校验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=center;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="230" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1;" edge="1" parent="1" source="s3" target="s6"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="795" y="328"/></Array></mxGeometry></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1;" edge="1" parent="1" source="s6" target="s5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1;" edge="1" parent="1" source="s5" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n1" value="一本 coverage-ledger.json 贯穿全程：查过什么、怎么查的、结论是什么，每次运行都追加" style="text;html=1;align=center;verticalAlign=middle;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="412" width="660" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

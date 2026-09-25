@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="提示词四件套解剖" id="pwt2">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="解剖一条好提示词：四件套" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="26" width="420" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="prompt" value="「给 costcenter-web 的 field-library 模块加单测，&#10;覆盖动态字段排序，先用真实配置确认现有行为，&#10;再补测试，跑到全绿」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;align=left;verticalAlign=top;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="56" y="70" width="560" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="① 目标：加单测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="66" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="② 上下文：哪个项目 · 覆盖什么行为" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="120" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="③ 验收：确认现状 · 跑到全绿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="174" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="④ 边界：真实配置，不用 mock" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="228" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="l1" target="prompt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="l2" target="prompt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="l3" target="prompt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;" edge="1" parent="1" source="l4" target="prompt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="bad" value="差的那条「给 field-library 模块加测试」：四件套只有目标一件，空出来的三件 AI 全用猜测填上" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="220" width="560" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="rule" value="写完任何一条提示词，用四件套过一遍：缺哪件补哪件；卡在验收写不出，说明任务本身没想透" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="300" width="620" height="36" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

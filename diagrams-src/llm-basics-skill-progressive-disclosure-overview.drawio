@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="总览" id="ov1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="disk" value="磁盘上的 skill 目录" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="70" width="300" height="470" as="geometry"/>
+        </mxCell>
+        <mxCell id="meta" value="元数据&#10;name + description&#10;（几十 token）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="110" y="130" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="body" value="SKILL.md 正文&#10;操作指引&#10;（一两千 token）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="110" y="270" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ref" value="references/ 与 scripts/&#10;详细资料与脚本&#10;（不预装，随用随读）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="410" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctx" value="模型上下文" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="300" height="470" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="技能目录：每 skill 一行&#10;全程常驻" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="130" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="被点名的正文&#10;触发时进，会话里通常两三份" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="270" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="被引用的附件&#10;用到才读，不预先加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="410" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="启动即进" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="meta" target="c1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="触发才进" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="body" target="c2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="用到才读" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;labelBackgroundColor=#ffffff;dashed=1;" edge="1" parent="1" source="ref" target="c3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap" value="30 个 skill 的常驻代价 = 30 行描述，不是 30 份正文" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="580" width="520" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="自测清单" id="cl1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="新模型验收清单：三个维度，照单收货" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="30" width="660" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="维度一&#10;真实任务集&#10;&#10;最近十个真实需求原样重放&#10;记录一次通过率&#10;别人刷榜，你重放自己的任务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="320" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="维度二&#10;成本结构&#10;&#10;记录输入输出比&#10;长会话盯重复读取&#10;别只看单价" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="430" y="90" width="320" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="维度三&#10;长上下文&#10;&#10;会话推进到二十万字&#10;看它还记不记得&#10;第一小时做过的决定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="90" width="320" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="out" value="三个维度写进验收清单，新模型来了照单收货&#10;通过 → 进试用期两周（转正判据见三件套排班的三信号）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;fontStyle=1;dashed=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="180" y="330" width="820" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="适用范围不限于 GPT-6：任何新模型、任何换模决策，同一张单" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="430" width="660" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

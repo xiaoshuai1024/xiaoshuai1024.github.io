@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="从安装到生效" id="t5setup1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="s1" value="① 安装&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;仓库取单文件二进制，扔进 PATH&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="② 注册 hook&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;rtk init -g 挂到助手命令层&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="③ 验证生效&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;跑一条 ls 看变瘦，gain 计数在涨&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="600" y="60" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="④ 日常复盘&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;每周 gain 看构成，核对类走 proxy&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="600" y="220" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="warn" value="hook 没挂上会一直打告警：看到告警先查挂载" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="170" width="400" height="26" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

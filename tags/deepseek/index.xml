@@ -1,0 +1,75 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>DeepSeek - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/deepseek/</link><description>DeepSeek - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 20 Sep 2026 21:05:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/deepseek/" rel="self" type="application/rss+xml"/><item><title>DeepSeek 开源自研Harness，模型、工具、Agent Loop 一切皆插件</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-first-look/</link><pubDate>Thu, 13 Aug 2026 20:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-first-look/</guid><description>打开 GitHub，DeepSeek Harness（dsh）的仓库挂在趋势榜第一。创建时间 2026-08-13 11:56:32 UTC，发布时 star 已经 1.5 万，到我实测时已涨到 2.9 万——发布 12 小时不到，逼近 3 万。模型厂商下场做 Agent 工具链，这本来就是大事，但真正让我放下手头活去装的，是仓库描述里那句话：Everything is a Plugin，一切皆插件。
+装完跑了一圈，我的结论先放在这：dsh 没有把 Claude Code 或 Codex 重新实现一遍，它做的是把 Agent harness 从「封闭产品」拆成「插件平台」——模型、工具、会话、沙箱、UI 全部是插件，任何一块都能替换。这是 Agent 工具链形态上的一个变化，不是又一个 CLI 工具。但它现在是 developer preview，Node 版本有硬门槛，插件生态刚爆发还没沉淀，我的判断是：值得装来看，别急着全切。
+这篇文章把「我看到了什么、怎么装、为什么这么设计、实测体感、插件生态、有哪些坑」完整讲一遍。内容基于 2026-08-13 发布到 2026-08-14 的真实操作，版本号以我实测时的 0.1.0-rc.6 为准。
+反常的地方：没有 CLI，是一个 Web 服务 用惯了 Claude Code、Codex 这类终端工具，第一反应是去找 dsh 命令。装完才发现方向反了——dsh 的入口是一个常驻的 node 后台服务，真正的操作界面是浏览器。
+安装只有一行：
+npx @deepseek-ai/dsh web第一次运行会自动拉取 @deepseek-ai/dsh 包，初始化 web 和 headless 两个 profile，然后起服务。启动成功的输出只有一行：dsh web: http://127.</description></item><item><title>DeepSeek 便宜到骨折还拿了世界第二,但我劝你先别切</title><link>https://xiaoshuai1024.top/posts/deepseek-v4-flash-coding/</link><pubDate>Sat, 01 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-v4-flash-coding/</guid><description>做 AI 开发，选模型是每周都在做的决策。7 月 31 日 DeepSeek 上线 V4 Flash 正式版 API，我第一时间翻的是榜单——Terminal-Bench 2.1 拿了 82.7 分，超过 GLM-5.2，只比 Opus 4.8 低 2.3 分。
+这个数字本身很漂亮，但漂亮得不等于该立刻切过去。一个模型值不值得换，要看三件事：能力是真的强还是测出来的强、强在哪、代价是多少。这篇就把 V4 Flash 这三件事拆开讲。
+结论是：这是国产模型第一次在编程榜上摸到第一梯队的边，成本结构更是碾压级。但榜单数字带着官方测试的水分，真实生产表现还得等第三方验证。 该试的可以试，该等的别急。
+82.7 分的含金量：真的进了第一梯队 Terminal-Bench 2.1 测的是 AI 在真实命令行环境里，能不能独立完成端到端的复杂任务——不是写一段函数，是从拿到需求到跑通结果的全流程。这个榜比单纯写代码难，也更接近 Agent 的真实工作。
+V4 Flash 的 82.7 分，排在它前面的只有 Opus 4.8 的 85.0。后面是 GLM-5.2 的 81.0、自家 V4-Pro 预览版的 72.1、V4 Flash 预览版的 61.8。
+2.3 分的差距意味着什么？在这种百分制的综合评测里，2-3 分经常落在测量误差和抽样波动的范围内。换句话说，V4 Flash 和 Opus 4.8 在这个榜上的差距，已经小到不能说&amp;quot;明显落后&amp;quot;了。这是一个质变——之前国产模型在这个层级总是差一档，现在站到了同一条线上。
+但要注意一个细节：Opus 是 Anthropic 的闭源旗舰，价格不便宜；V4 Flash 是 DeepSeek 的速度成本优先版本。一个堆料旗舰和一个性价比型号打到了一起，这本身就是 V4 Flash 成本结构的胜利。</description></item><item><title>DeepSeek Harness 源码深读：内核、调度、提示词、上下文一次讲透</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-source-internals/</link><pubDate>Sat, 15 Aug 2026 13:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-source-internals/</guid><description>三天前我上手实测了 dsh，装完跑了一圈任务，看完插件生态。但实测只能回答「它好用吗」，回答不了「它为什么这样做」。这三天我把 deepseek-ai/deepseek-harness 的源码从头到尾读了一遍——80MB 的 TypeScript monorepo，133 个插件包，外加一套 vendored 的 Cordis 内核。这篇文章是完整的源码笔记，从启动流程一路讲到上下文压缩和定时调度，所有结论都带 file:line 引用，你可以拿着仓库对照看。
+我的总体读后感先放这：dsh 是我读过的 Agent harness 里工程约束执行得最彻底的一个。它不是功能最多的，但每一个「容易写歪的地方」——重试、压缩、沙箱、并发、持久化——都用了同一种手法：把决策变成事件，把状态变成投影，把危险变成默认拒绝。这篇文章就是要把这个手法在六七个子系统里怎么落地的拆开看。
+版本说明：分析基于我手上的 clone（根 package.json 版本 0.1.0-rc.5，实测文章用的 rc.6），行号以这份代码为准，开发者预览期重构频繁，行号可能漂移。
+一、先看地形：仓库结构和那套 vendored 内核 clone 下来第一眼要看的其实是根目录的 vendor/，packages/ 反而可以后看。里面有五个目录：cordis、loader、include、hmr、timer——全部是直接拷进仓库的源码，不走 npm 依赖。
+Cordis 是一个「依赖注入 + 插件生命周期」框架（koishi 生态那套思路）：核心概念是 Context（上下文）、Fiber（插件的运行时载体，一个状态机）、Service（命名服务）。插件就是一个对象：
+{ name, inject, Config, apply(ctx) }inject 声明依赖的服务名，apply 在激活时拿到 Context 挂自己的服务。Loader 负责按声明拓扑加载，服务没就绪时依赖方 fiber 停在 pending 状态，Service.check 就绪后放行。
+为什么 vendor 而不是装 npm 包？我的看法：harness 对内核的稳定性要求是「每一行都要为我负责」。插件内核是整个系统的地基，升级一个第三方包带来的行为漂移，在 133 个插件的系统里排查成本极高。拷进来，锁死，自己改。这个选择本身就说明了 dsh 团队对「内核」的界定有多严格。
+packages/ 下的分组也值得记一下，后面全要用到：
+packages/boot/* —— 启动、profile、cmdline、app-boot packages/core/* —— agent-loop、session、tools、system-prompt packages/llm/* —— LlmRuntime、deepseek 适配器、重试 packages/context/* —— compaction、spill、todo、plan-mode、goal packages/schedule/*、packages/jobs/* —— 定时调度和后台作业 packages/subagent/、packages/sandbox/、packages/skill/ —— 子代理、沙箱、技能 apps/cli、apps/web —— 启动器和浏览器前端 packages/host/* —— webserver、apiproxy 整棵树的地形是这样的：</description></item><item><title>DeepSeek Harness 裸机是半成品：三类 10 个高 star 插件一次配齐</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</link><pubDate>Tue, 18 Aug 2026 11:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-plugins-top10/</guid><description>三天前我上手实测 dsh 的时候，dsh-plugin 话题下是 275 个仓库；写这篇文章的今天，这个数字过了 1400。中间我又把源码从头读了一遍。生态爆发的另一面是泥沙俱下：有给 Web UI 加 2005 年风格广告的整活插件，有「写代码的时候账户不能同时亏钱」的炒股面板，一天写完就没人维护的占了相当比例。
+这篇的选稿标准比上一版严了一档：只收高 star 且当天有维护动作的。理由很实际：生态爆发期 star 就是社区的预筛，几百人替你踩过坑的插件，排错时 issue 区里就有答案；而 star 个位数的仓库，哪怕方向再对，装了就是把排错责任全揽到自己身上。10 个插件全部过了 GitHub API 验证，star 数取 2026-08-18 的实测值，当天全部有提交。
+按「看 / 点 / 想」三类能力排开。读完之后，你能在 20 分钟内把它们装好，并且知道同类两个插件选哪个、装不上怎么办。
+先看全景：
+1400 个仓库怎么砍到 10 个 先交代筛法，你可以拿同样的标准自己去筛，不必认我的清单。
+第一刀砍 star 不够的。门槛不设固定值，但个位数 star 的直接跳过。不是否认方向，是这个阶段你耗不起排错时间。我上一版清单里有个零 star 的代码地图插件，方向很对，但没人验证过，这次按新标准请出去了。
+第二刀砍没有维护动作的。生态爆发期的典型寿命是「发布当天一个 commit，之后永远沉默」。我看仓库先看最近一次提交时间，再看 issue 区有没有人报错、作者有没有回。这次 10 个的最后一次 push 全部在 2026-08-17 或 2026-08-18，跟进 rc 的速度就是生存意愿。
+第三刀砍不声明适配版本的。dsh 三天发了 6 个 rc，插件作者如果连「我适配的是 rc 几」都没写，说明他自己也没认真跟。这个信号在 README 第一屏就能看到，两秒钟排除一个。</description></item><item><title>Codex 桌面端零基础教程：装好它，用中文说出第一个项目</title><link>https://xiaoshuai1024.top/posts/codex-desktop-zero-basic-tutorial/</link><pubDate>Fri, 21 Aug 2026 15:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/codex-desktop-zero-basic-tutorial/</guid><description>装好 Codex 要多久？从下载安装包到浏览器里看到 25:00 的倒计时，我在这台 Windows 机器上实测用了不到二十分钟。但多数人卡住的地方不是写代码，是开头五分钟——安装和登录。网上教程一抓一大把，功能章节讲得都很全，唯独「装好、登进去」这一步默认你会，多少人倒在这道门槛前。这篇文章把我这台机器上的 Codex 桌面端从头到尾跑了一遍，每步都有真机截图，专门解决开头那五分钟，再往下走完整个实操闭环。
+读完你能做到：装好 ChatGPT 桌面应用，登录进 Codex，认清楚界面和两种工作模式，用一句中文让 Codex 从零做一个番茄钟网页，验证它真的能跑，最后把模型供应商切到 DeepSeek，月成本掉一个量级。
+适用人群与前提 这篇教程写给两类人：完全没装过 Codex、想用自然语言做东西的新手；装了但卡在登录或不会用的半新手。
+前提四样：
+系统：Windows 10 / 11。本文实测 Windows 10，macOS 桌面端流程一致，安装包格式不同 ChatGPT 账号：登录用。没有账号或不想注册的，看第六步，跳过官方登录直接接 DeepSeek 网络：能访问 openai.com 和 GitHub。工具自备，本文不展开 版本：ChatGPT 桌面应用（含 Codex 模式）build 26.x、Codex CLI 0.140.0（本文验证环境）、CcSwitch v3.20.0、DeepSeek V4 Flash 有个背景先交代：Codex 桌面端底层就是开源的 Codex CLI（Apache 2.0），官方把它包进了 ChatGPT 桌面应用。桌面端的好处是零命令行，文件操作、diff 审查、图片生成都有图形界面，适合不碰终端的用户；CLI 自由度更高，适合脚本化和远程场景。这篇走桌面端。
+两条路选哪条，我的判断看你的使用场景：只在编辑器旁边干活、想要可视化 diff 和图形界面，桌面端够用且零学习成本；要批量跑任务、要接进自己的自动化脚本、要在服务器上干活，CLI 才是正路。多数人从桌面端入门，用到一定深度自然知道什么时候该切 CLI——两个是同一个 Codex，配置、会话、模型选择完全互通，切换没有迁移成本。
+顺便回答常被问到的问题：Codex 和「豆包」「文心一言」这类聊天助手有什么区别？区别在于它是智能体，能直接读写你电脑上的文件、执行命令、改完自己验证。聊天助手给你贴一段代码让你自己搬，Codex 自己把活干完再让你验收。这个区别贯穿后面所有步骤，看实操部分就明白了。
+整体思路 五步主线，一条省钱支线：
+安装：下载 ChatGPT 桌面应用安装包，装上 登录：ChatGPT 账号登录，进入 Codex 认界面：功能区、工作区、两种模式、权限三档 实操：用一句中文发任务，全程看它干活 成品：审查 diff，确认文件落盘，浏览器打开验证 走完五步之后，如果你想省订阅费，第六步用 CcSwitch 把模型切到 DeepSeek——这正是本文区别于网上大多数教程的地方：不止教你怎么用，还教你怎么把成本打下来。</description></item><item><title>省掉订阅费的 Codex,把国产模型用明白了</title><link>https://xiaoshuai1024.top/posts/codex-ccswitch-deepseek/</link><pubDate>Thu, 06 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/codex-ccswitch-deepseek/</guid><description>省掉订阅费,是这篇文章的出发点。OpenAI 的 Codex 桌面版是当前最能打的 AI 编程 agent 之一,但官方使用路径绕不开两件事:一个 ChatGPT 账号和一笔订阅费。我在 AI 开发这条线上已经全量跑了小半年的 agent 工作流,这次把 Codex 的模型层整个换掉——用开源的 CcSwitch 把 DeepSeek 接进 Codex,配置完直接跳过官方登录,打开就是能用的状态,模型走国产 DeepSeek,按量付费。
+读完你能做到:在一台 Windows 机器上装好 Codex 桌面版,不注册 ChatGPT 账号、不交订阅费,双击图标就能聊;用真实任务验证 DeepSeek 确实在响应。
+适用人群与前提 这篇教程面向会用桌面软件、能看懂终端报错的开发者。不需要懂命令行,配置全程图形界面:
+系统:Windows 10 / 11(本教程实测 Windows 10)。macOS 上的 Codex 桌面版同样支持,CcSwitch 配置思路一致。 工具版本:Codex 桌面版(本文实测 build 26.730.8199.0)、CcSwitch 最新版、DeepSeek API。 CcSwitch 获取:到它的 GitHub 仓库(farion1231/cc-switch)下载最新版 Windows 安装包,装好后首次打开是空供应商列表,配置完就有东西了。 科学上网:下载 Codex 桌面版安装包和后续更新需要。工具自备,这里不展开。 账号准备:一个 DeepSeek 开放平台的 API key。平台充值后按量付费,个人写代码一个月几块钱。不需要 OpenAI / ChatGPT 账号。 整体思路 核心分工:Codex 客户端是壳,模型供应商是芯,CcSwitch 负责换芯。</description></item><item><title>Claude Code 又被封号？CcSwitch 切国产模型，省 99%</title><link>https://xiaoshuai1024.top/posts/claude-code-ccswitch-domestic-models/</link><pubDate>Sun, 02 Aug 2026 09:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/claude-code-ccswitch-domestic-models/</guid><description>做 AI 开发，主力客户端我用 Claude Code。Skills、MCP、subagents 这套框架能力，目前没有对手。但官方账号绕不开一个问题：我的号就封过。
+Anthropic 不向中国地区提供服务，注册只能借其他地区的通道。中国地区封号极频繁，Claude Code 源码里直接写了地区判断，识别到国内环境就视为违规。个人号如此，团队共享 key 风险更大。被封那天，我一点都不慌。
+后来我换了一条路。Claude Code 客户端本身是开源的，模型供应商可以换。用 CcSwitch 把 DeepSeek、Qwen、Kimi、GLM 这些国产模型接进同一个客户端。封号之后，我全量切到国产模型，切一次就不回官方。
+读完后你能做到：一套 Claude Code 客户端全量跑国产模型；月账单从官方 $100+ 掉到几美元；账号也不再随时面临封号风险。
+Claude Code 强在哪，官方号为什么容易封 为什么离不开 Claude Code，答案在框架层。它和「填提示词的工具」是两代产品，差别在下面四样能力：
+Skills：把常用工作流封装成可复用的技能，一个命令执行整套流程 MCP：接任意外部工具，数据库、浏览器、设计稿都能连 subagents：按角色派多个子代理并行干活，主会话只做收敛 多会话编排：一个任务拆成多个会话并行跑，最后合流 这套能力属于客户端的框架层，不是某个大模型的独有能力。模型是发动机，客户端是底盘。底盘好用，换个发动机照样开。
+问题出在根本上：Anthropic 根本不向中国地区提供服务。想用官方号，只能借非中国地区的通道注册。
+账号一回到中国地区网络，封号就成了高频事件，源码里就有地区判断，识别到国内环境就视为违规。封号和你的使用模式无关，是你所在的地区本身就不在服务范围内。对重度用户来说，这等于脖子上一直悬着一把刀。
+适用人群与前提 这篇文章适合两类人：
+重度用 Claude Code / Codex，但官方号被风控或快被风控的人 想用 Codex 但接不上官方模型、想换国产模型的人 前提不多，三样东西：
+已装 Claude Code 或 Codex CLI 一个国产模型平台的 API key（DeepSeek / Qwen / Kimi / GLM 任选） 一个桌面小工具，macOS 或 Windows 都行 版本我用的：Claude Code 最新稳定版、CcSwitch v3.</description></item><item><title>DeepSeek 替你换了模型：V4 Pro 全量切到 V4.1 Flash，三步确认加新价速查</title><link>https://xiaoshuai1024.top/posts/v41-flash-forced-routing-switch/</link><pubDate>Fri, 11 Sep 2026 22:10:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/v41-flash-forced-routing-switch/</guid><description>2026-09-09 之前，你的请求发往 V4 Pro；2026-09-09 之后，同样的请求从 V4.1 Flash 出去，按 Flash 的价格计费。
+中间不需要你做任何事。一行代码没改，一个配置没动，DeepSeek 官方公告把 V4 Pro 的请求全量路由到 V4.1 Flash，账单按新价走。
+这不是一次普通的降价。这篇讲清三件事：强制路由到底发生了什么、新的价格表怎么算钱、怎么花三步确认并接管你自己的配置。
+一次不带迁移的换代 先拆公告。这次的动作是两层叠在一起：
+路由层：V4 Pro 这个模型名还在，但名字背后的实例没了。你发请求填 V4 Pro，DeepSeek 在网关层把它转给 V4.1 Flash 处理，对你透明。
+计费层：转过去的请求不再按 V4 Pro 的价收，按 Flash 新价收。你没同意，也没处不同意，账单口径已经变了。
+再看官方敢这么做的底气。LiveBench 上，V4.1 Flash 拿了 81.1 分，压过 GPT-5.6 的 81.0；专项看编程，前端编程竞技场 1586 分，全球第 7、开源第 3。这些是第三方榜单的实数，不是官方宣传口径。
+第三方对能力的测算还给了个参照：V4.1 Flash 大约达到 GPT-6 Astra 的 98%，单任务成本约为其十五分之一（3 美分对 46 美分）。官方的判断很清楚：能力强过它的贵 15 倍，和它同价的没它强，V4 Pro 没有独立存在的必要。与其留一个中间档，不如全量并到一个型号上。
+所以这次换代没有迁移成本、没有兼容期，旧模型直接消失，请求原样落到新模型上。听起来全是好事，但有一层你得想明白：你签的契约变了。 你调用的模型名还是那个名字，名字背后的东西已经换了，价格口径也换了。这次官方提前发了公告，下次再换，不一定有这个待遇。
+新价格表：五十倍差价从哪来 发布当天，Flash 系列全线调价，新价目是三档：
+计费项 空闲时段 高峰时段 缓存命中输入 0.</description></item><item><title>133 个插件为什么没写成一坨：dsh 插件系统五层拆解</title><link>https://xiaoshuai1024.top/posts/deepseek-harness-plugin-system/</link><pubDate>Mon, 17 Aug 2026 21:30:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/deepseek-harness-plugin-system/</guid><description>上篇源码深读写完，我又肝了两天两夜，把 deepseek-ai/deepseek-harness 插件系统的源码和机制从头到尾过了一遍——从 vendored 的 Cordis 内核，到 133 个插件包的注册、装配、技能发现、hooks 权限、typert 类型协议，所有结论都带 file:line 引用，你可以拿着仓库对照看。这篇是 DeepSeek Harness 插件系统的源码解析，也是上篇结尾承诺的兑现：typert 和 hooks 的细节值得再开一篇，拆完发现范围可以更大——插件系统不是 dsh 的一个子系统，它 IS dsh。结论先说：插件不是一个文件，是一套五层设计。「一切皆插件」不是宣传语，是它的组织方式本身——133 个插件没写成一坨，是因为每一层只回答一个问题，层与层之间不互相越权。这篇要讲的不是「插件怎么装」，是「插件为什么能成为这个系统的核心」。
+一、插件不是文件，是五层 先看一个反直觉的事实：deepseek-harness 的仓库根目录，AGENTS.md 第一行就写着 plugin-based agent harness on vendored Cordis，everything is a plugin——这一行不是背景介绍，是仓库的组织宪法。54 个包、133 个插件包、每个包都是一个 Cordis 插件，包括它自己。但「插件」这个概念在 dsh 里不是一个文件、不是一个 npm 包，而是五层叠加：
+生命周期层（Cordis 内核）：插件怎么被实例化、怎么活、怎么死 装配层（profile/bundle）：插件怎么被选进一个运行实例 发现层（skill registry）：插件的子能力怎么被模型找到、怎么排优先级 约束层（hooks 协议）：外部进程怎么参与插件的权限决策 类型层（typert）：插件的服务怎么被别的进程类型安全地调用 这五层不是并列的五个功能，是五个不同的问题域。写插件的人只需要懂第一层（生命周期），装插件的人需要懂第二层（装配），而 skill、hooks、typert 是插件暴露给外部世界的三个面：模型看到的技能、外部进程参与的决策、跨进程调用的协议。读完这篇你会在任何一个点上都说得清「这个机制在哪一层、为什么放在这一层」。
+我读源码时数过一遍 packages 目录，133 个插件里真正的「功能插件」不到一半，剩下的是工具注册表、会话、提示词这类基础设施——它们也是插件，也在 cordis.yml 里挂入口，也走同样的生命周期。这个事实本身就是个信号：dsh 把「插件」当成了唯一的组织单元，任何新能力进来都得先回答「你的 apply 是什么」。规范不是写在文档里，是写进架构里的。把这句话再往前推一步就是本篇的立场：插件系统不是 dsh 的一个子系统，它 IS dsh——内核、工具、技能、界面，全部是插件的实例化。
+二、直觉：插件是一句话契约 在往下钻之前，先记住插件的最小样子。dsh 官方教程对插件的定义是：导出 apply 函数的 TS 模块（docs/user/develop/basic/index.</description></item><item><title>Codex 增长 4 倍反杀：再凭感觉选工具，加班的是你</title><link>https://xiaoshuai1024.top/posts/ai-default-tool-2026/</link><pubDate>Sat, 29 Aug 2026 10:09:50 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-default-tool-2026/</guid><description>上个月我司工位评选出了年度事件：坐角落的那个逆袭选手，把卷王的工牌抢了。
+这事要从我司的特殊性说起。别的公司工位上坐着人，我们公司工位上坐着 AI——四个，都有自己的工牌，都要干活，卷起来比真人都狠。
+而上个月，行业数据把这场宫斗直接拍在了桌面上：Codex 单月增长 20.8%，Claude Code 只有 5.2%。四倍的差距。要知道今年第一季度，Claude Code 周活 420 万，Codex 还不到 100 万——去年它是应届生，今年它绩效第一。
+你可能觉得这是厂商的战报，跟你的键盘没关系。但选错默认工具的代价是真实的：一个不适合你工作流的工具，每天都在让你多解释、多等待、多返工——它不加班，加班的是你。
+这篇把四个我都深度用过的选手拉出来遛一圈：卷王 Claude Code、逆袭的 Codex、野路子 DeepSeek Harness（下称 DSH）、新来的 ZCode。每个都讲脾气、讲短板、讲真实使用痕迹，最后给一张决策表，两分钟对号入座。
+先上结论：90 秒版本 没耐心听宫斗剧的，直接看表：
+你的情况 默认工具 核心分工 复杂重构、多文件架构活 Claude Code 长链路任务最稳，深度推理强 高频日结任务、预算敏感 Codex 增长最猛不是没原因，性价比在追平 预算拉满都不想花、要透明可控 DSH 开源可读，源码我拆了 11 篇，行为可预期 想要一个能开会员、管桌面的全能选手 ZCode skill 生态 + 桌面操作，覆盖面最野 记住这张表，下面的宫斗剧可以快进。但我的建议是别快进——选型这事，别人翻过的车，你没必要再翻一次。
+表是粗糙的，补三个边界反例，帮你把对号入座对得更准。
+反例一：预算敏感但你做的是重构密集型工作。 这时候别硬省钱。重构里一个隐藏 bug 的排查时间，够买很多次差价——该上深度工具就上，省钱的正确位置是你那些日结杂活，不是核心任务。
+反例二：公司数据敏感，对任何云端工具都放不下心。 这属于信任问题压过效率问题，决策直接退化成「源码可读性优先」，DSH 的开源属性在这里不是加分项，是入场券。
+反例三：你就是喜欢折腾，四个都想要。 可以，但请遵守第三节末尾的排班规则，否则四个工具改一个仓库的场面，堪比四个部门同时改一份周报——最后你花在调和上的时间，比自己写还多。工具组合的上限不取决于工具数量，取决于你的派活制度。
+卷王 Claude Code：会把周报写成小说的那种 在开发者的草原上，Claude Code 已经称霸了很久。雨季来的时候，也就是需求发布周，草原上所有生物都能感觉到它的脚步声。
+它的性格非常鲜明：你让它改一个按钮，它顺手给你重构了三层楼。改完了还给你写一篇小作文，解释它为什么这么做、架构上有什么考量、顺便反思了一下项目的历史遗留问题。你只是想换个按钮颜色。
+这就是卷王的职场画像。团队里总有这么一位：你让他帮忙带杯咖啡，他顺便做了一次咖啡供应链优化方案，PPT 有二十页。</description></item></channel></rss>

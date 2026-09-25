@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="FDE 薪资分层" id="fdesa1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="FDE 薪资分层：溢价给复合稀缺，不给模型知识" style="text;html=1;fontColor=#1e293b;fontSize=16;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="920" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub1" value="海外 · 年总包（万美金）" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="56" width="560" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="其他行业均值" style="text;html=1;fontColor=#64748b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="96" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="14.8" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#94a3b8;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="94" width="81" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="全行业平均" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="130" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="17.4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="128" width="96" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="Levels.fyi 中位" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="164" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="20.5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="162" width="113" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="Palantir 中位" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="198" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="21.5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="196" width="118" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="模型实验室均值" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="232" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="25.0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="230" width="138" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6" value="Anthropic L4" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="272" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6" value="34" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1d4ed8;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="270" width="187" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l7" value="Anthropic L5" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="306" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b7" value="53" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1d4ed8;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="304" width="292" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l8" value="Anthropic L6" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="340" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b8" value="63" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1d4ed8;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="338" width="347" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l9" value="Anthropic L7" style="text;html=1;fontColor=#1e293b;fontSize=12;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="374" width="120" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b9" value="78.5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1d4ed8;strokeColor=none;fontColor=#ffffff;fontSize=12;align=right;spacingRight=6;" vertex="1" parent="1">
+          <mxGeometry x="160" y="372" width="432" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="panel" value="国内（人民币）&#10;&#10;字节豆包 / 百度文心 / 阿里通义：&#10;月薪 3.5-7 万 × 15 薪&#10;资深档年薪过百万&#10;&#10;猎聘 · 北京：&#10;AI 解决方案服务商 40-60k × 15 薪&#10;「前沿部署工程师」30-40k × 18 薪&#10;&#10;注意：国内「改名销售工程师」&#10;占比更高，先过试金石再投" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="90" width="300" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="来源：Bloomberry（1000+ 岗位统计）、Levels.fyi、Anthropic 招聘信息、猎聘。行业差大于资历差：模型实验室均值 25 万 vs 其他行业 14.8 万。" style="text;html=1;fontColor=#64748b;fontSize=12;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="920" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="continue-index" name="Page-1">
+    <mxGraphModel dx="900" dy="480" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="430" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="187 次「继续」都花在哪了" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="24" width="780" height="26" as="geometry" /></mxCell>
+        <mxCell id="t2" value="按会话主题统计，2026-07-24 至 2026-09-23，合计 187 次" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="52" width="780" height="18" as="geometry" /></mxCell>
+        <mxCell id="l1" value="C++" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="88" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b1" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="88" width="463" height="22" as="geometry" /></mxCell>
+        <mxCell id="v1" value="89 次 · 47.6%" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="773" y="88" width="120" height="22" as="geometry" /></mxCell>
+        <mxCell id="l2" value="Rust" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="128" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b2" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="128" width="177" height="22" as="geometry" /></mxCell>
+        <mxCell id="v2" value="34 次 · 18.2%" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="487" y="128" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="l3" value="Java" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="169" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b3" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="169" width="125" height="22" as="geometry" /></mxCell>
+        <mxCell id="v3" value="24 次 · 12.8%" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="435" y="169" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="l4" value="TypeScript/JavaScript" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="207" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b4" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="207" width="94" height="22" as="geometry" /></mxCell>
+        <mxCell id="v4" value="18 次 · 9.6%" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="404" y="207" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="l5" value="Python" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="248" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b5" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="248" width="62" height="22" as="geometry" /></mxCell>
+        <mxCell id="v5" value="12 次 · 6.4%" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="372" y="248" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="l6" value="HTML/CSS" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="291" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b6" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="291" width="36" height="22" as="geometry" /></mxCell>
+        <mxCell id="v6" value="7 次 · 3.7%" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="346" y="291" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="l7" value="Go" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="331" width="220" height="22" as="geometry" /></mxCell>
+        <mxCell id="b7" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="300" y="331" width="16" height="22" as="geometry" /></mxCell>
+        <mxCell id="v7" value="3 次 · 1.6%" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="326" y="331" width="140" height="22" as="geometry" /></mxCell>
+        <mxCell id="note" value="「继续」＝史上最短 debug 命令：两个字，概率性生效；C++ 单语言贡献近一半" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="50" y="378" width="780" height="18" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

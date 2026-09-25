@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="podium" name="Page-1">
+    <mxGraphModel dx="900" dy="440" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="领奖台预告：前三名的槽点原声" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="20" width="780" height="26" as="geometry" /></mxCell>
+        <mxCell id="t2" value="三句话，三个现场，全网通用，无一字需要修改" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="48" width="780" height="18" as="geometry" /></mxCell>
+        <mxCell id="c3" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#94a3b8;" vertex="1" parent="1"><mxGeometry x="50" y="86" width="250" height="170" as="geometry" /></mxCell>
+        <mxCell id="c3r" value="第 3 名" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="100" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="c3a" value="「用中文回复我」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="124" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="c3b" value="不要莫名其妙地用繁体、用日文、用意大利语，就是不用中文回复我" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="70" y="158" width="210" height="70" as="geometry" /></mxCell>
+        <mxCell id="c2" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#94a3b8;" vertex="1" parent="1"><mxGeometry x="316" y="86" width="250" height="170" as="geometry" /></mxCell>
+        <mxCell id="c2r" value="第 2 名" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="336" y="100" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="c2a" value="「好的」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="336" y="124" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="c2b" value="你能自己确认的方案，为什么要一直问我？" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="336" y="158" width="210" height="70" as="geometry" /></mxCell>
+        <mxCell id="c1" value="" style="rounded=1;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="582" y="86" width="250" height="170" as="geometry" /></mxCell>
+        <mxCell id="c1r" value="第 1 名" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#dbeafe;align=left;" vertex="1" parent="1"><mxGeometry x="602" y="100" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="c1a" value="「继续」" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#ffffff;align=left;" vertex="1" parent="1"><mxGeometry x="602" y="124" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="c1b" value="为什么干活总是要停下？这么简单的问题还要问我？赶紧继续工作。" style="text;html=1;fontSize=12;fontColor=#dbeafe;align=left;" vertex="1" parent="1"><mxGeometry x="602" y="158" width="210" height="70" as="geometry" /></mxCell>
+        <mxCell id="note" value="槽点原声来自每一个敲过这些短句的人；详细发榜见正文逐名揭晓" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="50" y="288" width="780" height="18" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层记忆结构" id="qg3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="三层记忆：约定放对层，各管一层" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="26" width="420" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="CLAUDE.md · 项目级约定&#10;构建命令 · 代码风格 · 测试跑法 · 分支方式&#10;例：构建用 mvn package；特性分支短生命周期&#10;作用范围：本项目所有会话自动加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="56" y="76" width="480" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="adapter.md · 项目专属事实&#10;框架选型 · 常用命令 · 目标分支 · 组件库&#10;例：Spring Boot 3.2 + Vue 3；目标分支 release/2.4&#10;换项目时换掉这层，约定完整平移" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="56" y="202" width="480" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="AGENTS.md · 工作台级约定&#10;任务记录 · 文档受众 · 周报口径&#10;例：任务完成写当周记录；对外文档默认受众是研发&#10;作用范围：跨项目生效" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="56" y="328" width="480" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="rules" value="两条铁律&#10;&#10;· 不放能从代码里读出来的内容&#10;· 月度修剪：模型自动能做对的删掉&#10;&#10;写满约定 = 没有约定&#10;四十条规则里找重点的能力&#10;和四条里找重点，是两种能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="600" y="120" width="280" height="250" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

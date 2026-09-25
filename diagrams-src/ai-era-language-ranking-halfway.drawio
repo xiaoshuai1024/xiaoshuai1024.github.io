@@ -1,0 +1,26 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="halfway" name="Page-1">
+    <mxGraphModel dx="900" dy="420" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="半途语程序运行实录：一条脚本的十四分之一" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="20" width="780" height="26" as="geometry" /></mxCell>
+        <mxCell id="t2" value="交互式检查点设计：运行到 47% 自动停机，78% 再停一次，官方称防止任务失控" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="48" width="780" height="18" as="geometry" /></mxCell>
+        <mxCell id="track1" value="" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="50" y="92" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="fill1" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="52" y="94" width="280" height="24" as="geometry" /></mxCell>
+        <mxCell id="p1" value="47% 停机，理由不告诉你" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="660" y="94" width="210" height="24" as="geometry" /></mxCell>
+        <mxCell id="cmd1" value="用户输入：「继续」" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="140" width="180" height="30" as="geometry" /></mxCell>
+        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=blockthin;endFill=1;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmd1" target="track2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="track2" value="" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="50" y="196" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="fill2" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="52" y="198" width="464" height="24" as="geometry" /></mxCell>
+        <mxCell id="p2" value="78% 又停了，还是不给理由" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="660" y="198" width="210" height="24" as="geometry" /></mxCell>
+        <mxCell id="cmd2" value="用户再输入：「继续」" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="244" width="180" height="30" as="geometry" /></mxCell>
+        <mxCell id="arrow2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=blockthin;endFill=1;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmd2" target="track3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="track3" value="" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;" vertex="1" parent="1"><mxGeometry x="50" y="300" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="fill3" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="52" y="302" width="596" height="24" as="geometry" /></mxCell>
+        <mxCell id="p3" value="完成。你已经忘了这条脚本是干嘛的" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="660" y="302" width="220" height="24" as="geometry" /></mxCell>
+        <mxCell id="note" value="「继续」在半途语里不叫指令，叫通货：面值恒定，购买力随停机次数递减" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="50" y="352" width="780" height="18" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,63 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="top10" name="Page-1">
+    <mxGraphModel dx="900" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="AI 编程语言排行榜 · Top 10（虚构语言专榜）" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="20" width="780" height="26" as="geometry" /></mxCell>
+        <mxCell id="t2" value="上榜条件：崩溃点足够典型。崩溃指数＝发作时血压峰值（虚构指标）" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="48" width="780" height="18" as="geometry" /></mxCell>
+        <mxCell id="b10" value="10" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="80" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n10" value="差不多语 Almost" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="83" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d10" value="怎么写都能过，错误全攒到线上" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="83" width="280" height="26" as="geometry" /></mxCell>
+        <mxCell id="v10" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="87" width="28" height="18" as="geometry" /></mxCell>
+        <mxCell id="l10" value="1.0" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="642" y="83" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b9" value="9" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="142" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n9" value="顺手语 By-The-Way" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="145" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d9" value="改一处顺手优化三处，还不汇报" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="145" width="280" height="26" as="geometry" /></mxCell>
+        <mxCell id="v9" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="149" width="45" height="18" as="geometry" /></mxCell>
+        <mxCell id="l9" value="1.6" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="659" y="145" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b8" value="8" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="204" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n8" value="考古语 Legacy" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="207" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d8" value="版本互不兼容，教程一半是文物" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="207" width="280" height="26" as="geometry" /></mxCell>
+        <mxCell id="v8" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="211" width="62" height="18" as="geometry" /></mxCell>
+        <mxCell id="l8" value="2.2" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="676" y="207" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b7" value="7" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="266" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n7" value="漩涡语 Vortex" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="269" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d7" value="装啥都拖四十万依赖，两次安装不一样" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="269" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v7" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="273" width="78" height="18" as="geometry" /></mxCell>
+        <mxCell id="l7" value="2.8" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="692" y="269" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b6" value="6" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="328" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n6" value="马拉松语 Marathon" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="331" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d6" value="编译四十分钟起步，进度条最后一格验心诚" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="331" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v6" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="335" width="95" height="18" as="geometry" /></mxCell>
+        <mxCell id="l6" value="3.4" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="709" y="331" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b5" value="5" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="390" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n5" value="请示语 Ask-First" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="393" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d5" value="改一个字段开十一个短会，官方称安全范式" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="393" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v5" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="397" width="112" height="18" as="geometry" /></mxCell>
+        <mxCell id="l5" value="4.0" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="726" y="393" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b4" value="4" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="452" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n4" value="失忆语 Amnesia" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="455" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d4" value="会话超时自动清空，贴原话回去说风格不符" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="455" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v4" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="459" width="132" height="18" as="geometry" /></mxCell>
+        <mxCell id="l4" value="4.7" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="746" y="455" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b3" value="3" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="514" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n3" value="切换语 Drift" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="517" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d3" value="写着写着漂成另一种语法，最后漂成英文" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="517" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v3" value="" style="rounded=0;fillColor=#93c5fd;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="521" width="151" height="18" as="geometry" /></mxCell>
+        <mxCell id="l3" value="5.4" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="765" y="517" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="b2" value="2" style="rounded=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;fontColor=#1e293b;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="576" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n2" value="半途语 Halfway" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="579" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d2" value="运行到 47% 自动停机，等「继续」续命" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="579" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v2" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="583" width="182" height="18" as="geometry" /></mxCell>
+        <mxCell id="l2" value="6.5" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="796" y="579" width="60" height="26" as="geometry" /></mxCell>
+        <mxCell id="top" value="1" style="rounded=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="50" y="638" width="32" height="32" as="geometry" /></mxCell>
+        <mxCell id="n1" value="普通话 Mandarin" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="94" y="641" width="210" height="26" as="geometry" /></mxCell>
+        <mxCell id="d1" value="装机量第一的语言，四个关键字你全会" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="310" y="641" width="290" height="26" as="geometry" /></mxCell>
+        <mxCell id="v1" value="" style="rounded=0;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="606" y="645" width="188" height="18" as="geometry" /></mxCell>
+        <mxCell id="l1" value="不封顶" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1"><mxGeometry x="802" y="641" width="70" height="26" as="geometry" /></mxCell>
+        <mxCell id="note" value="本榜语言均为虚构，崩溃点均为真实；候选名单来自开发者社区长期公开吐槽的合集" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1"><mxGeometry x="50" y="700" width="780" height="18" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

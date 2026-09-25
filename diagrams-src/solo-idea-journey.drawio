@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="一条选题的旅程" id="t4journey1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="n1" value="待办收件箱&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;随手丢链接和点子&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="三维分析&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;仿写价值 / 潜力 / 匹配度&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="60" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="选题清单排期&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;不采用的写明理由清出&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="550" y="60" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="skill 成稿&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;按博客规范九步走&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="810" y="60" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="人工确认门禁&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;不确认不发布&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="700" y="240" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="多平台发布&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;博客 / 公众号 / 四平台视频&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="400" y="240" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n7" value="台账回写&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;链接与状态唯一事实源&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="j1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="j2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="j3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n3" target="n4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="j4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n4" target="n5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="j5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n5" target="n6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="j6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="n6" target="n7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
