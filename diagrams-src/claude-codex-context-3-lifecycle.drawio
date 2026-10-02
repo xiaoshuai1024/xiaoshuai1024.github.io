@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="生命周期对比" id="life1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ta" value="Claude Code" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="tb" value="Codex" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="写入前：无截断（全量进上下文）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="运行中：microcompact 清旧工具输出&#10;→ auto-compact 全文摘要（两级递进）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="156" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="历史：内存数组，压缩即覆盖，无版本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="244" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="落盘：JSONL，恢复靠重放" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="320" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="写入前：truncate 工具输出（防患于未然）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="运行中：独立摘要请求，本地 / 服务端双路&#10;压缩是带类型的常规操作（Compaction kind）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="156" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="历史：copy-on-write 快照，版本化&#10;（可撤销压缩、可 diff）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="244" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="落盘：JSONL + SQLite 索引 + 倒序扫描&#10;（resume / 多会话 / 断点是查询操作）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="332" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="fnote" value="两边共同的沉默：都不做向量检索式记忆。压缩都是摘要式 + 清理式——说明在当前 token 经济学下这仍是最优解，自己做 Agent 别急着上向量记忆。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="160" y="420" width="840" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

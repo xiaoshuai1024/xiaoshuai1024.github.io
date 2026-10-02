@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="研发全流程脚本化" id="pipeline">
+    <mxGraphModel dx="1200" dy="420" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="360" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="GRP" value="研发流程的每一环,都已脚本化 / MCP 化" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;verticalAlign=top;fontStyle=1;fontSize=13;fontColor=#1e293b;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="1140" height="290" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="P1" value="需求 / PRD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="P2" value="测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="70" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="P3" value="文档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="P4" value="部署 / 发布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="70" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="P5" value="线上运维" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="70" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="PE1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="P1" target="P2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="PE2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="P2" target="P3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="PE3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="P3" target="P4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="PE4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#2563eb;strokeWidth=2;" edge="1" parent="1" source="P4" target="P5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="M1" value="AI 出 PRD 草稿&#10;+ 自治评审回路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="M2" value="给函数签名&#10;AI 产用例 + 过契约闸" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="170" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="M3" value="AI 写代码同时&#10;产出架构 / API 文档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="170" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="M4" value="贴合项目的部署 + 回滚&#10;健康检查脚本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="170" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="M5" value="事故即规范&#10;规则沉淀成可执行脚本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="170" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ME1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="P1" target="M1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ME2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="P2" target="M2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ME3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="P3" target="M3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ME4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="P4" target="M4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ME5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;dashed=1;strokeColor=#94a3b8;" edge="1" parent="1" source="P5" target="M5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="CONC" value="判断:全流程无「只能人肉做」的环节 —— 凡是重复、依赖规则、对账式的事,都能让 AI 落成脚本或 MCP" style="text;html=1;align=center;fontColor=#dc2626;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="255" width="1000" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

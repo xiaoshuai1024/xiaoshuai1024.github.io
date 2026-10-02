@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0.0 -20.0 880.0 516.0" width="880.0" height="516.0">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Virgil';
+        src: url('https://fonts.excalidraw.com/Virgil.woff2') format('woff2');
+        font-display: swap;
+      }
+    </style>
+  </defs>
+  <rect x="0.0" y="-20.0" width="880.0" height="516.0" fill="#ffffff"/>
+  <text x="90.0" y="44.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="24" fill="#1e1e1e" text-anchor="start" dominant-baseline="auto">
+      <tspan x="90.0" dy="0.0">全量国产：切一次，不再回官方</tspan>
+  </text>
+  <path d="M 330.1,149.1 L 549.4,148.8 L 549.2,151.2 L 549.2,241.2 L 330.8,240.1 L 328.8,239.1 L 330.0,238.5 L 329.0,150.4 Z" fill="#a5d8ff" stroke="#1971c2" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="195.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="18" fill="#1971c2" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">CcSwitch</tspan>
+      <tspan x="440.0" dy="21.6">管理配置</tspan>
+  </text>
+  <path d="M 41.6,69.4 L 270.0,70.1 L 269.9,69.9 L 270.1,170.6 L 39.9,168.8 L 39.9,170.1 L 41.2,171.2 L 39.4,68.8 Z" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+  <text x="155.0" y="120.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#2f9e44" text-anchor="middle" dominant-baseline="central">
+      <tspan x="155.0" dy="0.0">主力 · 日常开发</tspan>
+      <tspan x="155.0" dy="19.2">重构 / 格式化 / 生成测试</tspan>
+      <tspan x="155.0" dy="19.2">→ DeepSeek V4 Flash</tspan>
+  </text>
+  <path d="M 610.5,69.5 L 840.9,70.1 L 840.2,68.5 L 839.2,170.2 L 609.1,168.8 L 609.1,170.5 L 610.1,170.8 L 608.8,70.9 Z" fill="#ffc9c9" stroke="#e03131" stroke-width="2" stroke-linejoin="round"/>
+  <text x="725.0" y="120.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#e03131" text-anchor="middle" dominant-baseline="central">
+      <tspan x="725.0" dy="0.0">深思考 · 长链路 · 难 bug</tspan>
+      <tspan x="725.0" dy="19.2">国产阵营换更强的</tspan>
+      <tspan x="725.0" dy="19.2">→ Qwen3-Coder / Kimi</tspan>
+  </text>
+  <path d="M 300.9,278.7 L 579.3,278.5 L 579.4,280.0 L 580.0,371.3 L 300.3,368.7 L 300.8,371.3 L 298.6,369.1 L 298.9,281.3 Z" fill="#e9ecef" stroke="#868e96" stroke-width="2" stroke-linejoin="round"/>
+  <text x="440.0" y="325.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#868e96" text-anchor="middle" dominant-baseline="central">
+      <tspan x="440.0" dy="0.0">官方 Anthropic</tspan>
+      <tspan x="440.0" dy="19.2">已封号 · 全程不碰</tspan>
+  </text>
+  <line x1="322.3" y1="164.0" x2="277.7" y2="152.3" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="277.7,152.3 288.6,150.5 286.3,159.2" fill="#64748b"/>
+  <line x1="557.7" y1="164.0" x2="602.3" y2="152.3" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="602.3,152.3 593.7,159.2 591.4,150.5" fill="#64748b"/>
+  <line x1="440.0" y1="248.0" x2="440.0" y2="272.0" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="440.0,272.0 435.5,262.0 444.5,262.0" fill="#64748b"/>
+  <text x="200.0" y="436.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="16" fill="#868e96" text-anchor="start" dominant-baseline="auto">
+      <tspan x="200.0" dy="0.0">切一次配置，之后一直用国产，官方号不碰了</tspan>
+  </text>
+</svg>

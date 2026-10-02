@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 350" font-family="ui-sans-serif,-apple-system,'PingFang SC','Noto Sans SC',sans-serif">
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="350" fill="#ffffff"/>
+  <text x="36" y="42" font-size="17" font-weight="700" fill="#1e293b">两种会话走法</text>
+  <text x="36" y="66" font-size="12" fill="#64748b">同一个需求，差距出在会话中段有没有验收和交接</text>
+
+  <!-- 上道：许愿式 -->
+  <text x="36" y="112" font-size="13" font-weight="700" fill="#64748b">许愿式</text>
+  <rect x="104" y="94" width="118" height="38" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="118" y="118" font-size="12" fill="#1e293b">一句许愿开干</text>
+  <!-- 越滚越大的上下文块 -->
+  <rect x="248" y="88" width="64" height="50" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="326" y="80" width="84" height="66" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="424" y="72" width="108" height="82" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="546" y="64" width="136" height="98" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="262" y="118" font-size="11" fill="#64748b">×2</text>
+  <text x="344" y="118" font-size="11" fill="#64748b">×5</text>
+  <text x="446" y="118" font-size="11" fill="#64748b">×8</text>
+  <text x="566" y="118" font-size="11" fill="#64748b">×11</text>
+  <text x="430" y="58" font-size="11" fill="#64748b">中途无人验收，上下文每轮全量重发</text>
+  <path d="M222,113 L244,113" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar2)"/>
+  <path d="M682,113 L700,113" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar2)"/>
+  <rect x="704" y="94" width="180" height="38" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="716" y="112" font-size="11.5" fill="#1e293b">「搞定了」</text>
+  <text x="716" y="126" font-size="11" fill="#64748b">然后返工从头再来</text>
+
+  <!-- 下道：卡组式 -->
+  <text x="36" y="232" font-size="13" font-weight="700" fill="#2563eb">卡组式</text>
+  <rect x="104" y="212" width="118" height="40" rx="6" fill="#ffffff" stroke="#2563eb"/>
+  <text x="116" y="230" font-size="11.5" fill="#1e293b">开工卡：计划确认</text>
+  <text x="116" y="245" font-size="10.5" fill="#2563eb">验收点 ▸</text>
+  <path d="M222,232 L238,232" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar2)"/>
+  <text x="238" y="206" font-size="10.5" fill="#64748b">压缩交接，开新会话</text>
+  <rect x="242" y="212" width="118" height="40" rx="6" fill="#ffffff" stroke="#2563eb"/>
+  <text x="254" y="230" font-size="11.5" fill="#1e293b">止损卡：小段执行</text>
+  <text x="254" y="245" font-size="10.5" fill="#2563eb">验收点 ▸</text>
+  <path d="M360,232 L376,232" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar2)"/>
+  <text x="376" y="206" font-size="10.5" fill="#64748b">新会话</text>
+  <rect x="380" y="212" width="118" height="40" rx="6" fill="#ffffff" stroke="#2563eb"/>
+  <text x="392" y="230" font-size="11.5" fill="#1e293b">验收卡：证据绿灯</text>
+  <text x="392" y="245" font-size="10.5" fill="#2563eb">验收点 ▸</text>
+  <path d="M498,232 L514,232" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar2)"/>
+  <text x="514" y="206" font-size="10.5" fill="#64748b">新会话</text>
+  <rect x="518" y="212" width="130" height="40" rx="6" fill="#ffffff" stroke="#2563eb"/>
+  <text x="530" y="230" font-size="11.5" fill="#1e293b">收尾卡：交接入库</text>
+  <text x="530" y="245" font-size="10.5" fill="#2563eb">验收点 ▸</text>
+  <path d="M648,232 L664,232" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar2)"/>
+  <rect x="668" y="212" width="216" height="40" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="682" y="230" font-size="11.5" fill="#1e293b">账单平稳，结论带走</text>
+  <text x="682" y="245" font-size="11" fill="#64748b">教训写进 AGENTS.md，下轮自动生效</text>
+
+  <!-- 底注 -->
+  <rect x="36" y="292" width="848" height="34" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="52" y="314" font-size="12" fill="#64748b">上道的账单：54 轮累计 952 万 token，输入输出比 144:1；下道的每个「验收点」就是换卡信号</text>
+</svg>

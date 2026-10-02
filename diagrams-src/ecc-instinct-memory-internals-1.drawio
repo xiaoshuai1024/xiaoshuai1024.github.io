@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层记忆与四步数据流" id="ecc1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="认知科学记忆分类" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="40" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="AI 编程代理里的对应物" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="工作记忆&#10;（正在想的内容）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="90" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="情景记忆&#10;（上周发生过什么）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="180" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="程序记忆&#10;（肌肉记忆）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="270" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="上下文窗口&#10;每次推理只看得到这里的 token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="90" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="会话日志 / transcript&#10;observations.jsonl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="180" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="系统提示词 / skills / instincts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="270" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="m1" target="a1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="m2" target="a2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="m3" target="a3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="ECC Instincts 四步数据流：把情景记忆提炼成程序记忆，再塞回工作记忆" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="420" width="600" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="① 观察&#10;hooks 记录每次工具调用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="470" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="② 本能&#10;观察者代理提炼 instinct&#10;带置信度与证据链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="470" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="③ 注入&#10;SessionStart 挑最相关的&#10;6 条塞进上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="470" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="④ 进化&#10;/evolve 聚类成&#10;skill / command / agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="850" y="470" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="本能回流下一轮观察" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;fontSize=11;fontColor=#64748b;" edge="1" parent="1" source="s4" target="s1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="590"/>
+              <mxPoint x="200" y="590"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

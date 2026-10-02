@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="循环次数的三种决策机制" id="gpta4">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1120" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cap" value="Nanbeige 把循环次数焊死在 2，另外三项研究给出了三种「活」的决策方式" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="30" width="880" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1t" value="① 自适应停止 · Universal Transformer（2018）" style="text;html=1;fontColor=#2563eb;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="320" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1a" value="可学习函数&#10;每步给每个位置输出停止概率" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="130" width="130" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1b" value="概率跨循环累加&#10;超过阈值就停&#10;（另设最大轮数封顶）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="130" width="130" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1n" value="效果：简单 token 走 1-2 轮&#10;难 token 走 3-4 轮&#10;算力分给真正需要的位置" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="320" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="p1a" target="p1b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2t" value="② 退出门 · 字节跳动 Ouro" style="text;html=1;fontColor=#2563eb;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="320" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2a" value="同一组 48 个块&#10;应用 4 次&#10;= 192 次块应用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="130" width="130" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2b" value="学习得到的退出门&#10;给各退出点分配概率&#10;累计概率阈值&#10;决定哪一轮出结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="124" width="140" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2n" value="比 Nanbeige 更激进（4 轮）&#10;注意：官方 HF 实现&#10;先算完 4 轮再选输出&#10;轮数实际被硬编码" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="230" width="320" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="p2a" target="p2b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3t" value="③ 可学习路由器 · Mixture-of-Recursions（2025）" style="text;html=1;fontColor=#2563eb;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="760" y="80" width="320" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3a" value="小型路由器&#10;作用在 token 的&#10;隐藏表示上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="780" y="130" width="130" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3b" value="按 token 决定&#10;共享栈应用几次&#10;（1 / 2 / 3 次）&#10;随上下文变化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="124" width="130" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3n" value="两种形态：专家选择路由&#10;（每步自己挑 token，退出不参与）&#10;token 选择路由&#10;（一开始就分好路径）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="230" width="320" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="p3a" target="p3b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="res" value="实测结论：模型足够大、预算偏紧时循环方案占优；135M 小模型上常规反而最好；最大预算下差距抹平。做大规模实验才知道真相，只看小模型会得出相反结论" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="1040" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

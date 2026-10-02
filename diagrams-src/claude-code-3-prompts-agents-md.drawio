@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AGENTSmd落点" id="cp3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="口头叮嘱是随机的，AGENTS.md 是每轮都在场的" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="user" value="你（提问）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="110" width="140" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="cli" value="Claude Code / Codex&#10;每轮打包请求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="110" width="170" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="md" value="AGENTS.md&#10;改动前出计划 / 动手前复述 / 汇报附输出&#10;（一句话一条，带验收动作）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="220" width="170" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="out" value="每轮请求都带着规矩出发&#10;换工具、换模型，规矩跟着仓库走" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="110" width="230" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="a" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="user" target="cli">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="b" value="每轮自动带上" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="md" target="cli">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="c" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="cli" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="效果：三条提示词从「你要记得打」变成「它忘了都难」——这是三个提示词里唯一能装进系统的一个" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="800" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="六个skill流水线" id="openspec-skills">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="六个 skill:从想清楚到沉淀的一条流水线" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="300" y="12" width="560" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="explore" value="explore&#10;想清楚,不写码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="36" y="90" width="150" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="propose" value="propose&#10;一次生成四件套" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="266" y="90" width="150" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="apply" value="apply&#10;照 tasks 逐条施工" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="496" y="90" width="150" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="archive" value="archive&#10;合并主规格 + 归档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="726" y="90" width="160" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-explore" value="产出:澄清的共识" style="text;html=1;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="36" y="175" width="150" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-propose" value="proposal/design/spec/tasks" style="text;html=1;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="266" y="175" width="150" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-apply" value="代码 + 勾选的 tasks" style="text;html=1;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="496" y="175" width="150" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="p-archive" value="主规格 + 归档记录" style="text;html=1;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="726" y="175" width="160" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="explore" target="propose"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="propose" target="apply"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" value="实现完,可归档" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="apply" target="archive"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="update" value="update&#10;修订既有计划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;strokeWidth=1;dashed=1;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="290" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sync" value="sync&#10;只合并主规格" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;strokeWidth=1;dashed=1;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="290" width="180" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="实现发现问题 → 回炉修订" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="apply" target="update"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="让四件套重新自洽" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="update" target="propose"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" value="只想先看合并效果" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="apply" target="sync"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

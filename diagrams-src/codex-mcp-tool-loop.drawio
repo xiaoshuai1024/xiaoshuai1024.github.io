@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="MCP工具调用循环" id="cmr2">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="贴数据是快照，MCP 是循环：AI 自己决定再查什么" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="q" value="你提一个模糊的问题&#10;「最近投流有什么异常」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="think" value="AI 推理：我需要什么数据&#10;选工具 + 拼参数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="call" value="调工具：查账户报表&#10;（千川 MCP，只读）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="220" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="res" value="结果回上下文&#10;够不够答清楚？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="360" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="ans" value="不够 → 再调一次（循环）&#10;够了 → 交付：七天基线对比 + 异常清单" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="100" width="240" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="q" target="think">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="think" target="call">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="call" target="res">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed" value="不够" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#94a3b8;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="res" target="think">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="310" y="388"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ee" value="够了" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;fontSize=10;fontColor=#1e293b;" edge="1" parent="1" source="res" target="ans">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="对照：截图链路里这个循环不存在——它只能对那一屏做推理，缺什么只能反过来问你" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="80" y="460" width="760" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

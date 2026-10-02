@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="排坑五查" id="ts1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="s1" value="一查发现层&#10;目录在不在扫描范围&#10;SKILL.md 大小写对不对&#10;动作：核对三级目录位置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="120" y="70" width="380" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="二查解析层&#10;frontmatter 能否被 YAML 解析&#10;name / description 字段在不在&#10;动作：新会话问当前可用技能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="186" width="380" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="三查匹配层&#10;描述里有没有本场景触发词&#10;动作：按场景词口径改写 description" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="302" width="380" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="四查直通层&#10;@名字显式触发一次&#10;能用 = 匹配问题；不能用 = 更底层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="360" y="418" width="380" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="五查分工层&#10;这个需求是不是该做成 MCP 工具&#10;动作：按加载语义重新选型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="440" y="534" width="380" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fix" value="第三查命中率最高：多数沉睡只差一句场景词" style="text;html=1;align=center;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="650" width="460" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

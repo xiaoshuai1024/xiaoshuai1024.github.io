@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="排班总览" id="ov1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="GPT-6 时代的三件套排班：换工具问题是排班问题" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="760" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="cc" value="Claude Code&#10;日常主力位&#10;&#10;仓库开发、写作、发布管线&#10;数据分析、skill 体系维护&#10;（真实使用频率第一）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="320" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="cx" value="Codex&#10;长时作业位&#10;&#10;视频生产链、批量任务&#10;自动剪辑（6 条素材变 30 条）&#10;跑得住数小时的无人值守活" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="100" width="320" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="g6" value="GPT-6 Astra&#10;重活试用位&#10;&#10;全库分析（105 万 token）&#10;超长编码、深度调试&#10;（预排，三信号验证后转正）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="790" y="100" width="320" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub" value="轻量替补：Cursor / OpenCode（真实频率在 Claude Code 之后、Codex 之前，做临时查看与小改）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontColor=#475569;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="70" y="330" width="680" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="rule" value="三条纪律：双引擎不急着裁 ｜ 老工具留作对照组 ｜ 新模型先进试用期，干满两周再转正" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;fontStyle=1;dashed=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="420" width="880" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

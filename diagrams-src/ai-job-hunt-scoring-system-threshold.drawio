@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="threshold" name="分数线生成">
+    <mxGraphModel dx="800" dy="400" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="72 分这条线怎么来的：从 JD 到分数线，全程无一步拍脑袋" style="text;html=1;align=center;verticalAlign=middle;fontSize=15;fontColor=#1e293b;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="90" y="16" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="收集目标岗位 JD&#10;（岗位列表.md，8 个平台）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="技能要求归并去重&#10;按五大方向归档" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="72 项技能清单&#10;每项 0-5 分定义评分标准" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="/skill-test 逐项实测打分&#10;（做题，不是自我感觉）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="480" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="方向得分换算成百分制&#10;对照岗位分数线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="260" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dec" value="过线？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ok" value="投递" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="90" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ng" value="未过线 → 回 /study 补最弱项" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="230" y="340" width="220" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb" edge="1" parent="1" source="n1" target="n2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb" edge="1" parent="1" source="n2" target="n3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0" edge="1" parent="1" source="n3" target="n4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="n4" target="n5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="n5" target="dec"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="是" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#1e293b;fontSize=12;strokeColor=#2563eb;exitX=0.5;exitY=1;exitDx=0;exitDy=0" edge="1" parent="1" source="dec" target="ok"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="否" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#64748b;fontSize=12;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0" edge="1" parent="1" source="dec" target="ng"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

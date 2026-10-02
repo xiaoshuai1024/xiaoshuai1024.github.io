@@ -1,0 +1,32 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="CC两级压缩" id="cc2lv">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="enter" value="主循环入口检查（L416898–416912）&#10;每轮先过这两关" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="50" width="560" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="mc" value="第一级 microcompact（Kv）&#10;旧 tool_result → [Old tool result content cleared]&#10;只动工具输出，对话原文一字不改&#10;埋点：toolsCompacted / tokensSaved / triggerType" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="460" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="ac" value="第二级 auto-compact（hRB）&#10;独立摘要请求：summarize the conversation so far&#10;摘要后用续接 prompt 重新开场&#10;失败打点 tengu_compact_failed{reason: no_summary}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="160" width="460" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="thr" value="阈值（L394307–394332）：&#10;auto-compact 触发线 = 可用窗口 − 13000&#10;warning / error 线 = 可用窗口 − 20000&#10;可用窗口 = 模型窗口 − 预留输出（动态查表，无硬编码）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="310" width="560" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="sw" value="开关：settings.autoCompactEnabled（/config 可切）&#10;关闭后 UI：Context low (X%) · Run /compact to compact &amp; continue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="440" width="560" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="why" value="为什么先清工具输出：长会话的体积大头是工具输出（文件内容、diff、日志），&#10;对话文本占比小；且早期工具输出大概率过期，留着误导模型。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="180" y="540" width="700" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="便宜，先试" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="enter" target="mc"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" value="救不回来才上" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="enter" target="ac"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="mc" target="thr"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="ac" target="thr"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

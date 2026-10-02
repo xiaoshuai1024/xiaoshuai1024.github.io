@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="上下文构成对比" id="ctx1">
+    <mxGraphModel dx="1000" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="每轮请求的上下文：同一个任务跑三十轮，两头同时省" style="text;html=1;fontSize=14;fontColor=#1e293b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="36" width="560" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccrow" value="Claude Code" style="text;html=1;fontSize=13;fontColor=#1e293b;fontStyle=1;align=right;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccsys" value="系统提示词 ≈ 20000 token" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="170" y="100" width="420" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cctools" value="工具输出（原样进上下文）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#475569;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="100" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cctalk" value="对话" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="770" y="100" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccnote" value="每一轮都背着同一份两万 token 前缀，命中缓存但决定最低消费" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="170" y="148" width="480" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="pirow" value="Pi" style="text;html=1;fontSize=13;fontColor=#1e293b;fontStyle=1;align=right;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pisys" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="170" y="230" width="60" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pisyslabel" value="系统提示词 &lt; 1500 token" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="170" y="196" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="pitools" value="工具输出（先过扩展裁剪，只留关键字段）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=none;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="230" y="230" width="230" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pitalk" value="对话" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="230" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="pinote" value="起点低 + 过程省：两个差距叠出「同模型换壳，账单差一倍」" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="170" y="278" width="480" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="scale" value="条宽按 token 量级示意（同一比例尺）：420 : 60 ≈ 20000 : 1500 之后，再叠工具输出清洗的差距" style="text;html=1;fontSize=12;fontColor=#94a3b8;align=left;fontStyle=2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="340" width="640" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="cachebox" value="系统提示词是每轮请求的前缀缓存——它决定这次对话的最低消费；工具输出决定这轮对话涨多快" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="400" width="620" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="cutnote" value="Claude Code 的钩子只能往工具调用里追加信息，改不了调用结果；Pi 的扩展在结果进上下文之前先改写它" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="448" width="620" height="36" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

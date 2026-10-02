@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="红蓝裁判" id="opus1">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="o0" value="--opus  对被测配置做一次对抗评审（需要 ANTHROPIC_API_KEY，三个角色都用 claude-opus-5）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="640" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="o1" value="原始配置&#10;（.claude/ mcp.json hooks…）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="o2" value="攻击者 · 红队&#10;&#10;任务书列 12 类攻击面：CLAUDE.md 注入、&#10;hook 插值命令注入、外传、记忆投毒…&#10;每条攻击链要四件套：&#10;立足点 → 利用 → 确认信号 → 爆炸半径&#10;只报坏消息" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="180" y="250" width="400" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="o3" value="防御者 · 蓝队&#10;&#10;报防御缺口，&#10;同时必须报「做对了什么」&#10;（report_good_practice）——&#10;对抗的目的是校准，不是吓人" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="790" y="250" width="380" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="o4" value="裁判 · 终审&#10;&#10;输入：原始配置 + 红蓝双方摘要&#10;裁决标准：有具体利用路径的优先，&#10;不是每个理论漏洞都值得修&#10;输出被 tool_use JSON 锁死：&#10;风险等级 / 0–100 分 / top 风险 / 行动建议&#10;拿不到结构化输出 → 按 medium · 50 分" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="480" y="500" width="440" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="oe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="o1" target="o2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="oe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="o1" target="o3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="oe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="o2" target="o4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="oe4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="o3" target="o4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="oe5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="o1" target="o4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,24 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="省token skill 全景" id="landscape">
+    <mxGraphModel dx="800" dy="600" grid="0" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="四个浪费环节 × 四个高星 skill：对号入座" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="20" y="12" width="940" height="28" as="geometry"/></mxCell>
+        <mxCell id="h1" value="说得多&#10;回复十行有效三行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=none;fontColor=#ffffff;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="60" y="70" width="220" height="80" as="geometry"/></mxCell>
+        <mxCell id="h2" value="记性差&#10;背景贴到第三遍" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=none;fontColor=#ffffff;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="60" y="190" width="220" height="80" as="geometry"/></mxCell>
+        <mxCell id="h3" value="喂得陈&#10;整本过期文档进上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=none;fontColor=#ffffff;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="60" y="310" width="220" height="80" as="geometry"/></mxCell>
+        <mxCell id="h4" value="返工贵&#10;做错重来，token 烧两遍" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=none;fontColor=#ffffff;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="60" y="430" width="220" height="80" as="geometry"/></mxCell>
+        <mxCell id="a1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="h1" target="s1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="h2" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="h3" target="s3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="h4" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="s1" value="Caveman · 103,664★&#10;穴居人腔常驻，输出砍 65%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="430" y="70" width="500" height="80" as="geometry"/></mxCell>
+        <mxCell id="s2" value="planning-with-files · 26,635★&#10;三文件石头板，5 回合恢复现场" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="430" y="190" width="500" height="80" as="geometry"/></mxCell>
+        <mxCell id="s3" value="Context7 · 约 6 万★&#10;文档按需拉当前版本，编 API 无处藏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="430" y="310" width="500" height="80" as="geometry"/></mxCell>
+        <mxCell id="s4" value="OpenSpec · 约 6.3 万★&#10;spec 前置，一次做对，返工段直接砍掉" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="430" y="430" width="500" height="80" as="geometry"/></mxCell>
+        <mxCell id="note" value="只收高星知名仓；先对号再装药，四个全装先吃加载税。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="528" width="940" height="26" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="routing-overview" name="总览">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="9 月 9 日：官方公告，V4 Pro 请求全量改道" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="420" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="你的请求&#10;model 参数填 V4 Pro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="DeepSeek 官方路由&#10;你不用改任何代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="实际由 V4.1 Flash 接&#10;能力：LiveBench 81.1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="a1" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="a2" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" value="计费按 Flash 新价：命中 0.02 / 未命中 1 / 输出 4（元/百万 token）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="184" width="460" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;dashed=1;" edge="1" parent="1" source="a3" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="DSH 用户：把配置改显式，三步" style="text;html=1;fontSize=14;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="256" width="360" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="① Models 页&#10;Fetch available models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="304" width="180" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="② 默认模型切 V4.1 Flash&#10;agent-default-model（dump-config 查）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="304" width="260" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="③ 即时生效不重启&#10;发请求看响应模型名" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="304" width="180" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="b2" target="b3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="不切也吃到新价（Flash 系列一起调），切的是性能代际" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="392" width="520" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,22 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="前端skill仓库Star排行" id="stars">
+    <mxGraphModel dx="800" dy="600" grid="0" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="前端 skill 相关仓库 · GitHub Star 排行（2026-09-27）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="20" y="12" width="940" height="28" as="geometry"/></mxCell>
+        <mxCell id="n1" value="Superpowers" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="20" y="64" width="185" height="30" as="geometry"/></mxCell>
+        <mxCell id="b1" value="约 26 万 · 方向位：brainstorm + design 先定方向" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1"><mxGeometry x="215" y="62" width="750" height="34" as="geometry"/></mxCell>
+        <mxCell id="n2" value="karpathy-skills" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="20" y="134" width="185" height="30" as="geometry"/></mxCell>
+        <mxCell id="b2" value="约 19.8 万 · 起手位：一个文件的避坑直觉" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1"><mxGeometry x="215" y="132" width="571" height="34" as="geometry"/></mxCell>
+        <mxCell id="n3" value="anthropics/skills" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="20" y="204" width="185" height="30" as="geometry"/></mxCell>
+        <mxCell id="b3" value="约 18 万 · 品味位：frontend-design 治模板脸" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1"><mxGeometry x="215" y="202" width="519" height="34" as="geometry"/></mxCell>
+        <mxCell id="n4" value="graphify" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="20" y="274" width="185" height="30" as="geometry"/></mxCell>
+        <mxCell id="b4" value="约 10 万 · 存量位：改 UI 前先建图" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1"><mxGeometry x="215" y="272" width="288" height="34" as="geometry"/></mxCell>
+        <mxCell id="n5" value="ComposioHQ awesome" style="text;html=1;align=right;fontColor=#64748b;fontSize=13;" vertex="1" parent="1"><mxGeometry x="20" y="344" width="185" height="30" as="geometry"/></mxCell>
+        <mxCell id="b5" value="约 7.3 万 · 索引位：只翻不装" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#94a3b8;strokeColor=none;fontColor=#ffffff;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1"><mxGeometry x="215" y="342" width="211" height="34" as="geometry"/></mxCell>
+        <mxCell id="note" value="Star 数截至 2026-09-27，来自 GitHub，每天在涨，仅作量级参考；只收高星知名仓，星数是门槛，选位看缺口。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="420" width="940" height="26" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

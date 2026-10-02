@@ -1,0 +1,8 @@
+<mxfile host="app.diagrams.net"><diagram id="c" name="p"><mxGraphModel dx="800" dy="600" grid="0" page="1" pageWidth="940" pageHeight="340"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="h" value="三条红线：Agent 坏习惯 → 可判定的验收标准" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="220" y="14" width="500" height="26" as="geometry"/></mxCell>
+<mxCell id="r1" value="说「已完成」→ 必须贴验证输出&#10;没有输出的完成叫自嗨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="70" width="250" height="80" as="geometry"/></mxCell>
+<mxCell id="r2" value="说「环境问题」→ 先用工具验证&#10;未验证的归因叫甩锅" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="345" y="70" width="250" height="80" as="geometry"/></mxCell>
+<mxCell id="r3" value="说「无法解决」→ 五步走完没？&#10;没走完叫缺乏韧性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="630" y="70" width="250" height="80" as="geometry"/></mxCell>
+<mxCell id="d1" value="[PUA-DIAGNOSIS] 问题是 __ ；证据是 __ ；下一步动作是 __&#10;诊断外部化：写下来的承诺会压制「分析对但不行动」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="180" y="190" width="580" height="70" as="geometry"/></mxCell>
+<mxCell id="n1" value="规则可判定（跑没跑 / 走完没），比「要认真负责」强一个量级" style="text;html=1;align=center;fontColor=#2563eb;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="220" y="286" width="500" height="24" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

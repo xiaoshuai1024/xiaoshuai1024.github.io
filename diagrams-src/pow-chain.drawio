@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="PoW 证据链" id="t6pow1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="claim" value="Agent 声称完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="170" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="script" value="一键验证脚本&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;自动：后端构建+测试&lt;br&gt;前端构建+测试&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="280" y="55" width="210" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="exit" value="退出码即结论&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;非零 = 未通过，流程终止&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="560" y="55" width="200" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="manual" value="人工补核三项&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;增量覆盖率 / Swagger / E2E&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="done" value="MR 创建&lt;br&gt;工作项状态更新&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;评论附证据摘要&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="280" y="290" width="210" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="claim" target="script">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="script" target="exit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="exit" target="manual">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="manual" target="done">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="exit" target="done">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5l" value="通过" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;" vertex="1" connectable="0" parent="p5">
+          <mxGeometry x="0" y="0" relative="1" as="geometry">
+            <mxPoint as="offset" y="-10"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,21 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="前端出活四步" id="steps">
+    <mxGraphModel dx="800" dy="600" grid="0" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="前端出活的四步：缺哪步补哪步" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="20" y="12" width="940" height="28" as="geometry"/></mxCell>
+        <mxCell id="S1" value="① 起手 · karpathy-skills（19.8 万星）&#10;一个 CLAUDE.md 打底，静默删除、自报完成这些坑先堵住" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="170" y="58" width="480" height="78" as="geometry"/></mxCell>
+        <mxCell id="S2" value="② 定方向 · Superpowers（26 万星）&#10;brainstorm + design：一句话需求先过成有取舍的设计简报" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="150" y="178" width="510" height="78" as="geometry"/></mxCell>
+        <mxCell id="S3" value="③ 出页面 · frontend-design（官方仓 18 万星）&#10;给立场不给模板：每个选择带理由，敢冒一个说得通的美学风险" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="186" y="298" width="470" height="78" as="geometry"/></mxCell>
+        <mxCell id="S4" value="④ 改存量 · graphify（10 万星）&#10;建图谱再动手：这个组件谁在用、改这行会碰到谁，先查再改" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="170" y="418" width="460" height="78" as="geometry"/></mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="S1" target="S2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="S2" target="S3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="S3" target="S4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="side" value="awesome 索引（7.3 万星）&#10;字典，只翻不装&#10;查到单个再装那一个" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=12;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="726" y="196" width="200" height="80" as="geometry"/></mxCell>
+        <mxCell id="e4" value="按需取用" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;strokeColor=#94a3b8;endArrow=blockThin;endFill=1;fontColor=#64748b;fontSize=11;" edge="1" parent="1" source="side" target="S2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="note" value="起手别贪多：skill 每次调用都重新加载，装多了先吃自己的上下文；只装一个选 frontend-design。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="528" width="940" height="26" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

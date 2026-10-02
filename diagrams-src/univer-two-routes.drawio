@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="两条路线" id="routes1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="top" value="agent 要用办公软件,给什么?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="300" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="360" height="430" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1title" value="路线一:给屏幕" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="216" width="160" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1a" value="截图找按钮" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="170" y="268" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1b" value="模拟点击" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="170" y="352" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c" value="界面改版即失效&#10;只能串行,按分钟计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="146" y="440" width="188" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1d" value="结果靠人盯屏逐格核对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="146" y="540" width="188" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="e0a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="top" target="r1a">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1ab" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="r1a" target="r1b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1bc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="r1b" target="r1c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1cd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="r1c" target="r1d">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="680" y="200" width="380" height="430" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2title" value="路线二:给运行时(Univer)" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="216" width="240" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2a" value="结构化 API 读写&#10;(命令体系,可撤销)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="268" width="200" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2b" value="公式引擎重算&#10;引用与格式联动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="356" width="200" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c" value="输出验证:内容检查 / 渲染截图 / 布局诊断" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="452" width="240" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2d" value="worktree 草稿,人审后合并" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="548" width="240" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="e0b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="top" target="r2a">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2ab" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="r2a" target="r2b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2bc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="r2b" target="r2c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2cd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="r2c" target="r2d">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

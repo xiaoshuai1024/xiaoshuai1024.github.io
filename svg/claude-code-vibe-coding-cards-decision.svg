@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" font-family="ui-sans-serif,-apple-system,'PingFang SC','Noto Sans SC',sans-serif">
+  <defs>
+    <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="400" fill="#ffffff"/>
+  <text x="36" y="42" font-size="17" font-weight="700" fill="#1e293b">这个活上不上卡组</text>
+  <text x="36" y="66" font-size="12" fill="#64748b">流程开销超过动作本身，就是不划算——判据只有一岔</text>
+
+  <!-- 起点 -->
+  <rect x="60" y="98" width="130" height="40" rx="8" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+  <text x="82" y="123" font-size="13" font-weight="600" fill="#1e293b">一个需求进来</text>
+
+  <!-- 判断1 -->
+  <polygon points="290,78 400,118 290,158 180,118" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="228" y="112" font-size="12" fill="#1e293b">跨文件 / 外部副作用 /</text>
+  <text x="228" y="130" font-size="12" fill="#1e293b">决策留痕，命中一条？</text>
+  <path d="M190,118 L176,118" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <path d="M190,118 L204,118 L204,118 L214,118" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+
+  <!-- 否分支 -->
+  <path d="M400,118 L440,118" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <text x="404" y="108" font-size="11" fill="#64748b">否</text>
+  <rect x="444" y="92" width="230" height="52" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="460" y="114" font-size="12" font-weight="600" fill="#1e293b">直接聊</text>
+  <text x="460" y="132" font-size="11" fill="#64748b">结尾加一句绿灯汇报就够</text>
+
+  <!-- 是分支 -->
+  <path d="M290,158 L290,186" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <text x="298" y="178" font-size="11" fill="#64748b">是</text>
+  <rect x="196" y="190" width="188" height="40" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="212" y="215" font-size="12.5" font-weight="600" fill="#1e293b">开工卡起手，按阶段换卡</text>
+
+  <!-- 判断2 -->
+  <path d="M290,230 L290,252" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <polygon points="290,252 396,290 290,328 184,290" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="236" y="284" font-size="12" fill="#1e293b">上一张卡的产出，</text>
+  <text x="236" y="302" font-size="12" fill="#1e293b">验收过了吗？</text>
+
+  <!-- 否：先补验收（回路） -->
+  <path d="M396,290 L520,290" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <text x="428" y="280" font-size="11" fill="#64748b">还没</text>
+  <rect x="524" y="266" width="210" height="48" rx="6" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="540" y="286" font-size="12" font-weight="600" fill="#1e293b">停在当前卡，先补验收</text>
+  <text x="540" y="304" font-size="11" fill="#64748b">方向错得越久，返工越贵</text>
+  <path d="M629,266 L629,212 L390,212" fill="none" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#ar3)"/>
+
+  <!-- 是：换下一张 -->
+  <path d="M290,328 L290,348" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <text x="298" y="344" font-size="11" fill="#64748b">过了</text>
+  <rect x="176" y="352" width="228" height="36" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="192" y="375" font-size="12" fill="#1e293b">换下一张：契约 → 止损 → 验收 → 收尾</text>
+
+  <!-- 收尾出口 -->
+  <path d="M404,370 L440,370" fill="none" stroke="#94a3b8" stroke-width="1.3" marker-end="url(#ar3)"/>
+  <rect x="444" y="352" width="290" height="36" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="460" y="375" font-size="12" fill="#1e293b">收尾卡收工：压缩交接 + 教训入库，关会话</text>
+</svg>

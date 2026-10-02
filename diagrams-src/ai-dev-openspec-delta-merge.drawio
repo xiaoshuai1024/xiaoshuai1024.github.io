@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="增量合并" id="openspec-delta-merge">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="归档时,增量规格合并进主规格" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="360" y="16" width="420" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="deltaBox" value="change 增量规格&#10;changes/当前变更/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="300" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="add" value="ADDED&#9;新增一条行为(WHEN/THEN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="deltaBox">
+          <mxGeometry x="20" y="60" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="mod" value="MODIFIED&#9;给已有行为加场景" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="deltaBox">
+          <mxGeometry x="20" y="130" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="del" value="REMOVED&#9;废弃一条行为" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="deltaBox">
+          <mxGeometry x="20" y="200" width="260" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="deltaHint" value="只声明本次改了什么" style="text;html=1;fontSize=12;fontColor=#64748b;" vertex="1" parent="deltaBox">
+          <mxGeometry x="20" y="248" width="260" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="mainBox" value="主规格(能力宪法)&#10;specs/当前能力/spec.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="320" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="merged" value="合并后的完整行为集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="mainBox">
+          <mxGeometry x="40" y="60" width="240" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="kept" value="未提及的场景原样保留" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="mainBox">
+          <mxGeometry x="40" y="130" width="240" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="history" value="历史变更逐轮沉淀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="mainBox">
+          <mxGeometry x="40" y="200" width="240" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="mergeEdge" value="归档时智能合并&#10;只动声明过的部分" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="deltaBox" target="mainBox"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

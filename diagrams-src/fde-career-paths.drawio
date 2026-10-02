@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="FDE 从业背景" id="fdecp1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="100 位 FDE 的从业背景（LinkedIn 统计）" style="text;html=1;fontColor=#1e293b;fontSize=16;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="920" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="后端 / 全栈工程师" style="text;html=1;fontColor=#1e293b;fontSize=13;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="76" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="45%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=13;align=right;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="74" width="315" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="销售工程师" style="text;html=1;fontColor=#1e293b;fontSize=13;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="116" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="22%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=13;align=right;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="114" width="154" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="数据工程师 / 科学家" style="text;html=1;fontColor=#1e293b;fontSize=13;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="156" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="15%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=13;align=right;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="154" width="105" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="咨询顾问" style="text;html=1;fontColor=#1e293b;fontSize=13;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="10%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=none;fontColor=#1e293b;fontSize=13;align=right;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="194" width="70" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="创始人 / 早期员工" style="text;html=1;fontColor=#1e293b;fontSize=13;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="236" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="8%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93c5fd;strokeColor=none;fontColor=#1e293b;fontSize=13;align=right;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="234" width="56" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="后端是转型主力。原因不体面但真实：&#10;教一个工程师和客户打交道，&#10;比教一个销售写生产代码，容易得多。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=left;spacingLeft=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="640" y="76" width="320" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="补齐三样东西：用 AI 工具（Claude Code 重度、Cursor 其次）完整交付过一个真实需求；会搭评测、拿数字回答「它在我数据上几分」；能把技术取舍讲成客户听得懂的话。" style="text;html=1;fontColor=#64748b;fontSize=12;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="920" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

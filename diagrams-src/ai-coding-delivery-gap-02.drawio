@@ -1,0 +1,35 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="d2" name="serial-vs-parallel">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="430" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="旧:串行协同,人等人" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="40" y="16" width="260" height="24" as="geometry"/></mxCell>
+        <mxCell id="s1" value="业务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;arcSize=10;" vertex="1" parent="1"><mxGeometry x="40" y="50" width="90" height="40" as="geometry"/></mxCell>
+        <mxCell id="s2" value="产品" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;arcSize=10;" vertex="1" parent="1"><mxGeometry x="170" y="50" width="90" height="40" as="geometry"/></mxCell>
+        <mxCell id="s3" value="技术" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;arcSize=10;" vertex="1" parent="1"><mxGeometry x="300" y="50" width="90" height="40" as="geometry"/></mxCell>
+        <mxCell id="s4" value="测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;arcSize=10;" vertex="1" parent="1"><mxGeometry x="430" y="50" width="90" height="40" as="geometry"/></mxCell>
+        <mxCell id="s5" value="数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=13;arcSize=10;" vertex="1" parent="1"><mxGeometry x="560" y="50" width="90" height="40" as="geometry"/></mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=block;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n1" value="每段都在等上一个人,耗时由「响应速度」决定" style="text;html=1;fontSize=12;fontColor=#475569;align=left;" vertex="1" parent="1"><mxGeometry x="40" y="100" width="380" height="20" as="geometry"/></mxCell>
+        <mxCell id="div" value="" style="line;strokeWidth=1;strokeColor=#e2e8f0;fillColor=none;" vertex="1" parent="1"><mxGeometry x="40" y="140" width="620" height="10" as="geometry"/></mxCell>
+        <mxCell id="t2" value="新:钉群并行协同,AI 接力干活,人守关卡" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="40" y="156" width="400" height="24" as="geometry"/></mxCell>
+        <mxCell id="grp" value="项目钉群(群消息/文件/卡片 = 项目记忆)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;arcSize=6;" vertex="1" parent="1"><mxGeometry x="40" y="190" width="620" height="200" as="geometry"/></mxCell>
+        <mxCell id="a1" value="产品分身&#10;需求澄清+PRD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=10;" vertex="1" parent="1"><mxGeometry x="70" y="230" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="a2" value="技术PM分身&#10;技术方案" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=10;" vertex="1" parent="1"><mxGeometry x="230" y="230" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="a3" value="研发分身&#10;编码+测试报告" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=10;" vertex="1" parent="1"><mxGeometry x="390" y="230" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="a4" value="分析师分身&#10;数据结论" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=10;" vertex="1" parent="1"><mxGeometry x="530" y="230" width="110" height="50" as="geometry"/></mxCell>
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="g1" value="G1 PRD 确认" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;arcSize=40;" vertex="1" parent="1"><mxGeometry x="90" y="316" width="150" height="36" as="geometry"/></mxCell>
+        <mxCell id="g2" value="G2 测试验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;arcSize=40;" vertex="1" parent="1"><mxGeometry x="290" y="316" width="150" height="36" as="geometry"/></mxCell>
+        <mxCell id="g3" value="G3 终验放行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#d97706;fontColor=#1e293b;fontSize=12;arcSize=40;" vertex="1" parent="1"><mxGeometry x="490" y="316" width="150" height="36" as="geometry"/></mxCell>
+        <mxCell id="n2" value="黄色 = 真人按确认键的地方,全流程只这三处" style="text;html=1;fontSize=12;fontColor=#475569;align=left;" vertex="1" parent="1"><mxGeometry x="90" y="358" width="380" height="20" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="成本对比" id="cost">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="成本结构：第一梯队的能力，白菜的价格" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="900" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1n" value="单任务成本" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="160" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1a" value="GPT-5.6 Luna（已降价80%）" style="text;html=1;align=right;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="80" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1ab" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cbd5e1;strokeColor=#94a3b8;" vertex="1" parent="1">
+          <mxGeometry x="450" y="84" width="400" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1bn" value="V4 Flash" style="text;html=1;align=right;fontColor=#4D6BFE;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="120" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1bb" value="低 60%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D6BFE;strokeColor=#4D6BFE;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="450" y="124" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2n" value="缓存命中折扣" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="160" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2an" value="业内多数厂商" style="text;html=1;align=right;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="220" y="180" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2ab" value="90%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cbd5e1;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="450" y="184" width="180" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2bn" value="DeepSeek 自有 API" style="text;html=1;align=right;fontColor=#4D6BFE;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="220" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2bb" value="98%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4D6BFE;strokeColor=#4D6BFE;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="450" y="224" width="196" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3n" value="实测" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="160" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3v" value="1.64 亿 Token / 8.9 元（API 调用 1249 次）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4D6BFE;fontColor=#4D6BFE;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="278" width="440" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="Agent 一个流程调几十上百次模型，单价差一个数量级，项目能不能跑通完全不一样" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="330" width="900" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="src" value="数据：DeepSeek 官方（经 InfoQ 报道）" style="text;html=1;align=right;fontColor=#94a3b8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="30" y="360" width="900" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="worktree 结构" id="wk1">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1050" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="worktree 结构：隔离工作区，共享历史" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="36" width="440" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="git" value="仓库历史与对象库（所有工作间共享，仅一份）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="450" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="main" value="主目录&#10;看板：进度 / review / 合并决策" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="230" width="220" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="w1" value="工作间一&#10;视频管线脚本&#10;独立目录 / 分支 / 暂存区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="230" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="w2" value="工作间二&#10;新文章初稿&#10;独立目录 / 分支 / 暂存区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="230" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="w3" value="工作间三&#10;接口调整&#10;独立目录 / 分支 / 暂存区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="770" y="230" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="w1" target="git">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="w2" target="git">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="w3" target="git">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="main" target="git">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="同一分支不许两间同时签出（防呆）；stash 各间独立；提交即时互相可见" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="640" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

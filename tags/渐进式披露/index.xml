@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>渐进式披露 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%8A%AB%E9%9C%B2/</link><description>渐进式披露 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 05 Sep 2026 14:33:38 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%8A%AB%E9%9C%B2/" rel="self" type="application/rss+xml"/><item><title>MCP拖慢会话，skill按需付费：渐进式披露怎么帮Claude Code省上下文</title><link>https://xiaoshuai1024.top/posts/llm-basics-skill-progressive-disclosure/</link><pubDate>Sat, 05 Sep 2026 14:33:38 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/llm-basics-skill-progressive-disclosure/</guid><description>装了十几个 skill，模型却一次都不主动用？MCP 越装越多，会话越开越慢，token 消耗怎么压都压不下来？先别急着卸载插件，这两个毛病多半同源。
+我在 Claude Code 里装了 30 个 skill。每次启动新会话，这 30 个 skill 的正文一行都不会进入模型的上下文，真正进来的只有 30 行介绍，每个 skill 一行，内容是名字加描述。第一反应是安装出了问题，直到把加载源码翻完，我才确认这不是缺陷，是官方文档里写明的设计，名字叫渐进式披露（progressive disclosure）。
+skill 为什么沉睡、MCP 为什么拖慢会话、写 skill 时描述到底该写给谁看，这篇统一回答。文中引用的源码结论来自之前对 Claude Code 与 Codex 加载机制的源码对比，那篇有行号级证据，这篇负责把原理讲成人人能用的大白话。
+先看这张总览图，全文都围绕它展开：
+一、三层加载：每层只在需要时出场 一个 skill 就是磁盘上的一个目录：必备一份 SKILL.md，头部是 YAML 元数据，关键字段 name 和 description，正文写操作指引；可以再放 references/ 存详细资料、scripts/ 放脚本。关键在于这三部分进入模型视野的时机完全不同。
+元数据（名字加描述）会话启动时就进入上下文，全程常驻；SKILL.md 正文只在模型判断当前任务需要时才被读取。
+references/ 和 scripts/ 更靠后，连正文都只提一句，模型按指引在真正用到时才去读。「渐进式」和「披露」两个词都用得准确：信息都在磁盘上，分批出示，什么时候出示、出示给谁，机制说了算。
+三层的 token 量级差得很远。元数据层每个 skill 几十 token，30 个 skill 合计千把 token，这是一次会话的固定开销；正文层单份一两千 token，但只为真正触发的技能付费，一次会话通常只触发两三个；附件层不预先加载，读到哪个算哪个。
+对比一下全量注入：30 份正文全部塞进上下文，按单份 1500 到 2500 token 估算，常驻开销冲到 6 万 token，渐进式把它压到千把，只剩百分之二上下。Claude Code 2.</description></item></channel></rss>

@@ -1,0 +1,44 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="vibe-guide-02" name="隔离审查流程">
+    <mxGraphModel dx="900" dy="400" grid="0" page="1" pageScale="1" pageWidth="860" pageHeight="330" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="隔离审查：AI 的产出只是候选答案" style="text;html=1;fontSize=16;fontColor=#1e293b;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="36" y="16" width="480" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="生成的会话对自己的产出有立场，复审必须换新会话" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="38" y="44" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gen" value="&lt;b&gt;生成会话&lt;/b&gt;&lt;br/&gt;AI 写出代码 / 方案 / 结论&lt;br/&gt;状态：候选答案" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="review" value="&lt;b&gt;复审会话（新开）&lt;/b&gt;&lt;br/&gt;立场干净的人或 AI&lt;br/&gt;逐条对需求和测试负责" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="330" y="120" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="merge" value="&lt;b&gt;合入&lt;/b&gt;&lt;br/&gt;验收记录留痕&lt;br/&gt;候选转正式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="自己写的自己查，查不出问题" style="text;html=1;fontSize=12;fontColor=#64748b;align=center;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="208" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="back" value="&lt;b&gt;不通过&lt;/b&gt;：带反馈回生成会话改" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=12;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="310" y="252" width="250" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="eg" value="送审" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=block;fontColor=#1e293b;fontSize=12;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="gen" target="review">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="em" value="通过" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=block;fontColor=#1e293b;fontSize=12;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="review" target="merge">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eb1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;dashed=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="review" target="gen">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="435" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

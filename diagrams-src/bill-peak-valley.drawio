@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="pv" name="peak-valley">
+    <mxGraphModel dx="1000" dy="400" grid="0" gridSize="10" page="1" pageWidth="1000" pageHeight="260" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="DeepSeek 峰谷时段（北京时间，工作日）" style="text;html=1;fontSize=17;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="15" width="400" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="谷 · 半价" style="rounded=0;fillColor=#DBEAFE;strokeColor=#93C5FD;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="330" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="峰 · 牌价" style="rounded=0;fillColor=#2563eb;strokeColor=#2563eb;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="410" y="70" width="250" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="谷 · 半价" style="rounded=0;fillColor=#DBEAFE;strokeColor=#93C5FD;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="660" y="70" width="170" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="峰" style="rounded=0;fillColor=#2563eb;strokeColor=#2563eb;fontSize=12;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="830" y="70" width="90" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="h0" value="0 点" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="40" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="h9" value="9 点" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="390" y="120" width="40" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="h12" value="12 点" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="50" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="h14" value="14 点" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="810" y="120" width="50" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="h18" value="18 点" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="900" y="120" width="50" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="wk" value="周末与中国法定节假日：全天谷价。晚上和周末跑批量任务，自动半价。" style="text;html=1;fontSize=13;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="180" width="700" height="26" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

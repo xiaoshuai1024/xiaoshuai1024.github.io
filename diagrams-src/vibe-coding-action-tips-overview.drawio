@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="五动作位总览" id="vcat1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="340" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="vibe coding 五个动作位：12 招地图（每招都有事故或数字背书）" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="30" width="640" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="① 开会话要小&#10;第1招 任务边界一到换新会话&#10;第2招 动手前先复述计划&#10;第3招 报错贴原文&#10;&#10;背书：单轮 token 消耗翻 11 倍" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="56" y="78" width="208" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="② 验收要狠&#10;第4招 「搞定了」要命令输出&#10;第5招 diff 三查（删除/文件/顺手改）&#10;&#10;背书：270 行并发守卫被静默删&#10;编译还是绿的" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="288" y="72" width="208" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="③ 止损要早&#10;第6招 同一错误两轮&#10;强制换路：新会话/换方向/自己读&#10;&#10;背书：错误上下文越堆越厚&#10;收敛概率逐轮下降" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="520" y="82" width="208" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="④ 删除要慢&#10;第7招 删改操作先列清单逐项确认&#10;第8招 不可逆命令白名单过人&#10;&#10;背书：8 支已发布视频被误删&#10;最高 30,955 播，全损" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="752" y="74" width="208" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="⑤ 收尾要留&#10;第9招 重复第三遍就固化&#10;第10招 事故后回写规则&#10;第11招 会话尾巴 AI 写总结&#10;第12招 夜间巡检换白天人审&#10;&#10;背书：输出砍 65% 的 skill 实测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="984" y="80" width="208" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="深色卡 = 事故拦截收益最高的起步位：先练第 4、5、7 招，一周能养成" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="56" y="296" width="560" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

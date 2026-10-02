@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="选型决策" id="dec1">
+    <mxGraphModel dx="1000" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="我的分工：Pi 和 Claude Code 各扛什么" style="text;html=1;fontSize=14;fontColor=#1e293b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="q1" value="任务来了一件，先问：提示词能写多细？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="写得细：需求明确、验收清楚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="80" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="写得粗：只有一句话的模糊想法" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;endFill=1;fontSize=11;" edge="1" parent="1" source="q1" target="a1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ea2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;endFill=1;fontSize=11;" edge="1" parent="1" source="q1" target="a2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="q2" value="任务复杂度？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="80" width="170" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="日常迭代 / 改 bug / 小重构&#10;→ Pi + 国产模型，成本零头" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="740" y="170" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="重活 / 跨模块大改&#10;→ Pi + Opus，或切 Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="740" y="260" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="eq1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;endFill=1;" edge="1" parent="1" source="q2" target="r1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eq2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;endFill=1;" edge="1" parent="1" source="q2" target="r2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eqa1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;endFill=1;dashed=1;" edge="1" parent="1" source="a1" target="q2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="→ Claude Code&#10;官方系统提示词替你补全意图" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="430" y="230" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="er3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#94a3b8;endArrow=block;endFill=1;" edge="1" parent="1" source="a2" target="r3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="八成日常任务落在左上路径：提示词写细 + 复杂度不高，Pi 的低成本直接兑现。剩下两成：要么提示词粗、要么任务重，官方重型框架的工程沉淀仍有价值。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="380" width="700" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,40 @@
+<mxfile host="app">
+  <diagram id="dmd01" name="DESIGN.md是什么">
+    <mxGraphModel dx="860" dy="520" grid="0" guides="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="860" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="a" value="AGENTS.md 管构建&#10;告诉 agent 项目怎么写：命令、规范、红线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#1e293b;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="330" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="b" value="DESIGN.md 管外观&#10;告诉 agent 界面长什么样：色值、字号、护栏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontSize=14;fontColor=#1e293b;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="40" width="330" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="读" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1e293b;fontSize=12;fontColor=#1e293b;" edge="1" parent="1" source="a" target="c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="读" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" edge="1" parent="1" source="b" target="c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="c" value="AI 编码 agent&#10;两份都是纯文本，放在项目根目录，复制即用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="230" y="190" width="400" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="文件内部两层" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#94a3b8;fontSize=12;fontColor=#64748b;dashed=1;" edge="1" parent="1" source="c" target="d1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="开头 YAML 配置：机器读的数值&#10;Linear 那份：23 个色值、13 级字号、8 档圆角" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="120" y="330" width="310" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="正文 Markdown：人读的理念&#10;设计原则 + 用色禁令（薰衣草蓝只准四处）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#1e293b;fontSize=12;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="450" y="330" width="310" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="cmd" value="两步用法：复制 DESIGN.md 到根目录 → 对 AI 说「按这份规范写界面」" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#1e293b;fontSize=12;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="120" y="450" width="620" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="note1" value="格式出处：Google Stitch&#10;规范草案已开源（Apache-2.0）" style="text;html=1;align=left;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="200" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

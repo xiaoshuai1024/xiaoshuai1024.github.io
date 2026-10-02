@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="20.0 -10.0 1660.0 452.0" width="1660.0" height="452.0">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Virgil';
+        src: url('https://fonts.excalidraw.com/Virgil.woff2') format('woff2');
+        font-display: swap;
+      }
+    </style>
+  </defs>
+  <rect x="20.0" y="-10.0" width="1660.0" height="452.0" fill="#ffffff"/>
+  <text x="60.0" y="47.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="17" fill="#1e293b" text-anchor="start" dominant-baseline="auto">
+      <tspan x="60.0" dy="0.0">双塔 bi-encoder:各自编码,顶层才算相似度</tspan>
+  </text>
+  <path d="M 58.7,109.4 L 170.0,110.6 L 170.1,111.3 L 168.8,157.3 L 60.7,157.9 L 59.8,158.7 L 60.2,157.3 L 59.6,109.1 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="115.0" y="134.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="115.0" dy="0.0">query</tspan>
+  </text>
+  <path d="M 60.0,291.5 L 169.6,291.5 L 170.2,289.3 L 171.0,338.4 L 59.2,337.7 L 61.5,339.4 L 61.5,339.3 L 60.9,291.3 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="115.0" y="314.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="115.0" dy="0.0">doc</tspan>
+  </text>
+  <path d="M 261.2,110.5 L 388.8,108.9 L 389.0,111.3 L 389.8,156.6 L 260.2,157.4 L 260.7,157.2 L 261.1,156.8 L 258.7,108.9 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="325.0" y="134.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="325.0" dy="0.0">Encoder</tspan>
+  </text>
+  <path d="M 258.9,291.4 L 390.5,289.6 L 390.0,289.3 L 391.0,338.9 L 261.3,337.3 L 258.6,337.7 L 259.2,336.6 L 261.3,290.1 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="325.0" y="314.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="325.0" dy="0.0">Encoder</tspan>
+  </text>
+  <path d="M 480.9,116.7 L 589.1,118.5 L 590.4,119.0 L 589.5,154.4 L 480.6,154.1 L 481.6,153.7 L 480.8,153.9 L 479.7,118.6 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="535.0" y="136.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="535.0" dy="0.0">向量</tspan>
+  </text>
+  <path d="M 478.9,288.5 L 588.7,289.5 L 589.9,290.5 L 590.2,326.5 L 481.2,326.0 L 479.2,325.1 L 479.6,325.4 L 481.2,289.6 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="535.0" y="308.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="535.0" dy="0.0">向量</tspan>
+  </text>
+  <path d="M 480.5,191.2 L 599.7,190.0 L 599.4,191.1 L 598.6,243.5 L 479.8,243.0 L 479.5,242.5 L 478.9,243.1 L 479.5,189.4 Z" fill="transparent" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
+  <text x="540.0" y="216.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#0f766e" text-anchor="middle" dominant-baseline="central">
+      <tspan x="540.0" dy="0.0">算相似度</tspan>
+  </text>
+  <line x1="170.0" y1="134.0" x2="260.0" y2="134.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="260.0,134.0 250.0,138.5 250.0,129.5" fill="#475569"/>
+  <line x1="390.0" y1="134.0" x2="480.0" y2="138.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="480.0,138.0 469.8,142.1 470.2,133.1" fill="#475569"/>
+  <line x1="170.0" y1="314.0" x2="260.0" y2="314.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="260.0,314.0 250.0,318.5 250.0,309.5" fill="#475569"/>
+  <line x1="390.0" y1="314.0" x2="480.0" y2="308.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="480.0,308.0 470.3,313.2 469.7,304.2" fill="#475569"/>
+  <line x1="535.0" y1="154.0" x2="540.0" y2="190.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="540.0,190.0 534.2,180.7 543.1,179.5" fill="#475569"/>
+  <line x1="535.0" y1="290.0" x2="540.0" y2="242.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="540.0,242.0 543.4,252.4 534.5,251.5" fill="#475569"/>
+  <text x="60.0" y="393.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#475569" text-anchor="start" dominant-baseline="auto">
+      <tspan x="60.0" dy="0.0">快:文档可提前全部向量化;但 query 和 doc 只在最后'撞'一下</tspan>
+  </text>
+  <text x="720.0" y="47.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="17" fill="#1e293b" text-anchor="start" dominant-baseline="auto">
+      <tspan x="720.0" dy="0.0">交叉编码器 cross-encoder:拼接后逐词比对</tspan>
+  </text>
+  <path d="M 719.7,110.6 L 829.6,110.8 L 830.8,108.9 L 828.8,157.9 L 719.9,158.3 L 719.4,157.9 L 720.7,159.4 L 719.4,108.7 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="775.0" y="134.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="775.0" dy="0.0">query</tspan>
+  </text>
+  <path d="M 718.7,290.8 L 830.4,290.5 L 829.6,289.0 L 830.8,338.3 L 718.6,336.5 L 720.8,338.5 L 719.6,339.5 L 720.4,289.9 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="775.0" y="314.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="14" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="775.0" dy="0.0">doc</tspan>
+  </text>
+  <path d="M 961.5,191.4 L 1150.3,188.8 L 1148.9,190.2 L 1150.2,250.6 L 959.6,249.0 L 961.1,248.5 L 960.3,250.4 L 960.1,188.5 Z" fill="transparent" stroke="#1e293b" stroke-width="2" stroke-linejoin="round"/>
+  <text x="1055.0" y="220.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#1e293b" text-anchor="middle" dominant-baseline="central">
+      <tspan x="1055.0" dy="0.0">query [SEP] doc</tspan>
+      <tspan x="1055.0" dy="15.6">拼接成一句</tspan>
+  </text>
+  <path d="M 1239.2,189.4 L 1420.8,190.9 L 1418.7,190.1 L 1418.5,250.8 L 1240.4,249.7 L 1239.4,250.5 L 1240.4,248.9 L 1241.6,188.8 Z" fill="transparent" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
+  <text x="1330.0" y="220.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#0f766e" text-anchor="middle" dominant-baseline="central">
+      <tspan x="1330.0" dy="0.0">完整 Transformer</tspan>
+      <tspan x="1330.0" dy="15.6">每层注意力交互</tspan>
+  </text>
+  <path d="M 1508.5,189.3 L 1639.8,189.8 L 1638.6,190.6 L 1639.6,251.4 L 1509.3,249.5 L 1509.3,250.0 L 1511.2,249.6 L 1510.2,189.8 Z" fill="transparent" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
+  <text x="1575.0" y="220.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#0f766e" text-anchor="middle" dominant-baseline="central">
+      <tspan x="1575.0" dy="0.0">相关性分数</tspan>
+  </text>
+  <line x1="830.0" y1="134.0" x2="960.0" y2="218.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="960.0,218.0 949.2,216.4 954.0,208.8" fill="#475569"/>
+  <line x1="830.0" y1="314.0" x2="960.0" y2="218.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="960.0,218.0 954.6,227.6 949.3,220.3" fill="#475569"/>
+  <line x1="1150.0" y1="220.0" x2="1240.0" y2="220.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="1240.0,220.0 1230.0,224.5 1230.0,215.5" fill="#475569"/>
+  <line x1="1420.0" y1="220.0" x2="1510.0" y2="220.0" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polygon points="1510.0,220.0 1500.0,224.5 1500.0,215.5" fill="#475569"/>
+  <text x="720.0" y="393.0" font-family="'Virgil','Segoe Print','Comic Sans MS','Bradley Hand',cursive" font-size="13" fill="#475569" text-anchor="start" dominant-baseline="auto">
+      <tspan x="720.0" dy="0.0">准:每一层都在比对 query 和 doc;但每个候选都要单独过一遍模型</tspan>
+  </text>
+</svg>

@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="skill双端安装" id="dual1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="repo" value="一个 skill 仓库&#10;SKILL.md + references/ + scripts/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="50" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="npx" value="npx skills add &lt;repo&gt; --skill xxx&#10;（通用安装器，选目标 agent）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="mkt" value="/plugin marketplace add &lt;org/repo&gt;&#10;（Claude Code 插件市场）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="230" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="codexplug" value="/plugins 或 $skill-installer xxx&#10;（Codex 内置目录 / 官方安装 skill）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="710" y="180" width="230" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccdir" value="~/.claude/skills/&#10;（或项目 .claude/skills/）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="140" y="320" width="230" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxdir" value="~/.codex/skills/&#10;（或仓库 .agents/skills/）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="320" width="230" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="agents" value="同一套 skill 文件，两边各自按 CLAUDE.md / AGENTS.md 的规则加载" style="text;html=1;fontSize=12;fontColor=#64748b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="280" y="430" width="460" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="repo" target="npx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="repo" target="mkt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="repo" target="codexplug">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="mkt" target="ccdir">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="codexplug" target="cxdir">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="两边都能装" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#2563eb;" edge="1" parent="1" source="npx" target="ccdir">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;" edge="1" parent="1" source="npx" target="cxdir">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

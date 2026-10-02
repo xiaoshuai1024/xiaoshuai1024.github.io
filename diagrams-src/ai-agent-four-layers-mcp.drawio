@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="mcp" name="MCP 三步">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="agent" value="Agent（大脑）&#10;只说统一接口的话" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontSize=13;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mcp" value="MCP 统一插座&#10;（Model Context Protocol）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=13;fontColor=#1e293b;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" value="数据库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="680" y="80" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="网页/搜索" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="680" y="170" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" value="本地文件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="680" y="340" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" value="内部 API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="680" y="430" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ea" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2563eb;strokeWidth=1.5;endArrow=block;endFill=0;" edge="1" parent="1" source="agent" target="mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;endArrow=block;endFill=0;" edge="1" parent="1" source="mcp" target="t1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;endArrow=block;endFill=0;" edge="1" parent="1" source="mcp" target="t2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;endArrow=block;endFill=0;" edge="1" parent="1" source="mcp" target="t3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#94a3b8;endArrow=block;endFill=0;" edge="1" parent="1" source="mcp" target="t4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="① 握手（一个会话一次）&#10;Agent 问「你有什么本事」&#10;MCP 递上技能清单" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="② 格式转换（每轮循环）&#10;网页的 HTML 方言&#10;翻译成结构化普通话" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="60" y="400" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="③ 指令代理（每轮循环）&#10;Agent 下简单命令&#10;MCP 执行并带回结果&#10;超时退出、幂等防重" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontSize=12;fontColor=#1e293b" vertex="1" parent="1">
+          <mxGeometry x="360" y="420" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="安全纪律：只装可信源、最小权限、敏感操作白名单——插头即权限，来路不明的不插" style="text;html=1;align=center;fontSize=12;fontColor=#64748b" vertex="1" parent="1">
+          <mxGeometry x="140" y="560" width="680" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

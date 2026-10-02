@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="门禁漏斗" id="gatefunnel1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="claim" value="AI 自述「搞定了」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="unit" value="UT / IT：禁 skip · 禁占位断言 · 反向断言" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="278" y="140" width="344" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="contract" value="四道契约闸：pre-commit 事实源比对，8 秒" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="256" y="240" width="388" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2e" value="E2E 关键链路 + 架构测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="340" width="320" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="human" value="人工抽查 + 视觉验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="440" width="240" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="claim" target="unit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="unit" target="contract">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="contract" target="e2e">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="e2e" target="human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="拦 70% 跨层问题" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="664" y="248" width="140" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="再拦 20%" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="630" y="348" width="100" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="最后 10%" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="448" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="cost" value="越早拦住修复越便宜：&#10;提交前 1 分钟，合入后半天，&#10;漏到线上 4 天排查加超卖" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;dashed=1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="830" y="228" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="gc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="contract" target="cost">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

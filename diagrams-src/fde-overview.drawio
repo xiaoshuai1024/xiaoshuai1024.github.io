@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="FDE 岗位全景" id="fdeov1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="FDE：从总部研发被派到客户现场的工程师" style="text;html=1;fontColor=#1e293b;fontSize=16;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="920" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="hq" value="模型公司（总部）&#10;&#10;练模型、卖 API&#10;远程支持进不了客户机房" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="250" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="cs" value="客户现场（前线）&#10;&#10;数据不出门、系统各各样&#10;问题全部发生在现场" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="690" y="60" width="250" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="FDE 派驻&#10;写生产代码 + 常驻现场" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;strokeWidth=3;fontColor=#1e293b;fontSize=13;fontStyle=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="hq" target="cs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="市场上叫 FDE 的，其实是三种不同的工作（Bloomberry 拆解 1000+ 份 JD）" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="900" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="真 · Builder（60%）&#10;&#10;在客户现场用客户数据&#10;搭实际能用的应用&#10;写 Agent、接 RAG、调模型&#10;产出：代码 + 跑起来的系统" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="290" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="改名的销售工程师（30%）&#10;&#10;配置 demo、陪销售拜访&#10;在售前环节回答技术问题&#10;产出：演示 + 合同" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="240" width="290" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="内部平台工程师（10%）&#10;&#10;集中在银行类机构&#10;挂 FDE 头衔做自家 AI 平台&#10;一次客户现场都不去" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="240" width="290" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="foot" value="试金石：入职第一个月，先给你配开发环境，还是先让你做 PPT？要开发环境的是 Builder，要 PPT 的是销售支持岗。" style="text;html=1;fontColor=#64748b;fontSize=12;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="920" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="bf" name="factors">
+    <mxGraphModel dx="1000" dy="400" grid="0" gridSize="10" page="1" pageWidth="1000" pageHeight="280" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="一张 AI 编码账单的四个因子" style="text;html=1;fontSize=18;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="400" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" value="任务 token 总量" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563eb;strokeWidth=2;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="x1" value="×" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="225" y="90" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="壳的首包税" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563eb;strokeWidth=2;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="x2" value="×" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="445" y="90" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="模型单价" style="rounded=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#2563eb;strokeWidth=2;fontSize=14;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="x3" value="×" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="665" y="90" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="缓存折扣" style="rounded=1;arcSize=8;fillColor=#2563eb;strokeColor=#2563eb;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="80" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="活儿决定，动不了" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="换壳或瘦身，可选可调" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="260" y="140" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="换价目表，最大杠杆之一" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="140" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="命中纪律决定，你自己就能拧" style="text;html=1;fontSize=12;fontStyle=1;fontColor=#2563eb;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="140" width="180" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="eq" value="实例：952 万输入 + 6.6 万输出的同一份单，三张价目表结账从 $0.21 到 $8.56" style="text;html=1;fontSize=13;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="200" width="700" height="26" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

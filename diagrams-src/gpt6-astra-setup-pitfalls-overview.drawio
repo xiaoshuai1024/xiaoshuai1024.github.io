@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="开放节奏总览" id="ov1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="GPT-6 三段式开放：你的位置与对应的准备" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="760" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="第一段（现在）&#10;有限组织与受信企业&#10;&#10;可信访问计划&#10;普通用户摸不到属正常" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="330" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="第二段（未来几天）&#10;ChatGPT 付费用户&#10;&#10;Plus / Pro / Business / Enterprise&#10;Pro 系另有 Astra Pro 版" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="420" y="100" width="330" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="第三段（逐步）&#10;开发者&#10;&#10;OpenAI API 与 AWS 渠道&#10;按 token 计费：输入 $10 / 输出 $50" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="780" y="100" width="330" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="组织侧准备：可信访问计划评估" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ca8a04;fontColor=#475569;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="330" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="订阅侧准备：查档位覆盖与 Astra Pro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#475569;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="300" width="330" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="API 侧准备：组织与密钥、预算告警上限" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#475569;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="780" y="300" width="330" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="common" value="三段通用准备：试用队列（十个真实需求 + 三类代表任务）、验收三维度清单、价格结构预演（输出价 = 输入 ×5）、知识截止补料方案&#10;——八件准备事见文内备查卡" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;dashed=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="400" width="880" height="80" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

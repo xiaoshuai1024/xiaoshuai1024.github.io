@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="传统行业验证流程改写" id="validation">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="传统行业验证流程:从全量物理测试到 AI 预判 + 关键点确认" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="30" width="860" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oldlabel" value="改写前:全量物理验证" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="o1" value="候选设计 ×10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="o2" value="造样机 ×10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="o3" value="全量耐久测试" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="o4" value="长周期老化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="o5" value="确认上市" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="850" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="oe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="o1" target="o2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="o2" target="o3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="o3" target="o4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oe4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="o4" target="o5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oldcost" value="周期 ≈ 18-24 个月 · 样机 10 台 · 每台都跑完整流程" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="640" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="newlabel" value="改写后:AI 预判 + 关键点确认" style="text;html=1;align=left;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="候选设计 ×10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="320" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="AI 代理模型&#10;快速预判" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="320" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="数字孪生仿真&#10;筛到 ×2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="320" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="仅关键点&#10;物理验证 ×2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="320" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="确认上市" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="850" y="320" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ne1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ne2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ne3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="n3" target="n4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ne4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="n4" target="n5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="newcost" value="周期 ≈ 9 个月 · 物理样机 2 台 · 其余 8 台的测试预算被省掉" style="text;html=1;align=center;fontColor=#2563eb;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="390" width="640" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="footnote" value="AI 不是替代物理实验,而是把「全量验证」降级为「关键点确认」——省掉的是冗余实验的时间和成本" style="text;html=1;align=center;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="450" width="720" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="typert 链路" id="typert">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="src" value="插件源码（构建期）&#10;@typert service 注解的 Service 类&#10;成员签名 + JSDoc + 类型引用&#10;api/gateway/src/index.ts:88" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="analyzer" value="analyzer.ts（3113 行）&#10;AST 分析：类声明 / 方法签名&#10;/ JSDoc / 仓库内类型解析&#10;TS 类型系统 → 进程边界协议" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="80" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="manifest" value="TYPERT manifest&#10;services / events / objects / invocations&#10;每个 invocation：receiver / parameters&#10;/ result / codec（strict）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="80" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="exports" value="package.json exports&#10;&quot;./typert&quot; → lib/typert.host.js&#10;&quot;./remote&quot; → lib/typert.remote-client.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="loader" value="typert-loader&#10;fiber 挂载时自动 import + 注册&#10;卸载时撤回，跟着生命周期走&#10;loader/src/index.ts:284" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="300" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="registry" value="ctx.typert registry&#10;host 面注册&#10;校验：package 必须匹配 / face=host&#10;/ schema 是 zod v4 / 字段齐全" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="caller" value="调用方进程&#10;remote-client 面&#10;签名漂移构建期发现&#10;不在运行时对不上字段才报错" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="480" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="manual" value="手动入口 ctx.typert.register()&#10;手写 wire schema / 测试 / 非 loader 组合&#10;自动识别不了就留手动，&#10;两条路同一个注册表同一套校验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="480" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="构建期分析" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="src" target="analyzer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="生成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="analyzer" target="manifest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="编译产物" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="manifest" target="exports">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="挂载时发现 ./typert 导出" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="exports" target="loader">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="校验后注册" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="loader" target="registry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="类型安全调用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="exports" target="caller">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="fail loud：不合格直接报错点名" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="registry" target="manual">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

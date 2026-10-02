@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="下午时刻表" id="wk3">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="下午的并行时刻表（错峰交付示例）" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="36" width="400" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="13:00 开三间：管线脚本 / 文章初稿 / 订单接口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="15:30 脚本间完成：验证、合并、拆间" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="16:00 接口间联调通过：合并、拆间" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="235" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="傍晚 文章收尾；主目录只剩待评审分支记录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="320" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="tip" value="三间的活挑周期不同的，保证任何时刻有活可验、也有空档可喘" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="360" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

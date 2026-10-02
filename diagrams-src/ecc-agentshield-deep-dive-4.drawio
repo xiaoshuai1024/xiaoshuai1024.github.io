@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="修复闭环" id="fix1">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="f0" value="--fix：268 条规则给了 69 条修复建议，标「可自动执行」的只有 6 处——改安全配置的默认动作是人审" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="330" y="50" width="660" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" value="① 改前快照&#10;每个将被修改的文件&#10;先在内存里留底" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="60" y="180" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="② 应用修复&#10;只做字符串字面量替换，&#10;且只替换第一处" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="380" y="180" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="③ 重新扫一遍&#10;拿修后结果和修前对比" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="700" y="180" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="分数回退，或&#10;冒出新的 high 以上？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1000" y="170" width="240" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" value="整体回滚&#10;快照写回，当作没发生过" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1010" y="430" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="f6" value="签发 SHA-256 回执：绑定改前改后&#10;分数和修掉的 finding，防篡改" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="600" y="430" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="f7" value="动机在源码注释里：issue #102，&#10;一次「自动收紧权限反被重新标红」&#10;的真实事故" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="f1" target="f2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="f2" target="f3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="f3" target="f4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe4" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=12;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="f4" target="f5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe5" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=12;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="f4" target="f6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

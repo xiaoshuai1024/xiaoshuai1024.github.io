@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="插件树分层" id="plugin-tree">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="launcher" value="dsh 启动器&lt;br&gt;--profile web / headless / 自定义" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="30" width="300" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="profile" value="profile 目录（$DSH_HOME/profiles/&lt;name&gt;）&lt;br&gt;package.json 声明 bundles 列表 + 用户补丁 cordis.patch.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="130" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="launcher" target="profile">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="base" value="dsh-base&lt;br&gt;模型适配 / 工具 / 会话 /&lt;br&gt;沙箱 / 权限 / 存储 / 遥测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="210" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="webapp" value="dsh-web-app&lt;br&gt;浏览器应用（UI）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="300" y="270" width="210" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="headlessb" value="dsh-headless&lt;br&gt;一次性 runner，无服务器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="270" width="210" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="ext" value="第三方插件&lt;br&gt;pnpm 装进 profile&lt;br&gt;（GitHub 打 dsh-plugin 标签）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="270" width="210" height="72" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1" value="按顺序叠加" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="200" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="profile" target="base">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="profile" target="webapp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="profile" target="headlessb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="profile" target="ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="patch" value="补丁层：profile 的 cordis.patch.yml →&lt;br&gt;$DSH_HOME/cordis.patch.yml → --patch 覆盖&lt;br&gt;（按 id 替换任意插件配置，无特权核心）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="400" width="300" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="webapp" target="patch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="plugins" value="最终落地：133 个插件挂载&lt;br&gt;llm / agent / session / tools / typert-registry&lt;br&gt;/ session-persistence-jsonl / api-gateway …" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="520" width="300" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="patch" target="plugins">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="dsh --profile web --dump-config&lt;br&gt;一行命令看整棵组合树（490 行配置）" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="430" width="300" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

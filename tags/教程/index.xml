@@ -1,0 +1,9 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>教程 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/%E6%95%99%E7%A8%8B/</link><description>教程 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 02 Oct 2026 13:35:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml"/><item><title>Claude Code vibe coding 入门：先看卡在第几层，再决定学什么</title><link>https://xiaoshuai1024.top/posts/vibe-coding-cn-guide/</link><pubDate>Fri, 02 Oct 2026 13:35:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/vibe-coding-cn-guide/</guid><description>这两天技术公众号在转同一个 GitHub 仓库：tradecatlabs/vibe-coding-cn，一套中文的 vibe coding 教程，16.3k 星（2026-10-01 复核），MIT 协议。转发配文出奇一致：终于有人把 vibe coding 讲明白了。
+星数证明热度，证明不了适不适合你。我把它的主干文档读了一遍，这篇是提炼版：先用五层方法定位你卡在哪，再决定补什么，附带三条铁律和从哪个分支上手。原文从需求分析讲到部署复盘，你在电梯里读不完，这里 5 分钟读完。
+一、先把 vibe coding 这个词掰正 Karpathy 在 2025 年 2 月造出这个词时，场景说得很窄：周末小工具、自己玩的东西，可以用「忘掉代码的存在」这种方式干活。传到中文圈，语境被裁掉了，变成「闭眼让 AI 写，能跑就行」。教程开篇就先纠这个偏：vibe coding 是人机协作的编程形态，人要留在环里，负责定目标、分任务、验收产出。
+这套教程的骨架概括成四个字：道法术器。器是模型和算力，术是 Claude Code、Codex、Cursor、Gemini CLI 这些工具，法是结构化的开发流程，道是识别问题边界、分解目标的能力。教程主打 Codex 讲解，方法本身工具无关，我用 Claude Code 跑同样的流程没有障碍。
+四层里有个扎心的对照：新手把预算全砸在器上，订阅最强的模型、追每一次版本更新；老手在法上花功夫，流程和验收搭好之后，中等模型也交付得了产品。工具半年一换，流程攒下来全是自己的。
+二、五层方法，先定位你卡在第几层 教程的主体是一套五层递进的方法，从最轻的 Prompt 一路到最重的 Quality Gate。它的价值不在教你某一句神级提示词，在于给了一张地图：每层解决一个具体问题，卡住了能定位自己在几楼。
+第 1 层，Prompt。 一句「给这个接口加个缓存」就是许愿，AI 只能靠猜。教程把一条合格的 prompt 分成六个要素：意图、上下文、模板、参数、反馈、迭代。写全了，猜的部分就没了。怎么写好这五张卡，我之前专门写过一篇《装完 Claude Code 先别急着聊》，模板可以直接抄。
+第 2 层，Skill。 好用的 prompt 不该每次重敲，固化成可复用的原子能力，场景命中才加载全文。这一层怎么挑现成的、怎么写自己的，见《893个 Claude Code skill 挑不过来？》。
+第 3 层，工程流程。 教程给每个项目定了三个交付物：需求文档、执行记录、验证报告。作用很直接：让「做了什么、验了什么」留下痕迹，AI 换了一个会话，接手的人还能续上。</description></item></channel></rss>

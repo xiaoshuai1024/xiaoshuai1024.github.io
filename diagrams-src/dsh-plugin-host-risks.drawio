@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dsh-plugin-host-risks" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="noteTrust" value="无进程隔离 · 信任边界靠人守（公开分析口径）" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="64" width="650" height="38" as="geometry"/>
+        </mxCell>
+        <mxCell id="zoneMine" value="你的机器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="470" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="permAgent" value="agent 权限&lt;br&gt;（读写盘 · 网络 · shell）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="110" y="246" width="390" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="loadPlugin" value="插件以包形式动态装载 ctx.dynamicCordisRunner&lt;br&gt;（host/client 双 runner）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="110" y="384" width="390" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="riskSupply" value="供应链: 1309 插件中 15 个 critical（#1770）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="740" y="176" width="390" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="riskConfig" value="配置求值: !!js 类表达式面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="740" y="318" width="390" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="riskVm" value="历史上报过的 vm 沙箱 exec 逃逸披露" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="740" y="438" width="390" height="76" as="geometry"/>
+        </mxCell>
+        <mxCell id="reOne" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=0;exitY=0.5;entryX=1;entryY=0.25;" edge="1" parent="1" source="riskSupply" target="zoneMine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="reTwo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="riskConfig" target="zoneMine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="reThree" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=0;exitY=0.5;entryX=1;entryY=0.75;" edge="1" parent="1" source="riskVm" target="zoneMine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

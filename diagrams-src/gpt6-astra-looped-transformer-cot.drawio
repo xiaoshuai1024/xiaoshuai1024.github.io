@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Luna与Sol的token用量对照" id="gpta3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="cap" value="GPT-5.6 家族：达到相近任务表现，思维链长度差 80%（同代不同规模，无人做循环）" style="text;html=1;fontColor=#1e293b;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="36" width="800" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="axis" value="" style="endArrow=classic;html=1;strokeColor=#94a3b8;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="300" as="sourcePoint"/>
+            <mxPoint x="840" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lunaBar" value="GPT-5.6 Luna（较小）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;align=right;spacingRight=12;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="140" y="130" width="630" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="solBar" value="GPT-5.6 Sol（较大、训练更充分）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;align=right;spacingRight=12;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="140" y="222" width="350" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="tag1" value="≈180% token" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="785" y="96" width="110" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="tag2" value="100% token" style="text;html=1;fontColor=#475569;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="300" width="90" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="没有谁因此说 Sol 的可解释性比 Luna 差。更合理的解释：能力更强的模型解决问题更高效，「高效」的外在表现就是草稿纸（推理轨迹）更短。Astra 系统卡承认可监控性退步，但轨迹整体变短同样能解释，证明不了循环是原因" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="360" width="800" height="70" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

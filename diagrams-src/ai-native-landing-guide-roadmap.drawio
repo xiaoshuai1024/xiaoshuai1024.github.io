@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI Native 三步路径" id="roadmap1">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="step1" value="&lt;b style=&quot;font-size:15px;color:#2563eb&quot;&gt;第 1 步 · 超级个体&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;1 人带 3-5 个 Agent 会话&lt;br&gt;夜间也能推进长程任务&lt;br&gt;&lt;br&gt;人：写提示词，逐个盯结果&lt;br&gt;&lt;br&gt;卡点：会话知识难复用&lt;br&gt;产能锁在个人电脑里&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacing=14;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="90" width="290" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2" value="&lt;b style=&quot;font-size:15px;color:#2563eb&quot;&gt;第 2 步 · 数字员工&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;会话搬上云，可自验证、可并行&lt;br&gt;统一输出结构，成员直接接手&lt;br&gt;&lt;br&gt;人：定目标、给输入、验收结果&lt;br&gt;&lt;br&gt;卡点：串任务靠人肉调度&lt;br&gt;质量随任务和模型波动&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacing=14;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="425" y="70" width="300" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3" value="&lt;b style=&quot;font-size:15px;color:#2563eb&quot;&gt;第 3 步 · 云上协作&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;数字员工按业务域组织&lt;br&gt;有自己的协作通道&lt;br&gt;&lt;br&gt;人：只剩维护验证回路&lt;br&gt;和寻找真需求两件事&lt;br&gt;&lt;br&gt;成效：策略交付 10 天到 2 天&lt;br&gt;约 80% 核心能力 Skill 化&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacing=14;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="95" width="300" height="245" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;fontSize=11;html=1;" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;strokeWidth=1.5;fontSize=11;html=1;" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note1" value="升级时机：消化和复用开始成为障碍" style="text;html=1;fontColor=#64748b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="95" y="360" width="220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="note2" value="升级时机：调度和质量验收占掉省下的时间" style="text;html=1;fontColor=#64748b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="455" y="345" width="250" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

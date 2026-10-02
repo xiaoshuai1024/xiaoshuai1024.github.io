@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="输出清洗前后" id="trim1">
+    <mxGraphModel dx="1000" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="工具输出清洗：数据进上下文之前，先过一道扩展" style="text;html=1;fontSize=14;fontColor=#1e293b;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="30" width="520" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="raw" value="git log 原始输出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1e293b;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="90" width="330" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="rawt" value="commit a3f8c2e91d…&#10;Author: 张三 &lt;zhang@corp.com&gt;&#10;Date:   Mon Aug 10 14:22:31 2026&#10;&#10;    重构支付回调的重试逻辑&#10;&#10;    Maily 通知失败时改为指数退避，&#10;    最多重试 5 次，加埋点……&#10;&#10;    47 files changed, 1291 insertions(+),&#10;    803 deletions(-)&#10;&#10;commit 8d21b0f44a…&#10;Author: 李四 &lt;li@corp.com&gt;&#10;Date:   Fri Aug 7 09:15:02 2026&#10;    …（后面还有 18 条，每条都是这个体量）" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=14;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="104" y="126" width="304" height="254" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2563eb;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="240" as="sourcePoint"/>
+            <mxPoint x="560" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="trimmer" value="扩展的裁剪函数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="442" y="200" width="116" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="clean" value="进上下文的版本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="590" y="90" width="380" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="cleant" value="a3f8c2  重构支付回调重试逻辑（指数退避）&#10;8d21b0  支付渠道配置抽到 DB&#10;5c90ee  修 webhook 签名校验时区 bug&#10;f1d2a7  删除废弃的 v1 接口&#10;…&#10;&#10;关键信息都在：改了什么、顺序如何。&#10;哈希全文、作者邮箱、日期正文、diff 统计——&#10;这些对「当前任务」没用的列，一刀不剩。" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;spacingLeft=14;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="604" y="126" width="354" height="254" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="同样的清洗思路适用于 ls、grep、测试输出等高频命令——这一刀砍在每一轮、每个工具调用上，是「便宜一半」的第二来源" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="430" width="760" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="gap" value="Claude Code 的钩子做不了这一步：只能往调用前后追加信息，改不了调用结果本身" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="460" width="760" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

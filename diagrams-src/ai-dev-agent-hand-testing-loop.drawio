@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="测试循环" id="loop">
+    <mxGraphModel dx="800" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="780" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- 五步环形,用纵向流程+回流表达 -->
+        <mxCell id="s1" value="1 · 业务逻辑分析&#10;读 PRD / 代码 / 数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="2 · 端点冒烟测试&#10;curl 验证路由可达" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="140" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="3 · UI 点到点&#10;真实点击,断言三件事" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="240" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="4 · 跨系统数据追踪&#10;DOM + API + DB + 日志并行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="340" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="5 · 沉淀 Playwright 脚本&#10;跑通即固化,持续复用" style="shape=mxgraph.flowchart.document;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="450" width="220" height="68" as="geometry"/>
+        </mxCell>
+        <!-- 顺序箭头 -->
+        <mxCell id="d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;endArrow=classic;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;endArrow=classic;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- 失败回流:从 s2/s3/s4 回到 s1 -->
+        <mxCell id="d5" value="失败 · 读日志追根因&#10;给建议,等确认再改" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#dc2626;endArrow=classic;dashed=1;fontColor=#dc2626;fontSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="s3" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- 右侧断言三件事注释 -->
+        <mxCell id="note" value="断言三件事&#10;&#10;① UI 反馈&#10;&#160;&#160;Toast / 跳转 / 状态&#10;&#10;② 数据持久化&#10;&#160;&#160;API / DB 有记录&#10;&#10;③ 可逆性&#10;&#160;&#160;能取消 / 编辑 / 删除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="580" y="220" width="180" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="nl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="s3" target="note">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

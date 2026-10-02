@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Codex线程模型" id="threads1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="660" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="parent" value="父 agent thread&#10;（ThreadManager 管理的调度单元）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="limiter" value="AgentExecutionLimiter（execution.rs:14）&#10;信号量式容量检查，Guard Drop 释放&#10;上限 = max_concurrent_threads_per_session（可配置）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="spawn" value="spawn_agent（multi_agents_v2/spawn.rs）&#10;fork_mode 可继承父完整历史&#10;可覆盖 role / model / 推理参数" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="280" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="child1" value="子 agent thread A&#10;自己的 Session + run_turn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="80" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="child2" value="子 agent thread B&#10;独立中断 / 独立恢复 / 独立模型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="80" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="comm" value="通信：send_message / interrupt_agent / wait&#10;agent_communication.rs + inter_agent_message.rs&#10;子的输出作为 inter-agent message 进父的上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="220" width="580" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="graph" value="AgentGraphStore：spawn 边持久化（谁派生了谁）&#10;按 subtree 查询 thread id，重启恢复 agent 树" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="340" width="580" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="reg" value="agent 注册表：core/src/agent/registry.rs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="440" width="580" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="派发过 limiter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="parent" target="limiter"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="limiter" target="spawn"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" value="创建" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#2563eb;" edge="1" parent="1" source="spawn" target="child1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="创建" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#2563eb;" edge="1" parent="1" source="spawn" target="child2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="wait 收结果" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;dashed=1;" edge="1" parent="1" source="child1" target="comm"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="child2" target="comm"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="child1" target="graph"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

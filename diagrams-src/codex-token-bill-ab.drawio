@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="胖瘦AB对比" id="ab1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="fatH" value="胖 AGENTS.md（3.5KB 规范大全书）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="60" width="360" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="leanH" value="瘦 AGENTS.md（三行：命令 + 禁区）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="60" width="360" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" value="首轮输入  18,281" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="140" width="360" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1b" value="首轮输入  17,350" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="140" width="360" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="缓存命中率  46%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="204" width="360" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2b" value="缓存命中率  98%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="204" width="360" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="计费 tokens used  21,984" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="280" width="360" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3b" value="计费 tokens used  3,989" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="280" width="360" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="diff" value="同样任务，计费差 5.5 倍——大头不是文档那 931 token，是缓存接不接得住" style="text;html=1;align=center;fontColor=#2563eb;fontSize=13;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="180" y="380" width="620" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="cond" value="受控条件：同一只读总结任务 · read-only 沙箱 · 各 2 次模型调用 · 单次运行有波动（计费口径 = 非缓存输入 + 输出）" style="text;html=1;align=center;fontColor=#475569;fontSize=12;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="120" y="430" width="740" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

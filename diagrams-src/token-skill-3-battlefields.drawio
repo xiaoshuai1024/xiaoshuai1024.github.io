@@ -1,0 +1,17 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="省token 战场与前置" id="battlefields">
+    <mxGraphModel dx="800" dy="600" grid="0" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="两个战场加一道前置：省 token 的完整地图" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="20" y="12" width="940" height="28" as="geometry"/></mxCell>
+        <mxCell id="note" value="会话里输入远大于输出（每输出 1 个 token 陪进去约 144 个输入），两头一起掐才见效。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="20" y="62" width="940" height="26" as="geometry"/></mxCell>
+        <mxCell id="out" value="输出侧 · 模型说出来的&#10;&#10;Caveman&#10;穴居人腔 + shrink + proxy 层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="90" y="120" width="330" height="130" as="geometry"/></mxCell>
+        <mxCell id="in" value="输入侧 · 喂进去的&#10;&#10;Context7（文档按需拉）&#10;planning-with-files（记忆上磁盘）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="560" y="120" width="340" height="130" as="geometry"/></mxCell>
+        <mxCell id="pre" value="前置 · 别让活白干&#10;&#10;OpenSpec：spec 前置一次做对，返工段（同一份活烧两遍）直接不出现在账单上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#1e293b;fontSize=13;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="230" y="300" width="520" height="90" as="geometry"/></mxCell>
+        <mxCell id="ep1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="pre" target="out"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ep2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="pre" target="in"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

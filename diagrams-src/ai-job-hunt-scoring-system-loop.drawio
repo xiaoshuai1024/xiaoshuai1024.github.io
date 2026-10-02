@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="loop" name="系统总览">
+    <mxGraphModel dx="800" dy="400" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="四条命令接成一圈：每一条的输出，是下一条的输入" style="text;html=1;align=center;verticalAlign=middle;fontSize=15;fontColor=#1e293b;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="20" width="660" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a" value="/find-jobs&#10;扫 8 个平台岗位&#10;产出：岗位列表.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="b" value="/skill-test&#10;逐项测评打分&#10;产出：个人能力评分表.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="360" y="100" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c" value="/study&#10;出题→测验→模拟面试&#10;产出：学习日志、错题本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="660" y="100" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d" value="/interview-prep&#10;按 JD 生成备战材料&#10;产出：复盘与话术卡" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="360" y="270" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e" value="/scan-jobs&#10;扫市场新技术要求&#10;产出：技术学习清单" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="60" y="270" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ab" value="市场要什么" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#1e293b;fontSize=12;strokeColor=#2563eb" edge="1" parent="1" source="a" target="b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bc" value="差距在哪" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#1e293b;fontSize=12;strokeColor=#2563eb" edge="1" parent="1" source="b" target="c">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cd" value="补到线了" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#1e293b;fontSize=12;strokeColor=#2563eb;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="c" target="d">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="80" />
+              <mxPoint x="880" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="da" value="复盘暴露新差距，更新目标岗位" style="edgeStyle=orthogonalEdgeStyle;html=1;fontColor=#1e293b;fontSize=12;strokeColor=#2563eb;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0" edge="1" parent="1" source="d" target="a">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="310" />
+              <mxPoint x="20" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ec" value="新要求进学习清单" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;fontColor=#64748b;fontSize=12;strokeColor=#64748b;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0" edge="1" parent="1" source="e" target="d">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

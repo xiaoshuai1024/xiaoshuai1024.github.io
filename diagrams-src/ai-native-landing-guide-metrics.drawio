@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI Native 三层度量" id="metrics1">
+    <mxGraphModel dx="700" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="l3" value="&lt;b style=&quot;font-size:15px;color:#2563eb&quot;&gt;L3 价值交付&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;交付周期 · 发布频率 · AI 与非 AI 对比&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="50" width="420" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3q" value="业务变快了吗" style="text;html=1;fontColor=#64748b;fontSize=12;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="510" y="85" width="150" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="&lt;b style=&quot;font-size:15px;color:#2563eb&quot;&gt;L2 工程质量&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;缺陷率 · 回滚返工 · 恢复时间&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="55" y="190" width="420" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2q" value="质量守得住吗" style="text;html=1;fontColor=#64748b;fontSize=12;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="500" y="225" width="150" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="&lt;b style=&quot;font-size:15px;color:#2563eb&quot;&gt;L1 AI 效能&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;覆盖率 · Token 消耗 · Skill 与 MCP 使用&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="330" width="420" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1q" value="AI 进入过程了吗" style="text;html=1;fontColor=#64748b;fontSize=12;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="510" y="365" width="160" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="up32" value="只有 L3，解释不了变化从哪来" style="text;html=1;fontColor=#64748b;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="155" width="240" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="up21" value="只有 L1，是为了 AI 而 AI" style="text;html=1;fontColor=#64748b;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="90" y="298" width="240" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="asset" value="&lt;b style=&quot;font-size:13px&quot;&gt;被低估的一层：上下文资产&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;Skill · Spec · Runbook 的数量、复用和更新&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;dashed=1;fontColor=#1e293b;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="465" width="420" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

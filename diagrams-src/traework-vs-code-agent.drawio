@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="分工对比" id="vsdivide1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="workbox" value="TraeWork：干活的" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="380" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="w1" value="任务：整理文件 / 汇总表格 / 仪表盘 / 例行日报" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="84" y="112" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="w2" value="出错代价：浪费的是时间，重跑就行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="84" y="178" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="w3" value="请求形态：高频小额（读文件、改表格）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="84" y="244" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="w4" value="界面：聊天窗是所有人的母语" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="84" y="310" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="codebox" value="编程 Agent：Claude Code / Codex" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="700" y="60" width="380" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="任务：改代码 / 跑测试 / 审 diff / 排查线上问题" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="724" y="112" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="出错代价：代码库被改坏，要回滚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="724" y="178" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="请求形态：低频大请求（任务上下文几万 token）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="724" y="244" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="界面：终端 + IDE 是程序员的母语" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="724" y="310" width="332" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="overlap" value="重叠地带：小工具（网页仪表盘、小游戏）&#10;&#10;交付物一次性 → TraeWork 顺手&#10;交付物要长期维护 → 回到 Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="440" width="290" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="workbox" target="overlap">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="codebox" target="overlap">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

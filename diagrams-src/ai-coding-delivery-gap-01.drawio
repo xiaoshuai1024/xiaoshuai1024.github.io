@@ -1,0 +1,21 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="d1" name="overview">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="700" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="一个需求的全周期:写代码只占约 20%" style="text;html=1;fontSize=16;fontColor=#1e293b;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="40" y="16" width="420" height="28" as="geometry"/></mxCell>
+        <mxCell id="bar1" value="编码 约20%" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=13;" vertex="1" parent="1"><mxGeometry x="40" y="60" width="128" height="50" as="geometry"/></mxCell>
+        <mxCell id="bar2" value="需求对焦" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="168" y="60" width="112" height="50" as="geometry"/></mxCell>
+        <mxCell id="bar3" value="PRD 编写评审" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="280" y="60" width="100" height="50" as="geometry"/></mxCell>
+        <mxCell id="bar4" value="技术方案编写评审" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="380" y="60" width="118" height="50" as="geometry"/></mxCell>
+        <mxCell id="bar5" value="联调 + 测试" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e2e8f0;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="498" y="60" width="125" height="50" as="geometry"/></mxCell>
+        <mxCell id="cap1" value="灰底四段 = 编码外 80%,全是人和人在排队" style="text;html=1;fontSize=12;fontColor=#475569;align=left;" vertex="1" parent="1"><mxGeometry x="168" y="114" width="360" height="20" as="geometry"/></mxCell>
+        <mxCell id="m1" value="生码率 85%&#10;度量「写代码」一个环节&#10;工具使用率指标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;arcSize=8;" vertex="1" parent="1"><mxGeometry x="40" y="160" width="250" height="90" as="geometry"/></mxCell>
+        <mxCell id="gap" value="隔着&#10;80%" style="text;html=1;fontSize=13;fontColor=#ef4444;fontStyle=1;align=center;" vertex="1" parent="1"><mxGeometry x="296" y="180" width="60" height="50" as="geometry"/></mxCell>
+        <mxCell id="m2" value="交付周期&#10;度量「想法到上线」全程&#10;流程指标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;arcSize=8;" vertex="1" parent="1"><mxGeometry x="362" y="160" width="250" height="90" as="geometry"/></mxCell>
+        <mxCell id="calc" value="提速账:编码 3 天 → 1 天,省 2 天;总周期 15 天 → 13 天,提效 13%&#10;原文口径:编码 200% 提效 ≈ 全流程 10% 真实提效" style="text;html=1;fontSize=13;fontColor=#1e293b;align=left;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="40" y="280" width="580" height="44" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

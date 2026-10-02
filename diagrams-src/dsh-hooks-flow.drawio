@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="hooks 拦截时序" id="hooks">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="event" value="事件点触发&#10;tools/pre-execute、tools/post-execute 等&#10;hooks-claude-code/src/index.ts:247" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="matcher" value="matcher 匹配&#10;CC：纯字面量，| 是精确备选&#10;Codex：无锚 regex&#10;缺省 / * = 全匹配" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="70" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="run" value="runHook 执行&#10;JSON payload 写 stdin&#10;走 ctx.shell（凭证擦除/超时）&#10;默认超时 10 分钟" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="70" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="codec" value="codec 解码&#10;exit 2 = 拦截，stderr 是理由&#10;exit 0 + JSON = 结构化&#10;hookEventName 防串事件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="70" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="merge" value="merge 最严格胜出&#10;deny &gt; ask &gt; allow&#10;continue:false 粘性停&#10;理由只留获胜档位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="280" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="decision" value="最终决策&#10;拦截 / 放行 / 询问&#10;映射到扩展点决策" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="280" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="payload" value="stdin payload 是事件快照&#10;tool_name / tool_input / tool_use_id&#10;hook 只读快照、只写决策，&#10;永远拿不到执行权" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="280" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="log" value="每次调用写一对事件&#10;hook/invoked + hook/result&#10;handlerId 关联，只做日志&#10;审计有据可查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="280" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="abnormal" value="异常都有「不拦截」默认&#10;spawn 失败 → 非拦截错误&#10;非法 JSON → 当纯文本&#10;非法 regex → 不匹配" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="匹配" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="event" target="matcher">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="执行" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="matcher" target="run">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="解码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="run" target="codec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="折叠" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="codec" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="映射" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="merge" target="decision">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

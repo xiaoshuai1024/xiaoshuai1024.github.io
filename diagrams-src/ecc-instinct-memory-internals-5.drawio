@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="进化路径" id="ecc5">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="lib" value="本能库&#10;几十条 instinct&#10;（trigger 各自独立）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="clu" value="/evolve 聚类&#10;overlap coefficient（交集÷较小集合）&#10;阈值 0.5 且共享 ≥2 个关键词&#10;贪心并入，簇核心取关键词交集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="150" width="260" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="jaccard" value="翻车实录：第一版用 Jaccard&#10;trigger 平均 7 个词，相关的两条最高只能算到 0.33&#10;什么都聚不起来，于是换度量" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="310" width="340" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="cmd" value="Command&#10;用户主动调用&#10;例：/new-table&#10;（加表三步一条命令）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="40" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="skl" value="Skill&#10;自动触发的行为&#10;判据：trigger 相似&#10;2 条以上的本能簇" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="170" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="agt" value="Agent&#10;需要独立上下文的多步流程&#10;判据：簇内 ≥3 条本能&#10;且平均置信度 ≥0.75" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="pro" value="promote：项目本能 → 全局本能&#10;硬门槛：置信度 ≥0.8&#10;且在 2 个以上项目被验证过&#10;（局部经验不配污染全局）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="470" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="why" value="为什么不用 embedding 聚类：&#10;关键词重叠可解释——簇标签就是共享关键词本身；&#10;本地优先，不依赖网络与向量服务；&#10;代价是语义相关但用词不同的本能会漏聚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="470" width="420" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="w1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="lib" target="clu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="w2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="clu" target="cmd">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="w3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="clu" target="skl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="w4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="clu" target="agt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="w5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="jaccard" target="clu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="w6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="why" target="clu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="w7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="skl" target="pro">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

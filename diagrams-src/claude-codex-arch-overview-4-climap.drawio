@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="clijs 模块地图" id="map1">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="cli.js（v1.0.88，prettier 展开后 43 万行）的分区地图" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="640" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="seg1" value="L1 – 345000&#10;三方库打包区&#10;AWS SDK、highlight.js 语法表、tree-sitter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="560" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="seg2" value="L345000 – 370000&#10;配置与 MCP 客户端&#10;settings 读取 z0()、.mcp.json 发现、mcp__ 前缀注入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="156" width="560" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="seg3" value="L377000 – 395000&#10;工具定义 + API 流处理&#10;Read/Edit/Bash 对象、SSE 解析、compact、agent 定义" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="232" width="560" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="seg4" value="L416000 – 418000&#10;主循环核心区&#10;VE 主循环、工具分发（并行上限 10）、subagent 启动器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="308" width="560" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="seg5" value="L419000 – 432642&#10;Ink UI / REPL / CLI 入口&#10;commander 命令注册、updater、onboarding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="384" width="560" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="scale" value="0 行" style="text;html=1;fontSize=11;fontColor=#64748b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="80" width="50" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="scale2" value="43 万行" style="text;html=1;fontSize=11;fontColor=#64748b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="420" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="axis" style="endArrow=classic;html=1;rounded=0;strokeColor=#64748b;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="440" as="sourcePoint"/>
+            <mxPoint x="700" y="80" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hint" value="怎么定位：混淆代码里字符串常量不混淆。&#10;拿 tool_use、subagent、compact、PreToolUse 这些词当锚点 grep 行号，&#10;再顺着调用关系往外扩——分区不用猜，是聚类出来的。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="780" y="140" width="320" height="120" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

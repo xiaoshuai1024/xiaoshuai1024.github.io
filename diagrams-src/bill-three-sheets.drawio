@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="bs" name="sheets">
+    <mxGraphModel dx="1000" dy="400" grid="0" gridSize="10" page="1" pageWidth="1000" pageHeight="330" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="同一份 952 万 token 账单，三张价目表结账（命中按 90% 计）" style="text;html=1;fontSize=17;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="15" width="700" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="" style="rounded=1;arcSize=12;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="260" y="70" width="560" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1l" value="OpenAI GPT-5.6 Sol（Codex 在用）" style="text;html=1;fontSize=13;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="20" y="76" width="230" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1v" value="$8.56" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#FFFFFF;align=right;" vertex="1" parent="1">
+          <mxGeometry x="730" y="76" width="80" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="" style="rounded=1;arcSize=12;fillColor=#60A5FA;strokeColor=#60A5FA;" vertex="1" parent="1">
+          <mxGeometry x="260" y="120" width="280" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2l" value="Anthropic Claude Sonnet 5（Claude Code 在用）" style="text;html=1;fontSize=13;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="20" y="126" width="230" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2v" value="$4.28" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="550" y="126" width="80" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="" style="rounded=1;arcSize=12;fillColor=#93C5FD;strokeColor=#93C5FD;" vertex="1" parent="1">
+          <mxGeometry x="260" y="170" width="30" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3l" value="DeepSeek-flash 峰时（DSH 在用）" style="text;html=1;fontSize=13;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="20" y="176" width="230" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3v" value="$0.42" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="300" y="176" width="80" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="" style="rounded=1;arcSize=12;fillColor=#DBEAFE;strokeColor=#DBEAFE;" vertex="1" parent="1">
+          <mxGeometry x="260" y="220" width="15" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4l" value="DeepSeek-flash 谷时（晚 6 点后自动半价）" style="text;html=1;fontSize=13;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="20" y="226" width="230" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4v" value="$0.21" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="285" y="226" width="80" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="m" value="Sol ÷ DeepSeek 峰时 ≈ 20.6 倍；命中率从 90% 掉到 46%，每家自己的账单再翻 4~8 倍" style="text;html=1;fontSize=13;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="800" height="26" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="skill 六层 rank 合并" id="rank">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="src1" value="项目 .dsh/skills&#10;project-dsh · rank 100&#10;跟着仓库走，优先级最高" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="src2" value="项目 .agents/skills&#10;project-agents · rank 200" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="220" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="src3" value="runtime 注入 · rank 250&#10;注册表内建，代码里注册" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="220" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="src4" value="custom 目录 · rank 300&#10;配置自定义技能根" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="220" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="src5" value="~/.dsh/skills · rank 400&#10;~/.agents/skills · rank 500&#10;用户级沉淀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="220" height="64" as="geometry"/>
+        </mxCell>
+        <mxCell id="src6" value="bundled · rank 600&#10;环境内置公共底座" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="530" width="220" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="merge" value="合并规则（SkillRegistry）&#10;&#10;同层内：rank → providerOrder → localOrder&#10;低 rank 同名静默让位 + warn 日志&#10;&#10;层之间：global 打底，scope chain 逐层覆盖&#10;最近的层同名直接赢（shadowing）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="300" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="scope" value="scope 是隐藏维度&#10;agent preset 挂的插件进 preset 层&#10;同名技能不同 agent 看到不同实现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="280" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="render" value="获胜技能 &#10;renderSkillContent()&#10;&#10;&lt;skill_content name=&quot;...&quot;&gt;&#10;  &lt;skill_resources&gt; 资源位置&#10;  &lt;skill_instructions&gt; 技能正文&#10;&lt;/skill_content&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="60" width="260" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="cache" value="懒加载 + 缓存&#10;list() 只出摘要&#10;get() 才读正文&#10;chokidar watch 200ms 稳定后失效" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="280" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src1" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src2" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src3" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src4" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src5" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="src6" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="同一层内决胜" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="merge" target="render">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

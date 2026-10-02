@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="扫描流水线" id="pipe1">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="n1" value="scan 目标目录" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="① 发现 harness 根&#10;.claude/ .codex/ .cursor/&#10;.gemini/ .opencode/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="270" y="200" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2a" value="两张清单：直读配置文件&#10;+ 递归 skills / hooks / agents 子目录" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="260" y="360" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2b" value="hook 登记的命令字符串里&#10;抽出脚本路径，回读实现文件一起扫" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#475569;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="255" y="70" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="② 宽松解析&#10;JSONC / TOML / YAML / frontmatter&#10;解析失败返回 null，不崩" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="③ 268 条规则 × 每个文件&#10;每条规则一个带严重度的检查函数&#10;纯静态 · 确定性 · 零 API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="860" y="195" width="230" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="④ 标注来源置信度&#10;文档示例 ×0.25 · 插件 ×0.5&#10;运行时配置 ×1 · 密钥永远 ×1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="560" y="420" width="230" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="⑤ 评分与报告&#10;五类只减不增，0–100 分 / A–F&#10;terminal / json / sarif / html" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="880" y="420" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="n3" target="n4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="n2a" target="n2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;dashed=1;" edge="1" parent="1" source="n2b" target="n2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="n4" target="n5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;" edge="1" parent="1" source="n5" target="n6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

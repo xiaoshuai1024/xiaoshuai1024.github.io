@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="重复上线事故时序" id="t3timeline1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="a" value="挂定时流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="b" value="确认弹窗切到&lt;br&gt;发布页变体" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffec99;strokeColor=#b7791f;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="c" value="请求发出：&lt;br&gt;群发接口 + 免费发布标记&lt;br&gt;（定时参数还在表单里）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffc9c9;strokeColor=#c0392b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="480" y="45" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d" value="当天：群发通知一次&lt;br&gt;＋免费发布上主页一次" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffc9c9;strokeColor=#c0392b;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="480" y="180" width="230" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e" value="界面显示：失败（空响应）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=13;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="300" width="230" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="f" value="修复：网络层熔断&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;凡携带免费发布标记的群发请求一律掐断&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="90" y="215" width="270" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="a" target="b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c0392b;" edge="1" parent="1" source="b" target="c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c0392b;" edge="1" parent="1" source="c" target="d">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="d" target="e">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="f" target="c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t5l" value="下次再触发：直接掐断" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;" vertex="1" connectable="0" parent="t5">
+          <mxGeometry x="0" y="0" relative="1" as="geometry">
+            <mxPoint as="offset" y="-10"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

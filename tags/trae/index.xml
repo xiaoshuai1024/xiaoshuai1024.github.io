@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Trae - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/trae/</link><description>Trae - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 18 Sep 2026 21:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/trae/" rel="self" type="application/rss+xml"/><item><title>字节把 Trae 一分为二：写代码的归 Code，干活的归 TraeWork</title><link>https://xiaoshuai1024.top/posts/traework-code-work-split/</link><pubDate>Fri, 18 Sep 2026 21:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/traework-code-work-split/</guid><description>先看两条数据。抖音上「trae」关键词按点赞排序，半年内最高的两条视频：一条 2.5 万赞，英雄哪里出来的《TRAE SOLO 新版本发布，AI 跑通产品研发全流程》，265 秒，演示的是在 IDE 里用 AI 从零写出一个 3D 跑酷游戏；另一条 1.7 万赞，极物君的 AI 营地的《Trae Work 保姆级教程》，465 秒，演示的是让 AI 整理一家咖啡店的报表、发票和数据仪表盘。前一条的观众是程序员，后一条的观众是想让电脑替自己干活的普通人。
+两条视频，两个没有交集的受众群体，恰好就是字节这步棋要分开的人群。Trae 官方文档最近挂出一行更新，标题只有一句：TraeWork is available。配合定价页和两条爆款视频的逐字稿，可以确认：SOLO 时代「不止编程」的那条线，已经从 IDE 里独立出来，成了单独的产品。
+先把结论放在这：**写代码的 Agent 和干活的 Agent，从此是两个物种，选型逻辑不能混用。**这刀为什么这么切、你怎么选，往下看。
+这篇拆四块：TraeWork 到底是什么、字节为什么把这刀切在这里、它和 Claude Code 这类编程 Agent 为什么不是一类工具、免费额度背后打的是什么主意。
+TraeWork 是什么：一个能动手的聊天窗 先把产品说清楚。TraeWork 打开之后长得像豆包或者 DeepSeek 的聊天界面：中间一个输入框，可以打字也可以语音。区别在能力清单：聊天窗只能给你答案，TraeWork 能直接操作你的电脑。极物君在视频里演示的能力有四样：读取文件、移动文件、修改文件内容、创建新文件。这四样叠起来，就是「整理文件夹、把乱七八糟的表格提取成一份 Excel、做一个经营仪表盘、写日报」这类活的全集。
+界面左侧有一个侧边栏，放的是豆包没有的两样东西：技能和自动化工作流。技能是预设好的任务模板，自动化工作流是可以重复触发的固定流程。这两样是把用过的活攒下来、下次一键重跑的容器，面向的是要反复做的固定任务，不是一次性问答。
+复杂任务有一条单独的路径：Plan 模式。直接执行模式下，TraeWork 拿到任务就动手；Plan 模式下它先停下来，产出一份执行清单，把不确定的地方变成问题向你确认，你答完它才继续。极物君让他基于一份咖啡店销售汇总表做可视化仪表盘，用的就是 Plan 模式：它中途停下来问了两个数据口径的问题，确认之后才开工，最后交付了一个可交互的网页仪表盘，还附了一段「建议关注」的阅读提示。
+这个设计值得单独说一句，因为它暴露了字节对这类产品的定位。写代码的 Agent 最大的风险是把代码改坏，所以要 diff 审查、要沙箱；干活的 Agent 最大的风险是理解错任务白干一场，所以它要先弄清任务再动手。同样是 Agent，风险模型不一样，交互设计就发展成了两个样子。
+这刀为什么切在这里：从 SOLO 到分家 字节的这条产品线，过去二十个月的演化路径值得摊开看，每一步都在为最后的分家做铺垫。
+2025 年 1 月，Trae 国际版发布，基于 VSCode 内核，卖点是在 IDE 里免费用 GPT-4o 和 Claude；3 月国内版跟进，配豆包模型，可切 DeepSeek。这个阶段的 Trae 是「免费 AI IDE」，打的是 Cursor 的价格锚点。</description></item></channel></rss>

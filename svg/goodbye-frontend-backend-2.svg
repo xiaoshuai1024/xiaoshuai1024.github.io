@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="720" height="360" fill="#ffffff"/>
+  <text x="360" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#1e293b">全栈的新定义：铺面，钉钉子</text>
+
+  <!-- 钉子：关键节点的深度 -->
+  <rect x="338" y="78" width="44" height="148" rx="4" fill="#2563eb"/>
+  <polygon points="338,226 382,226 360,246" fill="#2563eb"/>
+  <text x="316" y="96" text-anchor="end" font-size="12" fill="#64748b">(钉子)</text>
+  <text x="404" y="130" font-size="14" font-weight="700" fill="#1e293b">关键节点的深度</text>
+  <text x="404" y="152" font-size="12" fill="#64748b">模型替代不了的判断力</text>
+  <text x="404" y="172" font-size="12" fill="#64748b">在你最熟的那一两点上</text>
+
+  <!-- 面：端到端负责 + AI 杠杆 -->
+  <rect x="60" y="252" width="600" height="58" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="70" y="276" font-size="12" fill="#64748b">(面)</text>
+  <text x="360" y="288" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">端到端负责  +  AI 当杠杆</text>
+
+  <!-- 底部说明 -->
+  <text x="360" y="338" text-anchor="middle" font-size="12.5" fill="#475569">面铺开，钉子钉深 —— 不是样样精通，是端到端能扛，关键处有深度</text>
+</svg>

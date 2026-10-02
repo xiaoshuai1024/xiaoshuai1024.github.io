@@ -1,0 +1,12 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>AI工作流 - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/ai%E5%B7%A5%E4%BD%9C%E6%B5%81/</link><description>AI工作流 - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Jul 2026 18:00:00 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/ai%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="self" type="application/rss+xml"/><item><title>同样的 Claude Code,三个月把你甩开三倍的是这群人</title><link>https://xiaoshuai1024.top/posts/ai-dev-claude-code-power-user/</link><pubDate>Mon, 27 Jul 2026 18:00:00 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/ai-dev-claude-code-power-user/</guid><description>我观察到一个现象：两个水平差不多的开发者同时开始用 Claude Code，三个月后效率能差出三倍。
+工具一样，模型一样，差距在哪？不是提示词写得花不花哨——提示词的边际收益在第一个月就到顶了。真正拉开差距的，是对 Claude Code 作为工程工具的完整理解。
+很多人用 Claude Code 的方式，本质上还是 Chat 那套：在一个会话里不断提问，上下文越滚越胀，然后会话崩了、模型开始胡扯，就关掉重开。这不是用工具，这是在把 IDE 当 ChatGPT 用。
+而真正用得好的人，理解这套工具的完整能力面：
+命令是给 AI 套纪律边界，不是「问它一个问题」 Skill 是把经验固化成可复用的命令，不是写一次性提示词 Subagent 是一个人指挥一群 AI，不是一次只做一件事 打断与恢复是效率杠杆，不是失败 这篇文章把这套技能树拆开讲。每条都不是「技巧」，是工作方式的切换——从被动响应到主动编排，这才是高手和新手的真正差距。
+一、Claude Code 使用金字塔 我对 Claude Code 的使用深度分了三个层级。大多数人停在第一层，高手在第二层和第三层之间切换。
+第一层，对话级。把 Claude Code 当高级 ChatGPT 用——打开就聊，问问题、写代码、修 bug，一个会话从头跑到尾，跑崩了就重开。这一层能解决日常 60% 的问题，但你永远在给 AI 当助理——每次重复上下文、每次重新描述项目结构、每次等着它慢慢推理。
+第二层，命令级。开始用 /command、Skill、Task 这些结构化接口。这一层的核心变化是：你不写提示词了，你调用预定义的流程。命令像 API 一样有输入输出契约，Skill 像函数一样封装了可复用的逻辑。这一层效率提升不是线性的，是乘法——写一次命令，反复用几百次。
+第三层，编排级。同时启动多个 Subagent，各自做独立任务，你在中间做决策和收敛。用到 Workflow 做多阶段自动化：审查、修复、验证全部并行，最后一轮收敛才叫你。这一层你从「AI 的操作员」变成了「AI 的指挥官」。
+这个金字塔得先讲明白，因为后面每一节都是在讲「怎么从当前层爬到上一层」。
+二、内置命令与工具：先弄清楚有什么 Claude Code 的「命令」其实分三类：斜杠命令（/xxx 在会话里输入）、工具（内置函数，AI 在后台调用）、CLI 子命令（终端里输入 claude xxx）。三者的区别决定了你用什么方式控制 AI，这点得先搞清再往下讲。
+斜杠命令（Slash Commands） 在会话里直接输入 /xxx 调用。这是你作为用户主动控制 AI 的主要方式。</description></item></channel></rss>

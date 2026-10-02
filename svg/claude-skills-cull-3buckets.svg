@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="470" viewBox="0 0 920 470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="920" height="470" fill="#ffffff"/>
+  <text x="460" y="40" text-anchor="middle" font-size="18" fill="#1e293b" font-weight="600">skill 三档分类与触发证据</text>
+
+  <!-- bucket 1 -->
+  <rect x="40" y="70" width="270" height="330" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="175" y="102" text-anchor="middle" font-size="15" fill="#1e293b" font-weight="600">必留档 · 20 个</text>
+  <text x="60" y="135" font-size="12" fill="#475569">① 流程点名（8 自研）</text>
+  <text x="75" y="155" font-size="12" fill="#64748b">AGENTS.md 写死调用路径</text>
+  <text x="60" y="185" font-size="12" fill="#475569">② 机检直调（4 自研）</text>
+  <text x="75" y="205" font-size="12" fill="#64748b">make check-ai-smell 等</text>
+  <text x="60" y="235" font-size="12" fill="#475569">③ 开源工作流（3 第三方）</text>
+  <text x="75" y="255" font-size="12" fill="#64748b">OpenSpec · 102 条变更台账</text>
+  <text x="60" y="285" font-size="12" fill="#475569">④ 工具直调（3 第三方）</text>
+  <text x="75" y="305" font-size="12" fill="#64748b">drawio 等 · 被流程文件引用</text>
+  <text x="60" y="335" font-size="12" fill="#475569">⑤ 点名制（2 第三方）</text>
+  <text x="75" y="355" font-size="12" fill="#64748b">caveman / pua · 本地不进 git</text>
+  <text x="60" y="385" font-size="12" fill="#2563eb" font-weight="600">判据：有触发证据</text>
+  <text x="60" y="405" font-size="12" fill="#64748b">会话日志 / target / 被引用</text>
+
+  <!-- bucket 2 -->
+  <rect x="330" y="70" width="270" height="330" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="465" y="102" text-anchor="middle" font-size="15" fill="#1e293b" font-weight="600">降级档 · 留而不用</text>
+  <text x="350" y="135" font-size="12" fill="#475569">方法论类：</text>
+  <text x="365" y="155" font-size="12" fill="#64748b">grill-me / brainstorm /</text>
+  <text x="365" y="175" font-size="12" fill="#64748b">writing-plans 等</text>
+  <text x="350" y="210" font-size="12" fill="#475569">问题：无触发路径</text>
+  <text x="350" y="245" font-size="12" fill="#94a3b8" font-weight="600">判据：30 天零次救场</text>
+
+  <!-- bucket 3 -->
+  <rect x="620" y="70" width="260" height="330" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="750" y="102" text-anchor="middle" font-size="15" fill="#1e293b" font-weight="600">不进库档 · 不装</text>
+  <text x="640" y="135" font-size="12" fill="#475569">· 领域不搭（UI 设计类）</text>
+  <text x="640" y="165" font-size="12" fill="#475569">· 长期停更无维护</text>
+  <text x="655" y="185" font-size="12" fill="#64748b">不进 git、不进规范入口</text>
+  <text x="640" y="215" font-size="12" fill="#475569">· 与自研流程重复</text>
+  <text x="655" y="235" font-size="12" fill="#64748b">重复不是冗余，是干扰</text>
+  <text x="640" y="270" font-size="12" fill="#94a3b8" font-weight="600">判据：一问都不过</text>
+
+  <text x="460" y="445" text-anchor="middle" font-size="12" fill="#64748b">去留三问：流程问 / 触发问 / 回手问</text>
+</svg>

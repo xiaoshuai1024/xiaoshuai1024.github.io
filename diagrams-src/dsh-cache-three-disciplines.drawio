@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="dsh-cache-three-disciplines" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="dOrder" value="① order 升序拼接&lt;br&gt;（-100 身份 / 0 人设 / 100-199 工具）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="380" height="78" as="geometry"/>
+        </mxCell>
+        <mxCell id="dLog" value="② 日志仅追加 · 摘要吃旧前缀" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="288" width="380" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="dSnap" value="③ 快照不变就不动历史" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="410" width="380" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="tgtKv" value="前缀逐字节稳定&lt;br&gt;→ KV 缓存命中" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="650" y="256" width="360" height="118" as="geometry"/>
+        </mxCell>
+        <mxCell id="noteBreak" value="任一条破坏 = 后续全部按未命中计费" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="170" y="556" width="560" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="eOrder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.25;" edge="1" parent="1" source="dOrder" target="tgtKv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eLog" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="dLog" target="tgtKv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eSnap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#64748b;fontColor=#1e293b;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.75;" edge="1" parent="1" source="dSnap" target="tgtKv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,30 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="工具爆炸治理" id="toomany1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="prob" value="共同问题：工具数量涨到上百个，「全量列表塞 prompt」失效" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="700" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="left" value="Claude Code 的路：subagent 分流" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="150" width="440" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="leftd" value="子代理自带精简工具集，主会话工具面不膨胀&#10;v1.0.88 没有对工具列表本身做治理——全量进请求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="230" width="440" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="right" value="Codex 的路：暴露面分级 + 索引" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="150" width="440" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="rightd" value="ToolExposures bitflags：DIRECT 直接给模型 · DEFERRED 按&#10;需搜索发现（tool_search + tool_discovery.rs）· CODE_MODE 只在&#10;编排模式可见。MCP 工具也可标 DEFERRED（mcp_tool_exposure.rs）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="230" width="440" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="prob" target="left"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="prob" target="right"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="fnote" value="三个通用方向：分面（subagent）、做索引（tool search）、做编排（code-mode）——Codex 三个都做了。&#10;重度扩展用户在两边的体验差异，大多能追溯到这张图。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="160" y="370" width="860" height="46" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

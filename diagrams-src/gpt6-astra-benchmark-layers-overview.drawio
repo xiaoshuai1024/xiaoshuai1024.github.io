@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="分层总览" id="ov1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="GPT-6 跑分分层：逼近满分的是哪一层，跳档的是哪一层" style="text;html=1;align=center;fontColor=#1e293b;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="760" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="推理层：逼近满分" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="240" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1d" value="FrontierMath Tier 4：98%&#10;ARC-AGI 3：99.9%&#10;满分区里看不出模型差别" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="90" width="740" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="智能体编程层：跳档与稳涨并存" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="240" width="240" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2d" value="Terminal-Bench（终端开发）：57.9% 对上代 37.3%，一步跳 20.6 个百分点&#10;DeepSWE（智能体编程）：74.1% 对 70.8%，涨 3.3 个百分点&#10;长链路 agent 任务跳档，中等链路稳涨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="240" width="740" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="生成层：小幅提升" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3d" value="纯代码生成：稳涨而非突破&#10;第三方评测的克制结论「小幅提升非突破」指的就是这一层&#10;与上面的跳档并不矛盾，分层而已" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ca8a04;fontColor=#1e293b;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="420" width="740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="concl" value="你的体感取决于你的活落在哪一层：重活长活接近跳档层，日常生成停在稳涨层" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#475569;fontSize=13;dashed=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="570" width="880" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

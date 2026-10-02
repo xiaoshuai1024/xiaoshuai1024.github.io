@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="模型综合能力个人快照" id="models">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="模型综合能力·个人快照（截至 2026.07）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="20" width="820" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="disclaimer" value="声明:基于 SWE-bench Verified / SuperCLUE / MMLU-Pro / LMSYS Arena 等公开评测的综合体感,非官方排名。供参考。" style="text;html=1;align=center;fontColor=#64748b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="170" y="55" width="820" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t1bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;opacity=10;container=1;collapsible=0;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="1040" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t1l" value="第一梯队（综合最强）" style="text;html=1;align=left;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="110" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m0" value="Kimi K3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="145" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="Claude Opus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="145" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="GPT-5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="145" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="GLM 5.2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="595" y="145" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t1r" value="四者在复杂推理/长程编码/中文场景上各有优势,差距不大。" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="770" y="150" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t2bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;opacity=7;container=1;collapsible=0;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="1040" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t2l" value="第二梯队（主力可用）" style="text;html=1;align=left;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="DeepSeek V4 Pro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="285" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="Qwen3-coder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="285" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m6" value="Gemini 3.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="285" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" value="Claude Sonnet 4.5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="285" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t2r" value="性价比突出;日常工程已够用。各有所长:DeepSeek 推理/Qwen 稳定/Gemini 多模态。" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="770" y="290" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t3bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#64748b;strokeColor=#64748b;opacity=7;container=1;collapsible=0;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="1040" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t3l" value="第三梯队（特定场景）" style="text;html=1;align=left;fontColor=#64748b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="388" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m9" value="Llama 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="145" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t3r" value="特定场景/地区网络环境下有竞争力,综合工程能力与一梯队尚有差距。" style="text;html=1;align=left;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="420" width="400" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tip" value="💡 提醒:具体分数每周在变,梯队比名次更值得关注。一个用好 harness 的二梯队模型,经常胜过一个 harness 拉垮的一梯队模型。" style="text;html=1;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="960" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

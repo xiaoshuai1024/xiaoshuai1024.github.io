@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="OpenLuban 生态全景" id="eco1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ===== 用户层 ===== -->
+        <mxCell id="user" value="访客 / 运营" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 应用服务层容器 ===== -->
+        <mxCell id="app_layer" value="应用服务（本机 dev 裸进程，端口互不冲突）" style="rounded=0;fillColor=none;strokeColor=#94a3b8;dashed=1;fontColor=#475569;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="1240" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="engine" value="engine :5173&#10;Vue3 SPA&#10;运营后台 + 设计器" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="190" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="website" value="web :3000&#10;Nuxt SSR&#10;访客公开站点" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="190" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="bff" value="bff :3100&#10;Next.js&#10;聚合 / 鉴权 / 转码" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="190" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="backend" value="backend :8080&#10;Spring Boot&#10;业务后端（唯一权威）" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="190" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 核心能力层容器 ===== -->
+        <mxCell id="cap_layer" value="核心能力（被设计器与渲染端共用）" style="rounded=0;fillColor=none;strokeColor=#94a3b8;dashed=1;fontColor=#475569;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="80" y="360" width="1240" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="designer" value="可视化设计器&#10;/designer 全屏" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="420" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="renderer" value="双渲染引擎&#10;设计态 / 运行态" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="420" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="schema" value="Schema 体系&#10;物料协议 + 版本治理" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="420" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="uilib" value="luban-ui 组件库&#10;Vue3 + Storybook" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="420" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ai" value="AI 助手&#10;图片 → 低代码页面" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="930" y="420" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="client" value="client&#10;flutter 多端" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="420" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 中间件层容器 ===== -->
+        <mxCell id="infra_layer" value="中间件（远端 dev 服务器 192.168.100.248）" style="rounded=0;fillColor=none;strokeColor=#94a3b8;dashed=1;fontColor=#475569;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="380" y="580" width="640" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="mysql" value="MySQL :13306&#10;db=luban" style="shape=cylinder3;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="620" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="redis" value="Redis :16379&#10;缓存 / 会话" style="shape=cylinder3;boundedLbl=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="780" y="620" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 已废弃标注 ===== -->
+        <mxCell id="deprecated" value="backend-go（Go 后端）&#10;已废弃 DEPRECATED" style="rounded=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#94a3b8;fontSize=11;fontStyle=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="780" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 边 ===== -->
+        <mxCell id="e1" value="SSR" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="user" target="website">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="运营操作" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="user" target="engine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="/api proxy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="engine" target="bff">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="website" target="bff">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="bff" target="backend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="backend" target="mysql">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="backend" target="redis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="设计态共用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;dashed=1;" edge="1" parent="1" source="designer" target="uilib">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;dashed=1;" edge="1" parent="1" source="renderer" target="schema">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;dashed=1;" edge="1" parent="1" source="uilib" target="schema">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

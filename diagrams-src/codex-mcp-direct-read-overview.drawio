@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="截图vs直读" id="cmr1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="同一个数据问题，两条链路：你搬运，还是它自己查" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="lh" value="截图链路" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="打开后台&#10;人眼找数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="110" width="150" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="截图 → 粘贴&#10;来回五六个回合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="196" width="150" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="AI 对着图片猜&#10;数字可能抄错" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="282" width="150" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="结论没法复核" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="368" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="a1" target="a2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="a2" target="a3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="a3" target="a4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rh" value="直读链路" style="text;html=1;fontSize=13;fontStyle=1;fontColor=#2563eb;align=left;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="一句问题&#10;「查清楚再回答我」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="110" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="AI 自己开文件/查库&#10;state.json / SQLite / MCP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="196" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="读结构化字段&#10;零抄写，可多轮补查" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="282" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="结论带查询语句&#10;当场可重演" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="368" width="160" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="b2" target="b3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;" edge="1" parent="1" source="b3" target="b4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cmp" value="左边你是人肉搬运工，右边你是提问者。角色换位，结论的可信度跟着换位" style="text;html=1;fontSize=12;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="330" y="450" width="620" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="vs" value="VS" style="text;html=1;fontSize=16;fontStyle=1;fontColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="370" y="240" width="60" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,121 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="stars" name="Star排行">
+    <mxGraphModel dx="800" dy="500" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="0" page="0" pageScale="1" pageWidth="1000" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Claude Code 必装 MCP 服务 · GitHub Star 排行（2026-08-30）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="12" width="960" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="官方参考合集（servers）" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="55" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="59" width="620" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="9.0万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="878" y="55" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="Context7" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="99" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="103" width="423" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="6.1万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="681" y="99" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="Chrome DevTools MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="143" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="147" width="346" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="5.0万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="604" y="143" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="Playwright MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="187" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="191" width="252" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="3.7万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="510" y="187" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="GitHub MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="231" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="235" width="225" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="3.3万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="483" y="231" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" value="Serena" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="275" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="279" width="197" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" value="2.9万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="455" y="275" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n7" value="Figma Context MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="319" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="323" width="108" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" value="1.6万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="366" y="319" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" value="PAL MCP（原 Zen）" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="363" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="367" width="81" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" value="1.2万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="339" y="363" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" value="Desktop Commander" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="407" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="411" width="65" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s9" value="0.9万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="323" y="407" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n10" value="Firecrawl MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="451" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="455" width="51" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s10" value="0.7万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="309" y="451" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n11" value="Exa MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="495" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="499" width="34" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s11" value="0.5万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="292" y="495" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n12" value="Notion MCP" style="text;html=1;align=right;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="10" y="539" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;" vertex="1" parent="1">
+          <mxGeometry x="250" y="543" width="32" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="s12" value="0.5万" style="text;html=1;align=left;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="539" width="80" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

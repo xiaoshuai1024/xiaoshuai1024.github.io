@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="CC复用主循环" id="reuse1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="main" value="主会话：VE 主循环（同一个 Node 进程）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="940" height="500" as="geometry"/>
+        </mxCell>
+        <mxCell id="task" value="Task 工具被调用（免权限：checkPermissions 直接 allow）&#10;描述文本动态列出可用 agent 类型（PfB @ L409611）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="90" width="860" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="qgb" value="QgB 启动器（L417610）：构造精简 toolUseContext&#10;maxThinkingTokens: 0 · mcpClients: [] · isNonInteractiveSession: true&#10;独立 agentId（randomUUID）+ 独立 AbortController" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="176" width="860" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="ve" value="yield* VE(...) —— 直接复用主循环 generator&#10;subagent 跑的就是主会话那个函数，只是换了上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="280" width="860" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="back" value="结果作为普通 tool_result 回填主循环&#10;没有专门通信层、没有持久化，进程退出即蒸发" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="376" width="860" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="src" value="agent 来源：五级优先级合并&#10;内置(general-purpose) &lt; 插件 &lt; 用户设置 &lt; 项目设置 &lt; 策略（kM @ L393415）&#10;frontmatter：name / description / when-to-use / tools / model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="466" width="860" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="task" target="qgb"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="qgb" target="ve"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="ve" target="back"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

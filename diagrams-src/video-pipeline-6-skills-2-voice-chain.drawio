@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="声音处理链" id="vc1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="in" value="&lt;b&gt;输入&lt;/b&gt;&lt;br&gt;口播分句 + 参考音 wav" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="syn" value="&lt;b&gt;IndexTTS-2 克隆合成&lt;/b&gt;&lt;br&gt;WSL 环境逐句合成&lt;br&gt;interval_silence=250 治句间杂音" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="&lt;b&gt;① 裁剪&lt;/b&gt;&lt;br&gt;句首尾静音&lt;br&gt;留 120ms 呼吸垫" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="270" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;② 对齐&lt;/b&gt;&lt;br&gt;逐句 RMS&lt;br&gt;-18dB 均衡" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="195" y="282" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="&lt;b&gt;③ 提亮压齿&lt;/b&gt;&lt;br&gt;treble g=2&lt;br&gt;→ deesser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="270" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="&lt;b&gt;④ 限幅&lt;/b&gt;&lt;br&gt;alimiter 0.7&lt;br&gt;volume -1dB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="545" y="284" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="&lt;b&gt;⑤ 提速&lt;/b&gt;&lt;br&gt;atempo 1.06&lt;br&gt;时间戳等比缩放" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="270" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="out" value="&lt;b&gt;输出&lt;/b&gt;&lt;br&gt;成片音频 mp3 + 边界时间戳 json&lt;br&gt;（合成环节直接对齐字幕）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1fae5;strokeColor=#0f766e;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="420" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="in" target="syn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="syn" target="p1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="p2" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="p4" target="p5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0f766e;fontSize=11;" edge="1" parent="1" source="p5" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="why" value="前两步治「断」，后两步治「刺」，最后一步治「拖」" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="250" y="500" width="320" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

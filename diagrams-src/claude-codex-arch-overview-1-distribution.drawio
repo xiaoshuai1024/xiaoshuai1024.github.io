@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="发布物对比" id="dist1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ccTitle" value="Claude Code" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="40" width="360" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxTitle" value="Codex" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="360" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccOld" value="v1.0.88（2025 年中）&#10;npm 包里就是一个 cli.js&#10;约 9MB，prettier 展开后 43 万行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="130" y="90" width="330" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccNew" value="v2.1.229（2026-08 本机）&#10;npm 包里只剩 claude.exe&#10;307MB 原生 PE 二进制，JS 被编译进可执行文件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="130" y="230" width="330" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ccArrow" value="发布物形态变了" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="ccOld" target="ccNew">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxRepo" value="openai/codex（GitHub 开源）&#10;Rust workspace，130+ 个 crate&#10;core / tui / exec / app-server / skills / sandboxing…" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="90" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxBuild" value="cargo 编译出 codex 二进制&#10;源码可直接读，crate 边界就是模块边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="230" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="cxArrow" value="编译" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="cxRepo" target="cxBuild">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="一边是闭源混淆、靠逆向和字符串锚点读；一边是开源工程、crate 名即目录名。&#10;读法不同，但都能读到agent 调度的核心逻辑。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="180" y="380" width="740" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

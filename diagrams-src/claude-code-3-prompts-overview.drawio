@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三翻车三药方" id="cp1">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="460" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="AI 翻车就三种姿势，三个提示词各治一个" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="写偏：你要一个缓存&#10;它送你一套缓存体系" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="90" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="写瞎：不读你的代码&#10;按通用最佳实践重写" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="190" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="幻觉完工：说完成了&#10;一跑编译不过" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="「先出计划，我确认再动手」&#10;验收方向：列出改什么、不做什么、要拍板的问题" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="90" width="290" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="「先读文件，复述你理解的现状」&#10;验收理解：形容词是遮羞布，名词才是消化过的证据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="190" width="290" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="「跑完检查，绿灯了再汇报」&#10;验收完成：退出码说了算，不许改测试凑绿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="290" width="290" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="k1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="c1" target="p1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="c2" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2563eb;endArrow=block;" edge="1" parent="1" source="c3" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="core" value="公共内核：把验收权拿回手里&#10;方向我说了算 / 理解复述对照 / 完成看退出码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="170" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="k4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#94a3b8;endArrow=block;dashed=1;" edge="1" parent="1" source="p1" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#94a3b8;endArrow=block;dashed=1;" edge="1" parent="1" source="p2" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="k6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#94a3b8;endArrow=block;dashed=1;" edge="1" parent="1" source="p3" target="core">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

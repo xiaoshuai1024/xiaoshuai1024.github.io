@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="recall-four-steps" id="rag-recall-6">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t" value="增加召回率,是把这四步分别做对" style="text;html=1;whiteSpace=wrap;align=center;fontStyle=1;fontSize=15;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="320" y="30" width="360" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1" value="① 切片&#10;管语义完整" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="② 向量化&#10;管语义表达" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="③ 匹配&#10;管找得到" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="④ 分级&#10;管用得对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="100" width="200" height="64" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f1" value="切成完整语义单元&#10;贴边界 + overlap" style="text;html=1;whiteSpace=wrap;align=center;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="中文专用模型&#10;本地部署" style="text;html=1;whiteSpace=wrap;align=center;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="280" y="180" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="多路召回 + RRF&#10;metadata 先缩池" style="text;html=1;whiteSpace=wrap;align=center;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" value="按置信度分档&#10;低档拒答不硬编" style="text;html=1;whiteSpace=wrap;align=center;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="760" y="180" width="200" height="34" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="b2" target="b3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="b3" target="b4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

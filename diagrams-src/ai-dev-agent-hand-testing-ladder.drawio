@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三层阶梯" id="ladder">
+    <mxGraphModel dx="800" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="780" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- 第一层:H5 -->
+        <mxCell id="l1" value="第一层 · H5 Playwright" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="520" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1n" value="标准 DOM · headed 可视化 · 调试快&#10;过滤 90% 显性问题:事件没绑、路由 404、校验失效" style="text;html=1;align=left;fontColor=#475569;fontSize=12;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="52" y="78" width="496" height="56" as="geometry"/>
+        </mxCell>
+        <!-- 第二层:运营后台 -->
+        <mxCell id="l2" value="第二层 · 运营后台 E2E" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="520" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2n" value="Element Plus · 管理和配置侧旅程&#10;验证「后台改配置 → C 端生效」跨端联动" style="text;html=1;align=left;fontColor=#475569;fontSize=12;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="112" y="238" width="496" height="56" as="geometry"/>
+        </mxCell>
+        <!-- 第三层:小程序 -->
+        <mxCell id="l3" value="第三层 · 微信小程序 automator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="160" y="360" width="520" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3n" value="真实小程序环境 · 启动慢 · 调试难&#10;wx.login + code2session 换 token,裸 input 可 fill" style="text;html=1;align=left;fontColor=#475569;fontSize=12;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="172" y="398" width="496" height="56" as="geometry"/>
+        </mxCell>
+        <!-- 向下箭头 -->
+        <mxCell id="a1" value="H5 通过才进" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="后台通过才进" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;endArrow=classic;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- 禁止跳层标注 -->
+        <mxCell id="ban" value="禁止跳层&#10;automator 不是首选" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#dc2626;fontColor=#dc2626;fontSize=12;fontStyle=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="380" width="150" height="68" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,20 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="d4" name="personal-four">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="600" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="组织打法 → 个人四条:都在砍「等待」" style="text;html=1;fontSize=16;fontColor=#1e293b;align=left;" vertex="1" parent="1"><mxGeometry x="40" y="14" width="420" height="28" as="geometry"/></mxCell>
+        <mxCell id="core" value="你的交付周期&#10;想法 → 上线" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=14;" vertex="1" parent="1"><mxGeometry x="220" y="170" width="180" height="90" as="geometry"/></mxCell>
+        <mxCell id="p1" value="1. spec 前置&#10;开工前十分钟:需求+约束+验收标准" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=8;" vertex="1" parent="1"><mxGeometry x="40" y="60" width="220" height="64" as="geometry"/></mxCell>
+        <mxCell id="p2" value="2. 统一工作面&#10;一个任务一个会话管到底,不跳工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=8;" vertex="1" parent="1"><mxGeometry x="360" y="60" width="220" height="64" as="geometry"/></mxCell>
+        <mxCell id="p3" value="3. 验收自动化&#10;单测、Lint、断言跑在合入前" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=8;" vertex="1" parent="1"><mxGeometry x="40" y="310" width="220" height="64" as="geometry"/></mxCell>
+        <mxCell id="p4" value="4. 换账本&#10;记「想法到上线几天」,不记「AI 写了多少」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;arcSize=8;" vertex="1" parent="1"><mxGeometry x="360" y="310" width="220" height="64" as="geometry"/></mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="p1" target="core"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="p2" target="core"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="p3" target="core"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#94a3b8;endArrow=none;dashed=1;" edge="1" parent="1" source="p4" target="core"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

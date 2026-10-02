@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="mattpocock/skills 项目总览" id="mp-overview">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="mattpocock/skills · 25 个 skill 两条轴" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="16" width="500" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="eng" value="Engineering 工程向（16 个）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="440" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="prod" value="Productivity 通用向（9 个）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="80" width="440" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="engUser" value="用户触发（编排）&#10;/grill-with-docs 盘问&#10;/triage 分诊&#10;/to-spec 规格&#10;/to-tickets 拆票&#10;/implement 实现&#10;/wayfinder 探路&#10;/ask-matt 选刀&#10;/improve-arch 重构盘点&#10;/setup 初始化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="210" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="engModel" value="模型触发（纪律）&#10;/tdd 红绿循环&#10;/diagnosing-bugs 复现&#10;/code-review 双轴审查&#10;/codebase-design 深模块&#10;/domain-modeling 建模&#10;/prototype 原型&#10;/research 调研&#10;/wizard 向导&#10;/resolving-conflicts 解冲突" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="160" width="210" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="prodUser" value="用户触发（编排）&#10;/grill-me 拷问&#10;/handoff 交接&#10;/teach 教学&#10;/to-questionnaire 问卷&#10;/wait-what 重讲" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="160" width="210" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="prodModel" value="模型触发（纪律）&#10;/grilling 设计树追问&#10;/writing-for-agents 写文档&#10;&#10;&#10;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="160" width="210" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="用户触发的负责编排流程，模型触发的承载可复用纪律。用户触发可以调用模型触发，反之不行。" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="380" width="800" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="install" value="安装：claude plugins install mattpocock-skills&#10;或 npx skills@latest add mattpocock/skills（MIT，21 万 Star）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="440" width="500" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="eng" target="engUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="eng" target="engModel"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="prod" target="prodUser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;endArrow=block;" edge="1" parent="1" source="prod" target="prodModel"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,17 @@
+<mxfile host="app.diagrams.net"><diagram id="l1" name="ladder"><mxGraphModel dx="800" dy="600" grid="0" page="1" pageWidth="980" pageHeight="420"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="h" value="Codex 用法 5 级阶梯（90% 的人卡在 L2）" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="240" y="16" width="480" height="28" as="geometry"/></mxCell>
+<mxCell id="s1" value="L1 会提问&#10;单轮问答&#10;当高级搜索" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="320" width="140" height="70" as="geometry"/></mxCell>
+<mxCell id="s2" value="L2 喂上下文&#10;规则文件+边界&#10;多数人停在这" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1" vertex="1" parent="1"><mxGeometry x="230" y="250" width="140" height="70" as="geometry"/></mxCell>
+<mxCell id="s3" value="L3 拆任务&#10;每步有完成判据&#10;分水岭" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="400" y="180" width="140" height="70" as="geometry"/></mxCell>
+<mxCell id="s4" value="L4 建管线&#10;流程固化成 skill/脚本&#10;跑三遍再固化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1"><mxGeometry x="570" y="110" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="s5" value="L5 全自治&#10;定时管线+硬门禁&#10;只看结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1" vertex="1" parent="1"><mxGeometry x="750" y="40" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="n1" value="判据：10 次对话里 >3 次连续追问？" style="text;html=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1"><mxGeometry x="30" y="400" width="220" height="20" as="geometry"/></mxCell>
+<mxCell id="n2" value="判据：规则文件改过 3 轮？" style="text;html=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1"><mxGeometry x="215" y="330" width="180" height="20" as="geometry"/></mxCell>
+<mxCell id="n3" value="判据：每步能说清怎么算做完" style="text;html=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1"><mxGeometry x="385" y="260" width="190" height="20" as="geometry"/></mxCell>
+<mxCell id="n4" value="判据：5 个以上在用的固化流程" style="text;html=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1"><mxGeometry x="555" y="190" width="200" height="20" as="geometry"/></mxCell>
+<mxCell id="n5" value="判据：3 条带硬门禁的自治管线" style="text;html=1;fontColor=#64748b;fontSize=11;" vertex="1" parent="1"><mxGeometry x="735" y="120" width="200" height="20" as="geometry"/></mxCell>
+<mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1e293b;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

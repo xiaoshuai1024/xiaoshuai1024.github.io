@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="三机制工作流" id="flow1">
+    <mxGraphModel dx="820" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="task" value="agent 接到办公任务&#10;「做一份对账表」" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="机制一 程序化编辑&#10;Facade API 走命令体系写入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="180" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1note" value="改错了?撤销命令一步回&#10;要审计?命令历史是账本" style="text;html=1;fontColor=#64748b;fontSize=12;align=left;" vertex="1" parent="1">
+          <mxGeometry x="660" y="182" width="220" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="机制二 输出验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="304" width="280" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2a" value="内容检查&#10;数值与公式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="300" width="130" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2b" value="渲染截图&#10;样子对不对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="710" y="300" width="130" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2c" value="布局诊断&#10;溢出与遮挡" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="400" width="130" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="机制三 worktree 协作&#10;agent 在隔离草稿里干活" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="330" y="520" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="human" value="人审&#10;业务判断:折扣量级对不对" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="646" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ok" value="合并进正本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="240" y="790" width="170" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="no" value="打回重做" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#64748b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="550" y="790" width="170" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="et" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="task" target="m1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="m1" target="m2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#cbd5e1;" edge="1" parent="1" source="m2" target="m2a">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#cbd5e1;" edge="1" parent="1" source="m2" target="m2b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#cbd5e1;" edge="1" parent="1" source="m2" target="m2c">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="m2" target="m3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="m3" target="human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ehok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;" edge="1" parent="1" source="human" target="ok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ehno" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;" edge="1" parent="1" source="human" target="no">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eloop" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#94a3b8;dashed=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="no" target="m3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="816"/>
+              <mxPoint x="900" y="550"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

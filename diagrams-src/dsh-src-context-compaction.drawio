@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="上下文管理与压缩" id="ctx">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="log" value="会话事件日志（append-only，JSONL）&#10;seq 从 0 单调递增&#10;assistant/chunk、tool/result、turn/start…&#10;一个事件都不可变、不删改" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="330" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="surface" value="surface 投影（session.surface.nodes）&#10;surfaceOp {op:'replace', start, end}&#10;→ folded.replacements[] + shadowedSeqs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="330" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="messages" value="deriveMessages()&#10;模型实际看到的消息列表&#10;= 日志按投影折叠后的结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="60" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="trigger" value="压缩触发（compaction-basic）&#10;压力触发：used / contextWindow ≥ 0.8&#10;溢出触发：provider 报 CONTEXT_WINDOW_EXCEEDED" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="240" width="290" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="summarize" value="摘要请求：原文前缀 + COMPACTION_INSTRUCTION&#10;作为最后一条 user 消息（KV 前缀命中）&#10;保留尾部 retainRatio=0.16 原文，工具调用配对平衡" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="370" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="commit" value="提交顺序：compaction/summary&#10;→ user/message 带 surfaceOp replace&#10;→ compaction/end（start 事件是持久锁）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="400" width="370" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="prune" value="工具结果裁剪（tool-result-pruner）&#10;确定性码点级 head/tail 截断 + PRUNE_MARKER&#10;紧贴 replacement 记 shadow 价格" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="340" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="spill" value="外溢（spill）：超限文本结果落磁盘&#10;上下文只留 head/tail 预览 + 通知&#10;read 工具豁免（防读→溢→读死循环）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="340" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="runtime" value="运行时上下文（runtime context）&#10;持久 user 消息：最新快照覆盖旧快照&#10;skills 目录、todo、goal 都走这条路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="570" width="370" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="投影替换" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="log" target="surface">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="折叠导出" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="surface" target="messages">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="trigger" target="summarize">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="summarize" target="commit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="写回投影" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;dashed=1;" edge="1" parent="1" source="commit" target="surface">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="prune" target="trigger">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="spill" target="prune">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="runtime" target="surface">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

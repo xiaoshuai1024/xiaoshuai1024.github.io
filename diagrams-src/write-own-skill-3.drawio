@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="de-ai-smell 工作流" id="wos3">
+    <mxGraphModel dx="900" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1060" pageHeight="440" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="load" value="写作前&#10;模型自动加载 SKILL.md&#10;L1/L2 词表 + 行为规范" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="write" value="写作中&#10;禁词避开、破折号 ≤ 2 处&#10;加粗每节 ≤ 2 处、禁排比句式" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="160" width="210" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="scan" value="写后扫描&#10;make check-ai-smell&#10;列出命中行号" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="160" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="human" value="人工判断&#10;误报就跳过&#10;（tags / 反讽 / 业务术语）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="320" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="fix" value="确认命中&#10;手动改掉&#10;脚本只定位不自动改" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="850" y="160" width="170" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="load" target="write">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="write" target="scan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;" edge="1" parent="1" source="scan" target="human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="真命中" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="human" target="fix">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

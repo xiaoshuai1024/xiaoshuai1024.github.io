@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="vibe-guide-01" name="五层方法总览">
+    <mxGraphModel dx="900" dy="500" grid="0" page="1" pageScale="1" pageWidth="900" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="vibe coding 五层方法：从一句许愿到敢上线" style="text;html=1;fontSize=16;fontColor=#1e293b;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="620" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="逐层往上，投入越重；卡住了先定位自己在几楼" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="42" y="44" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="L5" value="&lt;b&gt;第 5 层 Quality Gate&lt;/b&gt;&lt;br/&gt;测试先行 + 质量门禁：产出敢不敢上线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#2563eb;strokeWidth=2;fontColor=#1e293b;fontSize=14;align=left;spacingLeft=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="252" y="76" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="L4" value="&lt;b&gt;第 4 层 Context&lt;/b&gt;&lt;br/&gt;上下文当消耗品管：喂对料，省 token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=left;spacingLeft=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="216" y="148" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="L3" value="&lt;b&gt;第 3 层 工程流程&lt;/b&gt;&lt;br/&gt;需求、执行、验证三个交付物留痕" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=left;spacingLeft=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="178" y="220" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="L2" value="&lt;b&gt;第 2 层 Skill&lt;/b&gt;&lt;br/&gt;好用的 prompt 固化成可复用能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=left;spacingLeft=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="140" y="292" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="L1" value="&lt;b&gt;第 1 层 Prompt&lt;/b&gt;&lt;br/&gt;一句话许愿 → 意图/上下文/模板/参数/反馈/迭代" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;align=left;spacingLeft=10;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="104" y="364" width="300" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="side1" value="器：模型订阅" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#94a3b8;dashed=1;fontColor=#64748b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="372" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="side2" value="法：流程与验收" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2563eb;dashed=1;fontColor=#2563eb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="84" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="side3" value="新手砸这里，半年就过时" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="600" y="416" width="150" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="side4" value="老手投这里，攒下来全是自己的" style="text;html=1;fontSize=12;fontColor=#2563eb;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="600" y="128" width="150" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=block;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="L2" target="L3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=block;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="L3" target="L4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=block;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="L4" target="L5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2563eb;endArrow=block;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="L1" target="L2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

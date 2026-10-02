@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>WorkBuddy - Tag - 1024 工程笔记</title><link>https://xiaoshuai1024.top/tags/workbuddy/</link><description>WorkBuddy - Tag - 1024 工程笔记</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 25 Sep 2026 10:44:28 +0800</lastBuildDate><atom:link href="https://xiaoshuai1024.top/tags/workbuddy/" rel="self" type="application/rss+xml"/><item><title>程序员接 AI 办公有新路:17,844 星的 Univer 让 agent 自己做表格</title><link>https://xiaoshuai1024.top/posts/univer-office-harness-for-agents/</link><pubDate>Fri, 25 Sep 2026 10:44:28 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/univer-office-harness-for-agents/</guid><description>GitHub 上有个安静了四年的老项目:2022-09-29 建仓,把表格、文档、幻灯片搬进浏览器自己渲染,一直不温不火。到 2026 年 9 月,趋势雷达抓到它日增 1,142 星,总星 17,844(2026-09-24 实查)。更硬的信号在官方仓库列表里:DeepSeek Harness 的 Office 插件、腾讯 WorkBuddy 的本地 Office 集成,两个今年热度领先的 AI 办公产品,官方集成建在同一个开源项目上。
+它叫 Univer,dream-num 出品,Apache-2.0 协议。这篇讲清三件事:它怎么接得住 agent、生态成形到什么程度、接入前要分清什么边界。判断先给:AI 办公的竞争重心正在从「给人用的界面」挪向「给 agent 用的运行时」,Univer 是把这套定位做完整的开源项目里,眼下还没有第二家。 翻红的原因在定位换轨:前四年它把公式引擎、Canvas 渲染、统一数据模型这些难啃的部分做完了,agent 浪潮一来,手里的运行时正好是刚需。
+给屏幕,还是给运行时 让 agent 用办公软件,多数团队的第一反应是给它一块屏幕:截图、找按钮、模拟点击。这条路线能跑演示,生产问题一串:界面改一版脚本全废,点错菜单没人知道,任务只能串行,跑完还得人盯屏逐格核对。活省了一点,验收一点没省。
+另一条路把 Office 内容做成 agent 能直接读写的结构化数据。openpyxl 这类语言库是初版:能生成文件,没有公式重算,写出来的表常常看着对、一算就错。运行时路线保留完整的编辑器语义,公式重算、引用联动都在,再把每一步开放成 API。Univer 是这条路的完整实现:浏览器里是可编辑界面,Node.js 里同一套模型去掉界面接着跑,官方叫 Headless 模式,agent 读写数据结构,人看渲染结果,两层共用一个内核。
+三个机制,正对 agent 三个短板 第一,agent 改文件容易改坏。Univer 把编辑收进结构化 API,每次修改走命令体系,可撤销、可审计,改错一步就能回来。
+第二,agent 说改好了,你没法信。官方给的验证三件:内容检查管数据对不对,渲染截图管样子对不对,布局诊断管溢出遮挡。agent 交活前先自检,人复核验证结果,不用整张表从头划到尾。
+第三,不该让 agent 碰正式文件。官方把 git 的 worktree 心智平移进 Office:agent 在隔离草稿里干活,人在正本上审阅,决定合不合并。写代码的人一眼认出来,这就是 pull request,内容从代码换成了表格。</description></item><item><title>拆完 WorkBuddy 的 1GB 客户端,看懂了腾讯做 AI 办公的打法</title><link>https://xiaoshuai1024.top/posts/workbuddy-no1-anatomy/</link><pubDate>Fri, 18 Sep 2026 20:07:16 +0800</pubDate><author>Author</author><guid>https://xiaoshuai1024.top/posts/workbuddy-no1-anatomy/</guid><description>WorkBuddy 是腾讯 2026 年 3 月发布的 AI 办公工作台,上线四个月就坐上了国内 AI 办公智能体桌面端月活第一的位置:第三方榜单给它的数字是 1115 万,第二名百度搭子是 674 万。围绕这个第一,争议同样热闹:有港股报道说它月活 2000 万,知乎上有文章专门质疑这个数字的统计口径,36氪则泼了盆冷水:离腾讯想要的十亿级超级应用,还差 70 倍。
+吵数据的人很多,拆产品的人很少。质疑派没拆过客户端,捧场派也拿不出机制层面的证据,争论停留在表态层面。
+我把国内版 WorkBuddy 5.5.6 的 macOS 客户端完整拆了一遍:安装包、进程结构、打包代码、依赖清单,能看的地方都看了。这篇文章把拆到的东西按机制摆出来,最后回答标题里那个问题——这个第一,含金量到底怎么算。
+先给一个判断框架:看懂执行型 AI,先看它的工具箱 大多数人第一次用 WorkBuddy 都有个错觉:这不就是个聊天窗口吗,和网页版大模型有什么区别?
+区别在于:网页版大模型只能「说」,WorkBuddy 能「做」。你说「帮我把这个季度的数据整理成周报」,它真的会去打开文件、读内容、算数字、写文档、存到你指定的位置。这一类产品现在叫执行型 AI,或者叫 AI Agent(智能体):它和大模型聊天的部分只是入口,真正值钱的是后面那条执行链。
+判断一个执行型 AI 靠不靠谱,我有个简单框架,三步:
+第一步看工具箱:它能实际操作什么?是只能读写文件,还是能跨应用、能上网、能跑命令?工具箱的深度决定了它能替你干的活的上限。
+第二步看连接方式:它和微信、飞书、钉钉这些办公软件是怎么对接的?接口是谁做的,权限怎么给,这条链路决定了它是在你的工作流里干活,还是只能在你眼前表演。
+第三步看数据去了哪:你的文件、聊天记录、任务内容,哪些留在本机,哪些上了云?这决定了你敢把多少真实工作交给它。
+下面按这三步逐层拆。结论的方向是:WorkBuddy 的工具箱和连接方式,做得比大多数人以为的认真;但它的第一,同样离不开一条别人拿不到的连接。
+第一层解剖:1GB 的客户端里装了什么 动手拆之前,先交代版本和环境,所有证据都基于以下事实,你可以自己复现:
+国内版:官网 workbuddy.cn,dmg 安装包 509MB,版本 5.5.6(build 38337834),应用装完后占 1.0GB 磁盘 国际版:官网 workbuddy.ai,5.5.2,dmg 490MB,com.workbuddy.workbuddy-ai——和国内版(com.tencent.workbuddy.mac)是两个完全独立的应用,连版本号都不同步 macOS 最低要求 11.0,Apple Silicon 优先 第一眼就值得说的数字:1.0GB。作为对比,我之前拆过 Claude Code 的 307MB 二进制,当时觉得已经够重了,WorkBuddy 直接是这个体积的三倍多。多出来的体积是什么?往下看。
+启动后开进程列表,能看到一条很有信息量的东西:除了正常的界面进程,WorkBuddy 还跑了一个常驻守护进程,命令行是 daemon-app-server-entry.</description></item></channel></rss>

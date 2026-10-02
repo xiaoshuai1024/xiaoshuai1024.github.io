@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="边界对比" id="perm3">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ta" value="Claude Code：信任配置" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="tb" value="Codex：信任环境" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="30" width="420" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="守门在决策层（工具调用时刻）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="执行无隔离：同进程直接跑&#10;事故形状：审批疲劳后的顺手放行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="强度上限 = 你的配置（模式 + 白名单 + hooks 覆盖度）&#10;灵活：任意可编程，即时生效，团队策略可复用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="250" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="守门在决策层 + 执行环境层（双层）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="沙箱硬隔离：landlock / seatbelt / Windows&#10;事故形状：策略写松导致的静默放行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="160" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="强度上限 = 内核强制访问控制&#10;代价：平台依赖（Windows 成熟度 / 嵌套限制 / 性能开销）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="250" width="380" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="fnote" value="两种事故的防法不同：前者靠模式收敛（少用宽模式）+ git 当事后保险，&#10;后者靠把 execpolicy 策略当代码管理、定期 review。" style="text;html=1;fontSize=12;fontColor=#64748b;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="160" y="370" width="840" height="46" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

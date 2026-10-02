@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="seam-swap-flow" id="d1">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="sw_s1" value="挑接缝&#10;ctx.xxx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="70" y="210" width="170" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="sw_s2" value="写同接口实现包" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="210" width="185" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="sw_s3" value="配置指到新实现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="210" width="180" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="sw_s4" value="插件树重载生效" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="865" y="210" width="175" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="sw_note" value="默认实现原样在库，可随时切回" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="352" width="290" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sw1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="sw_s1" target="sw_s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sw2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="sw_s2" target="sw_s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sw3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;" edge="1" parent="1" source="sw_s3" target="sw_s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_wnote" value="消费方无感，回切只改配置" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;dashed=1;fontColor=#1e293b;fontSize=12;" edge="1" parent="1" source="sw_note" target="sw_s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

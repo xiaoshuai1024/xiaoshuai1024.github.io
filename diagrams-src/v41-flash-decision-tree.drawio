@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="decision-tree" name="决策树">
+    <mxGraphModel dx="800" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="root" value="你现在的默认模型是？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="30" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="V4 Pro" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="120" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="上一代 Flash" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="120" width="120" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="没用过 DeepSeek" style="text;html=1;fontSize=12;fontColor=#1e293b;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="120" width="140" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="er1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;exitX=0.25;exitY=1;" edge="1" parent="1" source="root" target="c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;exitX=0.5;exitY=1;" edge="1" parent="1" source="root" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;exitX=0.75;exitY=1;" edge="1" parent="1" source="root" target="c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="已经被官方切到 V4.1 Flash&#10;无需迁移，照常付费" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="建议主动切&#10;同价新价，性能代际升级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="170" width="200" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="长上下文、多轮对话场景&#10;现在是入场好时机" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="170" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="ec1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="c1" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="c2" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="c3" target="d3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" value="把配置名改成显式指向 V4.1 Flash，名字和实际模型对上" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="290" width="200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="三步切换，dump-config 确认指向" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="290" width="200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="先跑通免费额度，再决定要不要接入工作流" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#1e293b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="290" width="180" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="ef1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="d1" target="f1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ef2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="d2" target="f2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ef3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1e293b;" edge="1" parent="1" source="d3" target="f3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" value="所有分支最后一步相同：锁住 DSH 版本再动别的&#10;模型和版本一起动，出了问题分不清谁的锅" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="400" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="eg1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;" edge="1" parent="1" source="f1" target="g1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eg2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;" edge="1" parent="1" source="f2" target="g1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eg3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563eb;" edge="1" parent="1" source="f3" target="g1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

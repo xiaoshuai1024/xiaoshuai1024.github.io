@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="AI 助手工作流" id="aiflow">
+    <mxGraphModel dx="1200" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 主流程节点 -->
+        <mxCell id="n1" value="1 运营输入需求&#10;自然语言描述页面" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="2 AiAssistantPanel&#10;engine 右侧抽屉" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="60" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="3 FastAPI /ai/chat&#10;SSE 流式 + WS /ai/agent" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="60" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="4 LangGraph 状态图&#10;checkpoint + HITL" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="60" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="5 LiteLLM 调模型&#10;DeepSeek / GLM / 通义" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="900" y="60" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="6 生成页面 Schema&#10;Qdrant 检索物料" style="rounded=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="60" width="170" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- HITL 确认节点（下方） -->
+        <mxCell id="hitl" value="7 HITL 人工确认&#10;预览 Schema → 确认 / 拒绝 / 改" style="rounded=1;fillColor=#ffffff;strokeColor=#16a34a;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="230" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n8" value="8 确认 → 注入设计器画布&#10;运营继续微调" style="rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="230" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- 边：主流程 -->
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="n1" target="n2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="n2" target="n3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="n3" target="n4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="n4" target="n5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;" edge="1" parent="1" source="n5" target="n6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- n6 → HITL -->
+        <mxCell id="e6h" value="待确认 Schema" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=10;dashed=1;" edge="1" parent="1" source="n6" target="hitl"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- HITL → n8 -->
+        <mxCell id="eh8" value="确认" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#16a34a;fontSize=10;fontStyle=1;" edge="1" parent="1" source="hitl" target="n8"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- HITL reject loop back to n4 -->
+        <mxCell id="erej" value="拒绝 / 要求改 → 重新生成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9333ea;fontSize=10;dashed=1;exitX=0;exitY=0.5;entryX=0.5;entryY=1;" edge="1" parent="1" source="hitl" target="n4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- 图例 -->
+        <mxCell id="legend" value="实线 = 主流程&#10;绿 = 确认通过&#10;紫虚 = 拒绝回环" style="rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#475569;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="230" width="170" height="70" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

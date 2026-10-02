@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="必装插件Star排行" id="stars1">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Claude 和 Codex 必装 10 大插件 · GitHub Star（2026-08，量级参考）" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#1e293b;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="700" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="Superpowers" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="62" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="26 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="60" width="620" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="ECC" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="117" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="23.7 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="115" width="565" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="mattpocock/skills" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="172" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="21.9 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="170" width="522" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="karpathy-skills" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="226" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="19.8 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="225" width="472" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="anthropics/skills" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="281" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="17 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="280" width="405" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l6" value="graphify" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="335" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6" value="10 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="335" width="238" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l7" value="ComposioHQ/awesome-claude-skills" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="210" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b7" value="7.3 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="390" width="174" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l8" value="Context7" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="444" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b8" value="6 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="445" width="143" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l9" value="K-Dense-AI/scientific-agent-skills" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="30" y="499" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b9" value="3.4 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="500" width="81" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="l10" value="openai/skills" style="text;html=1;fontSize=12;fontColor=#1e293b;align=right;" vertex="1" parent="1">
+          <mxGeometry x="80" y="553" width="170" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="b10" value="2.5 万" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=none;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="262" y="555" width="60" height="24" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

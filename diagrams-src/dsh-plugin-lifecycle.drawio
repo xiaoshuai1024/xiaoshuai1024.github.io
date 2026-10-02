@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="插件生命周期" id="lifecycle">
+    <mxGraphModel dx="900" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="yml" value="cordis.yml&#10;- id: tool-todo&#10;  name: '@deepseek-ai/dsh-tool-todo'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="boot" value="boot()&#10;mountRootInclude()&#10;挂为根 include 入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="60" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="loader" value="Loader（EntryTree）&#10;ctx.loader 服务&#10;vendor/loader/src/index.ts:65" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="530" y="60" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="entry" value="Entry 五步加载&#10;import → unwrap 导出&#10;→ 注入依赖 → apply&#10;→ 失败 rollback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="60" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="fiber" value="fiber 状态机&#10;pending（等依赖服务）&#10;→ active（Service.check 放行）&#10;→ disposed（逆序 teardown）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="990" y="60" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="apply" value="apply(ctx, config) 同步注册一切&#10;挂服务 / 挂工具 / 监听事件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="260" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="tools" value="ctx.tools.register(defineTool(...))&#10;工具注册表 → 模型工具列表&#10;core/tools/src/schema.ts:545" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="780" y="260" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="audit" value="启动审计 assertEntriesActivated()&#10;每个 entry 的 fiber 必须 ACTIVE&#10;没激活直接报错，不留灰色地带" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="430" y="420" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="依赖不是「要求先装好」&#10;是状态机等待：inject 服务未就绪&#10;fiber 停在 pending，就绪后放行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#64748b;fontColor=#1e293b;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="420" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="逐行读入口" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="yml" target="boot">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="建 Entry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="boot" target="loader">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="加载" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="loader" target="entry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="实例化" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="entry" target="fiber">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="激活后执行" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="fiber" target="apply">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="注册" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="apply" target="tools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="配置写了但没激活 = 报错" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#64748b;fontSize=11;fontColor=#1e293b;" edge="1" parent="1" source="tools" target="audit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

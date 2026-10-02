@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="软件业岗位更替" id="newroles">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="软件业:执行层被压缩,指挥层长出新岗位" style="text;html=1;align=center;fontColor=#1e293b;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="760" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oldh" value="正在被压缩的岗位(执行层)" style="text;html=1;align=center;fontColor=#64748b;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="newh" value="长出来的新岗位(指挥层)" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="90" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="初级前端(切页面)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=12;strikethrough=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="135" width="160" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="后端 CRUD 样板" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=12;strikethrough=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="195" width="160" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="单测编写" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=12;strikethrough=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="255" width="160" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" value="文档撰写" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#64748b;fontSize=12;strikethrough=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="315" width="160" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="FDE 前线部署工程师&#10;把模型能力落地到客户业务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2563eb;strokeColor=#2563eb;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="130" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="模型评估工程师&#10;评测模型在具体业务上的表现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="205" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="Agent 编排工程师&#10;把多模型和工具串成自动化流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="280" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="AI 数据工程师&#10;管数据质量、给模型喂数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#1e293b;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="355" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow" value="破坏性创造&#10;不是一一对应" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2563eb;strokeWidth=2;fontColor=#2563eb;fontSize=11;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="245" as="sourcePoint" />
+            <mxPoint x="700" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foot1" value="共同点:都不在「写业务代码」这一层,而在「让 AI 写业务代码」这一层" style="text;html=1;align=center;fontColor=#1e293b;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="445" width="760" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="foot2" value="代码生产重心:从「写」挪到「指挥写」" style="text;html=1;align=center;fontColor=#2563eb;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="478" width="560" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
